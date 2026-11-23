@@ -485,6 +485,24 @@
   }
   .ev-limit { color: var(--muted); font-size: 13px; }
 
+  /* evidence rows that open a detail page */
+  .ev-table tbody tr.ev-row { cursor: pointer; transition: background .2s ease; }
+  .ev-table tbody tr.ev-row:hover { background: rgba(194,162,104,.09); }
+  .ev-detail {
+    display: inline-flex; align-items: center; gap: 5px; margin-top: 9px;
+    font-size: 12px; letter-spacing: .02em; color: var(--gold-deep);
+    border-bottom: 1px solid rgba(156,124,68,.38); padding-bottom: 1px;
+    transition: color .25s, border-color .25s;
+  }
+  .ev-detail:hover { color: var(--forest); border-bottom-color: var(--forest); }
+  .ev-detail .arw { font-size: 12px; line-height: 1; transition: transform .25s; }
+  .ev-detail:hover .arw { transform: translateX(3px); }
+  .ev-detail.is-pending {
+    color: var(--muted-2); border-bottom: 1px dashed rgba(19,34,27,.2); cursor: default;
+  }
+  .ev-inline { color: var(--gold-deep); border-bottom: 1px solid rgba(156,124,68,.4); }
+  .ev-inline:hover { color: var(--forest); border-bottom-color: var(--forest); }
+
   .ev-note {
     margin-top: 40px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.9fr);
     gap: clamp(24px, 4vw, 48px); align-items: start;
@@ -1051,22 +1069,58 @@
         </thead>
         <tbody>
           <tr>
-            <td class="claimcell"><div class="ev-claim" data-en="Skin soothing<span>Modulation of inflammation-related responses</span>">피부 진정<span>염증 관련 반응 조절</span></div></td>
+            <td class="claimcell">
+              <div class="ev-claim" data-en="Skin soothing<span>Modulation of inflammation-related responses</span>">피부 진정<span>염증 관련 반응 조절</span></div>
+              <span class="ev-detail is-pending" data-en="Cell-study detail · in preparation">세포 연구 상세 · 준비 중</span>
+            </td>
             <td data-label="근거 유형" data-en-label="Evidence type"><span class="tag" data-en="Cell study">세포 연구</span></td>
             <td data-label="시험법" data-en-label="Test method" data-en="Inflammatory markers in UVB-stimulated HaCaT keratinocytes">UVB 자극 각질형성세포(HaCaT) 염증 지표 평가</td>
             <td data-label="현재 한계" data-en-label="Current limitation" class="ev-limit" data-en="Not a clinical study of the finished product">완제품 인체 임상은 아님</td>
           </tr>
           <tr>
-            <td class="claimcell"><div class="ev-claim" data-en="Skin barrier support">피부장벽 강화</div></td>
+            <td class="claimcell">
+              <div class="ev-claim" data-en="Skin barrier support">피부장벽 강화</div>
+              <span class="ev-detail is-pending" data-en="Cell-study detail · in preparation">세포 연구 상세 · 준비 중</span>
+            </td>
             <td data-label="근거 유형" data-en-label="Evidence type"><span class="tag" data-en="Cell study">세포 연구</span></td>
             <td data-label="시험법" data-en-label="Test method" data-en="Expression of barrier-related markers including AQP3, TGM1 and FLG">AQP3 · TGM1 · FLG 등 장벽 관련 지표 발현</td>
             <td data-label="현재 한계" data-en-label="Current limitation" class="ev-limit" data-en="Reproducibility must be confirmed for each formulation">제형별 재현성 확인 필요</td>
           </tr>
-          <tr>
-            <td class="claimcell"><div class="ev-claim" data-en="Wrinkle improvement">주름 개선</div></td>
+          <tr class="ev-row" data-lang-href="evidence/clinical.html#cooling" tabindex="0">
+            <td class="claimcell">
+              <div class="ev-claim" data-en="Immediate skin cooling<span>Surface temperature right after application · −11.6 %</span>">즉각 피부 쿨링<span>도포 직후 표면온도 · −11.6 %</span></div>
+              <a class="ev-detail" href="evidence/clinical.html#cooling" data-lang-href="evidence/clinical.html#cooling" data-en="View detail <span class='arw' aria-hidden='true'>›</span>">자세히 보기 <span class="arw" aria-hidden="true">›</span></a>
+            </td>
             <td data-label="근거 유형" data-en-label="Evidence type"><span class="tag" data-en="Human-use study">인체적용 연구</span></td>
-            <td data-label="시험법" data-en-label="Test method" data-en="Human-use results for a cosmetic formulation containing plant exosomes">식물엑소좀 함유 화장품 제형 인체적용 결과</td>
-            <td data-label="현재 한계" data-en-label="Current limitation" class="ev-limit" data-en="Under review against functional cosmetics notification requirements">기능성화장품 고시 요건 검토</td>
+            <td data-label="시험법" data-en-label="Test method" data-en="Skin surface temperature, Baseline vs Post · n=21, paired t-test">피부 표면온도 Baseline·Post 비교 · n=21, 대응표본 t-검정</td>
+            <td data-label="현재 한계" data-en-label="Current limitation" class="ev-limit" data-en="Cosmetic-formulation human-use result · functional cosmetic notification and advertising review pending">화장품 제형 인체적용 결과 · 기능성화장품 고시/광고 심의 요건 검토</td>
+          </tr>
+          <tr class="ev-row" data-lang-href="evidence/clinical.html#wrinkle" tabindex="0">
+            <td class="claimcell">
+              <div class="ev-claim" data-en="Wrinkle improvement<span>Wrinkle depth · −10.7 %</span>">주름 개선<span>주름 깊이 감소 · −10.7 %</span></div>
+              <a class="ev-detail" href="evidence/clinical.html#wrinkle" data-lang-href="evidence/clinical.html#wrinkle" data-en="View detail <span class='arw' aria-hidden='true'>›</span>">자세히 보기 <span class="arw" aria-hidden="true">›</span></a>
+            </td>
+            <td data-label="근거 유형" data-en-label="Evidence type"><span class="tag" data-en="Human-use study">인체적용 연구</span></td>
+            <td data-label="시험법" data-en-label="Test method" data-en="Wrinkle depth, Baseline vs Post · n=21, paired t-test">주름 깊이 Baseline·Post 비교 · n=21, 대응표본 t-검정</td>
+            <td data-label="현재 한계" data-en-label="Current limitation" class="ev-limit" data-en="Cosmetic-formulation human-use result · functional cosmetic notification and advertising review pending">화장품 제형 인체적용 결과 · 기능성화장품 고시/광고 심의 요건 검토</td>
+          </tr>
+          <tr class="ev-row" data-lang-href="evidence/clinical.html#elasticity" tabindex="0">
+            <td class="claimcell">
+              <div class="ev-claim" data-en="Skin elasticity<span>R2 index · +5.7 %</span>">피부 탄력 개선<span>탄력 지표(R2) · +5.7 %</span></div>
+              <a class="ev-detail" href="evidence/clinical.html#elasticity" data-lang-href="evidence/clinical.html#elasticity" data-en="View detail <span class='arw' aria-hidden='true'>›</span>">자세히 보기 <span class="arw" aria-hidden="true">›</span></a>
+            </td>
+            <td data-label="근거 유형" data-en-label="Evidence type"><span class="tag" data-en="Human-use study">인체적용 연구</span></td>
+            <td data-label="시험법" data-en-label="Test method" data-en="Skin elasticity (R2), Control vs Application · n=21, two-sample t-test">피부 탄력(R2) Control·Application 비교 · n=21, 독립표본 t-검정</td>
+            <td data-label="현재 한계" data-en-label="Current limitation" class="ev-limit" data-en="Cosmetic-formulation human-use result · functional cosmetic notification and advertising review pending">화장품 제형 인체적용 결과 · 기능성화장품 고시/광고 심의 요건 검토</td>
+          </tr>
+          <tr class="ev-row" data-lang-href="evidence/clinical.html#melasma" tabindex="0">
+            <td class="claimcell">
+              <div class="ev-claim" data-en="Pigmentation &amp; tone care<span>Melasma index · −5.8 %</span>">기미·색소침착 완화<span>색소 지수 · −5.8 %</span></div>
+              <a class="ev-detail" href="evidence/clinical.html#melasma" data-lang-href="evidence/clinical.html#melasma" data-en="View detail <span class='arw' aria-hidden='true'>›</span>">자세히 보기 <span class="arw" aria-hidden="true">›</span></a>
+            </td>
+            <td data-label="근거 유형" data-en-label="Evidence type"><span class="tag" data-en="Human-use study">인체적용 연구</span></td>
+            <td data-label="시험법" data-en-label="Test method" data-en="Melasma index, Control vs Application · n=21, paired t-test">색소 지수(Melasma) Control·Application 비교 · n=21, 대응표본 t-검정</td>
+            <td data-label="현재 한계" data-en-label="Current limitation" class="ev-limit" data-en="Cosmetic-formulation human-use result · functional cosmetic notification and advertising review pending">화장품 제형 인체적용 결과 · 기능성화장품 고시/광고 심의 요건 검토</td>
           </tr>
           <tr>
             <td class="claimcell"><div class="ev-claim" data-en="Safety">안전성</div></td>
@@ -1086,6 +1140,10 @@
           <p style="margin-top:14px; color:var(--muted);" data-en="Rather than inflate claims, we first build a body of wording that holds up in advertising review and functional-cosmetics assessment. The same principle applies to the buyers we supply.">
             주장을 부풀리지 않는 대신, 광고 심의·기능성 인정 절차에서 흔들리지 않는 표현 자산을 먼저 만듭니다.
             이 원칙은 원료를 공급하는 바이어에게도 동일하게 적용됩니다.
+          </p>
+          <p style="margin-top:14px;" data-en="The four human-use metrics — means, change rates, test methods and the original distribution charts — are set out on the clinical detail page. <a class='ev-inline' href='evidence/clinical.html' data-lang-href='evidence/clinical.html'>Clinical detail →</a>">
+            인체적용 4개 지표의 평균·개선율·검정 방법과 원본 분포 그래프는 임상 상세 페이지에 정리했습니다.
+            <a class="ev-inline" href="evidence/clinical.html" data-lang-href="evidence/clinical.html">임상 상세 →</a>
           </p>
         </div>
         <div class="cites">
@@ -1418,6 +1476,22 @@
 
     function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
 
+    /* internal links carry ?lang=en while the English mode is on */
+    function withLang(u, l) {
+      if (!u) return u;
+      if (l !== 'en') return u;
+      var i = u.indexOf('#'), base = i > -1 ? u.slice(0, i) : u, hash = i > -1 ? u.slice(i) : '';
+      return base + (base.indexOf('?') > -1 ? '&' : '?') + 'lang=en' + hash;
+    }
+    function syncLinks(l) {
+      each('a[data-lang-href]', function (a) {
+        a.setAttribute('href', withLang(a.getAttribute('data-lang-href'), l));
+      });
+      each('tr[data-lang-href]', function (tr) {
+        tr.setAttribute('data-target', withLang(tr.getAttribute('data-lang-href'), l));
+      });
+    }
+
     function apply(l) {
       var en = l === 'en';
 
@@ -1453,6 +1527,7 @@
       each('[data-lang-btn]', function (b) {
         b.setAttribute('aria-pressed', b.getAttribute('data-lang-btn') === l ? 'true' : 'false');
       });
+      syncLinks(l);
       setToggleLabel();
     }
 
@@ -1475,6 +1550,20 @@
       b.addEventListener('click', function () {
         var next = b.getAttribute('data-lang-btn');
         if (next !== lang) setLang(next, true);
+      });
+    });
+
+    /* an evidence row opens its detail page; the inner link is the keyboard route */
+    each('tr[data-lang-href]', function (tr) {
+      tr.addEventListener('click', function (e) {
+        if (e.target.closest('a, button')) return;
+        if (window.getSelection && String(window.getSelection()).length) return;
+        location.href = tr.getAttribute('data-target') || withLang(tr.getAttribute('data-lang-href'), lang);
+      });
+      tr.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && e.target === tr) {
+          location.href = tr.getAttribute('data-target') || withLang(tr.getAttribute('data-lang-href'), lang);
+        }
       });
     });
 

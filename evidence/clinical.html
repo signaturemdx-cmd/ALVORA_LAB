@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>인체적용 시험 상세 | Potatosome® · ALVORA LAB</title>
+<meta name="description" content="Potatosome® 함유 제형의 인체적용 시험(n=21) 결과를 지표별로 정리했습니다. 즉각 쿨링 −11.6 %, 주름 깊이 −10.7 %, 탄력 +5.7 %, 기미·색소 −5.8 %와 통계 검정 결과를 함께 제시합니다.">
+<meta name="theme-color" content="#13221B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="인체적용 시험 상세 | Potatosome® · ALVORA LAB">
+<meta property="og:description" content="n=21 인체적용 시험의 지표별 평균·개선율·통계 검정과 원본 분포 그래프.">
+<meta property="og:locale" content="ko_KR">
+<script>
+  /* Language boot: runs before the body is parsed so that ?lang=en
+     opens in English with no Korean flash, and the CSS can pre-hide
+     the page until the strings are applied. */
+  (function () {
+    var l = 'ko';
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'en' || q === 'ko') {
+        l = q;
+      } else if (q === null) {
+        var s = localStorage.getItem('alvora.lang');
+        if (s === 'en' || s === 'ko') l = s;
+      }
+    } catch (e) {}
+    document.documentElement.setAttribute('lang', l === 'en' ? 'en' : 'ko');
+    if (l === 'en') document.documentElement.className += ' lang-en';
+  })();
+</script>
+<noscript><style>html.lang-en body { opacity: 1 !important; }</style></noscript>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/NotoSerifKR-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/NotoSansKR-subset.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: 'NotoSerifKR';
+    src: url('../assets/fonts/NotoSerifKR-subset.woff2') format('woff2');
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'NotoSansKR';
+    src: url('../assets/fonts/NotoSansKR-subset.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --forest: #13221B;
+    --forest-2: #182C22;
+    --forest-3: #0E1A14;
+    --ivory: #F7F5F0;
+    --paper: #FCFBF7;
+    --sand: #F1EDE4;
+    --line: #DED8C9;
+    --line-dark: rgba(247,245,240,.14);
+    --gold: #C2A268;
+    --gold-deep: #9C7C44;
+    --sage: #7FA893;
+    --ink: #1C1F19;
+    --text: #33372E;
+    --muted: #6B6F63;
+    --muted-2: #8A8E81;
+    --serif: 'NotoSerifKR', 'Nanum Myeongjo', Georgia, 'Times New Roman', serif;
+    --sans: 'NotoSansKR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+    --max: 1220px;
+    --pad: clamp(20px, 5vw, 56px);
+    --nav-h: 74px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: calc(var(--nav-h) + 14px); -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.75;
+    font-weight: 400;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+  p { margin: 0; }
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+  ::selection { background: rgba(194,162,104,.32); }
+  :focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 3px; }
+
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding-inline: var(--pad); }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .skip {
+    position: absolute; left: 12px; top: -60px; z-index: 200; background: var(--forest);
+    color: var(--ivory); padding: 10px 16px; border-radius: 2px; transition: top .2s;
+  }
+  .skip:focus { top: 12px; }
+
+  /* ---------- shared type ---------- */
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    letter-spacing: .22em;
+    font-weight: 500;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .eyebrow::before {
+    content: ""; width: 26px; height: 1px; background: currentColor; opacity: .55; flex: none;
+  }
+  .eyebrow.no-rule::before { display: none; }
+  .eyebrow.on-dark { color: var(--gold); }
+
+  .h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 3.2vw, 40px);
+    line-height: 1.34;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    margin-top: 18px;
+  }
+  .lead {
+    font-size: clamp(15px, 1.35vw, 17.5px);
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 62ch;
+    margin-top: 16px;
+  }
+  .section { padding-block: clamp(60px, 8vw, 104px); position: relative; }
+
+  /* ---------- header ---------- */
+  .site-header {
+    position: fixed; inset: 0 0 auto 0; z-index: 100;
+    height: var(--nav-h);
+    display: flex; align-items: center;
+    transition: background .3s ease, box-shadow .3s ease, border-color .3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark {
+    width: 34px; height: 34px; border-radius: 50%; border: 1.4px solid var(--sage);
+    display: grid; place-items: center; position: relative; flex: none;
+    transition: border-color .3s;
+  }
+  .brand-mark span {
+    font-family: var(--serif); font-size: 15px; line-height: 1; color: #E9EDE4;
+    letter-spacing: 0; transform: translateY(-.5px);
+  }
+  .brand-mark i {
+    position: absolute; right: -1px; top: 1px; width: 7px; height: 7px;
+    border-radius: 50%; background: #E4794B;
+  }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+  .brand-name {
+    font-size: 12.5px; letter-spacing: .3em; font-weight: 500; color: #F4F2EA;
+    transition: color .3s;
+  }
+  .brand-sub {
+    font-size: 9.5px; letter-spacing: .2em; color: rgba(244,242,234,.55); margin-top: 3px;
+    transition: color .3s;
+  }
+  .top-actions { display: flex; align-items: center; gap: clamp(14px, 2.6vw, 28px); }
+  .back-link {
+    font-size: 12.5px; letter-spacing: .04em; color: rgba(244,242,234,.82);
+    display: inline-flex; align-items: center; gap: 7px; padding: 6px 0;
+    border-bottom: 1px solid transparent; transition: color .25s, border-color .25s;
+  }
+  .back-link:hover { color: #FFFDF6; border-bottom-color: rgba(194,162,104,.6); }
+  .back-link .arw { font-size: 12px; color: var(--gold); }
+
+  .site-header.is-scrolled {
+    background: rgba(247,245,240,.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom-color: var(--line);
+  }
+  .site-header.is-scrolled .brand-mark { border-color: var(--gold-deep); }
+  .site-header.is-scrolled .brand-mark span { color: var(--forest); }
+  .site-header.is-scrolled .brand-name { color: var(--forest); }
+  .site-header.is-scrolled .brand-sub { color: var(--muted-2); }
+  .site-header.is-scrolled .back-link { color: #4C5147; }
+  .site-header.is-scrolled .back-link:hover { color: var(--forest); }
+
+  .lang-switch { display: inline-flex; align-items: center; gap: 9px; }
+  .lang-switch button {
+    font-family: var(--sans); font-size: 11px; letter-spacing: .14em; line-height: 1;
+    padding: 4px 1px; border: 0; background: none; cursor: pointer;
+    color: rgba(244,242,234,.55); transition: color .25s;
+  }
+  .lang-switch button:hover { color: #FFFDF6; }
+  .lang-switch button[aria-pressed="true"] { color: var(--gold); }
+  .lang-switch .sep { width: 1px; height: 9px; background: currentColor; color: #F4F2EA; opacity: .3; }
+  .site-header.is-scrolled .lang-switch button { color: #828678; }
+  .site-header.is-scrolled .lang-switch button:hover { color: var(--forest); }
+  .site-header.is-scrolled .lang-switch button[aria-pressed="true"] { color: var(--gold-deep); }
+  .site-header.is-scrolled .lang-switch .sep { color: var(--forest); }
+
+  /* ---------- hero ---------- */
+  .chero {
+    background: var(--forest-3); color: var(--ivory);
+    padding-top: calc(var(--nav-h) + clamp(34px, 5vw, 62px));
+    position: relative; overflow: hidden;
+  }
+  .chero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 520px at 82% 8%, rgba(127,168,147,.12), transparent 64%),
+      radial-gradient(700px 480px at 4% 88%, rgba(194,162,104,.08), transparent 68%);
+    pointer-events: none;
+  }
+  .chero .wrap { position: relative; }
+  .crumb {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: rgba(194,162,104,.92);
+  }
+  .crumb .sep { opacity: .5; }
+  .chero h1 {
+    font-family: var(--serif); font-weight: 300;
+    font-size: clamp(34px, 5vw, 58px); line-height: 1.16; letter-spacing: -.03em;
+    color: #FBFAF4; margin-top: 20px;
+  }
+  .chero h1 .h1-main { display: block; }
+  .chero h1 .h1-sub {
+    display: block; margin-top: 18px;
+    font-family: var(--sans); font-weight: 300; font-size: clamp(13.5px, 1.35vw, 16px);
+    letter-spacing: .04em; color: #A6AFA0;
+  }
+  .chero .chero-lead {
+    margin-top: 22px; max-width: 66ch;
+    font-size: clamp(14px, 1.25vw, 16.5px); line-height: 1.9; color: #B9BFB2; font-weight: 300;
+  }
+  .qjump { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
+  .qjump a {
+    font-size: 12.5px; letter-spacing: .03em; padding: 9px 15px; border-radius: 2px;
+    border: 1px solid rgba(247,245,240,.22); color: #E4E2D6;
+    transition: background .25s, border-color .25s, color .25s;
+  }
+  .qjump a:hover { background: rgba(194,162,104,.14); border-color: rgba(194,162,104,.6); color: #FFFDF6; }
+  .qjump a b { color: var(--gold); font-weight: 500; margin-right: 6px; letter-spacing: .08em; }
+
+  .kpis {
+    border-top: 1px solid rgba(247,245,240,.14);
+    margin-top: clamp(34px, 4.5vw, 54px);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .kpi { padding: 24px 24px 30px 0; border-right: 1px solid rgba(247,245,240,.1); display: block; transition: background .25s; }
+  .kpi:last-child { border-right: 0; }
+  .kpi + .kpi { padding-left: 24px; }
+  .kpi:hover { background: rgba(127,168,147,.06); }
+  .kpi-k { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .kpi-v { font-family: var(--serif); font-size: clamp(26px, 2.9vw, 34px); color: #FAF8F1; margin-top: 10px; line-height: 1.1; letter-spacing: -.01em; }
+  .kpi-v small { font-family: var(--sans); font-size: 11.5px; color: var(--sage); margin-left: 5px; letter-spacing: .02em; }
+  .kpi-d { font-size: 12px; color: #98A190; margin-top: 8px; letter-spacing: .01em; }
+  .kpi-n { font-size: 11.5px; color: #A9B1A1; margin-top: 4px; }
+
+  /* ---------- overview band ---------- */
+  .overview { background: var(--ivory); padding-block: clamp(44px, 5.5vw, 68px); border-bottom: 1px solid var(--line); }
+  .ov-grid { display: grid; grid-template-columns: minmax(0,.72fr) minmax(0,1.28fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+  .ov-head .h2 { margin-top: 14px; font-size: clamp(23px, 2.6vw, 31px); }
+  .ov-head p { font-size: 14px; line-height: 1.85; color: var(--muted); margin-top: 14px; }
+  .facts { border-top: 1px solid var(--line); margin: 0; }
+  .facts > div {
+    display: grid; grid-template-columns: 132px 1fr; gap: 20px;
+    padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px;
+  }
+  .facts dt {
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold-deep); font-weight: 500; padding-top: 3px;
+  }
+  .facts dd { margin: 0; color: var(--text); line-height: 1.7; }
+  .facts dd b { font-weight: 600; color: var(--forest); }
+
+  /* ---------- metric sections ---------- */
+  .csection { padding-block: clamp(52px, 7vw, 90px); }
+  .csection.alt { background: var(--sand); }
+  .cs-head { display: flex; gap: clamp(12px, 2.2vw, 26px); align-items: flex-start; }
+  .cs-num {
+    font-family: var(--serif); font-size: 12.5px; letter-spacing: .16em;
+    color: var(--gold-deep); padding-top: 7px; flex: none;
+  }
+  .cs-head h2 { margin-top: 10px; }
+  .cs-lead { margin-top: 18px; max-width: 70ch; font-size: clamp(14.5px, 1.3vw, 16.5px); line-height: 1.9; color: var(--muted); }
+
+  .figures {
+    display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) auto;
+    gap: clamp(10px, 2vw, 26px); align-items: center;
+    margin-top: clamp(26px, 3.4vw, 38px);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding-block: 22px;
+  }
+  .csection.alt .figures { border-color: #D6CFBE; }
+  .fig-k { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); }
+  .fig-v {
+    font-family: var(--serif); font-size: clamp(26px, 3.1vw, 36px); line-height: 1.15;
+    color: var(--ink); margin-top: 8px; letter-spacing: -.01em;
+  }
+  .fig-v small { font-family: var(--sans); font-size: 12px; color: var(--muted-2); margin-left: 5px; letter-spacing: .02em; }
+  .fig-d { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  .fig-arrow { font-size: 17px; color: var(--muted-2); line-height: 1; }
+  .fig-delta { text-align: right; padding-left: 4px; }
+  .fig-delta .dv { font-family: var(--serif); font-size: clamp(24px, 2.8vw, 32px); color: var(--gold-deep); line-height: 1.15; white-space: nowrap; }
+  .fig-delta .dv small { font-family: var(--sans); font-size: 11.5px; color: var(--muted); margin-left: 4px; }
+  .fig-delta .dl { font-size: 12px; color: var(--muted-2); margin-top: 6px; }
+
+  .chart {
+    margin: clamp(26px, 3.6vw, 40px) 0 0; background: #fff;
+    border: 1px solid var(--line); padding: clamp(10px, 1.8vw, 20px);
+  }
+  .chart img { width: 100%; height: auto; }
+  .chart figcaption { font-size: 12px; line-height: 1.7; color: var(--muted-2); margin-top: 12px; }
+
+  .cs-foot {
+    display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,.7fr);
+    gap: clamp(22px, 4vw, 52px); align-items: start;
+    margin-top: clamp(24px, 3.2vw, 36px);
+  }
+  .caveats { border-left: 3px solid var(--gold); background: var(--paper); padding: 20px 24px 22px; }
+  .csection.alt .caveats { background: rgba(252,251,247,.72); }
+  .caveats .ch { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; }
+  .caveats li {
+    position: relative; padding-left: 15px; margin-top: 9px;
+    font-size: 13.5px; line-height: 1.8; color: #3F443A;
+  }
+  .caveats li::before { content: "—"; position: absolute; left: 0; color: var(--gold-deep); }
+  .cs-meta { border-top: 1px solid var(--line); margin: 0; }
+  .cs-meta > div {
+    display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 14px;
+    padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 13px;
+  }
+  .cs-meta dt { color: var(--muted-2); letter-spacing: .02em; }
+  .cs-meta dd { margin: 0; color: var(--forest); font-weight: 500; text-align: right; }
+
+  /* ---------- common note ---------- */
+  .common { background: var(--forest); color: #DDE1D7; padding-block: clamp(48px, 6vw, 78px); }
+  .common .h2 { color: #F6F4EC; }
+  .common .lead { color: #B7BFB2; }
+  .common-list { margin-top: clamp(26px, 3.4vw, 38px); display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1px; background: rgba(247,245,240,.14); border: 1px solid rgba(247,245,240,.14); }
+  .common-list li { background: var(--forest); padding: 20px 22px 22px; font-size: 13.5px; line-height: 1.8; color: #C2C9BB; }
+  .common-list li b { display: block; font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
+
+  /* ---------- next: in vitro ---------- */
+  .nextup { background: var(--paper); padding-block: clamp(48px, 6vw, 76px); }
+  .nextup-box {
+    border: 1px dashed rgba(19,34,27,.22); padding: clamp(26px, 3.6vw, 42px);
+    display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
+    gap: clamp(20px, 3.4vw, 44px); align-items: center; background: var(--ivory);
+  }
+  .nextup-box h2 { font-size: clamp(22px, 2.6vw, 30px); margin-top: 12px; }
+  .nextup-box p { font-size: 13.5px; line-height: 1.85; color: var(--muted); }
+  .nextup-box p + p { margin-top: 10px; }
+  .taglist { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+  .taglist span {
+    font-size: 11.5px; letter-spacing: .03em; color: var(--forest);
+    border: 1px solid rgba(19,34,27,.2); border-radius: 2px; padding: 4px 10px;
+  }
+
+  /* ---------- tail ---------- */
+  .ctail { background: var(--sand); padding-block: clamp(40px, 5vw, 60px); }
+  .ctail-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-size: 13.5px; letter-spacing: .04em; padding: 14px 24px; border-radius: 2px;
+    border: 1px solid transparent; transition: background .3s, color .3s, border-color .3s, transform .3s;
+  }
+  .btn .arw { transition: transform .3s; font-size: 13px; }
+  .btn:hover .arw { transform: translateX(4px); }
+  .btn-dark { background: var(--forest); color: var(--ivory); border-color: var(--forest); }
+  .btn-dark:hover { background: var(--forest-2); border-color: var(--forest-2); }
+  .btn-line { border-color: rgba(19,34,27,.25); color: var(--forest); }
+  .btn-line:hover { background: rgba(19,34,27,.05); border-color: rgba(19,34,27,.5); }
+  .ctail note { font-size: 12px; color: var(--muted-2); }
+
+  /* ---------- footer ---------- */
+  .site-footer { background: var(--forest-3); color: #9AA294; padding-block: clamp(44px, 5vw, 64px) 34px; }
+  .footer-top { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,.8fr); gap: 32px; align-items: start; }
+  .footer-brand { display: flex; align-items: center; gap: 12px; }
+  .footer-brand > span:last-child { display: flex; flex-direction: column; }
+  .footer-brand .brand-mark { border-color: rgba(127,168,147,.6); }
+  .footer-brand .brand-mark span { color: #E9EDE4; }
+  .footer-name { font-size: 12.5px; letter-spacing: .3em; color: #F0EEE6; }
+  .footer-sub { font-size: 9.5px; letter-spacing: .18em; color: #7F8878; margin-top: 4px; }
+  .footer-tag { font-family: var(--serif); font-size: clamp(17px, 1.9vw, 21px); color: #DCDED3; margin-top: 22px; line-height: 1.6; }
+  .footer-info { font-size: 12.5px; line-height: 2; color: #8F9789; }
+  .footer-info b { color: #C7CCBF; font-weight: 400; }
+  .footer-info > div a { border-bottom: 1px solid rgba(194,162,104,.4); }
+  .footer-info > div a:hover { color: #E7E4D8; border-bottom-color: var(--gold); }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 12px; margin-top: 18px; color: #8F9789; }
+  .footer-nav a:hover { color: #E7E4D8; }
+  .legal {
+    max-width: 96ch;
+    margin-top: clamp(36px, 4vw, 48px); padding-top: 22px;
+    border-top: 1px solid rgba(247,245,240,.1);
+    font-size: 11.5px; line-height: 1.85; color: #7C8476;
+  }
+  .legal p + p { margin-top: 8px; }
+  .copyright { margin-top: 20px; font-size: 11px; letter-spacing: .06em; color: #6C7468; display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: space-between; }
+
+  /* ---------- language ---------- */
+  html.lang-en:not(.lang-ready) body { opacity: 0; }
+  html[lang="en"] body { word-break: normal; }
+  html[lang="en"] .h2 { letter-spacing: -.018em; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1000px) {
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    .kpi:nth-child(2) { border-right: 0; }
+    .kpi:nth-child(1), .kpi:nth-child(2) { border-bottom: 1px solid rgba(247,245,240,.1); }
+    .kpi:nth-child(3) { padding-left: 0; }
+    .ov-grid { grid-template-columns: 1fr; }
+    .cs-foot { grid-template-columns: 1fr; }
+    .nextup-box { grid-template-columns: 1fr; }
+    .common-list { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .figures { grid-template-columns: 1fr 1fr; gap: 18px 14px; }
+    .fig-arrow { display: none; }
+    .fig-delta {
+      grid-column: 1 / -1; text-align: left;
+      border-top: 1px solid var(--line); margin-top: 4px; padding-top: 14px;
+    }
+    .csection.alt .fig-delta { border-top-color: #D6CFBE; }
+    .fig-delta .dv { white-space: normal; }
+    .fig-delta .dl { margin-top: 4px; }
+  }
+  @media (max-width: 640px) {
+    :root { --nav-h: 64px; }
+    body { font-size: 15.5px; }
+    .brand-sub { display: none; }
+    .back-link span.bl-txt { display: none; }
+    .chero { padding-top: calc(var(--nav-h) + 30px); }
+    .kpis { grid-template-columns: 1fr; }
+    .kpi { padding: 18px 0; border-right: 0; border-bottom: 1px solid rgba(247,245,240,.1); }
+    .kpi + .kpi { padding-left: 0; }
+    .kpi:last-child { border-bottom: 0; }
+    .qjump a { flex: 1 1 calc(50% - 9px); text-align: center; }
+    .facts > div { grid-template-columns: 1fr; gap: 4px; }
+    .cs-head { gap: 10px; }
+    .cs-num { padding-top: 5px; font-size: 11.5px; }
+    .caveats { padding: 18px 18px 20px; }
+    .ctail-inner { flex-direction: column; align-items: stretch; }
+    .ctail-inner .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content">본문으로 건너뛰기</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a href="../index.html" class="brand" aria-label="넥스탭 주식회사 홈" data-en-aria="NEXTAB INC. — home" data-lang-href="../index.html">
+      <span class="brand-mark" aria-hidden="true"><span>N</span><i></i></span>
+      <span class="brand-text">
+        <span class="brand-name">NEXTAB</span>
+        <span class="brand-sub">POTATOSOME® · ALVORA LAB</span>
+      </span>
+    </a>
+    <div class="top-actions">
+      <a class="back-link" href="../index.html#evidence" data-lang-href="../index.html#evidence" aria-label="메인 페이지로 돌아가기" data-en-aria="Back to the main page">
+        <span class="arw" aria-hidden="true">←</span><span class="bl-txt" data-en="Back to Main">메인으로</span>
+      </a>
+      <div class="lang-switch" role="group" aria-label="언어 선택" data-en-aria="Language">
+        <button type="button" data-lang-btn="ko" aria-pressed="true">KO</button>
+        <span class="sep" aria-hidden="true"></span>
+        <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="chero">
+    <div class="wrap">
+      <div class="crumb">
+        <a href="../index.html#evidence" data-lang-href="../index.html#evidence" data-en="Evidence Map">Evidence Map</a>
+        <span class="sep" aria-hidden="true">/</span>
+        <span data-en="Human-use study">인체적용 연구</span>
+      </div>
+      <h1>
+        <span class="h1-main" data-en="Human-Use Study Detail">인체적용 시험 상세</span>
+        <span class="h1-sub"><span data-en="Potatosome®-containing formulation · valid data n=21">Potatosome® 함유 제형 · 유효 데이터 n=21</span></span>
+      </h1>
+      <p class="chero-lead" data-en="Human-use study results for a cosmetic formulation containing Potatosome®, set out metric by metric. Valid data from 21 subjects were analysed as Baseline–Post and Control–Application comparisons, with mean values, change rates and statistical test results stated together. The figures on this page are company-held data, reported before functional-cosmetic assessment or advertising review.">
+        Potatosome® 함유 화장품 제형의 인체적용 시험 결과를 지표별로 정리했습니다.
+        유효 대상 21명의 데이터를 Baseline·Post 및 Control·Application 비교로 분석했으며,
+        평균값과 개선율, 통계 검정 결과를 함께 밝힙니다.
+        본 페이지의 수치는 회사 보유 데이터로, 기능성화장품 인정·광고 심의를 거치기 전의 연구 결과입니다.
+      </p>
+
+      <nav class="qjump" aria-label="지표 바로가기" data-en-aria="Jump to a metric">
+        <a href="#cooling"><b>01</b><span data-en="Cooling">쿨링</span></a>
+        <a href="#wrinkle"><b>02</b><span data-en="Wrinkle depth">주름 깊이</span></a>
+        <a href="#elasticity"><b>03</b><span data-en="Elasticity">탄력</span></a>
+        <a href="#melasma"><b>04</b><span data-en="Pigmentation">기미·색소</span></a>
+      </nav>
+
+      <div class="kpis">
+        <a class="kpi" href="#cooling">
+          <div class="kpi-k" data-en="Immediate cooling">즉각 피부 쿨링</div>
+          <div class="kpi-v">−11.6<small>%</small></div>
+          <div class="kpi-d" data-en="36.4 °C → 32.2 °C">36.4 °C → 32.2 °C</div>
+          <div class="kpi-n" data-en="Baseline → Post · n=21">Baseline → Post · n=21</div>
+        </a>
+        <a class="kpi" href="#wrinkle">
+          <div class="kpi-k" data-en="Wrinkle depth">주름 깊이</div>
+          <div class="kpi-v">−10.7<small>%</small></div>
+          <div class="kpi-d" data-en="0.142 mm → 0.127 mm">0.142 mm → 0.127 mm</div>
+          <div class="kpi-n" data-en="Baseline → Post · n=21">Baseline → Post · n=21</div>
+        </a>
+        <a class="kpi" href="#elasticity">
+          <div class="kpi-k" data-en="Skin elasticity (R2)">피부 탄력 (R2)</div>
+          <div class="kpi-v">+5.7<small>%</small></div>
+          <div class="kpi-d" data-en="0.801 → 0.847">0.801 → 0.847</div>
+          <div class="kpi-n" data-en="Control → Application · n=21">Control → Application · n=21</div>
+        </a>
+        <a class="kpi" href="#melasma">
+          <div class="kpi-k" data-en="Melasma, pigmentation">기미·색소침착</div>
+          <div class="kpi-v">−5.8<small>%</small></div>
+          <div class="kpi-d" data-en="90.9 → 85.6">90.9 → 85.6</div>
+          <div class="kpi-n" data-en="Control → Application · n=21">Control → Application · n=21</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview">
+    <div class="wrap ov-grid">
+      <div class="ov-head">
+        <div class="eyebrow" data-en="Study outline">시험 개요</div>
+        <h2 class="h2" data-en="One formulation, four endpoints">하나의 제형, 네 가지 지표</h2>
+        <p data-en="The same cosmetic formulation was measured four ways: surface temperature, wrinkle depth, elasticity and pigmentation. Each endpoint is reported on its own terms, with the test that was applied.">
+          동일한 화장품 제형을 표면온도·주름 깊이·탄력·색소 네 가지 지표로 측정했습니다.
+          각 지표는 적용된 검정 방법과 함께, 지표별 언어로만 서술합니다.
+        </p>
+      </div>
+      <dl class="facts">
+        <div>
+          <dt data-en="Ingredient">원료</dt>
+          <dd data-en="A cosmetic formulation containing <b>Potatosome®</b> (plant exosomes derived from potato)">Potatosome®(감자 유래 식물 엑소좀)을 함유한 화장품 제형</dd>
+        </div>
+        <div>
+          <dt data-en="Subjects">대상</dt>
+          <dd data-en="Adult subjects, <b>valid data n=21</b>">성인 피험자 <b>유효 데이터 n=21</b></dd>
+        </div>
+        <div>
+          <dt data-en="Comparison">비교</dt>
+          <dd data-en="Baseline vs Post (cooling, wrinkle depth) · Control vs Application (elasticity, pigmentation)">Baseline vs Post (쿨링·주름 깊이) · Control vs Application (탄력·색소)</dd>
+        </div>
+        <div>
+          <dt data-en="Statistics">통계</dt>
+          <dd data-en="Paired t-test for within-subject comparisons; two-sample t-test where control and application sites were compared. Mean difference and change rate are reported with the p-value.">대응표본 t-검정, 대조·적용 부위 비교에는 독립표본 t-검정. 평균 차이·개선율과 p-value를 함께 표기합니다.</dd>
+        </div>
+        <div>
+          <dt data-en="Source">자료</dt>
+          <dd data-en="Company-held data. Test institute, report number and instrument details are provided separately on request.">회사 보유 데이터. 시험기관·보고서 번호·측정 기기 상세는 요청 시 별도 제공합니다.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="csection" id="cooling">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">01</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Skin cooling">피부 쿨링</div>
+          <h2 class="h2" data-en="Immediate skin cooling">즉각 피부 쿨링</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="How far the skin surface temperature falls right after the formulation is applied. Surface temperature was measured on the same subject before application (Baseline) and immediately after (Post).">
+        제형을 도포한 직후 피부 표면온도가 얼마나 내려가는지 본 항목입니다.
+        도포 전(Baseline)과 도포 직후(Post)의 표면온도를 같은 피험자에서 측정해 비교했습니다.
+      </p>
+
+      <div class="figures">
+        <div>
+          <div class="fig-k">Baseline</div>
+          <div class="fig-v">36.4<small>°C</small></div>
+          <div class="fig-d" data-en="Mean before application">도포 전 평균</div>
+        </div>
+        <div class="fig-arrow" aria-hidden="true">→</div>
+        <div>
+          <div class="fig-k">Post</div>
+          <div class="fig-v">32.2<small>°C</small></div>
+          <div class="fig-d" data-en="Mean right after application">도포 직후 평균</div>
+        </div>
+        <div class="fig-delta">
+          <div class="dv">−4.2<small>°C</small></div>
+          <div class="dl" data-en="−11.6 % from baseline">Baseline 대비 −11.6 %</div>
+        </div>
+      </div>
+
+      <figure class="chart">
+        <img src="../assets/clinical-cooling.png" alt="즉각 피부 쿨링 그래프 — 도포 전후 피부 표면온도 분포와 피험자별 변화" data-en-alt="Immediate skin cooling chart — surface temperature distribution and per-subject change, baseline versus post" width="1396" height="684" loading="lazy">
+        <figcaption data-en="Figure 1. Left: surface temperature distribution (boxplot) · right: individual change per subject. Thin lines are single subjects; the thick line is the mean change.">
+          Figure 1. 좌: 표면온도 분포(Boxplot) · 우: 피험자별 개별 변화. 가는 선은 피험자 한 명의 변화, 굵은 선은 평균 변화입니다.
+        </figcaption>
+      </figure>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="A single measurement immediately after application; it does not show how long the cooling lasts.">도포 직후 한 시점의 측정값으로, 냉각 효과의 지속 시간을 보여주지는 않습니다.</li>
+            <li data-en="Absolute values shift with room temperature, humidity and the skin site measured.">측정 환경(실온·습도)과 피부 부위에 따라 절대값이 달라질 수 있습니다.</li>
+            <li data-en="The 4.2 °C mean reduction includes individual variation; the drop was not the same width in every subject.">평균 4.2 °C 감소는 개인차를 포함한 값이며, 모든 피험자에서 같은 폭으로 나타나지는 않았습니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="Subjects">표본 수</dt><dd>n=21</dd></div>
+          <div><dt data-en="Comparison">비교</dt><dd>Baseline vs Post</dd></div>
+          <div><dt data-en="Test">검정</dt><dd data-en="Paired t-test">대응표본 t-검정</dd></div>
+          <div><dt data-en="Significance">유의수준</dt><dd>p &lt; 0.001</dd></div>
+          <div><dt data-en="Change">변화</dt><dd data-en="−4.2 °C (−11.6 %)">−4.2 °C (−11.6 %)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="csection alt" id="wrinkle">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">02</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Wrinkle depth">주름 깊이</div>
+          <h2 class="h2" data-en="Wrinkle improvement — depth reduction">주름 개선 — 주름 깊이 감소</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="Wrinkle depth was measured before and after application and compared. A smaller depth value means a shallower wrinkle.">
+        안면 주름의 깊이를 도포 전후로 측정해 비교했습니다. 깊이 값이 작을수록 주름이 얕다는 뜻입니다.
+      </p>
+
+      <div class="figures">
+        <div>
+          <div class="fig-k">Baseline</div>
+          <div class="fig-v">0.142<small>mm</small></div>
+          <div class="fig-d" data-en="Mean before application">도포 전 평균</div>
+        </div>
+        <div class="fig-arrow" aria-hidden="true">→</div>
+        <div>
+          <div class="fig-k">Post</div>
+          <div class="fig-v">0.127<small>mm</small></div>
+          <div class="fig-d" data-en="Mean right after application">도포 직후 평균</div>
+        </div>
+        <div class="fig-delta">
+          <div class="dv">−0.015<small>mm</small></div>
+          <div class="dl" data-en="−10.7 % from baseline">Baseline 대비 −10.7 %</div>
+        </div>
+      </div>
+
+      <figure class="chart">
+        <img src="../assets/clinical-wrinkle.png" alt="주름 깊이 감소 그래프 — 도포 전후 주름 깊이 분포와 피험자별 변화" data-en-alt="Wrinkle depth chart — depth distribution and per-subject change, baseline versus post" width="1452" height="716" loading="lazy">
+        <figcaption data-en="Figure 2. Left: wrinkle depth distribution (boxplot) · right: individual change per subject. One subject starts well above the group, so the scale is wide.">
+          Figure 2. 좌: 주름 깊이 분포(Boxplot) · 우: 피험자별 개별 변화. 한 피험자의 도포 전 값이 크게 높아 세로축 범위가 넓습니다.
+        </figcaption>
+      </figure>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="One subject's baseline (0.932 mm) is far above the others, so the mean is sensitive to that value. All 21 subjects decreased, and the median fell from 0.0959 mm to 0.0901 mm.">1명의 도포 전 값이 0.932 mm로 다른 피험자보다 크게 높아 평균이 그 값에 민감합니다. 다만 21명 모두에서 감소했고, 중앙값도 0.0959 mm에서 0.0901 mm로 내려갔습니다.</li>
+            <li data-en="Values differ by measurement site and facial expression habits.">측정 부위와 표정 습관에 따라 값이 달라집니다.</li>
+            <li data-en="A single-application result immediately after use; it does not imply improvement over weeks of use.">단회 도포 직후 결과로, 수 주 사용에 따른 개선을 의미하지 않습니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="Subjects">표본 수</dt><dd>n=21</dd></div>
+          <div><dt data-en="Comparison">비교</dt><dd>Baseline vs Post</dd></div>
+          <div><dt data-en="Test">검정</dt><dd data-en="Paired t-test">대응표본 t-검정</dd></div>
+          <div><dt data-en="Significance">유의수준</dt><dd>p = 0.00243</dd></div>
+          <div><dt data-en="Direction">방향</dt><dd data-en="Decreased in 21 of 21">21명 중 21명 감소</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="csection" id="elasticity">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">03</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Skin elasticity">피부 탄력</div>
+          <h2 class="h2" data-en="Skin elasticity improvement (R2)">피부 탄력 개선 (R2)</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="The elasticity index (R2) was compared between a control site and a site where the formulation was applied. R2 quantifies how the skin recovers after deformation; the closer to 1, the more elastic.">
+        피부 탄력 지표(R2)를 대조(Control) 부위와 적용(Application) 부위에서 비교했습니다.
+        R2는 피부 변형에 대한 회복 특성을 수치화한 기기 지표로, 1에 가까울수록 탄력적입니다.
+      </p>
+
+      <div class="figures">
+        <div>
+          <div class="fig-k">Control</div>
+          <div class="fig-v">0.801<small>R2</small></div>
+          <div class="fig-d" data-en="Mean at the control site">대조 부위 평균</div>
+        </div>
+        <div class="fig-arrow" aria-hidden="true">→</div>
+        <div>
+          <div class="fig-k">Application</div>
+          <div class="fig-v">0.847<small>R2</small></div>
+          <div class="fig-d" data-en="Mean at the treated site">적용 부위 평균</div>
+        </div>
+        <div class="fig-delta">
+          <div class="dv">+0.045<small>R2</small></div>
+          <div class="dl" data-en="+5.7 % over control">Control 대비 +5.7 %</div>
+        </div>
+      </div>
+
+      <figure class="chart">
+        <img src="../assets/clinical-elasticity.png" alt="피부 탄력 개선 그래프 — 대조·적용 부위의 탄력 지표 분포와 피험자별 변화" data-en-alt="Skin elasticity chart — R2 distribution for control and application sites, and per-subject change" width="1372" height="684" loading="lazy">
+        <figcaption data-en="Figure 3. Left: R2 distribution (boxplot) · right: individual change per subject. Thin lines are single subjects; the thick line is the mean change.">
+          Figure 3. 좌: R2 분포(Boxplot) · 우: 피험자별 개별 변화. 가는 선은 피험자 한 명의 변화, 굵은 선은 평균 변화입니다.
+        </figcaption>
+      </figure>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="Control and application sites were compared with a two-sample t-test rather than a paired analysis, so within-subject variation is only partly accounted for.">대조·적용 부위를 대응 분석이 아닌 독립표본 t-검정으로 비교해, 같은 피험자 안의 변동이 일부 남습니다.</li>
+            <li data-en="R2 is an instrument index; it may not match how firm the skin feels subjectively.">R2는 기기 측정 지표로, 주관적인 탄력 체감과 일치하지 않을 수 있습니다.</li>
+            <li data-en="Absolute values differ by measurement site and skin condition.">측정 부위와 피부 상태에 따라 절대값 차이가 있습니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="Subjects">표본 수</dt><dd>n=21</dd></div>
+          <div><dt data-en="Comparison">비교</dt><dd>Control vs Application</dd></div>
+          <div><dt data-en="Test">검정</dt><dd data-en="Two-sample t-test">독립표본 t-검정</dd></div>
+          <div><dt data-en="Significance">유의수준</dt><dd>p &lt; 0.001</dd></div>
+          <div><dt data-en="Direction">방향</dt><dd data-en="Increased in 21 of 21">21명 중 21명 증가</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="csection alt" id="melasma">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">04</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Pigmentation">색소침착</div>
+          <h2 class="h2" data-en="Melasma and pigmentation care">기미·색소침착 완화</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="The pigmentation index (melasma index) was compared between a control site and a site where the formulation was applied. A lower index means pigmentation measured lighter.">
+        색소 지수(Melasma index)를 대조 부위와 적용 부위에서 비교했습니다.
+        지수가 낮을수록 색소침착이 옅게 측정되었다는 뜻입니다.
+      </p>
+
+      <div class="figures">
+        <div>
+          <div class="fig-k">Control</div>
+          <div class="fig-v">90.9<small>Index</small></div>
+          <div class="fig-d" data-en="Mean at the control site">대조 부위 평균</div>
+        </div>
+        <div class="fig-arrow" aria-hidden="true">→</div>
+        <div>
+          <div class="fig-k">Application</div>
+          <div class="fig-v">85.6<small>Index</small></div>
+          <div class="fig-d" data-en="Mean at the treated site">적용 부위 평균</div>
+        </div>
+        <div class="fig-delta">
+          <div class="dv">−5.3<small>Index</small></div>
+          <div class="dl" data-en="−5.8 % below control">Control 대비 −5.8 %</div>
+        </div>
+      </div>
+
+      <figure class="chart">
+        <img src="../assets/clinical-melasma.png" alt="기미·색소침착 완화 그래프 — 대조·적용 부위의 색소 지수 분포와 피험자별 변화" data-en-alt="Melasma and pigmentation chart — index distribution for control and application sites, and per-subject change" width="1308" height="652" loading="lazy">
+        <figcaption data-en="Figure 4. Left: pigmentation index distribution (boxplot) · right: individual change per subject. Thin lines are single subjects; the thick line is the mean change.">
+          Figure 4. 좌: 색소 지수 분포(Boxplot) · 우: 피험자별 개별 변화. 가는 선은 피험자 한 명의 변화, 굵은 선은 평균 변화입니다.
+        </figcaption>
+      </figure>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="The pigment index is sensitive to the instrument, lighting and skin tone, which limits comparison of absolute values.">색소 지수는 측정 기기·조명·피부 톤에 민감해 절대값 비교에는 제한이 있습니다.</li>
+            <li data-en="Sun exposure and whether a sunscreen was used can affect the result.">자외선 노출과 차단제 사용 여부가 결과에 영향을 줄 수 있습니다.</li>
+            <li data-en="This is a cosmetic-formulation result, not a treatment for melasma; functional claims will be fixed after review. Pigmentation decreased in 20 of 21 subjects.">‘기미 치료’가 아닌 화장품 제형의 색소침착 완화 결과이며, 기능성 표시는 심의 후 확정됩니다. 21명 중 20명에서 감소했습니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="Subjects">표본 수</dt><dd>n=21</dd></div>
+          <div><dt data-en="Comparison">비교</dt><dd>Control vs Application</dd></div>
+          <div><dt data-en="Test">검정</dt><dd data-en="Paired t-test">대응표본 t-검정</dd></div>
+          <div><dt data-en="Significance">유의수준</dt><dd>p = 0.00305</dd></div>
+          <div><dt data-en="Direction">방향</dt><dd data-en="Decreased in 20 of 21">21명 중 20명 감소</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="common on-dark">
+    <div class="wrap">
+      <div class="eyebrow on-dark" data-en="Reading the numbers">수치를 읽는 기준</div>
+      <h2 class="h2" data-en="What these figures are, and what they are not">이 수치가 무엇이고, 무엇이 아닌지</h2>
+      <p class="lead" data-en="The page shows human-use results for a cosmetic formulation. They are not drug efficacy, and they are not a substitute for a functional-cosmetic assessment.">
+        이 페이지는 화장품 제형의 인체적용 결과입니다. 의약품의 효능·효과가 아니며,
+        기능성화장품 인정 절차를 대신하지 않습니다.
+      </p>
+      <ul class="common-list">
+        <li data-en="<b>Human-use, not clinical treatment</b>Results describe changes measured on skin after using a cosmetic formulation; they are not a treatment or prevention claim."><b>인체적용 결과</b>화장품 제형 사용 후 피부에서 측정된 변화이며, 치료·예방 효능을 주장하지 않습니다.</li>
+        <li data-en="<b>n=21, company data</b>Valid data from 21 subjects. The test institute, report number and instrument details are provided separately with the test report."><b>n=21 · 회사 데이터</b>유효 대상 21명의 데이터입니다. 시험기관·보고서 번호·측정 기기 상세는 시험 보고서와 함께 별도 제공합니다.</li>
+        <li data-en="<b>Not comparable across studies</b>Test systems and formulations differ between studies, so direct comparison with other published results is limited."><b>연구 간 직접 비교 제한</b>시험계와 제형이 다른 연구와의 직접 비교는 제한됩니다.</li>
+        <li data-en="<b>Wording may change</b>Functional-cosmetic assessment and advertising review may change how these results are worded on pack and in communication."><b>표현은 심의 후 확정</b>기능성화장품 인정·표시광고 심의 결과에 따라 제품·커뮤니케이션의 표현이 달라질 수 있습니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="nextup">
+    <div class="wrap">
+      <div class="nextup-box">
+        <div>
+          <div class="eyebrow no-rule" data-en="In vitro mechanism studies">세포 기전 연구</div>
+          <h2 class="h2" data-en="Cell-study detail follows">세포 기전 연구 — 순차 보충 예정</h2>
+        </div>
+        <div>
+          <p data-en="Inflammatory markers in UVB-stimulated HaCaT keratinocytes and barrier markers such as AQP3, TGM1 and FLG will be set out on a cell-study subpage in turn. For now only the summary in the Evidence Map is provided.">
+            UVB 자극 각질형성세포(HaCaT)의 염증 지표와 AQP3·TGM1·FLG 등 장벽 관련 지표 발현 연구는
+            세포 연구 서브페이지로 순차 정리합니다. 현재는 Evidence Map의 요약만 제공합니다.
+          </p>
+          <p data-en="* Cell studies are labelled apart from human-use results, and a cell result is not read directly as a human efficacy claim.">
+            * 세포 연구는 인체적용 결과와 구분해 표기하며, 세포 실험 결과를 인체 효능으로 직접 해석하지 않습니다.
+          </p>
+          <div class="taglist">
+            <span>HaCaT</span>
+            <span>UVB</span>
+            <span>AQP3</span>
+            <span>TGM1</span>
+            <span>FLG</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ctail">
+    <div class="wrap ctail-inner">
+      <a class="btn btn-dark" href="../index.html#evidence" data-lang-href="../index.html#evidence">
+        <span class="arw" aria-hidden="true">←</span><span data-en="Back to the Evidence Map">Evidence Map으로 돌아가기</span>
+      </a>
+      <a class="btn btn-line" href="../index.html#contact" data-lang-href="../index.html#contact" data-en="Product &amp; sample inquiries">제품·샘플 문의</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true"><span>N</span><i></i></span>
+          <span>
+            <span class="footer-name">NEXTAB</span>
+            <span class="footer-sub">POTATOSOME® · ALVORA LAB</span>
+          </span>
+        </div>
+        <div class="footer-tag">Science Behind.<br>Benefits First.</div>
+      </div>
+      <div class="footer-info">
+        <div data-en="<b>NEXTAB INC.</b>"><b>넥스탭 주식회사</b> · NEXTAB INC.</div>
+        <div data-en="CEO <b>Sanghwa Yang</b>">대표 <b>양상화</b></div>
+        <div data-en="Contact <a href='mailto:admin@nextab.co.kr'>admin@nextab.co.kr</a>">문의 <a href="mailto:admin@nextab.co.kr">admin@nextab.co.kr</a></div>
+        <nav class="footer-nav" aria-label="바닥글 메뉴" data-en-aria="Footer">
+          <a href="../index.html#technology" data-lang-href="../index.html#technology">Technology</a>
+          <a href="../index.html#evidence" data-lang-href="../index.html#evidence">Evidence</a>
+          <a href="../index.html#brand" data-lang-href="../index.html#brand">Brand</a>
+          <a href="../index.html#credentials" data-lang-href="../index.html#credentials">R&amp;D</a>
+          <a href="../index.html#contact" data-lang-href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="legal">
+      <p data-en="The human-use study figures on this page are company-held data from 21 valid subjects. They describe changes measured on skin after using a cosmetic formulation and do not constitute a drug authorisation or a treatment claim. The test institute, report number and instrument details are provided separately with the test report.">
+        본 페이지의 인체적용 시험 수치는 유효 대상 21명의 회사 보유 데이터입니다. 화장품 제형 사용 후 피부에서
+        측정된 변화를 서술한 것으로, 의약품 허가나 치료 효능을 의미하지 않습니다. 시험기관·보고서 번호·측정 기기
+        상세는 시험 보고서와 함께 별도로 제공합니다.
+      </p>
+      <p data-en="Efficacy and functional claims, and product labelling, will be finalised before launch in accordance with the Korean Cosmetics Act, the MFDS “Procedures for Functional Cosmetics Assessment” and the “Guidelines for Cosmetics Labelling and Advertising”. Figures are given as analysed, unless noted otherwise.">
+        제품의 효능·기능성 표현과 표시사항은 출시 전 「화장품법」, 식약처 「기능성화장품 인정 절차」 및
+        「화장품 표시·광고 가이드라인」에 따라 확정됩니다. 수치는 별도 표기가 없는 경우 분석 결과 그대로 기재했습니다.
+      </p>
+    </div>
+    <div class="copyright">
+      <span>© 2026 NEXTAB INC. All rights reserved.</span>
+      <span>Potatosome® · ALVORA LAB</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var header = document.getElementById('siteHeader');
+    var root = document.documentElement;
+
+    function onScroll() {
+      if (window.scrollY > 24) header.classList.add('is-scrolled');
+      else header.classList.remove('is-scrolled');
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ---------- language ---------- */
+    var STORE = 'alvora.lang';
+    var META = {
+      ko: {
+        title: '인체적용 시험 상세 | Potatosome® · ALVORA LAB',
+        desc: 'Potatosome® 함유 제형의 인체적용 시험(n=21) 결과를 지표별로 정리했습니다. 즉각 쿨링 −11.6 %, 주름 깊이 −10.7 %, 탄력 +5.7 %, 기미·색소 −5.8 %와 통계 검정 결과를 함께 제시합니다.',
+        ogTitle: '인체적용 시험 상세 | Potatosome® · ALVORA LAB',
+        ogDesc: 'n=21 인체적용 시험의 지표별 평균·개선율·통계 검정과 원본 분포 그래프.',
+        locale: 'ko_KR'
+      },
+      en: {
+        title: 'Human-Use Study Detail | Potatosome® · ALVORA LAB',
+        desc: 'Human-use study results (n=21) for a cosmetic formulation containing Potatosome®, metric by metric: immediate cooling −11.6 %, wrinkle depth −10.7 %, elasticity +5.7 %, pigmentation −5.8 %, with the statistical tests stated.',
+        ogTitle: 'Human-Use Study Detail | Potatosome® · ALVORA LAB',
+        ogDesc: 'Means, change rates, statistical tests and the original distribution charts of an n=21 human-use study.',
+        locale: 'en_US'
+      }
+    };
+    var lang = root.getAttribute('lang') === 'en' ? 'en' : 'ko';
+
+    function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+
+    function withLang(u, l) {
+      if (!u) return u;
+      if (l !== 'en') return u;
+      var i = u.indexOf('#'), base = i > -1 ? u.slice(0, i) : u, hash = i > -1 ? u.slice(i) : '';
+      return base + (base.indexOf('?') > -1 ? '&' : '?') + 'lang=en' + hash;
+    }
+    function syncLinks(l) {
+      each('a[data-lang-href]', function (a) {
+        a.setAttribute('href', withLang(a.getAttribute('data-lang-href'), l));
+      });
+    }
+
+    function apply(l) {
+      var en = l === 'en';
+
+      each('[data-en]', function (el) {
+        if (!el.hasAttribute('data-ko')) el.setAttribute('data-ko', el.innerHTML);
+        el.innerHTML = en ? el.getAttribute('data-en') : el.getAttribute('data-ko');
+      });
+      each('[data-en-aria]', function (el) {
+        if (!el.hasAttribute('data-ko-aria')) el.setAttribute('data-ko-aria', el.getAttribute('aria-label') || '');
+        el.setAttribute('aria-label', en ? el.getAttribute('data-en-aria') : el.getAttribute('data-ko-aria'));
+      });
+      each('[data-en-alt]', function (el) {
+        if (!el.hasAttribute('data-ko-alt')) el.setAttribute('data-ko-alt', el.getAttribute('alt') || '');
+        el.setAttribute('alt', en ? el.getAttribute('data-en-alt') : el.getAttribute('data-ko-alt'));
+      });
+
+      var m = META[l];
+      document.title = m.title;
+      var md = document.querySelector('meta[name="description"]');
+      if (md) md.setAttribute('content', m.desc);
+      var ot = document.querySelector('meta[property="og:title"]');
+      if (ot) ot.setAttribute('content', m.ogTitle);
+      var od = document.querySelector('meta[property="og:description"]');
+      if (od) od.setAttribute('content', m.ogDesc);
+      var ol = document.querySelector('meta[property="og:locale"]');
+      if (ol) ol.setAttribute('content', m.locale);
+
+      root.setAttribute('lang', en ? 'en' : 'ko');
+      each('[data-lang-btn]', function (b) {
+        b.setAttribute('aria-pressed', b.getAttribute('data-lang-btn') === l ? 'true' : 'false');
+      });
+      syncLinks(l);
+    }
+
+    function setLang(l, persist) {
+      lang = l === 'en' ? 'en' : 'ko';
+      apply(lang);
+      root.classList.toggle('lang-en', lang === 'en');
+      if (persist) {
+        try { localStorage.setItem(STORE, lang); } catch (e) {}
+      }
+      try {
+        var u = new URL(location.href);
+        if (lang === 'en') u.searchParams.set('lang', 'en');
+        else u.searchParams.delete('lang');
+        history.replaceState(null, '', u.pathname + u.search + u.hash);
+      } catch (e) {}
+    }
+
+    each('[data-lang-btn]', function (b) {
+      b.addEventListener('click', function () {
+        var next = b.getAttribute('data-lang-btn');
+        if (next !== lang) setLang(next, true);
+      });
+    });
+
+    try {
+      apply(lang);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      root.classList.add('lang-ready');
+    }
+  })();
+</script>
+</body>
+</html>
