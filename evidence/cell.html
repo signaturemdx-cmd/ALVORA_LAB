@@ -400,6 +400,94 @@
   .cs-meta dt { color: var(--muted-2); letter-spacing: .02em; }
   .cs-meta dd { margin: 0; color: var(--forest); font-weight: 500; text-align: right; }
 
+  /* ---------- residual expression chart ---------- */
+  .reschart {
+    --rc-bar: #2B6A63;
+    --rc-bar-2: #4E9287;
+    --rc-h: 300px;
+    margin: clamp(24px, 3.2vw, 34px) 0 0;
+    background: linear-gradient(180deg, #FCFBF7, #F8F6EF);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: clamp(16px, 2.4vw, 26px) clamp(15px, 2.4vw, 26px) clamp(14px, 2vw, 20px);
+    scroll-margin-top: calc(var(--nav-h) + 18px);
+  }
+  .rc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+  .rc-headtext { min-width: 0; flex: 1 1 240px; }
+  .rc-title {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(15.5px, 1.75vw, 20px); line-height: 1.45;
+    letter-spacing: -.012em; color: var(--ink); margin-top: 10px;
+  }
+  .rc-sub { font-size: 12px; line-height: 1.7; color: var(--muted-2); margin-top: 7px; letter-spacing: .005em; }
+  .rc-replay {
+    flex: none; display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--sans); font-size: 11.5px; letter-spacing: .04em; line-height: 1;
+    padding: 7px 11px; border: 1px solid rgba(19,34,27,.18); border-radius: 2px;
+    background: transparent; color: #4C5147; cursor: pointer;
+    transition: background .25s, color .25s, border-color .25s;
+  }
+  .rc-replay:hover { background: rgba(194,162,104,.16); border-color: rgba(156,124,68,.55); color: var(--forest); }
+  .rc-replay .rc-ico { font-size: 12px; color: var(--gold-deep); }
+
+  .rc-plot {
+    display: grid; grid-template-columns: 28px minmax(0, 1fr);
+    gap: 8px; align-items: start; margin-top: clamp(20px, 2.6vw, 26px);
+    padding-bottom: 24px;
+  }
+  .rc-yaxis { position: relative; height: var(--rc-h); margin-top: 26px; }
+  .rc-yaxis span {
+    position: absolute; right: 0; transform: translateY(-50%);
+    font-size: 10px; letter-spacing: .02em; color: var(--muted-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .rc-main { min-width: 0; }
+  .rc-area { position: relative; height: var(--rc-h); margin-top: 26px; }
+  .rc-grid { position: absolute; inset: 0; pointer-events: none; }
+  .rc-grid span { position: absolute; left: 0; right: 0; height: 1px; background: rgba(19,34,27,.07); }
+  .rc-grid span:first-child { background: rgba(19,34,27,.2); }
+  .rc-cols {
+    position: relative; height: 100%;
+    display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: clamp(4px, 1.1vw, 13px);
+  }
+  .rc-col { position: relative; height: 100%; }
+  .rc-track {
+    position: absolute; left: 5%; right: 5%; top: 0; bottom: 0;
+    background: rgba(19,34,27,.055);
+    border: 1px solid rgba(19,34,27,.1); border-bottom: 0;
+    transition: opacity .5s ease .15s, visibility .5s ease .15s;
+  }
+  .rc-bar {
+    position: absolute; left: 5%; right: 5%; bottom: 0; height: 100%;
+    background: linear-gradient(180deg, var(--rc-bar-2), var(--rc-bar));
+    border-top: 1px solid #1F4F49; border-radius: 2px 2px 0 0;
+  }
+  .rc-val {
+    position: absolute; left: 0; right: 0; bottom: 100%; margin-bottom: 7px;
+    text-align: center; white-space: nowrap;
+    font-size: 11px; line-height: 1; letter-spacing: .01em; font-weight: 600;
+    color: #22574F; font-variant-numeric: tabular-nums;
+  }
+  .rc-name {
+    position: absolute; top: 100%; left: 0; right: 0; margin-top: 9px;
+    text-align: center; font-size: 11.5px; line-height: 1.3; letter-spacing: .02em; color: var(--forest);
+  }
+  .reschart.is-done .rc-track { opacity: 0; visibility: hidden; }
+  .reschart.is-reset .rc-track { transition: none; }
+  .rc-cap {
+    margin: 4px 0 0; padding-top: 13px; border-top: 1px solid var(--line);
+    font-size: 12.5px; line-height: 1.8; color: var(--muted);
+  }
+  .rc-cap b { font-weight: 600; color: var(--forest); }
+  .rc-jump {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+    font-size: 12.5px; letter-spacing: .02em; color: var(--gold-deep);
+    border-bottom: 1px solid rgba(156,124,68,.4); padding-bottom: 1px;
+    transition: color .25s, border-color .25s;
+  }
+  .rc-jump:hover { color: var(--forest); border-bottom-color: var(--forest); }
+
   /* ---------- publications ---------- */
   .pubs-sec { background: var(--paper); }
   .pubs { margin-top: clamp(26px, 3.4vw, 38px); border-top: 1px solid var(--line); }
@@ -490,6 +578,16 @@
     .pub-yr { font-size: 15px; letter-spacing: .1em; }
   }
   @media (max-width: 640px) {
+    .reschart { --rc-h: 210px; }
+    .rc-head { flex-direction: column-reverse; align-items: stretch; gap: 12px; }
+    .rc-replay { align-self: flex-end; padding: 6px 9px; font-size: 11px; }
+    .rc-title { font-size: 15px; margin-top: 8px; }
+    .rc-sub { font-size: 11.5px; }
+    .rc-plot { grid-template-columns: 22px minmax(0, 1fr); gap: 6px; }
+    .rc-yaxis span { font-size: 9px; }
+    .rc-val { font-size: 10px; margin-bottom: 5px; }
+    .rc-name { font-size: 10px; margin-top: 7px; }
+    .rc-cap { font-size: 12px; }
     .f-top { flex-wrap: wrap; gap: 6px; }
     :root { --nav-h: 64px; }
     body { font-size: 15.5px; }
@@ -509,6 +607,10 @@
     .tlist li { flex-direction: column; gap: 6px; }
     .ctail-inner { flex-direction: column; align-items: stretch; }
     .ctail-inner .btn { width: 100%; }
+  }
+  @media (max-width: 420px) {
+    .reschart { --rc-h: 188px; }
+    .rc-name { font-size: 9.5px; letter-spacing: 0; }
   }
 </style>
 </head>
@@ -651,6 +753,81 @@
         이 카테고리는 Potatosome이 각질형성세포의 사이토카인 발현을 낮추는지, 그리고 활성화된 Th1 면역세포의
         인터페론 감마(IFN-γ) 생성을 줄이는지를 확인한 시험을 모았습니다.
       </p>
+
+      <figure class="reschart" id="mmp-residual-chart">
+        <div class="rc-head">
+          <div class="rc-headtext">
+            <div class="eyebrow no-rule" data-en="Residual Expression · RT-PCR">잔존 발현 · RT-PCR</div>
+            <h3 class="rc-title" data-en="Potato Exosome — Residual Inflammation &amp; Collagen-Degrading Enzymes (%)">감자 엑소좀(ExoP) 처리 후 염증·콜라겐 분해효소 잔존 발현율 (%)</h3>
+            <p class="rc-sub" data-en="Relative Expression (%) vs. Untreated Control (100%) · Final state shows residual levels only">무처리 대조군(100%) 대비 처리 후 잔존 비율 · 애니메이션 종료 후 최종 잔존 수치만 표시</p>
+          </div>
+          <button class="rc-replay" type="button"><span class="rc-ico" aria-hidden="true">↺</span><span data-en="Replay">다시 재생</span></button>
+        </div>
+
+        <div class="rc-plot" role="img" aria-label="무처리 대조군(100%) 대비 ExoP 처리 후 잔존 발현 — MMP1 16.0%, MMP2 6.6%, MMP9 25.0%, IL-6 26.4%, TNF-α 22.9%, IFNγ 15.0%" data-en-aria="Residual expression after ExoP treatment against the untreated control (100%): MMP1 16.0%, MMP2 6.6%, MMP9 25.0%, IL-6 26.4%, TNF-α 22.9%, IFNγ 15.0%">
+          <div class="rc-yaxis" aria-hidden="true">
+            <span style="top:0">100</span>
+            <span style="top:25%">75</span>
+            <span style="top:50%">50</span>
+            <span style="top:75%">25</span>
+            <span style="top:100%">0</span>
+          </div>
+          <div class="rc-main">
+            <div class="rc-area">
+              <div class="rc-grid" aria-hidden="true">
+                <span style="bottom:100%"></span>
+                <span style="bottom:75%"></span>
+                <span style="bottom:50%"></span>
+                <span style="bottom:25%"></span>
+                <span style="bottom:0"></span>
+              </div>
+              <div class="rc-cols">
+                <div class="rc-col" data-val="16.0">
+                  <div class="rc-track" aria-hidden="true"></div>
+                  <div class="rc-bar"></div>
+                  <span class="rc-val">100%</span>
+                  <span class="rc-name">MMP1</span>
+                </div>
+                <div class="rc-col" data-val="6.6">
+                  <div class="rc-track" aria-hidden="true"></div>
+                  <div class="rc-bar"></div>
+                  <span class="rc-val">100%</span>
+                  <span class="rc-name">MMP2</span>
+                </div>
+                <div class="rc-col" data-val="25.0">
+                  <div class="rc-track" aria-hidden="true"></div>
+                  <div class="rc-bar"></div>
+                  <span class="rc-val">100%</span>
+                  <span class="rc-name">MMP9</span>
+                </div>
+                <div class="rc-col" data-val="26.4">
+                  <div class="rc-track" aria-hidden="true"></div>
+                  <div class="rc-bar"></div>
+                  <span class="rc-val">100%</span>
+                  <span class="rc-name">IL-6</span>
+                </div>
+                <div class="rc-col" data-val="22.9">
+                  <div class="rc-track" aria-hidden="true"></div>
+                  <div class="rc-bar"></div>
+                  <span class="rc-val">100%</span>
+                  <span class="rc-name">TNF-α</span>
+                </div>
+                <div class="rc-col" data-val="15.0">
+                  <div class="rc-track" aria-hidden="true"></div>
+                  <div class="rc-bar"></div>
+                  <span class="rc-val">100%</span>
+                  <span class="rc-name">IFNγ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption class="rc-cap">
+          <span data-en="Anti-inflammatory cytokines (<b>IL-6 · TNF-α · IFNγ</b>) and collagen-degrading enzymes (<b>MMP1 · MMP2 · MMP9</b>) on the same axis. Each bar is the expression left after ExoP treatment as a share of the untreated control (100%); once the animation ends, only the final residual level remains. Values are cell-level RT-PCR mRNA readings.">항염증 사이토카인(<b>IL-6 · TNF-α · IFNγ</b>)과 콜라겐 분해효소(<b>MMP1 · MMP2 · MMP9</b>)를 한 축에 함께 담았습니다.
+          각 막대는 ExoP 처리 후 남은 발현량을 무처리 대조군(100%) 대비 비율로 나타낸 값이며, 애니메이션이 끝나면 최종 잔존 수치만 남습니다.
+          값은 세포 수준 RT-PCR mRNA 판독 결과입니다.</span>
+        </figcaption>
+      </figure>
 
       <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">5</span></div>
       <div class="tests">
@@ -857,6 +1034,7 @@
         이 카테고리는 UVB가 유도하는 MMP와 사이토카인의 억제, 손상 전·후 처리에 따른 세포 생존율,
         그리고 배양액에서 직접 측정한 콜라겐 분해 방지까지 — 광노화 경로의 양 끝을 세포에서 확인한 시험입니다.
       </p>
+      <a class="rc-jump" href="#mmp-residual-chart" data-en="↗ See the MMP1 · 2 · 9 residual-expression graph"><span aria-hidden="true">↗</span><span>MMP1·2·9 잔존 발현 그래프 보기</span></a>
 
       <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">11</span></div>
       <div class="tests">
@@ -1524,6 +1702,98 @@
     } finally {
       root.classList.add('lang-ready');
     }
+  })();
+</script>
+<script>
+  /* Residual-expression chart: every bar starts at 100 %, counts down to its
+     residual level, then the 100 % reference and its label disappear. */
+  (function () {
+    var fig = document.getElementById('mmp-residual-chart');
+    if (!fig) return;
+
+    var cols = Array.prototype.slice.call(fig.querySelectorAll('.rc-col'));
+    var btn = fig.querySelector('.rc-replay');
+    var DUR = 1350;
+    var STAGGER = 35;
+    var running = false;
+    var raf = 0;
+
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function paint(col, e) {
+      var to = parseFloat(col.getAttribute('data-val'));
+      var v = 100 + (to - 100) * e;
+      col.querySelector('.rc-bar').style.height = v + '%';
+      var lab = col.querySelector('.rc-val');
+      lab.style.bottom = v + '%';
+      lab.textContent = (e >= 1 ? to.toFixed(1) : String(Math.round(v))) + '%';
+    }
+
+    function settle() {
+      for (var i = 0; i < cols.length; i++) paint(cols[i], 1);
+      fig.classList.add('is-done');
+    }
+
+    function play() {
+      if (running) return;
+      running = true;
+      cancelAnimationFrame(raf);
+      fig.classList.add('is-reset');
+      fig.classList.remove('is-done');
+      for (var i = 0; i < cols.length; i++) paint(cols[i], 0);
+      void fig.offsetWidth;
+      fig.classList.remove('is-reset');
+
+      var t0 = 0;
+      var total = DUR + STAGGER * (cols.length - 1);
+      raf = requestAnimationFrame(function step(now) {
+        if (!t0) t0 = now;
+        var t = now - t0;
+        for (var j = 0; j < cols.length; j++) {
+          var p = (t - j * STAGGER) / DUR;
+          paint(cols[j], easeOut(p < 0 ? 0 : p > 1 ? 1 : p));
+        }
+        if (t < total) {
+          raf = requestAnimationFrame(step);
+        } else {
+          settle();
+          running = false;
+        }
+      });
+    }
+
+    btn.addEventListener('click', play);
+
+    var reduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    var hash = (location.hash || '').toLowerCase();
+    var jumped = hash === '#inflammation' || hash === '#mmp-residual-chart';
+
+    if (reduce && reduce.matches) {
+      fig.classList.add('is-reset');
+      settle();
+      void fig.offsetWidth;
+      fig.classList.remove('is-reset');
+    } else if (jumped) {
+      play();
+    } else if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            io.disconnect();
+            play();
+            return;
+          }
+        }
+      }, { threshold: 0.35 });
+      io.observe(fig);
+    } else {
+      play();
+    }
+
+    window.addEventListener('hashchange', function () {
+      var h = (location.hash || '').toLowerCase();
+      if (h === '#inflammation' || h === '#mmp-residual-chart') play();
+    });
   })();
 </script>
 </body>
