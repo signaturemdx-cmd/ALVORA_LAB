@@ -488,6 +488,146 @@
   }
   .rc-jump:hover { color: var(--forest); border-bottom-color: var(--forest); }
 
+  /* ---------- barrier activation chart ---------- */
+  .brchart {
+    --br-gene: 64px;
+    --br-val: 96px;
+    --br-bar: #A94C2E;
+    --br-bar-2: #C97A46;
+    margin: clamp(24px, 3.2vw, 34px) 0 0;
+    background: linear-gradient(180deg, #FCFBF7, #F8F6EF);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: clamp(16px, 2.4vw, 26px) clamp(15px, 2.4vw, 26px) clamp(14px, 2vw, 20px);
+    scroll-margin-top: calc(var(--nav-h) + 18px);
+  }
+  .br-legend {
+    display: flex; flex-wrap: wrap; gap: 5px 18px;
+    margin-top: 13px; font-size: 10.5px; letter-spacing: .04em; color: var(--muted-2);
+  }
+  .br-legend > span { display: inline-flex; align-items: center; gap: 6px; }
+  .br-legend i { display: inline-block; width: 15px; height: 7px; border-radius: 1px; }
+  .br-legend .k-base { background: rgba(169,76,46,.24); }
+  .br-legend .k-grow { background: linear-gradient(90deg, var(--br-bar-2), var(--br-bar)); }
+
+  .br-plot { margin-top: clamp(14px, 2vw, 20px); }
+  .br-topmark {
+    display: grid; grid-template-columns: var(--br-gene) minmax(0,1fr) var(--br-val);
+    height: 15px;
+  }
+  .br-topmark > div { position: relative; }
+  .br-topmark i {
+    position: absolute; left: 38.4615%; top: 0; transform: translateX(-50%);
+    font-style: normal; font-size: 9px; letter-spacing: .08em;
+    color: var(--muted-2); white-space: nowrap;
+  }
+  .br-row {
+    display: grid; grid-template-columns: var(--br-gene) minmax(0,1fr) var(--br-val);
+    align-items: center; height: 34px;
+  }
+  .br-gene {
+    font-family: var(--serif); font-size: 12.5px; letter-spacing: .05em;
+    color: var(--forest); white-space: nowrap;
+  }
+  .br-track {
+    position: relative; height: 100%;
+    background-image: repeating-linear-gradient(to right,
+      rgba(19,34,27,.075) 0 1px, transparent 1px 19.2308%);
+  }
+  .br-base {
+    position: absolute; left: 0; top: 50%; height: 8px; width: 38.4615%;
+    transform: translateY(-50%); border-radius: 1px;
+    background: rgba(169,76,46,.22);
+  }
+  .br-grow {
+    position: absolute; left: 38.4615%; top: 50%; height: 15px; width: 0;
+    transform: translateY(-50%); border-radius: 0 2px 2px 0;
+    background: linear-gradient(90deg, var(--br-bar-2), var(--br-bar));
+    box-shadow: 0 1px 0 rgba(120,50,28,.16);
+  }
+  .br-ref {
+    position: absolute; left: 38.4615%; top: 3px; bottom: 3px;
+    border-left: 1px dashed rgba(19,34,27,.34);
+  }
+  .br-val {
+    display: flex; flex-direction: column; align-items: flex-end;
+    padding-left: 12px; line-height: 1.18;
+  }
+  .br-val b {
+    font-size: 13px; font-weight: 600; letter-spacing: -.01em;
+    color: #8E3B22; font-variant-numeric: tabular-nums;
+  }
+  .br-val i {
+    font-style: normal; font-size: 10.5px; letter-spacing: .01em;
+    color: var(--gold-deep); font-variant-numeric: tabular-nums;
+  }
+  .br-axis { display: grid; grid-template-columns: var(--br-gene) minmax(0,1fr) var(--br-val); }
+  .br-ticks {
+    position: relative; height: 17px; margin-top: 2px;
+    border-top: 1px solid rgba(19,34,27,.2);
+  }
+  .br-ticks span {
+    position: absolute; top: 5px; transform: translateX(-50%);
+    font-size: 9.5px; letter-spacing: .02em; color: var(--muted-2);
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .br-ticks span:first-child { transform: none; }
+  .br-ticks span:last-child { transform: translateX(-100%); }
+
+  .br-aqp {
+    margin-top: clamp(16px, 2.2vw, 22px);
+    padding-top: clamp(16px, 2.2vw, 20px);
+    border-top: 1px solid var(--line);
+  }
+  .br-aqp-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 10px 18px; flex-wrap: wrap;
+  }
+  .br-aqp-name { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; }
+  .br-aqp-name b {
+    font-family: var(--serif); font-weight: 400; font-size: 15.5px;
+    letter-spacing: .05em; color: var(--forest);
+  }
+  .br-aqp-name span { font-size: 11.5px; letter-spacing: .05em; color: var(--gold-deep); }
+  .br-aqp-fig { display: flex; align-items: baseline; gap: 9px; }
+  .br-aqp-num {
+    font-family: var(--serif); line-height: 1; letter-spacing: -.015em;
+    font-size: clamp(21px, 2.8vw, 28px); color: #8E3B22;
+    font-variant-numeric: tabular-nums;
+  }
+  .br-aqp-mul {
+    font-size: 11px; letter-spacing: .02em; color: var(--gold-deep);
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .br-aqp-gauge {
+    position: relative; height: 30px; margin-top: 13px;
+    background: rgba(19,34,27,.045);
+    background-image: linear-gradient(90deg, rgba(19,34,27,.09) 0 1px, transparent 1px),
+      linear-gradient(90deg, rgba(19,34,27,.09) 0 1px, transparent 1px),
+      linear-gradient(90deg, rgba(19,34,27,.09) 0 1px, transparent 1px);
+    background-size: 1px 100%, 1px 100%, 1px 100%;
+    background-position: 0 0, 38.4615% 0, 76.9231% 0;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(19,34,27,.08);
+  }
+  .br-aqp-fill {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 0.77%;
+    background: linear-gradient(90deg, #D89A5E 0%, var(--br-bar-2) 18%, var(--br-bar) 100%);
+    border-radius: 0 2px 2px 0;
+    box-shadow: 1px 0 0 rgba(120,50,28,.25);
+  }
+  .br-aqp-axis { position: relative; height: 16px; margin-top: 4px; }
+  .br-aqp-axis span {
+    position: absolute; top: 0; transform: translateX(-50%);
+    font-size: 9.5px; letter-spacing: .02em; color: var(--muted-2);
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .br-aqp-axis span:first-child { transform: none; }
+  .br-aqp-axis span:last-child { transform: translateX(-100%); }
+  .br-note {
+    margin-top: 10px; font-size: 11.5px; line-height: 1.75; color: var(--muted-2);
+  }
+
   /* ---------- publications ---------- */
   .pubs-sec { background: var(--paper); }
   .pubs { margin-top: clamp(26px, 3.4vw, 38px); border-top: 1px solid var(--line); }
@@ -589,6 +729,20 @@
     .rc-val { font-size: 10px; margin-bottom: 5px; }
     .rc-name { font-size: 10px; margin-top: 7px; }
     .rc-cap { font-size: 12px; }
+    .brchart { --br-gene: 46px; --br-val: 80px; }
+    .br-row { height: 31px; }
+    .br-gene { font-size: 11px; letter-spacing: .02em; }
+    .br-base { height: 7px; }
+    .br-grow { height: 14px; }
+    .br-val { padding-left: 9px; }
+    .br-val b { font-size: 11.5px; }
+    .br-val i { font-size: 9.5px; }
+    .br-ticks span, .br-aqp-axis span { font-size: 8.5px; }
+    .br-legend { font-size: 10px; gap: 4px 13px; }
+    .br-aqp-name b { font-size: 14.5px; }
+    .br-aqp-name span { font-size: 10.5px; }
+    .br-aqp-gauge { height: 26px; }
+    .br-note { font-size: 11px; }
     .f-top { flex-wrap: wrap; gap: 6px; }
     :root { --nav-h: 64px; }
     body { font-size: 15.5px; }
@@ -612,6 +766,10 @@
   @media (max-width: 420px) {
     .reschart { --rc-h: 188px; }
     .rc-name { font-size: 9.5px; letter-spacing: 0; }
+    .brchart { --br-gene: 42px; --br-val: 74px; }
+    .br-gene { font-size: 10.5px; }
+    .br-val b { font-size: 11px; }
+    .br-val i { font-size: 9px; }
   }
 </style>
 </head>
@@ -1172,6 +1330,124 @@
         히알루론산 합성효소(HAS1 · 2 · 3), 칼리크레인5(KLK5)가 함께 만듭니다.
         Potatosome이 이 유전자들의 발현을 각질형성세포와 섬유아세포에서 어떻게 바꾸는지 측정한 시험입니다.
       </p>
+
+      <figure class="brchart" id="barrier-chart">
+        <div class="rc-head">
+          <div class="rc-headtext">
+            <div class="eyebrow no-rule" data-en="Barrier Genes · in vitro RT-PCR">장벽 유전자 · in vitro RT-PCR</div>
+            <h3 class="rc-title" data-en="Potatosome® (ExoP) — Barrier &amp; Hydration Gene Expression (% of Untreated)">Potatosome®(ExoP) 처리 후 피부장벽·수분 유전자 발현 (무처리 100% 기준)</h3>
+            <p class="rc-sub" data-en="Relative expression against the untreated control (100 %) · measured cell-culture RT-PCR values">무처리 대조군(100%) 대비 상대 발현량 · 세포 배양 RT-PCR 실측값</p>
+          </div>
+          <button class="rc-replay" type="button"><span class="rc-ico" aria-hidden="true">↺</span><span data-en="Replay">다시 재생</span></button>
+        </div>
+
+        <div class="br-legend" aria-hidden="true">
+          <span><i class="k-base"></i><span data-en="Untreated 100 %">무처리 100%</span></span>
+          <span><i class="k-grow"></i><span data-en="Increase after ExoP">ExoP 처리 후 증가분</span></span>
+        </div>
+
+        <div class="br-plot" role="img" aria-label="무처리 대조군 100% 대비 Potatosome(ExoP) 처리 후 상대 발현량 — HAS2 245%(+145%), HAS3 236%(+136%), TGM1 230%(+130%), KLK5 182%(+82%), FLG 134%(+34%), HAS1 121%(+21%), 수분 통로 AQP3 12,500%(+12,400%, 125배). 세포 실험 in vitro RT-PCR 결과." data-en-aria="Relative expression after Potatosome (ExoP) treatment against the untreated control (100 %): HAS2 245 % (+145 %), HAS3 236 % (+136 %), TGM1 230 % (+130 %), KLK5 182 % (+82 %), FLG 134 % (+34 %), HAS1 121 % (+21 %), and the water channel AQP3 12,500 % (+12,400 %, 125-fold). Cell-culture in vitro RT-PCR results.">
+          <div class="br-topmark" aria-hidden="true"><span></span><div><i>100%</i></div><span></span></div>
+
+          <div class="br-row" data-val="245" data-gain="145">
+            <span class="br-gene">HAS2</span>
+            <div class="br-track">
+              <span class="br-base" aria-hidden="true"></span>
+              <span class="br-grow"></span>
+              <span class="br-ref" aria-hidden="true"></span>
+            </div>
+            <span class="br-val"><b>100%</b><i>+0%</i></span>
+          </div>
+          <div class="br-row" data-val="236" data-gain="136">
+            <span class="br-gene">HAS3</span>
+            <div class="br-track">
+              <span class="br-base" aria-hidden="true"></span>
+              <span class="br-grow"></span>
+              <span class="br-ref" aria-hidden="true"></span>
+            </div>
+            <span class="br-val"><b>100%</b><i>+0%</i></span>
+          </div>
+          <div class="br-row" data-val="230" data-gain="130">
+            <span class="br-gene">TGM1</span>
+            <div class="br-track">
+              <span class="br-base" aria-hidden="true"></span>
+              <span class="br-grow"></span>
+              <span class="br-ref" aria-hidden="true"></span>
+            </div>
+            <span class="br-val"><b>100%</b><i>+0%</i></span>
+          </div>
+          <div class="br-row" data-val="182" data-gain="82">
+            <span class="br-gene">KLK5</span>
+            <div class="br-track">
+              <span class="br-base" aria-hidden="true"></span>
+              <span class="br-grow"></span>
+              <span class="br-ref" aria-hidden="true"></span>
+            </div>
+            <span class="br-val"><b>100%</b><i>+0%</i></span>
+          </div>
+          <div class="br-row" data-val="134" data-gain="34">
+            <span class="br-gene">FLG</span>
+            <div class="br-track">
+              <span class="br-base" aria-hidden="true"></span>
+              <span class="br-grow"></span>
+              <span class="br-ref" aria-hidden="true"></span>
+            </div>
+            <span class="br-val"><b>100%</b><i>+0%</i></span>
+          </div>
+          <div class="br-row" data-val="121" data-gain="21">
+            <span class="br-gene">HAS1</span>
+            <div class="br-track">
+              <span class="br-base" aria-hidden="true"></span>
+              <span class="br-grow"></span>
+              <span class="br-ref" aria-hidden="true"></span>
+            </div>
+            <span class="br-val"><b>100%</b><i>+0%</i></span>
+          </div>
+
+          <div class="br-axis" aria-hidden="true">
+            <span></span>
+            <div class="br-ticks">
+              <span style="left:0">0</span>
+              <span style="left:19.2308%">50</span>
+              <span style="left:38.4615%">100</span>
+              <span style="left:57.6923%">150</span>
+              <span style="left:76.9231%">200</span>
+              <span style="left:96.1538%">250</span>
+            </div>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="br-aqp">
+          <div class="br-aqp-head">
+            <div class="br-aqp-name">
+              <b>AQP3</b>
+              <span data-en="Water Channel · moisture pathway">Water Channel · 수분 통로</span>
+            </div>
+            <div class="br-aqp-fig">
+              <span class="br-aqp-num">100%</span>
+              <span class="br-aqp-mul"><span class="aq-gain">+0%</span> · 125×</span>
+            </div>
+          </div>
+          <div class="br-aqp-gauge" role="img" aria-label="AQP3 수분 통로 발현 — 무처리 100%에서 ExoP 처리 후 12,500%(125배)까지 증가. 세포 실험 in vitro RT-PCR 결과." data-en-aria="AQP3 water-channel expression — from the untreated 100 % to 12,500 % (125-fold) after ExoP treatment. Cell-culture in vitro RT-PCR results.">
+            <span class="br-aqp-fill"></span>
+          </div>
+          <div class="br-aqp-axis" aria-hidden="true">
+            <span style="left:0">0</span>
+            <span style="left:38.4615%">5,000</span>
+            <span style="left:76.9231%">10,000</span>
+            <span style="right:0">13,000 (%)</span>
+          </div>
+          <p class="br-note" data-en="AQP3 rises 125-fold, so it is drawn on its own axis (0–13,000 %) apart from the six genes above (0–260 %).">AQP3는 증가 폭이 125배(12,500%)에 달해, 위 6종(0–260%)과 축 규모를 달리해 따로 그렸습니다.</p>
+        </div>
+
+        <figcaption class="rc-cap">
+          <span data-en="<b>Hyaluronan synthesis (HAS1 · 2 · 3)</b> holds water, <b>the cornified barrier (TGM1 · FLG)</b> and <b>turnover (KLK5)</b> build the wall, and <b>the water channel (AQP3)</b> lets water through — three routes moving together. Every value is relative expression against the untreated control (100 %) from cell-culture in vitro RT-PCR; these are not human efficacy results. Bars start at the 100 % baseline and grow by the measured increase; figures are the measured values of the supplied experimental plot.">
+          <b>히알루론산 합성(HAS1 · 2 · 3)</b>으로 수분을 붙잡고, <b>각질 장벽(TGM1 · FLG)</b>과 <b>턴오버(KLK5)</b>로 벽을 세우고, <b>수분 통로(AQP3)</b>로 물을 통과시키는 — 세 갈래가 함께 움직인 결과입니다.
+          모든 값은 무처리 대조군(100%) 대비 상대 발현량이며, 배양세포에서 측정한 세포 실험(in vitro RT-PCR) 결과입니다. 인체 효능 결과가 아닙니다.
+          막대는 100% 기준선에서 출발해 증가분이 자라며, 수치는 제공된 실험 결과(Rplot)의 실측값입니다.</span>
+        </figcaption>
+      </figure>
 
       <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">7</span></div>
       <div class="tests">
@@ -1798,6 +2074,110 @@
     window.addEventListener('hashchange', function () {
       var h = (location.hash || '').toLowerCase();
       if (h === '#inflammation' || h === '#mmp-residual-chart') play();
+    });
+  })();
+</script>
+<script>
+  /* Barrier activation chart: every bar leaves the untreated 100 % line and
+     grows by its measured increase; the AQP3 gauge runs on its own scale. */
+  (function () {
+    var fig = document.getElementById('barrier-chart');
+    if (!fig) return;
+
+    var rows = Array.prototype.slice.call(fig.querySelectorAll('.br-row'));
+    var fill = fig.querySelector('.br-aqp-fill');
+    var aqNum = fig.querySelector('.br-aqp-num');
+    var aqGain = fig.querySelector('.aq-gain');
+    var btn = fig.querySelector('.rc-replay');
+    var DUR = 3000;      /* per-bar growth: ~3.0 s */
+    var STAGGER = 55;    /* 6 bars → last starts 0.28 s later, ~3.28 s in total */
+    var REF = 100;       /* untreated control */
+    var MAXA = 260;      /* x-axis maximum of the six-gene plot */
+    var MAXB = 13000;    /* x-axis maximum of the AQP3 gauge */
+    var AQP = 12500;     /* AQP3 measured value */
+    var raf = 0;
+
+    function ease(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function fmt(n) { return n.toLocaleString('en-US'); }
+
+    function paintRow(row, e) {
+      var to = parseFloat(row.getAttribute('data-val'));
+      var gain = parseFloat(row.getAttribute('data-gain'));
+      var v = REF + (to - REF) * e;
+      row.querySelector('.br-grow').style.width = ((v - REF) / MAXA * 100) + '%';
+      row.querySelector('.br-val b').textContent = Math.round(e >= 1 ? to : v) + '%';
+      row.querySelector('.br-val i').textContent = '+' + fmt(Math.round(e >= 1 ? gain : gain * e)) + '%';
+    }
+
+    function paintAq(e) {
+      var v = REF + (AQP - REF) * e;
+      var gain = AQP - REF;
+      fill.style.width = (v / MAXB * 100) + '%';
+      aqNum.textContent = fmt(Math.round(e >= 1 ? AQP : v)) + '%';
+      aqGain.textContent = '+' + fmt(Math.round(e >= 1 ? gain : gain * e)) + '%';
+    }
+
+    function settle() {
+      for (var i = 0; i < rows.length; i++) paintRow(rows[i], 1);
+      paintAq(1);
+    }
+
+    function play() {
+      cancelAnimationFrame(raf);
+      for (var i = 0; i < rows.length; i++) paintRow(rows[i], 0);
+      paintAq(0);
+
+      var t0 = 0;
+      var total = DUR + STAGGER * (rows.length - 1);
+      raf = requestAnimationFrame(function step(now) {
+        if (!t0) t0 = now;
+        var t = now - t0;
+        for (var j = 0; j < rows.length; j++) {
+          var p = (t - j * STAGGER) / DUR;
+          paintRow(rows[j], ease(p < 0 ? 0 : p > 1 ? 1 : p));
+        }
+        var pa = t / DUR;
+        paintAq(ease(pa > 1 ? 1 : pa));
+        if (t < total) {
+          raf = requestAnimationFrame(step);
+        } else {
+          settle();
+        }
+      });
+    }
+
+    btn.addEventListener('click', play);
+
+    var reduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    function hashHit() {
+      var h = (location.hash || '').toLowerCase();
+      return h === '#barrier-chart';
+    }
+
+    if (reduce && reduce.matches) {
+      settle();
+    } else if (hashHit()) {
+      play();
+    } else if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            io.disconnect();
+            play();
+            return;
+          }
+        }
+      }, { threshold: 0.3 });
+      io.observe(fig);
+    } else {
+      play();
+    }
+
+    window.addEventListener('hashchange', function () {
+      if (hashHit()) play();
     });
   })();
 </script>
