@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세포 연구 상세 | Potatosome® · ALVORA LAB</title>
+<meta name="description" content="Potatosome®의 세포·ex vivo 연구 35종을 항염증·항산화·광노화·장벽·재생·침투 안전성 6개 카테고리로 정리했습니다. 2023·2024·2025년 peer-reviewed 논문 3편의 DOI와 시험 조건, 확인된 수치를 함께 제시합니다.">
+<meta name="theme-color" content="#13221B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="세포 연구 상세 | Potatosome® · ALVORA LAB">
+<meta property="og:description" content="in vitro · ex vivo 시험 35종, peer-reviewed 논문 3편, 1,000 µg/mL까지 비독성 — 세포 수준 기전 근거를 카테고리별로 정리했습니다.">
+<meta property="og:locale" content="ko_KR">
+<script>
+  /* Language boot: runs before the body is parsed so that ?lang=en
+     opens in English with no Korean flash, and the CSS can pre-hide
+     the page until the strings are applied. */
+  (function () {
+    var l = 'ko';
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'en' || q === 'ko') {
+        l = q;
+      } else if (q === null) {
+        var s = localStorage.getItem('alvora.lang');
+        if (s === 'en' || s === 'ko') l = s;
+      }
+    } catch (e) {}
+    document.documentElement.setAttribute('lang', l === 'en' ? 'en' : 'ko');
+    if (l === 'en') document.documentElement.className += ' lang-en';
+  })();
+</script>
+<noscript><style>html.lang-en body { opacity: 1 !important; }</style></noscript>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/NotoSerifKR-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/NotoSansKR-subset.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: 'NotoSerifKR';
+    src: url('../assets/fonts/NotoSerifKR-subset.woff2') format('woff2');
+    font-weight: 200 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'NotoSansKR';
+    src: url('../assets/fonts/NotoSansKR-subset.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --forest: #13221B;
+    --forest-2: #182C22;
+    --forest-3: #0E1A14;
+    --ivory: #F7F5F0;
+    --paper: #FCFBF7;
+    --sand: #F1EDE4;
+    --line: #DED8C9;
+    --line-dark: rgba(247,245,240,.14);
+    --gold: #C2A268;
+    --gold-deep: #9C7C44;
+    --sage: #7FA893;
+    --ink: #1C1F19;
+    --text: #33372E;
+    --muted: #6B6F63;
+    --muted-2: #8A8E81;
+    --serif: 'NotoSerifKR', 'Nanum Myeongjo', Georgia, 'Times New Roman', serif;
+    --sans: 'NotoSansKR', 'Noto Sans CJK KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+    --max: 1220px;
+    --pad: clamp(20px, 5vw, 56px);
+    --nav-h: 74px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: calc(var(--nav-h) + 14px); -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.75;
+    font-weight: 400;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+  p { margin: 0; }
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+  ::selection { background: rgba(194,162,104,.32); }
+  :focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 3px; }
+
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding-inline: var(--pad); }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .skip {
+    position: absolute; left: 12px; top: -60px; z-index: 200; background: var(--forest);
+    color: var(--ivory); padding: 10px 16px; border-radius: 2px; transition: top .2s;
+  }
+  .skip:focus { top: 12px; }
+
+  /* ---------- shared type ---------- */
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    letter-spacing: .22em;
+    font-weight: 500;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .eyebrow::before {
+    content: ""; width: 26px; height: 1px; background: currentColor; opacity: .55; flex: none;
+  }
+  .eyebrow.no-rule::before { display: none; }
+  .eyebrow.on-dark { color: var(--gold); }
+
+  .h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 3.2vw, 40px);
+    line-height: 1.34;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    margin-top: 18px;
+  }
+  .lead {
+    font-size: clamp(15px, 1.35vw, 17.5px);
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 62ch;
+    margin-top: 16px;
+  }
+  .section { padding-block: clamp(60px, 8vw, 104px); position: relative; }
+
+  /* ---------- header ---------- */
+  .site-header {
+    position: fixed; inset: 0 0 auto 0; z-index: 100;
+    height: var(--nav-h);
+    display: flex; align-items: center;
+    transition: background .3s ease, box-shadow .3s ease, border-color .3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark {
+    width: 34px; height: 34px; border-radius: 50%; border: 1.4px solid var(--sage);
+    display: grid; place-items: center; position: relative; flex: none;
+    transition: border-color .3s;
+  }
+  .brand-mark span {
+    font-family: var(--serif); font-size: 15px; line-height: 1; color: #E9EDE4;
+    letter-spacing: 0; transform: translateY(-.5px);
+  }
+  .brand-mark i {
+    position: absolute; right: -1px; top: 1px; width: 7px; height: 7px;
+    border-radius: 50%; background: #E4794B;
+  }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+  .brand-name {
+    font-size: 12.5px; letter-spacing: .3em; font-weight: 500; color: #F4F2EA;
+    transition: color .3s;
+  }
+  .brand-sub {
+    font-size: 9.5px; letter-spacing: .2em; color: rgba(244,242,234,.55); margin-top: 3px;
+    transition: color .3s;
+  }
+  .top-actions { display: flex; align-items: center; gap: clamp(14px, 2.6vw, 28px); }
+  .back-link {
+    font-size: 12.5px; letter-spacing: .04em; color: rgba(244,242,234,.82);
+    display: inline-flex; align-items: center; gap: 7px; padding: 6px 0;
+    border-bottom: 1px solid transparent; transition: color .25s, border-color .25s;
+  }
+  .back-link:hover { color: #FFFDF6; border-bottom-color: rgba(194,162,104,.6); }
+  .back-link .arw { font-size: 12px; color: var(--gold); }
+
+  .site-header.is-scrolled {
+    background: rgba(247,245,240,.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom-color: var(--line);
+  }
+  .site-header.is-scrolled .brand-mark { border-color: var(--gold-deep); }
+  .site-header.is-scrolled .brand-mark span { color: var(--forest); }
+  .site-header.is-scrolled .brand-name { color: var(--forest); }
+  .site-header.is-scrolled .brand-sub { color: var(--muted-2); }
+  .site-header.is-scrolled .back-link { color: #4C5147; }
+  .site-header.is-scrolled .back-link:hover { color: var(--forest); }
+
+  .lang-switch { display: inline-flex; align-items: center; gap: 9px; }
+  .lang-switch button {
+    font-family: var(--sans); font-size: 11px; letter-spacing: .14em; line-height: 1;
+    padding: 4px 1px; border: 0; background: none; cursor: pointer;
+    color: rgba(244,242,234,.55); transition: color .25s;
+  }
+  .lang-switch button:hover { color: #FFFDF6; }
+  .lang-switch button[aria-pressed="true"] { color: var(--gold); }
+  .lang-switch .sep { width: 1px; height: 9px; background: currentColor; color: #F4F2EA; opacity: .3; }
+  .site-header.is-scrolled .lang-switch button { color: #828678; }
+  .site-header.is-scrolled .lang-switch button:hover { color: var(--forest); }
+  .site-header.is-scrolled .lang-switch button[aria-pressed="true"] { color: var(--gold-deep); }
+  .site-header.is-scrolled .lang-switch .sep { color: var(--forest); }
+
+  /* ---------- hero ---------- */
+  .chero {
+    background: var(--forest-3); color: var(--ivory);
+    padding-top: calc(var(--nav-h) + clamp(34px, 5vw, 62px));
+    position: relative; overflow: hidden;
+  }
+  .chero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 520px at 82% 8%, rgba(127,168,147,.12), transparent 64%),
+      radial-gradient(700px 480px at 4% 88%, rgba(194,162,104,.08), transparent 68%);
+    pointer-events: none;
+  }
+  .chero .wrap { position: relative; }
+  .crumb {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: rgba(194,162,104,.92);
+  }
+  .crumb .sep { opacity: .5; }
+  .chero h1 {
+    font-family: var(--serif); font-weight: 300;
+    font-size: clamp(34px, 5vw, 58px); line-height: 1.16; letter-spacing: -.03em;
+    color: #FBFAF4; margin-top: 20px;
+  }
+  .chero h1 .h1-main { display: block; }
+  .chero h1 .h1-sub {
+    display: block; margin-top: 18px;
+    font-family: var(--sans); font-weight: 300; font-size: clamp(13.5px, 1.35vw, 16px);
+    letter-spacing: .04em; color: #A6AFA0;
+  }
+  .chero .chero-lead {
+    margin-top: 22px; max-width: 66ch;
+    font-size: clamp(14px, 1.25vw, 16.5px); line-height: 1.9; color: #B9BFB2; font-weight: 300;
+  }
+
+  .statline { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
+  .statline > span {
+    display: inline-flex; align-items: baseline; gap: 8px;
+    font-size: 12px; letter-spacing: .03em; color: #E0DDCF;
+    border: 1px solid rgba(194,162,104,.36); border-radius: 2px;
+    padding: 7px 13px; background: rgba(194,162,104,.06);
+  }
+  .statline b {
+    font-family: var(--serif); font-size: 15px; font-weight: 400; color: var(--gold); letter-spacing: 0;
+  }
+
+  .qjump { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+  .qjump a {
+    font-size: 12.5px; letter-spacing: .03em; padding: 9px 15px; border-radius: 2px;
+    border: 1px solid rgba(247,245,240,.22); color: #E4E2D6;
+    transition: background .25s, border-color .25s, color .25s;
+  }
+  .qjump a:hover { background: rgba(194,162,104,.14); border-color: rgba(194,162,104,.6); color: #FFFDF6; }
+  .qjump a b { color: var(--gold); font-weight: 500; margin-right: 6px; letter-spacing: .08em; }
+
+  .kpis {
+    border-top: 1px solid rgba(247,245,240,.14);
+    margin-top: clamp(32px, 4.5vw, 52px);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .kpi { padding: 24px 24px 30px 0; border-right: 1px solid rgba(247,245,240,.1); display: block; transition: background .25s; }
+  .kpi:last-child { border-right: 0; }
+  .kpi + .kpi { padding-left: 24px; }
+  a.kpi:hover { background: rgba(127,168,147,.06); }
+  .kpi-k { font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .kpi-v { font-family: var(--serif); font-size: clamp(24px, 2.7vw, 32px); color: #FAF8F1; margin-top: 10px; line-height: 1.1; letter-spacing: -.01em; }
+  .kpi-v small { font-family: var(--sans); font-size: 11.5px; color: var(--sage); margin-left: 5px; letter-spacing: .02em; }
+  .kpi-d { font-size: 12px; color: #98A190; margin-top: 8px; letter-spacing: .01em; }
+  .kpi-n { font-size: 11.5px; color: #A9B1A1; margin-top: 4px; }
+  .kpi-n .arw { color: var(--gold); }
+
+  /* ---------- overview band ---------- */
+  .overview { background: var(--ivory); padding-block: clamp(44px, 5.5vw, 68px); border-bottom: 1px solid var(--line); }
+  .ov-grid { display: grid; grid-template-columns: minmax(0,.72fr) minmax(0,1.28fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+  .ov-head .h2 { margin-top: 14px; font-size: clamp(23px, 2.6vw, 31px); }
+  .ov-head p { font-size: 14px; line-height: 1.85; color: var(--muted); margin-top: 14px; }
+  .facts { border-top: 1px solid var(--line); margin: 0; }
+  .facts > div {
+    display: grid; grid-template-columns: 132px 1fr; gap: 20px;
+    padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px;
+  }
+  .facts dt {
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold-deep); font-weight: 500; padding-top: 3px;
+  }
+  .facts dd { margin: 0; color: var(--text); line-height: 1.7; }
+  .facts dd b { font-weight: 600; color: var(--forest); }
+
+  /* ---------- category sections ---------- */
+  .csection { padding-block: clamp(52px, 7vw, 90px); }
+  .csection.alt { background: var(--sand); }
+  .cs-head { display: flex; gap: clamp(12px, 2.2vw, 26px); align-items: flex-start; }
+  .cs-num {
+    font-family: var(--serif); font-size: 12.5px; letter-spacing: .16em;
+    color: var(--gold-deep); padding-top: 7px; flex: none;
+  }
+  .cs-head h2 { margin-top: 10px; }
+  .cs-lead { margin-top: 18px; max-width: 70ch; font-size: clamp(14.5px, 1.3vw, 16.5px); line-height: 1.9; color: var(--muted); }
+
+  .blockh {
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    margin-top: clamp(30px, 4vw, 44px);
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--gold-deep); font-weight: 500;
+  }
+  .blockh .cnt { font-family: var(--serif); font-size: 12.5px; letter-spacing: 0; color: var(--muted-2); text-transform: none; }
+
+  /* ---------- test accordion ---------- */
+  .tests { border-top: 1px solid var(--line); margin-top: 14px; }
+  .csection.alt .tests { border-top-color: #D6CFBE; }
+  .tests > details { border-bottom: 1px solid var(--line); }
+  .csection.alt .tests > details { border-bottom-color: #D6CFBE; }
+  .tests summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 15px 0; cursor: pointer; list-style: none;
+    font-size: 14.5px; color: var(--ink);
+    transition: color .2s;
+  }
+  .tests summary::-webkit-details-marker { display: none; }
+  .tests summary:hover { color: var(--gold-deep); }
+  .tests summary .sum-l { display: inline-flex; align-items: baseline; gap: 10px; }
+  .tests summary .cnt {
+    font-family: var(--serif); font-size: 12.5px; color: var(--gold-deep);
+    border: 1px solid rgba(156,124,68,.34); border-radius: 2px; padding: 1px 7px;
+  }
+  .tests summary .ic { position: relative; width: 13px; height: 13px; flex: none; }
+  .tests summary .ic::before, .tests summary .ic::after {
+    content: ""; position: absolute; background: var(--gold-deep); transition: transform .25s, opacity .25s;
+  }
+  .tests summary .ic::before { left: 0; top: 6px; width: 13px; height: 1px; }
+  .tests summary .ic::after { left: 6px; top: 0; width: 1px; height: 13px; }
+  .tests details[open] summary .ic::after { transform: scaleY(0); opacity: 0; }
+
+  .tlist { padding: 2px 0 16px; }
+  .tlist li {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;
+    padding: 9px 0; border-bottom: 1px dashed rgba(19,34,27,.12);
+  }
+  .tlist li:last-child { border-bottom: 0; }
+  .tlist .tn { min-width: 0; }
+  .tlist .tn b { display: block; font-weight: 500; font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+  .tlist .tn em { display: block; font-style: normal; font-size: 12px; line-height: 1.6; color: var(--muted-2); margin-top: 2px; }
+  .tags { display: inline-flex; flex-wrap: wrap; gap: 5px; flex: none; padding-top: 2px; }
+  .src-tag {
+    font-size: 10.5px; letter-spacing: .04em; line-height: 1;
+    color: var(--gold-deep); border: 1px solid rgba(156,124,68,.4); border-radius: 2px;
+    padding: 4px 6px; transition: background .2s, color .2s, border-color .2s;
+  }
+  .src-tag:hover { background: var(--gold-deep); border-color: var(--gold-deep); color: #FFFDF6; }
+
+  /* ---------- findings ---------- */
+  .findings {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(266px, 1fr));
+    gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 14px;
+  }
+  .csection.alt .findings { background: #D6CFBE; border-color: #D6CFBE; }
+  .finding { background: var(--paper); padding: 20px 22px 22px; }
+  .csection.alt .finding { background: rgba(252,251,247,.86); }
+  .f-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .f-src { font-size: 11px; letter-spacing: .05em; color: var(--gold-deep); }
+  .f-model { font-size: 10.5px; letter-spacing: .06em; color: var(--muted-2); border: 1px solid rgba(19,34,27,.14); border-radius: 2px; padding: 2px 6px; }
+  .finding h3 {
+    font-family: var(--serif); font-size: clamp(15.5px, 1.5vw, 18px); line-height: 1.45;
+    color: var(--ink); margin-top: 12px;
+  }
+  .f-body { font-size: 13.5px; line-height: 1.8; color: var(--text); margin-top: 9px; }
+  .f-body b { font-weight: 600; color: var(--forest); }
+  .f-doi { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 11.5px; letter-spacing: .03em; color: var(--gold-deep); border-bottom: 1px solid rgba(156,124,68,.36); }
+  .f-doi:hover { color: var(--forest); border-bottom-color: var(--forest); }
+
+  .cs-foot {
+    display: grid; grid-template-columns: minmax(0,1.3fr) minmax(0,.7fr);
+    gap: clamp(22px, 4vw, 52px); align-items: start;
+    margin-top: clamp(26px, 3.4vw, 38px);
+  }
+  .caveats { border-left: 3px solid var(--gold); background: var(--paper); padding: 20px 24px 22px; }
+  .csection.alt .caveats { background: rgba(252,251,247,.72); }
+  .caveats .ch { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; }
+  .caveats li {
+    position: relative; padding-left: 15px; margin-top: 9px;
+    font-size: 13.5px; line-height: 1.8; color: #3F443A;
+  }
+  .caveats li::before { content: "—"; position: absolute; left: 0; color: var(--gold-deep); }
+  .cs-meta { border-top: 1px solid var(--line); margin: 0; }
+  .csection.alt .cs-meta { border-top-color: #D6CFBE; }
+  .cs-meta > div {
+    display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 14px;
+    padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 13px;
+  }
+  .csection.alt .cs-meta > div { border-bottom-color: #D6CFBE; }
+  .cs-meta dt { color: var(--muted-2); letter-spacing: .02em; }
+  .cs-meta dd { margin: 0; color: var(--forest); font-weight: 500; text-align: right; }
+
+  /* ---------- publications ---------- */
+  .pubs-sec { background: var(--paper); }
+  .pubs { margin-top: clamp(26px, 3.4vw, 38px); border-top: 1px solid var(--line); }
+  .pub {
+    display: grid; grid-template-columns: 84px minmax(0,1fr); gap: clamp(14px, 2.6vw, 30px);
+    padding: 24px 0 26px; border-bottom: 1px solid var(--line);
+  }
+  .pub-yr { font-family: var(--serif); font-size: clamp(20px, 2.2vw, 26px); line-height: 1; color: var(--gold-deep); }
+  .pub-t { font-family: var(--serif); font-size: clamp(16px, 1.65vw, 19.5px); line-height: 1.5; color: var(--ink); letter-spacing: -.005em; }
+  .pub-a { font-size: 12.5px; line-height: 1.7; color: var(--muted); margin-top: 10px; }
+  .pub-j { font-size: 12.5px; line-height: 1.7; margin-top: 4px; color: var(--forest); }
+  .pub-j b { font-weight: 500; font-style: italic; }
+  .pub-doi {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 12px;
+    font-size: 12.5px; letter-spacing: .02em; color: var(--gold-deep);
+    border-bottom: 1px solid rgba(156,124,68,.4); padding-bottom: 1px;
+    transition: color .25s, border-color .25s;
+  }
+  .pub-doi:hover { color: var(--forest); border-bottom-color: var(--forest); }
+  .pub-doi .arw { font-size: 11px; }
+
+  /* ---------- common note ---------- */
+  .common { background: var(--forest); color: #DDE1D7; padding-block: clamp(48px, 6vw, 78px); }
+  .common .h2 { color: #F6F4EC; }
+  .common .lead { color: #B7BFB2; }
+  .common-list { margin-top: clamp(26px, 3.4vw, 38px); display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1px; background: rgba(247,245,240,.14); border: 1px solid rgba(247,245,240,.14); }
+  .common-list li { background: var(--forest); padding: 20px 22px 22px; font-size: 13.5px; line-height: 1.8; color: #C2C9BB; }
+  .common-list li b { display: block; font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
+
+  /* ---------- tail ---------- */
+  .ctail { background: var(--sand); padding-block: clamp(40px, 5vw, 60px); }
+  .ctail-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    font-size: 13.5px; letter-spacing: .04em; padding: 14px 24px; border-radius: 2px;
+    border: 1px solid transparent; transition: background .3s, color .3s, border-color .3s, transform .3s;
+  }
+  .btn .arw { transition: transform .3s; font-size: 13px; }
+  .btn:hover .arw { transform: translateX(4px); }
+  .btn-dark { background: var(--forest); color: var(--ivory); border-color: var(--forest); }
+  .btn-dark:hover { background: var(--forest-2); border-color: var(--forest-2); }
+  .btn-line { border-color: rgba(19,34,27,.25); color: var(--forest); }
+  .btn-line:hover { background: rgba(19,34,27,.05); border-color: rgba(19,34,27,.5); }
+
+  /* ---------- footer ---------- */
+  .site-footer { background: var(--forest-3); color: #9AA294; padding-block: clamp(44px, 5vw, 64px) 34px; }
+  .footer-top { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,.8fr); gap: 32px; align-items: start; }
+  .footer-brand { display: flex; align-items: center; gap: 12px; }
+  .footer-brand > span:last-child { display: flex; flex-direction: column; }
+  .footer-brand .brand-mark { border-color: rgba(127,168,147,.6); }
+  .footer-brand .brand-mark span { color: #E9EDE4; }
+  .footer-name { font-size: 12.5px; letter-spacing: .3em; color: #F0EEE6; }
+  .footer-sub { font-size: 9.5px; letter-spacing: .18em; color: #7F8878; margin-top: 4px; }
+  .footer-tag { font-family: var(--serif); font-size: clamp(17px, 1.9vw, 21px); color: #DCDED3; margin-top: 22px; line-height: 1.6; }
+  .footer-info { font-size: 12.5px; line-height: 2; color: #8F9789; }
+  .footer-info b { color: #C7CCBF; font-weight: 400; }
+  .footer-info > div a { border-bottom: 1px solid rgba(194,162,104,.4); }
+  .footer-info > div a:hover { color: #E7E4D8; border-bottom-color: var(--gold); }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 12px; margin-top: 18px; color: #8F9789; }
+  .footer-nav a:hover { color: #E7E4D8; }
+  .legal {
+    max-width: 96ch;
+    margin-top: clamp(36px, 4vw, 48px); padding-top: 22px;
+    border-top: 1px solid rgba(247,245,240,.1);
+    font-size: 11.5px; line-height: 1.85; color: #7C8476;
+  }
+  .legal p + p { margin-top: 8px; }
+  .copyright { margin-top: 20px; font-size: 11px; letter-spacing: .06em; color: #6C7468; display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: space-between; }
+
+  /* ---------- language ---------- */
+  html.lang-en:not(.lang-ready) body { opacity: 0; }
+  html[lang="en"] body { word-break: normal; }
+  html[lang="en"] .h2 { letter-spacing: -.018em; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1000px) {
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    .kpi:nth-child(2) { border-right: 0; }
+    .kpi:nth-child(1), .kpi:nth-child(2) { border-bottom: 1px solid rgba(247,245,240,.1); }
+    .kpi:nth-child(3) { padding-left: 0; }
+    .ov-grid { grid-template-columns: 1fr; }
+    .cs-foot { grid-template-columns: 1fr; }
+    .common-list { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .pub { grid-template-columns: 1fr; gap: 8px; }
+    .pub-yr { font-size: 15px; letter-spacing: .1em; }
+  }
+  @media (max-width: 640px) {
+    .f-top { flex-wrap: wrap; gap: 6px; }
+    :root { --nav-h: 64px; }
+    body { font-size: 15.5px; }
+    .brand-sub { display: none; }
+    .back-link { font-size: 12px; gap: 5px; }
+    .top-actions { gap: 12px; }
+    .chero { padding-top: calc(var(--nav-h) + 30px); }
+    .kpis { grid-template-columns: 1fr; }
+    .kpi { padding: 18px 0; border-right: 0; border-bottom: 1px solid rgba(247,245,240,.1); }
+    .kpi + .kpi { padding-left: 0; }
+    .kpi:last-child { border-bottom: 0; }
+    .qjump a { flex: 1 1 calc(50% - 9px); text-align: center; }
+    .facts > div { grid-template-columns: 1fr; gap: 4px; }
+    .cs-head { gap: 10px; }
+    .cs-num { padding-top: 5px; font-size: 11.5px; }
+    .caveats { padding: 18px 18px 20px; }
+    .tlist li { flex-direction: column; gap: 6px; }
+    .ctail-inner { flex-direction: column; align-items: stretch; }
+    .ctail-inner .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-en="Skip to content">본문으로 건너뛰기</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a href="../index.html" class="brand" aria-label="넥스탭 주식회사 홈" data-en-aria="NEXTAB INC. — home" data-lang-href="../index.html">
+      <span class="brand-mark" aria-hidden="true"><span>N</span><i></i></span>
+      <span class="brand-text">
+        <span class="brand-name">NEXTAB</span>
+        <span class="brand-sub">POTATOSOME® · ALVORA LAB</span>
+      </span>
+    </a>
+    <div class="top-actions">
+      <a class="back-link" href="../index.html#evidence" data-lang-href="../index.html#evidence" aria-label="메인 페이지로 돌아가기" data-en-aria="Back to the main page">
+        <span class="arw" aria-hidden="true">←</span><span class="bl-txt" data-en="Back to Main">메인으로</span>
+      </a>
+      <div class="lang-switch" role="group" aria-label="언어 선택" data-en-aria="Language">
+        <button type="button" data-lang-btn="ko" aria-pressed="true">KO</button>
+        <span class="sep" aria-hidden="true"></span>
+        <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="chero">
+    <div class="wrap">
+      <div class="crumb">
+        <a href="../index.html#evidence" data-lang-href="../index.html#evidence" data-en="Evidence Map">Evidence Map</a>
+        <span class="sep" aria-hidden="true">/</span>
+        <span data-en="Cell studies">세포 연구</span>
+      </div>
+      <h1>
+        <span class="h1-main" data-en="Cell-Study Detail">세포 연구 상세</span>
+        <span class="h1-sub"><span data-en="Potatosome® in vitro · ex vivo validation — 6 categories, 35 test titles">Potatosome® in vitro · ex vivo 검증 — 6개 카테고리, 시험 35종</span></span>
+      </h1>
+      <p class="chero-lead" data-en="What the potato-derived exosome was tested for at cell level, and what the numbers were. Thirty-five distinct in vitro and ex vivo test titles from three peer-reviewed papers are grouped into six categories; each opens to its full test list, and every finding is tagged with the paper and DOI it comes from. These are mechanism studies in cultured cells and isolated immune cells — not human efficacy results.">
+        감자 유래 엑소좀을 세포 수준에서 무엇으로, 얼마나 시험했는지 정리했습니다.
+        peer-reviewed 논문 3편에 보고된 in vitro · ex vivo 시험 35종(중복 제거)을 6개 카테고리로 묶고,
+        각 카테고리를 열면 전체 시험 목록과 논문별로 확인된 수치가 DOI와 함께 나옵니다.
+        배양세포·분리 세포에서의 기전 연구이며, 인체 효능 결과가 아닙니다.
+      </p>
+
+      <div class="statline">
+        <span><b>35</b> <span data-en="In Vitro / Ex Vivo Studies">In Vitro / Ex Vivo Studies</span></span>
+        <span><b>3</b> <span data-en="Peer-Reviewed Publications">Peer-Reviewed Publications</span></span>
+        <span><span data-en="Non-Cytotoxic up to ">세포독성 시험 상한 </span><b>1,000 µg/mL</b></span>
+      </div>
+
+      <nav class="qjump" aria-label="카테고리 바로가기" data-en-aria="Jump to a category">
+        <a href="#inflammation"><b>01</b><span data-en="Anti-Inflammation">항염증</span></a>
+        <a href="#antioxidant"><b>02</b><span data-en="Antioxidant Protection">항산화 보호</span></a>
+        <a href="#photoaging"><b>03</b><span data-en="Photoaging &amp; Wrinkle Care">광노화 &amp; 주름 케어</span></a>
+        <a href="#barrier"><b>04</b><span data-en="Skin Barrier Enhancement">피부장벽 강화</span></a>
+        <a href="#regeneration"><b>05</b><span data-en="Regeneration &amp; Repair">재생 &amp; 치유</span></a>
+        <a href="#delivery-safety"><b>06</b><span data-en="Cellular Delivery &amp; Safety">세포 침투 &amp; 안전성</span></a>
+      </nav>
+
+      <div class="kpis">
+        <div class="kpi">
+          <div class="kpi-k" data-en="In vitro / ex vivo tests">세포 · ex vivo 시험</div>
+          <div class="kpi-v">35<small data-en="titles">종</small></div>
+          <div class="kpi-d" data-en="Duplicate titles removed">중복 제거 기준</div>
+          <div class="kpi-n" data-en="All 35 listed on this page">35종 전체 목록 수록</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-k" data-en="Peer-reviewed papers">Peer-reviewed 논문</div>
+          <div class="kpi-v">3<small data-en="papers">편</small></div>
+          <div class="kpi-d" data-en="2023 · 2024 · 2025">2023 · 2024 · 2025</div>
+          <div class="kpi-n" data-en="Each linked by DOI">각각 DOI 링크</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-k" data-en="Cytotoxicity tested to">세포독성 시험 농도</div>
+          <div class="kpi-v">1,000<small>µg/mL</small></div>
+          <div class="kpi-d" data-en="HaCaT, 24 h · no significant reduction">HaCaT 24시간 · 유의한 감소 없음</div>
+          <div class="kpi-n" data-en="At 1,000 µg/mL a 4 % decrease was not significant">1,000 µg/mL에서 4 % 감소는 유의하지 않음</div>
+        </div>
+        <a class="kpi" href="clinical.html" data-lang-href="clinical.html">
+          <div class="kpi-k" data-en="Human clinical evaluation">인체적용 시험</div>
+          <div class="kpi-v">n=21</div>
+          <div class="kpi-d" data-en="4 endpoints · separate detail page">4개 지표 · 별도 상세 페이지</div>
+          <div class="kpi-n"><span data-en="Human-use detail">인체적용 시험 상세</span> <span class="arw" aria-hidden="true">→</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="overview">
+    <div class="wrap ov-grid">
+      <div class="ov-head">
+        <div class="eyebrow" data-en="Study outline">시험 개요</div>
+        <h2 class="h2" data-en="One ingredient, three papers, six questions">하나의 원료, 세 편의 논문, 여섯 개의 질문</h2>
+        <p data-en="Potatosome® is the potato-derived exosome preparation (referred to as ExoP and SDE in the papers). Its cell-level evidence is published in three peer-reviewed papers; the 35 test titles below are the distinct in vitro and ex vivo tests reported across them.">
+          Potatosome®은 감자에서 분리한 엑소좀 원료로, 논문에서는 ExoP · SDE로 표기됩니다.
+          세포 수준 근거는 peer-reviewed 논문 3편에 공개되어 있고, 아래 35종은 그 안에 보고된
+          in vitro · ex vivo 시험 제목을 중복 없이 정리한 것입니다.
+        </p>
+      </div>
+      <dl class="facts">
+        <div>
+          <dt data-en="Ingredient">원료</dt>
+          <dd data-en="<b>Potatosome®</b> — exosomes isolated from Solanum tuberosum tissue (ExoP / SDE in the literature)"><b>Potatosome®</b> — 감자(Solanum tuberosum) 조직에서 분리한 엑소좀 (논문 표기 ExoP · SDE)</dd>
+        </div>
+        <div>
+          <dt data-en="Test systems">시험계</dt>
+          <dd data-en="HaCaT human keratinocytes · Detroit 551 human fibroblasts · concanavalin A-activated mouse Th1 cells (ex vivo, spleen-derived)">HaCaT 인간 각질형성세포 · Detroit 551 인간 섬유아세포 · ConA로 활성화한 마우스 Th1 세포(ex vivo, 비장 유래)</dd>
+        </div>
+        <div>
+          <dt data-en="Methods">방법</dt>
+          <dd data-en="RT-PCR for gene expression · WST-1 for viability and proliferation · DPPH and H₂O₂ assays · confocal microscopy and flow cytometry (FACS) for uptake · scratch wound assay · soluble collagen assay">유전자 발현 RT-PCR · 생존·증식 WST-1 · DPPH·H₂O₂ 시험 · 세포 침투 공초점 현미경·유세포 분석(FACS) · 상처 치유 스크래치 · 용해성 콜라겐 정량</dd>
+        </div>
+        <div>
+          <dt data-en="Concentrations">농도</dt>
+          <dd data-en="Most tests used 25–200 µg/mL (protein basis). Cytotoxicity was tested across 1–1,000 µg/mL.">대부분 25–200 µg/mL(단백량 기준). 세포독성은 1–1,000 µg/mL 전 구간에서 시험했습니다.</dd>
+        </div>
+        <div>
+          <dt data-en="How to read it">읽는 법</dt>
+          <dd data-en="Cell-level mechanism data. It does not state that the same effect occurs in human skin; human-use results are reported separately on the clinical detail page.">세포 수준 기전 데이터입니다. 인체 피부에서 같은 효과가 나타난다는 뜻이 아니며, 인체적용 결과는 임상 상세 페이지에 따로 정리했습니다.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 01 ANTI-INFLAMMATION -->
+  <section class="csection" id="inflammation">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">01</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Anti-Inflammation">항염증</div>
+          <h2 class="h2" data-en="Lowering the inflammatory signal">염증 신호를 낮추는가</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="When UVB or another stimulus makes keratinocytes release inflammatory cytokines such as TNF-α and IL-6, skin reddens and feels warm. These tests ask whether Potatosome lowers that cytokine expression in keratinocytes, and whether it lowers interferon-gamma (IFN-γ) production by activated Th1 immune cells.">
+        UVB나 외부 자극을 받은 각질형성세포가 TNF-α · IL-6 같은 염증성 사이토카인을 내보내면 피부는 붉어지고 열감이 생깁니다.
+        이 카테고리는 Potatosome이 각질형성세포의 사이토카인 발현을 낮추는지, 그리고 활성화된 Th1 면역세포의
+        인터페론 감마(IFN-γ) 생성을 줄이는지를 확인한 시험을 모았습니다.
+      </p>
+
+      <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">5</span></div>
+      <div class="tests">
+        <details>
+          <summary>
+            <span class="sum-l"><span data-en="All 5 test titles">세부 시험 5종 전체 보기</span><span class="cnt">5</span></span>
+            <span class="ic" aria-hidden="true"></span>
+          </summary>
+          <ul class="tlist">
+            <li>
+              <span class="tn"><b>TNF-α Expression Inhibition Assay (HaCaT)</b><em data-en="">TNF-α 발현 억제 시험 (각질형성세포)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a><a class="src-tag" href="https://doi.org/10.37871/jbres2039" target="_blank" rel="noopener">2024</a><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>IL-6 Expression Inhibition Assay (HaCaT)</b><em data-en="">IL-6 발현 억제 시험 (각질형성세포)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>IFN-γ Production Inhibition Assay (ConA-activated Th1 cells)</b><em data-en="">IFN-γ 생성 억제 시험 (ConA 활성화 Th1 세포, ex vivo)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.37871/jbres2039" target="_blank" rel="noopener">2024</a><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>UVB-induced TNF-α Expression Inhibition Assay</b><em data-en="">UVB 유도 TNF-α 발현 억제 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>UVB-induced IL-6 Expression Inhibition Assay</b><em data-en="">UVB 유도 IL-6 발현 억제 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="blockh"><span data-en="Confirmed in the papers">논문에서 확인된 내용</span></div>
+      <div class="findings">
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">HaCaT · RT-PCR</span></div>
+          <h3 data-en="TNF-α and IL-6 suppressed, dose-dependently">TNF-α · IL-6 발현, 농도 의존적 감소</h3>
+          <p class="f-body" data-en="TNF-α and IL-6 expression fell with increasing concentration in HaCaT keratinocytes. After UVB irradiation (15 mJ/cm²) induced them, TNF-α was markedly suppressed from 25 µg/mL.">
+            각질형성세포에서 TNF-α와 IL-6 발현이 농도 의존적으로 감소했습니다.
+            UVB(15 mJ/cm²)로 유도한 TNF-α는 25 µg/mL 처리에서 뚜렷하게 억제되었습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2024 · J Biomed Res Environ Sci</span><span class="f-model" data-en="ex vivo Th1">ex vivo Th1</span></div>
+          <h3 data-en="IFN-γ returned to near-basal at 100 µg/mL">IFN-γ, 100 µg/mL에서 기저 수준에 가깝게</h3>
+          <p class="f-body" data-en="In mouse Th1 cells activated with concanavalin A (60 nM), IFN-γ rose 100 % above untreated cells. Treatment with Potatosome lowered it concentration-dependently, and at 100 µg/mL IFN-γ was close to the level of unactivated cells (p&lt;0.05). In the same study, TNF suppression at 50 µg/mL was stronger than for date, ginseng, yeast, apple or Lactobacillus exosomes.">
+            콘카나발린 A(60 nM)로 활성화한 마우스 Th1 세포에서 IFN-γ가 미처리 세포보다 100 % 높아졌습니다.
+            Potatosome 처리 시 농도 의존적으로 감소해 100 µg/mL에서는 비활성화 세포 수준에 가까워졌습니다(p&lt;0.05).
+            같은 연구에서 50 µg/mL의 TNF 억제는 대추·인삼·효모·사과·유산균 유래 엑소좀보다 강했습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.37871/jbres2039" target="_blank" rel="noopener"><span data-en="DOI 10.37871/jbres2039">DOI 10.37871/jbres2039</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model" data-en="Review of prior data">선행 결과 요약</span></div>
+          <h3 data-en="Anti-inflammatory data restated, safety added">항염증 결과를 정리하고 안전성을 더하다</h3>
+          <p class="f-body" data-en="The 2025 paper restates the earlier anti-inflammatory findings (suppression of MMPs, TNF and IL-6) and adds safety, barrier-gene and human-use data on top of them. Its own experiments did not re-run the cytokine assays.">
+            2025년 논문은 앞선 항염증 결과(MMP · TNF · IL-6 억제)를 정리하고, 그 위에 안전성·장벽 유전자·인체적용 결과를 더했습니다.
+            이 논문의 자체 실험에는 사이토카인 시험이 다시 포함되지는 않았습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener"><span data-en="DOI 10.3390/ph18040458">DOI 10.3390/ph18040458</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="These are gene-expression changes in cultured cells (RT-PCR, mRNA level); secreted protein amounts were not measured.">배양세포의 유전자 발현(RT-PCR, mRNA 수준) 결과이며, 분비된 단백질 양을 직접 측정한 것은 아닙니다.</li>
+            <li data-en="The Th1-cell model is an ex vivo model used in autoimmune-hepatitis research, not a skin-inflammation model.">Th1 세포 모델은 자가면역간염 연구에서 쓰는 ex vivo 모델로, 피부 염증을 재현한 시험계가 아닙니다.</li>
+            <li data-en="Test concentrations are those added to the culture medium; they are not the amount that reaches skin after topical application.">시험 농도는 세포 배양액에 넣은 양이며, 제품을 바른 뒤 피부에 도달하는 양과 같지 않습니다.</li>
+            <li data-en="This is not a clinical result: no claim is made that inflammation in human skin is reduced.">임상 결과가 아니며, 인체 피부의 염증이 줄었다고 주장하지 않습니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="Test systems">시험계</dt><dd>HaCaT · mouse Th1 (ex vivo)</dd></div>
+          <div><dt data-en="Concentration">농도</dt><dd>25–100 µg/mL</dd></div>
+          <div><dt data-en="Method">방법</dt><dd>RT-PCR · FACS</dd></div>
+          <div><dt data-en="Sources">출처</dt><dd>2023 · 2024 · 2025</dd></div>
+          <div><dt data-en="Test titles">시험 종수</dt><dd data-en="5">5종</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 ANTIOXIDANT -->
+  <section class="csection alt" id="antioxidant">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">02</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Antioxidant Protection">항산화 보호</div>
+          <h2 class="h2" data-en="Does it quench the oxidative hit?">산화 자극을 막아내는가</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="UV and pollution generate reactive oxygen species (ROS), which drive lipid peroxidation and protein damage on the way to photoaging. These tests ask three things of Potatosome: whether it scavenges a free radical directly, whether it protects cells under oxidative stress, and whether it induces a cellular detoxifying enzyme.">
+        자외선과 대기 오염은 활성산소(ROS)를 만들고, 이는 지질 과산화와 단백질 손상을 거쳐 광노화로 이어집니다.
+        Potatosome이 라디칼을 직접 소거하는지, 산화 스트레스에서 세포를 보호하는지,
+        세포의 해독 효소 유전자를 올리는지를 확인한 시험입니다.
+      </p>
+
+      <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">4</span></div>
+      <div class="tests">
+        <details>
+          <summary>
+            <span class="sum-l"><span data-en="All 4 test titles">세부 시험 4종 전체 보기</span><span class="cnt">4</span></span>
+            <span class="ic" aria-hidden="true"></span>
+          </summary>
+          <ul class="tlist">
+            <li>
+              <span class="tn"><b>DPPH Free Radical Scavenging Assay</b><em data-en="">DPPH 라디칼 소거능 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>H₂O₂-induced Oxidative Stress Protection Assay</b><em data-en="">H₂O₂ 유도 산화스트레스 보호 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>GSTA4 Antioxidant Gene Induction Assay (HaCaT)</b><em data-en="">GSTA4 항산화 유전자 발현 유도 시험 (각질형성세포)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>GSTA4 Antioxidant Gene Induction Assay (Detroit 551 fibroblast)</b><em data-en="">GSTA4 항산화 유전자 발현 유도 시험 (섬유아세포)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="blockh"><span data-en="Confirmed in the papers">논문에서 확인된 내용</span></div>
+      <div class="findings">
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">HaCaT · WST-1</span></div>
+          <h3 data-en="Viability after H₂O₂ restored to 81–94 %">H₂O₂ 처리 후 생존율 81–94 %로 회복</h3>
+          <p class="f-body" data-en="200 µM H₂O₂ reduced HaCaT proliferation to 73 % of untreated cells. Pre-treatment with 50, 100 and 150 µg/mL Potatosome restored it to 81, 92 and 94 % respectively, concentration-dependently.">
+            200 µM H₂O₂로 각질형성세포 증식이 미처리 세포의 73 %로 떨어졌습니다.
+            50 · 100 · 150 µg/mL로 30분 전처리하면 각각 81 · 92 · 94 %로 회복되었고, 농도에 비례했습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">DPPH · in tube</span></div>
+          <h3 data-en="DPPH scavenging rose with concentration">DPPH 소거능, 농도 의존적 상승</h3>
+          <p class="f-body" data-en="DPPH radical scavenging increased with concentration across 0–4 mg/mL, measured colorimetrically at 517 nm against ascorbic acid as the reference antioxidant.">
+            DPPH 라디칼 소거능은 0–4 mg/mL 범위에서 농도 의존적으로 증가했습니다.
+            517 nm 흡광도로 측정했고, 기준 항산화제로 아스코르브산과 비교했습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">GSTA4 · RT-PCR</span></div>
+          <h3 data-en="Detoxifying enzyme gene induced, further after UVB">해독 효소 유전자 증가, UVB 후에는 더</h3>
+          <p class="f-body" data-en="GSTA4 expression, a phase II detoxifying enzyme against oxidative damage, increased with treatment — and rose further when cells were treated after UVB irradiation.">
+            산화 손상에 대항하는 2상 해독 효소인 GSTA4 발현이 처리 시 증가했고,
+            UVB를 쬔 뒤 처리했을 때는 더 올라갔습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model">Detroit 551 · RT-PCR</span></div>
+          <h3 data-en="GSTA4 induction repeated in fibroblasts">섬유아세포에서도 GSTA4 증가 재현</h3>
+          <p class="f-body" data-en="At 50 µg/mL, the GSTA4 upregulation seen in keratinocytes was reproduced in Detroit 551 human fibroblasts, suggesting the antioxidant response is not limited to one cell type.">
+            50 µg/mL 처리에서 각질형성세포에서 보이던 GSTA4 상향이 인간 섬유아세포(Detroit 551)에서도 재현되었습니다.
+            항산화 반응이 한 가지 세포 유형에만 국한되지 않음을 보여주는 결과입니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener"><span data-en="DOI 10.3390/ph18040458">DOI 10.3390/ph18040458</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="DPPH is a chemical assay in a tube; its result is not the same as antioxidant capacity inside cells.">DPPH는 시험관 안의 화학 반응 시험으로, 세포 안의 항산화력과 같은 값이 아닙니다.</li>
+            <li data-en="The H₂O₂ model applies a single oxidative stimulus for 3 h; repeated or chronic exposure was not tested.">H₂O₂ 모델은 단일 산화 자극을 3시간 가한 것으로, 반복·만성 노출은 시험하지 않았습니다.</li>
+            <li data-en="GSTA4 results are mRNA levels normalised to GAPDH; enzyme activity was not measured.">GSTA4 결과는 GAPDH로 정규화한 mRNA 수준이며, 효소 활성은 측정하지 않았습니다.</li>
+            <li data-en="The DPPH test used 1–4 mg/mL, far above the concentrations used in cell tests.">DPPH 시험은 1–4 mg/mL로, 세포 시험 농도보다 훨씬 높은 조건입니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="Test systems">시험계</dt><dd>HaCaT · Detroit 551</dd></div>
+          <div><dt data-en="Concentration">농도</dt><dd>50–150 µg/mL · 1–4 mg/mL (DPPH)</dd></div>
+          <div><dt data-en="Stimulus">자극</dt><dd data-en="200 µM H₂O₂">200 µM H₂O₂</dd></div>
+          <div><dt data-en="Method">방법</dt><dd>WST-1 · DPPH · RT-PCR</dd></div>
+          <div><dt data-en="Test titles">시험 종수</dt><dd data-en="4">4종</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 PHOTOAGING -->
+  <section class="csection" id="photoaging">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">03</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Photoaging &amp; Wrinkle Care">광노화 &amp; 주름 케어</div>
+          <h2 class="h2" data-en="Before and after UVB damage">UVB 손상 전과 후, 두 방향</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="UVB raises collagen-degrading enzymes (MMP1, 2 and 9) and reduces collagen, which is how wrinkles form. This group covers the pathway at both ends: suppression of the MMPs and cytokines UVB induces, cell survival with pre- and post-treatment, and prevention of collagen degradation measured directly in the culture medium.">
+        UVB는 콜라겐 분해 효소(MMP1 · 2 · 9)를 올리고 콜라겐을 줄여 주름을 만듭니다.
+        이 카테고리는 UVB가 유도하는 MMP와 사이토카인의 억제, 손상 전·후 처리에 따른 세포 생존율,
+        그리고 배양액에서 직접 측정한 콜라겐 분해 방지까지 — 광노화 경로의 양 끝을 세포에서 확인한 시험입니다.
+      </p>
+
+      <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">11</span></div>
+      <div class="tests">
+        <details>
+          <summary>
+            <span class="sum-l"><span data-en="All 11 test titles">세부 시험 11종 전체 보기</span><span class="cnt">11</span></span>
+            <span class="ic" aria-hidden="true"></span>
+          </summary>
+          <ul class="tlist">
+            <li>
+              <span class="tn"><b>MMP1 Expression Inhibition Assay</b><em data-en="">MMP1 발현 억제 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>MMP2 Expression Inhibition Assay</b><em data-en="">MMP2 발현 억제 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>MMP9 Expression Inhibition Assay</b><em data-en="">MMP9 발현 억제 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>UVB-induced MMP1 Expression Inhibition Assay</b><em data-en="">UVB 유도 MMP1 발현 억제 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>UVB-induced MMP2 Expression Inhibition Assay</b><em data-en="">UVB 유도 MMP2 발현 억제 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>UVB-induced MMP9 Expression Inhibition Assay</b><em data-en="">UVB 유도 MMP9 발현 억제 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>UVB-Induced Photodamage Prevention Assay</b><em data-en="">UVB 광손상 예방 시험 (전처리)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>UVB-Induced Photodamage Recovery Assay</b><em data-en="">UVB 광손상 회복 시험 (후처리)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>UVB-damaged Cell Viability Recovery Assay</b><em data-en="">UVB 손상 세포 생존율 회복 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>UVB-induced Collagen Degradation Prevention Assay</b><em data-en="">UVB 유도 콜라겐 분해 방지 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>Soluble Collagen Production Assay</b><em data-en="">용해성 콜라겐 생성 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="blockh"><span data-en="Confirmed in the papers">논문에서 확인된 내용</span></div>
+      <div class="findings">
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">HaCaT · 15 mJ/cm²</span></div>
+          <h3 data-en="Pre-treatment cut the viability loss from 55 % to 10 %">전처리로 생존율 감소 55 % → 10 %</h3>
+          <p class="f-body" data-en="UVB at 15 mJ/cm² reduced HaCaT viability by about 55 %. Pre-treatment with Potatosome limited the loss to about 10 %; treatment after irradiation limited it to about 40 %, so cells already hit by UVB were partly rescued.">
+            15 mJ/cm² UVB로 각질형성세포 생존율이 약 55 % 감소했습니다.
+            Potatosome을 미리 처리하면 감소가 약 10 %로 그쳤고, UVB를 쬔 뒤에 처리해도 40 %로 줄어
+            이미 손상된 세포도 일부 회복되는 경향을 보였습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">RT-PCR</span></div>
+          <h3 data-en="MMP1, 2, 9 and the cytokines they follow">MMP1 · 2 · 9, 그리고 그 뒤의 사이토카인</h3>
+          <p class="f-body" data-en="Potatosome suppressed MMP1, MMP2 and MMP9 expression and the UVB-induced rise in IL-6 and TNF-α, concentration-dependently. Potato protein extract, alcohol extract and bacterial exosomes did not show the same suppression — the effect was specific to the exosome fraction.">
+            MMP1 · MMP2 · MMP9 발현과 UVB가 유도한 IL-6 · TNF-α 상승을 농도 의존적으로 억제했습니다.
+            감자 단백 추출물 · 알코올 추출물 · 세균 유래 엑소좀에서는 같은 억제가 나타나지 않아,
+            이 활성이 엑소좀 분획에 특이적임을 확인했습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">Collagen assay</span></div>
+          <h3 data-en="Collagen loss 10 % → 5 %">콜라겐 감소 10 % → 5 %</h3>
+          <p class="f-body" data-en="UVB reduced soluble collagen secreted into the medium by 10 % versus untreated cells. With 150 µg/mL pre-treatment the reduction was 5 %, halving the loss.">
+            UVB는 배양액으로 분비되는 용해성 콜라겐을 미처리 세포 대비 10 % 줄였습니다.
+            150 µg/mL로 전처리한 경우 감소가 5 %로 그쳐 손실이 절반으로 줄었습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model" data-en="Human-use link">인체 결과 연결</span></div>
+          <h3 data-en="Where the wrinkle figure comes from">주름 수치는 어디서 왔나</h3>
+          <p class="f-body" data-en="The 2025 paper carries the same ingredient through to a human-use study: periorbital wrinkle depth fell in every subject, with individual improvements reported between 4.76 % and 25.74 % over two weeks. The human-use figures are set out on the clinical detail page.">
+            2025년 논문은 같은 원료를 인체적용 시험까지 이어갔습니다. 눈가 주름 깊이는 전원에서 감소했고,
+            개인별 개선 범위는 2주 사용 후 4.76–25.74 %로 보고되었습니다.
+            인체적용 수치는 임상 상세 페이지에 지표별로 정리했습니다.
+          </p>
+          <a class="f-doi" href="clinical.html" data-lang-href="clinical.html"><span data-en="Human-use detail">인체적용 시험 상세</span><span class="arw" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="Viability was read with WST-1, a metabolic-activity assay; it is not a direct count of living cells.">생존율은 대사 활성을 보는 WST-1 시험으로 측정했으며, 살아 있는 세포를 직접 센 값은 아닙니다.</li>
+            <li data-en="One UVB dose (15 mJ/cm²) and one time point (24 h after) — repeated or long-term irradiation was not tested.">UVB는 15 mJ/cm² 단회, 관찰은 조사 24시간 뒤 한 시점입니다. 반복·장기 조사는 시험하지 않았습니다.</li>
+            <li data-en="Collagen figures are soluble collagen in the culture medium, not collagen density in skin.">콜라겐 수치는 배양액 중의 용해성 콜라겐이며, 피부 속 콜라겐 밀도와 같지 않습니다.</li>
+            <li data-en="Wrinkle improvement comes from a separate human-use study of a formulation, not from this cell work.">주름 개선 수치는 이 세포 실험이 아니라, 제형을 사용한 별도 인체적용 시험의 결과입니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="UVB dose">UVB 조사량</dt><dd>15 mJ/cm²</dd></div>
+          <div><dt data-en="Concentration">농도</dt><dd>25–150 µg/mL</dd></div>
+          <div><dt data-en="Method">방법</dt><dd>WST-1 · RT-PCR · Collagen assay</dd></div>
+          <div><dt data-en="Replicates">반복</dt><dd data-en="3 independent experiments">독립 실험 3회</dd></div>
+          <div><dt data-en="Test titles">시험 종수</dt><dd data-en="11">11종</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 BARRIER -->
+  <section class="csection alt" id="barrier">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">04</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Skin Barrier Enhancement">피부장벽 강화</div>
+          <h2 class="h2" data-en="The genes that build the barrier">장벽을 만드는 유전자들</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="The stratum corneum barrier is built by filaggrin (FLG), transglutaminase 1 (TGM1), aquaporin 3 (AQP3), hyaluronan synthases (HAS1, 2, 3) and kallikrein-related peptidase 5 (KLK5). These tests measure how Potatosome changes the expression of those genes in keratinocytes and in fibroblasts.">
+        각질층 장벽은 필라그린(FLG), 트랜스글루타미나제1(TGM1), 아쿠아포린3(AQP3),
+        히알루론산 합성효소(HAS1 · 2 · 3), 칼리크레인5(KLK5)가 함께 만듭니다.
+        Potatosome이 이 유전자들의 발현을 각질형성세포와 섬유아세포에서 어떻게 바꾸는지 측정한 시험입니다.
+      </p>
+
+      <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">7</span></div>
+      <div class="tests">
+        <details>
+          <summary>
+            <span class="sum-l"><span data-en="All 7 test titles">세부 시험 7종 전체 보기</span><span class="cnt">7</span></span>
+            <span class="ic" aria-hidden="true"></span>
+          </summary>
+          <ul class="tlist">
+            <li>
+              <span class="tn"><b>FLG (Filaggrin) Expression Increase Assay</b><em data-en="">FLG(필라그린) 발현 증가 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>TGM1 Expression Increase Assay</b><em data-en="">TGM1 발현 증가 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>AQP3 Expression Increase Assay</b><em data-en="">AQP3 발현 증가 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>HAS1 Expression Increase Assay</b><em data-en="">HAS1 발현 증가 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>HAS2 Expression Increase Assay</b><em data-en="">HAS2 발현 증가 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>HAS3 Expression Increase Assay</b><em data-en="">HAS3 발현 증가 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>KLK5 Expression Increase Assay</b><em data-en="">KLK5 발현 증가 시험</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="blockh"><span data-en="Confirmed in the papers">논문에서 확인된 내용</span><span class="cnt" data-en="50 µg/mL · RT-PCR">50 µg/mL · RT-PCR</span></div>
+      <div class="findings">
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model">AQP3</span></div>
+          <h3 data-en="AQP3: at least 120-fold in keratinocytes">AQP3, 각질형성세포에서 120배 이상</h3>
+          <p class="f-body" data-en="AQP3, the water-and-glycerol channel, rose at least 120-fold in HaCaT cells at 50 µg/mL — the largest change among the barrier genes measured. In Detroit 551 fibroblasts the increase was 2.6-fold.">
+            물과 글리세롤 통로인 AQP3는 50 µg/mL에서 HaCaT 세포에서 120배 이상 증가해, 측정한 장벽 유전자 가운데 변화 폭이 가장 컸습니다.
+            섬유아세포(Detroit 551)에서는 2.6배 증가했습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener"><span data-en="DOI 10.3390/ph18040458">DOI 10.3390/ph18040458</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model">FLG · TGM1</span></div>
+          <h3 data-en="FLG 3.4× / 1.9×, TGM1 13×">FLG 3.4배 · 1.9배, TGM1 13배</h3>
+          <p class="f-body" data-en="FLG increased 3.4-fold in HaCaT and 1.9-fold in Detroit 551 cells. TGM1 rose 13-fold in HaCaT; RT-PCR for TGM1 in the fibroblasts did not amplify, so that value is not reported.">
+            FLG는 HaCaT에서 3.4배, Detroit 551에서 1.9배 증가했습니다.
+            TGM1은 HaCaT에서 13배 증가했으나, 섬유아세포에서는 RT-PCR 증폭이 되지 않아 값을 보고하지 않았습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener"><span data-en="DOI 10.3390/ph18040458">DOI 10.3390/ph18040458</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model">HAS1 · 2 · 3</span></div>
+          <h3 data-en="HAS2 above 10× in both cell types">HAS2, 두 세포 모두 10배 이상</h3>
+          <p class="f-body" data-en="HAS2, a hyaluronan synthase, rose more than 10-fold in both cell lines. HAS1 rose more than 2-fold in HaCaT and more than 9-fold in Detroit 551; HAS3 more than 4-fold and more than 13-fold respectively.">
+            히알루론산 합성효소 HAS2는 두 세포 모두에서 10배 이상 증가했습니다.
+            HAS1은 HaCaT 2배 이상 · Detroit 551 9배 이상, HAS3은 각각 4배 이상 · 13배 이상이었습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener"><span data-en="DOI 10.3390/ph18040458">DOI 10.3390/ph18040458</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model">KLK5</span></div>
+          <h3 data-en="KLK5: 4× and 8×, the turnover side">KLK5, 각질 탈락 조절 쪽 4배 · 8배</h3>
+          <p class="f-body" data-en="KLK5, the serine protease involved in desquamation, rose more than 4-fold in HaCaT and more than 8-fold in Detroit 551 — the gene tied to cell turnover rather than to water binding alone.">
+            각질 탈락(desquamation)에 관여하는 세린 단백분해효소 KLK5는 HaCaT에서 4배 이상, Detroit 551에서 8배 이상 증가했습니다.
+            수분 결합만이 아니라 세포 턴오버 쪽에도 관여하는 유전자입니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener"><span data-en="DOI 10.3390/ph18040458">DOI 10.3390/ph18040458</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="All values are mRNA levels normalised to GAPDH. Protein amounts, hyaluronic acid actually produced, and transepidermal water loss were not measured.">모든 값은 GAPDH로 정규화한 mRNA 수준입니다. 단백질 양, 실제 생성된 히알루론산, 경피수분손실(TEWL)은 측정하지 않았습니다.</li>
+            <li data-en="A single concentration (50 µg/mL) and a single time point were used; dose-response was not established for these genes.">50 µg/mL 단일 농도, 단일 시점으로 시험했으며, 이 유전자들의 용량-반응 관계는 확립되지 않았습니다.</li>
+            <li data-en="TGM1 in Detroit 551 cells could not be amplified, so the fibroblast value is unknown.">섬유아세포의 TGM1은 증폭되지 않아 값을 확인할 수 없습니다.</li>
+            <li data-en="A higher gene expression in culture does not by itself mean a thicker barrier or higher moisture in skin; these are mechanism data.">배양세포에서 발현이 높다는 것이 각질층이 두꺼워지거나 피부 보습이 올라간다는 뜻은 아닙니다. 기전 데이터입니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="Test systems">시험계</dt><dd>HaCaT · Detroit 551</dd></div>
+          <div><dt data-en="Concentration">농도</dt><dd>50 µg/mL</dd></div>
+          <div><dt data-en="Method">방법</dt><dd data-en="RT-PCR (GAPDH-normalised)">RT-PCR (GAPDH 정규화)</dd></div>
+          <div><dt data-en="Source">출처</dt><dd>2025 · Pharmaceuticals</dd></div>
+          <div><dt data-en="Test titles">시험 종수</dt><dd data-en="7">7종</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 REGENERATION -->
+  <section class="csection" id="regeneration">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">05</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Regeneration &amp; Repair">재생 &amp; 치유</div>
+          <h2 class="h2" data-en="Growth, closure, and no toxicity on the way">증식과 폐쇄, 그 과정의 무독성</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="After a wound, keratinocytes migrate and proliferate to fill the gap. These tests ask whether Potatosome supports proliferation, whether a scratched monolayer closes faster — and whether any cytotoxicity appears along the way.">
+        상처가 나면 각질형성세포가 이동하고 증식해 빈 곳을 메웁니다.
+        Potatosome이 세포 증식을 돕는지, 긁힌 단층 배양의 상처가 더 빨리 닫히는지를 확인했고,
+        그 과정에서 세포독성이 나타나지 않는지도 함께 봤습니다.
+      </p>
+
+      <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">5</span></div>
+      <div class="tests">
+        <details>
+          <summary>
+            <span class="sum-l"><span data-en="All 5 test titles">세부 시험 5종 전체 보기</span><span class="cnt">5</span></span>
+            <span class="ic" aria-hidden="true"></span>
+          </summary>
+          <ul class="tlist">
+            <li>
+              <span class="tn"><b>HaCaT Cell Proliferation Assay (WST-1)</b><em data-en="">각질형성세포 증식 시험 (WST-1)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>HaCaT Cell Viability Assay (24 h)</b><em data-en="">각질형성세포 생존율 시험 (24시간)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>HaCaT Cell Viability Assay (48 h)</b><em data-en="">각질형성세포 생존율 시험 (48시간)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>Scratch Wound Healing Assay (HaCaT)</b><em data-en="">스크래치 상처 치유 시험 (각질형성세포)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>Wound Closure Assay (HaCaT)</b><em data-en="">상처 폐쇄율 측정 (각질형성세포)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="blockh"><span data-en="Confirmed in the papers">논문에서 확인된 내용</span></div>
+      <div class="findings">
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">WST-1 · 24 h</span></div>
+          <h3 data-en="Proliferation up to 200 µg/mL, dose-dependently">200 µg/mL까지 농도 의존적 증식</h3>
+          <p class="f-body" data-en="At 25, 50, 100, 150 and 200 µg/mL, HaCaT proliferation increased with concentration at 24 h">
+            25 · 50 · 100 · 150 · 200 µg/mL에서 24시간 처리 시 각질형성세포 증식이 농도 의존적으로 증가했습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">WST-1 · 48 h</span></div>
+          <h3 data-en="20 % higher relative survival at 48 h">48시간에도 상대 생존율 20 % 높게</h3>
+          <p class="f-body" data-en="By 48 h the proliferation effect had plateaued, but treated cells still kept about 20 % higher relative survival than untreated cells at 200 µg/mL.">
+            48시간에는 증식 촉진 폭이 둔화되었지만, 200 µg/mL 처리군은 미처리군보다 상대 생존율이 약 20 % 높게 유지되었습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model" data-en="Scratch · 48 h">스크래치 · 48 h</span></div>
+          <h3 data-en="Faster wound closure at 48 h">48시간 상처 폐쇄율, 대조군보다 높게</h3>
+          <p class="f-body" data-en="In the artificial-wound (scratch) model, the wound-closure percentage at 48 h was significantly higher in the Potatosome-treated group than in the PBS control (p&lt;0.05).">
+            인공 상처(스크래치) 모델에서 48시간 뒤 상처 폐쇄율이 PBS 대조군보다 Potatosome 처리군에서 유의하게 높았습니다(p&lt;0.05).
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener"><span data-en="DOI 10.3390/ph18040458">DOI 10.3390/ph18040458</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="WST-1 reads metabolic activity; a rise can reflect more cells or more active cells, and does not by itself prove proliferation.">WST-1은 대사 활성을 읽는 시험이라, 값이 오르면 세포 수가 늘었거나 활성이 높아진 것이며 증식만을 뜻하지는 않습니다.</li>
+            <li data-en="The scratch model is a two-dimensional monolayer, not a wound in living skin.">스크래치 모델은 2차원 단층 배양으로, 살아 있는 피부의 창상과 다릅니다.</li>
+            <li data-en="Observation ended at 48 h; long-term repair was not followed.">관찰은 48시간에서 끝났으며, 장기적인 회복 과정은 추적하지 않았습니다.</li>
+            <li data-en="No human wound-healing study of this ingredient has been reported.">이 원료의 인체 창상 치유 시험은 아직 보고되지 않았습니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="Test system">시험계</dt><dd>HaCaT</dd></div>
+          <div><dt data-en="Concentration">농도</dt><dd>25–200 µg/mL · 1–1,000 µg/mL</dd></div>
+          <div><dt data-en="Duration">관찰</dt><dd data-en="24 h · 48 h">24시간 · 48시간</dd></div>
+          <div><dt data-en="Method">방법</dt><dd>WST-1 · Scratch assay</dd></div>
+          <div><dt data-en="Test titles">시험 종수</dt><dd data-en="5">5종</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 DELIVERY & SAFETY -->
+  <section class="csection alt" id="delivery-safety">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">06</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Cellular Delivery &amp; Safety Profile">세포 침투 &amp; 안전성</div>
+          <h2 class="h2" data-en="It has to get in — and it has to be safe">들어가는가, 그리고 안전한가</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="Efficacy means little if the vesicles never enter the cell. Uptake into keratinocytes was confirmed with fluorescent labelling under confocal microscopy and by flow cytometry. Separately, cytotoxicity was tested from 1 to 1,000 µg/mL, and human topical application was followed for irritation.">
+        효능이 있더라도 세포 안으로 들어가지 못하면 의미가 없습니다.
+        형광 표지로 각질형성세포에 실제로 흡수되는지를 공초점 현미경과 유세포 분석으로 확인했고,
+        별도로 1–1,000 µg/mL 전 구간에서 세포독성을, 인체 도포에서는 자극 여부를 확인했습니다.
+      </p>
+
+      <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">3</span></div>
+      <div class="tests">
+        <details>
+          <summary>
+            <span class="sum-l"><span data-en="All 3 test titles">세부 시험 3종 전체 보기</span><span class="cnt">3</span></span>
+            <span class="ic" aria-hidden="true"></span>
+          </summary>
+          <ul class="tlist">
+            <li>
+              <span class="tn"><b>HaCaT Cell Uptake Assay (Confocal Microscopy)</b><em data-en="">각질형성세포 흡수 시험 (공초점 현미경)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a><a class="src-tag" href="https://doi.org/10.37871/jbres2039" target="_blank" rel="noopener">2024</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>HaCaT Cell Uptake Assay (Flow Cytometry / FACS)</b><em data-en="">각질형성세포 흡수 시험 (유세포 분석)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
+            </li>
+            <li>
+              <span class="tn"><b>High-concentration Cytotoxicity Assay (1–1,000 µg/mL)</b><em data-en="">고농도 세포독성 시험 (1–1,000 µg/mL)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="blockh"><span data-en="Confirmed in the papers">논문에서 확인된 내용</span></div>
+      <div class="findings">
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model" data-en="Confocal · 4 h">공초점 · 4 h</span></div>
+          <h3 data-en="Green dots inside the cells">세포 안에서 관찰된 형광 입자</h3>
+          <p class="f-body" data-en="HaCaT cells treated with fluorescently labelled exosomes at 50 and 100 µg/mL for 4 h showed green particles inside the cells; cells given the dye alone showed no signal.">
+            형광 표지한 엑소좀을 50 · 100 µg/mL로 4시간 처리한 각질형성세포 안에서 녹색 입자가 관찰되었습니다.
+            염료만 처리한 세포에서는 신호가 나타나지 않았습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">FACS · 24 h</span></div>
+          <h3 data-en="Uptake rose with concentration by FACS">유세포 분석에서도 농도 의존적 흡수</h3>
+          <p class="f-body" data-en="Flow cytometry showed a concentration-dependent increase in fluorescent cells at 100 and 200 µg/mL, confirming uptake by a second, independent method.">
+            유세포 분석에서 100 · 200 µg/mL 처리 시 형광 세포 비율이 농도 의존적으로 증가했습니다.
+            공초점 현미경과 독립된 두 번째 방법으로 흡수를 확인한 결과입니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2024 · J Biomed Res Environ Sci</span><span class="f-model" data-en="66.8 nm · PDI 0.28">66.8 nm · PDI 0.28</span></div>
+          <h3 data-en="Uptake repeated with a lipid label">지질 염색으로 흡수 재확인</h3>
+          <p class="f-body" data-en="With a lipid-membrane label, entry into HaCaT cells was visualised again by confocal microscopy. The same paper reports a mean diameter of 66.8 nm and a polydispersity index of 0.28, with most of the volume below 100 nm.">
+            지질 막을 염색한 표지로 각질형성세포 안으로 들어가는 것을 공초점 현미경으로 다시 확인했습니다.
+            같은 논문에서 평균 지름 66.8 nm, 다분산지수(PDI) 0.28을 보고했고, 부피 대부분이 100 nm 미만 입자였습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.37871/jbres2039" target="_blank" rel="noopener"><span data-en="DOI 10.37871/jbres2039">DOI 10.37871/jbres2039</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model">1–1,000 µg/mL · 24 h</span></div>
+          <h3 data-en="No significant loss at 1,000 µg/mL">1,000 µg/mL에서 유의한 감소 없음</h3>
+          <p class="f-body" data-en="Over 1–1,000 µg/mL for 24 h, 50–500 µg/mL promoted growth; at 1,000 µg/mL viability was 4 % below the untreated control, which was not significant, so an LD50 could not be established within the range. Purity above 98 % and no bacterial contamination were confirmed. A cosmetic prototype with the same ingredient caused no irritation in 21 volunteers (human-use detail).">
+            1–1,000 µg/mL · 24시간 시험에서 50–500 µg/mL는 세포 성장을 촉진했고,
+            1,000 µg/mL에서는 미처리 대조군보다 4 % 낮았으나 유의하지 않아 이 범위 안에서 LD50을 정할 수 없었습니다.
+            순도 98 % 이상, 세균 오염 없음도 확인했습니다. 같은 원료를 넣은 제형은 인체 21명 도포에서 자극이 관찰되지 않았습니다.
+          </p>
+          <a class="f-doi" href="clinical.html" data-lang-href="clinical.html"><span data-en="Human-use detail">인체적용 시험 상세</span><span class="arw" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="Confocal images and FACS show that labelled vesicles associate with and enter cells; they do not show how much active material reaches a given compartment.">공초점 이미지와 FACS는 표지된 소포가 세포와 결합하고 들어간다는 것을 보여줄 뿐, 활성 물질이 특정 부위에 얼마나 도달했는지는 보여주지 않습니다.</li>
+            <li data-en="Cytotoxicity was measured on HaCaT cells for 24 h; other cell types and longer exposure were not covered.">세포독성은 HaCaT 세포 24시간 조건이며, 다른 세포 유형과 더 긴 노출은 다루지 않았습니다.</li>
+            <li data-en="“Non-cytotoxic up to 1,000 µg/mL” is an in vitro statement about cultured keratinocytes, not a human safety margin.">“1,000 µg/mL까지 비독성”은 배양 각질형성세포에 대한 in vitro 진술이며, 인체 안전역과 같지 않습니다.</li>
+            <li data-en="Human irritation results come from a cosmetic prototype in 21 volunteers and are reported on the clinical detail page.">인체 자극 결과는 제형을 사용한 21명 시험으로, 임상 상세 페이지에 정리했습니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="Test system">시험계</dt><dd>HaCaT</dd></div>
+          <div><dt data-en="Uptake labels">흡수 표지</dt><dd data-en="Protein label (2023) · lipid label (2024)">단백 표지(2023) · 지질 표지(2024)</dd></div>
+          <div><dt data-en="Cytotoxicity range">독성 범위</dt><dd>1–1,000 µg/mL · 24 h</dd></div>
+          <div><dt data-en="Method">방법</dt><dd data-en="Confocal · FACS · WST-1">공초점 · FACS · WST-1</dd></div>
+          <div><dt data-en="Test titles">시험 종수</dt><dd data-en="3">3종</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="section pubs-sec" id="publications">
+    <div class="wrap">
+      <div class="eyebrow" data-en="Peer-Reviewed Publications">공개 논문</div>
+      <h2 class="h2" data-en="Three papers, three DOIs">세 편의 논문, 세 개의 DOI</h2>
+      <p class="lead" data-en="The 35 test titles above are drawn from these three papers. Each is linked to its DOI so the record can be read at the publisher.">
+        위 35종 시험은 이 세 편의 논문에서 나온 것입니다. 각 논문은 DOI로 연결되어 출판사 기록에서 직접 확인할 수 있습니다.
+      </p>
+
+      <div class="pubs">
+        <article class="pub">
+          <div class="pub-yr">2023</div>
+          <div>
+            <h3 class="pub-t" data-en="Preventive and ameliorative effects of potato exosomes on UVB-induced photodamage in keratinocyte HaCaT cells">Preventive and ameliorative effects of potato exosomes on UVB-induced photodamage in keratinocyte HaCaT cells</h3>
+            <p class="pub-a">Lee Y, Jeong DY, Jeun YC, Choe H, Yang S.</p>
+            <p class="pub-j"><b>Molecular Medicine Reports</b> · 2023;28(3):167. <span data-en="Published 13 July 2023">2023년 7월 13일 게재</span></p>
+            <a class="pub-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">https://doi.org/10.3892/mmr.2023.13054<span class="arw" aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="pub-yr">2024</div>
+          <div>
+            <h3 class="pub-t" data-en="Potato-Derived Exosome Nanoparticles as Anti-Inflammation Agents">Potato-Derived Exosome Nanoparticles as Anti-Inflammation Agents</h3>
+            <p class="pub-a">Lee Y, Jeong DY, Yang S.</p>
+            <p class="pub-j"><b>Journal of Biomedical Research &amp; Environmental Sciences</b> · 2024;5(11):1511–1515. <span data-en="Published 25 November 2024">2024년 11월 25일 게재</span></p>
+            <a class="pub-doi" href="https://doi.org/10.37871/jbres2039" target="_blank" rel="noopener">https://doi.org/10.37871/jbres2039<span class="arw" aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="pub">
+          <div class="pub-yr">2025</div>
+          <div>
+            <h3 class="pub-t" data-en="Safety Profile of Solanum tuberosum-Derived Exosomes: Evidence from In Vitro Experiments and Human Skin Tests">Safety Profile of Solanum tuberosum-Derived Exosomes: Evidence from In Vitro Experiments and Human Skin Tests</h3>
+            <p class="pub-a">Lee Y, Mohamed RW, Yang S.</p>
+            <p class="pub-j"><b>Pharmaceuticals</b> · 2025;18(4):458. <span data-en="Published 24 March 2025">2025년 3월 24일 게재</span></p>
+            <a class="pub-doi" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">https://doi.org/10.3390/ph18040458<span class="arw" aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+
+      <p class="src" style="margin-top:22px;" data-en="* Bibliographic details follow each publisher's DOI record. The 2024 paper appears in the author's own summary list under a variant title; the published title is the one shown above.">
+        * 서지사항은 각 DOI의 출판사 기록을 기준으로 했습니다. 2024년 논문은 저자 정리 자료에서 제목 표기가 다르게 쓰인 경우가 있어, 게재된 제목을 그대로 적었습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- READING THE NUMBERS -->
+  <section class="common on-dark">
+    <div class="wrap">
+      <div class="eyebrow on-dark" data-en="Reading the numbers">수치를 읽는 기준</div>
+      <h2 class="h2" data-en="What these figures are, and what they are not">이 수치가 무엇이고, 무엇이 아닌지</h2>
+      <p class="lead" data-en="This page reports mechanism studies in cultured cells and isolated immune cells. A cell result is not a human efficacy result, and the wording used for products will be fixed after review.">
+        이 페이지는 배양세포와 분리 세포에서 진행한 기전 연구입니다. 세포 실험 결과는 인체 효능 결과가 아니며,
+        제품에 쓰는 문구는 심의를 거쳐 확정됩니다.
+      </p>
+      <ul class="common-list">
+        <li data-en="<b>Cell studies, not clinical results</b>Gene expression and viability changes measured in culture. Nothing here states that the same effect occurs in human skin."><b>세포 연구 · 임상 아님</b>배양 조건에서 측정한 유전자 발현과 생존율 변화입니다. 인체 피부에서 같은 효과가 나타난다고 말하지 않습니다.</li>
+        <li data-en="<b>µg/mL is protein added to medium</b>Concentrations refer to exosome protein added to the culture medium, not to the amount that reaches skin after application."><b>농도는 배양액 기준</b>µg/mL는 배양액에 넣은 엑소좀 단백량입니다. 제품 도포 후 피부에 도달하는 양과 같지 않습니다.</li>
+        <li data-en="<b>Mostly mRNA levels</b>Barrier, cytokine and MMP results are RT-PCR readings of mRNA normalised to GAPDH. Protein amounts and tissue-level change need separate verification."><b>대부분 mRNA 수준</b>장벽·사이토카인·MMP 결과는 GAPDH로 정규화한 mRNA 판독값입니다. 단백질 양과 조직 수준 변화는 별도 검증이 필요합니다.</li>
+        <li data-en="<b>Wording fixed after review</b>Product and communication wording may change under the Korean Cosmetics Act and advertising review. No drug, treatment or prevention claim is made."><b>표현은 심의 후 확정</b>화장품법과 표시·광고 심의에 따라 제품·커뮤니케이션 문구가 달라질 수 있습니다. 의약품 효능·치료·예방 표현은 사용하지 않습니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ctail">
+    <div class="wrap ctail-inner">
+      <a class="btn btn-dark" href="../index.html#evidence" data-lang-href="../index.html#evidence">
+        <span class="arw" aria-hidden="true">←</span><span data-en="Back to the Evidence Map">Evidence Map으로 돌아가기</span>
+      </a>
+      <a class="btn btn-line" href="clinical.html" data-lang-href="clinical.html">
+        <span data-en="Human-use study detail">인체적용 시험 상세 보기</span><span class="arw" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true"><span>N</span><i></i></span>
+          <span>
+            <span class="footer-name">NEXTAB</span>
+            <span class="footer-sub">POTATOSOME® · ALVORA LAB</span>
+          </span>
+        </div>
+        <div class="footer-tag">Science Behind.<br>Benefits First.</div>
+      </div>
+      <div class="footer-info">
+        <div data-en="<b>NEXTAB INC.</b>"><b>넥스탭 주식회사</b> · NEXTAB INC.</div>
+        <div data-en="CEO <b>Sanghwa Yang</b>">대표 <b>양상화</b></div>
+        <div data-en="Contact <a href='mailto:admin@nextab.co.kr'>admin@nextab.co.kr</a>">문의 <a href="mailto:admin@nextab.co.kr">admin@nextab.co.kr</a></div>
+        <nav class="footer-nav" aria-label="바닥글 메뉴" data-en-aria="Footer">
+          <a href="../index.html#technology" data-lang-href="../index.html#technology">Technology</a>
+          <a href="../index.html#evidence" data-lang-href="../index.html#evidence">Evidence</a>
+          <a href="../index.html#brand" data-lang-href="../index.html#brand">Brand</a>
+          <a href="../index.html#credentials" data-lang-href="../index.html#credentials">R&amp;D</a>
+          <a href="../index.html#contact" data-lang-href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="legal">
+      <p data-en="The cell-study figures on this page are taken from three peer-reviewed papers (2023, 2024, 2025) identified by DOI. They describe experiments in cultured cells and isolated immune cells and do not constitute a drug authorisation, a treatment claim or evidence of human efficacy. Full test conditions, antibodies, primers and raw data are available in the papers or from the corresponding author on request.">
+        본 페이지의 세포 연구 수치는 DOI로 식별되는 peer-reviewed 논문 3편(2023 · 2024 · 2025)에서 인용했습니다.
+        배양세포와 분리 면역세포에서 수행한 실험을 서술한 것으로, 의약품 허가나 치료 효능, 인체 효능의 근거가 되지 않습니다.
+        세부 시험 조건·시약·프라이머·원자료는 논문 또는 교신저자 요청으로 확인할 수 있습니다.
+      </p>
+      <p data-en="Efficacy and functional claims, and product labelling, will be finalised before launch in accordance with the Korean Cosmetics Act, the MFDS “Procedures for Functional Cosmetics Assessment” and the “Guidelines for Cosmetics Labelling and Advertising”. Values are reproduced as published; where a paper reports a range, the range is given.">
+        제품의 효능·기능성 표현과 표시사항은 출시 전 「화장품법」, 식약처 「기능성화장품 인정 절차」 및
+        「화장품 표시·광고 가이드라인」에 따라 확정됩니다. 수치는 논문에 보고된 값을 그대로 사용했으며,
+        범위로 보고된 경우 범위를 적었습니다.
+      </p>
+    </div>
+    <div class="copyright">
+      <span>© 2026 NEXTAB INC. All rights reserved.</span>
+      <span>Potatosome® · ALVORA LAB</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var header = document.getElementById('siteHeader');
+    var root = document.documentElement;
+
+    function onScroll() {
+      if (window.scrollY > 24) header.classList.add('is-scrolled');
+      else header.classList.remove('is-scrolled');
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ---------- language ---------- */
+    var STORE = 'alvora.lang';
+    var META = {
+      ko: {
+        title: '세포 연구 상세 | Potatosome® · ALVORA LAB',
+        desc: 'Potatosome®의 세포·ex vivo 연구 35종을 항염증·항산화·광노화·장벽·재생·침투 안전성 6개 카테고리로 정리했습니다. 2023·2024·2025년 peer-reviewed 논문 3편의 DOI와 시험 조건, 확인된 수치를 함께 제시합니다.',
+        ogTitle: '세포 연구 상세 | Potatosome® · ALVORA LAB',
+        ogDesc: 'in vitro · ex vivo 시험 35종, peer-reviewed 논문 3편, 1,000 µg/mL까지 비독성 — 세포 수준 기전 근거를 카테고리별로 정리했습니다.',
+        locale: 'ko_KR'
+      },
+      en: {
+        title: 'Cell-Study Detail | Potatosome® · ALVORA LAB',
+        desc: 'Thirty-five in vitro and ex vivo tests of Potatosome®, grouped into anti-inflammation, antioxidant, photoaging, barrier, regeneration and delivery-safety, with the DOI of each of three peer-reviewed papers and the conditions and figures each reports.',
+        ogTitle: 'Cell-Study Detail | Potatosome® · ALVORA LAB',
+        ogDesc: '35 in vitro and ex vivo test titles, 3 peer-reviewed papers, non-cytotoxic up to 1,000 µg/mL — the cell-level mechanism evidence by category.',
+        locale: 'en_US'
+      }
+    };
+    var lang = root.getAttribute('lang') === 'en' ? 'en' : 'ko';
+
+    function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+
+    function withLang(u, l) {
+      if (!u) return u;
+      if (l !== 'en') return u;
+      var i = u.indexOf('#'), base = i > -1 ? u.slice(0, i) : u, hash = i > -1 ? u.slice(i) : '';
+      return base + (base.indexOf('?') > -1 ? '&' : '?') + 'lang=en' + hash;
+    }
+    function syncLinks(l) {
+      each('a[data-lang-href]', function (a) {
+        a.setAttribute('href', withLang(a.getAttribute('data-lang-href'), l));
+      });
+    }
+
+    function apply(l) {
+      var en = l === 'en';
+
+      each('[data-en]', function (el) {
+        if (!el.hasAttribute('data-ko')) el.setAttribute('data-ko', el.innerHTML);
+        el.innerHTML = en ? el.getAttribute('data-en') : el.getAttribute('data-ko');
+      });
+      each('[data-en-aria]', function (el) {
+        if (!el.hasAttribute('data-ko-aria')) el.setAttribute('data-ko-aria', el.getAttribute('aria-label') || '');
+        el.setAttribute('aria-label', en ? el.getAttribute('data-en-aria') : el.getAttribute('data-ko-aria'));
+      });
+      each('[data-en-alt]', function (el) {
+        if (!el.hasAttribute('data-ko-alt')) el.setAttribute('data-ko-alt', el.getAttribute('alt') || '');
+        el.setAttribute('alt', en ? el.getAttribute('data-en-alt') : el.getAttribute('data-ko-alt'));
+      });
+
+      var m = META[l];
+      document.title = m.title;
+      var md = document.querySelector('meta[name="description"]');
+      if (md) md.setAttribute('content', m.desc);
+      var ot = document.querySelector('meta[property="og:title"]');
+      if (ot) ot.setAttribute('content', m.ogTitle);
+      var od = document.querySelector('meta[property="og:description"]');
+      if (od) od.setAttribute('content', m.ogDesc);
+      var ol = document.querySelector('meta[property="og:locale"]');
+      if (ol) ol.setAttribute('content', m.locale);
+
+      root.setAttribute('lang', en ? 'en' : 'ko');
+      each('[data-lang-btn]', function (b) {
+        b.setAttribute('aria-pressed', b.getAttribute('data-lang-btn') === l ? 'true' : 'false');
+      });
+      syncLinks(l);
+    }
+
+    function setLang(l, persist) {
+      lang = l === 'en' ? 'en' : 'ko';
+      apply(lang);
+      root.classList.toggle('lang-en', lang === 'en');
+      if (persist) {
+        try { localStorage.setItem(STORE, lang); } catch (e) {}
+      }
+      try {
+        var u = new URL(location.href);
+        if (lang === 'en') u.searchParams.set('lang', 'en');
+        else u.searchParams.delete('lang');
+        history.replaceState(null, '', u.pathname + u.search + u.hash);
+      } catch (e) {}
+    }
+
+    each('[data-lang-btn]', function (b) {
+      b.addEventListener('click', function () {
+        var next = b.getAttribute('data-lang-btn');
+        if (next !== lang) setLang(next, true);
+      });
+    });
+
+    try {
+      apply(lang);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      root.classList.add('lang-ready');
+    }
+  })();
+</script>
+</body>
+</html>
