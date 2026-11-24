@@ -1254,9 +1254,12 @@
       }
       var pm = ease(cut((t - MDELAY) / MDURA));
       var by = Y(MEAN_B), py = Y(MEAN_P);
-      parts.mean.setAttribute('d', 'M ' + g.x0 + ' ' + by + ' L ' + (g.x0 + dx * pm) + ' ' + (by + (py - by) * pm));
+      var tipX = g.x0 + dx * pm, tipY = by + (py - by) * pm;
+      parts.mean.setAttribute('d', 'M ' + g.x0 + ' ' + by + ' L ' + tipX + ' ' + tipY);
       parts.meanPost.setAttribute('opacity', cut((pm - 0.88) / 0.12).toFixed(3));
       parts.labP.setAttribute('opacity', cut((pm - 0.5) / 0.42).toFixed(3));
+      parts.labP.setAttribute('x', (tipX + g.rMean + g.fVal * 0.95).toFixed(2));
+      parts.labP.setAttribute('y', (tipY + g.fVal * 0.33).toFixed(2));
       parts.labP.textContent = pm >= 1 ? '32.2' : (MEAN_B + (MEAN_P - MEAN_B) * pm).toFixed(1);
     }
 
