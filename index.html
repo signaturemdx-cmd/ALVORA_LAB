@@ -250,7 +250,7 @@
   .hero {
     background: var(--forest-3);
     color: var(--ivory);
-    padding-top: calc(var(--nav-h) + 46px);
+    padding-top: calc(var(--nav-h) + 26px);
     padding-bottom: 0;
     position: relative;
     overflow: hidden;
@@ -267,7 +267,7 @@
     display: grid; grid-template-columns: minmax(0,1.06fr) minmax(0,.94fr);
     gap: clamp(24px, 4vw, 56px); align-items: center;
   }
-  .hero-copy { padding-block: clamp(28px, 5vw, 64px) clamp(40px, 6vw, 72px); }
+  .hero-copy { padding-block: clamp(20px, 2.6vw, 30px) clamp(28px, 3vw, 38px); }
   .hero-eyebrow {
     font-size: 10.5px; letter-spacing: .3em; color: var(--sage);
     text-transform: uppercase; display: flex; align-items: center; gap: 12px;
@@ -275,41 +275,40 @@
   }
   .hero-eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--gold); opacity: .8; }
   .hero h1 {
-    margin-top: 22px;
+    margin-top: 18px;
     animation: rise .9s .08s cubic-bezier(.22,.61,.36,1) both;
   }
-  .hero h1 .name {
+  .hero h1 .hero-h {
     display: block;
     font-family: var(--serif);
     font-weight: 300;
-    font-size: clamp(52px, 8.4vw, 96px);
-    line-height: 1.02;
-    letter-spacing: -.035em;
+    font-size: clamp(31px, 4.45vw, 53px);
+    line-height: 1.27;
+    letter-spacing: -.03em;
     color: #FBFAF4;
+    text-wrap: balance;
   }
-  .hero h1 .name sup {
-    font-size: .26em; vertical-align: super; letter-spacing: 0; color: var(--gold);
-    margin-left: 4px; top: -.1em; position: relative;
-  }
-  .hero h1 .tagline {
-    display: block; margin-top: 18px;
+  .hero h1 .hero-h-sub {
+    display: block; margin-top: 17px; max-width: 44ch;
     font-family: var(--sans); font-weight: 300;
-    font-size: clamp(17px, 2.05vw, 24px); line-height: 1.55;
-    color: #E3E1D4; letter-spacing: -.01em;
+    font-size: clamp(15px, 1.46vw, 18px); line-height: 1.72;
+    color: #D3D1C2; letter-spacing: -.004em;
   }
+  .hero h1 .hero-h-sub b { font-weight: 500; color: #F2EFE0; }
   .hero-lead {
     margin-top: 22px; max-width: 48ch;
     font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.85;
     color: #B9BFB2; font-weight: 300;
     animation: rise .9s .16s cubic-bezier(.22,.61,.36,1) both;
   }
+  .hero-lead b { font-weight: 500; color: #E8E6D8; }
   .hero-en {
-    margin-top: 20px; font-size: 10.5px; letter-spacing: .26em;
+    margin-top: 16px; font-size: 10.5px; letter-spacing: .26em;
     color: rgba(194,162,104,.85); text-transform: uppercase;
     animation: rise .9s .22s cubic-bezier(.22,.61,.36,1) both;
   }
   .hero-actions {
-    display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px;
+    display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px;
     animation: rise .9s .28s cubic-bezier(.22,.61,.36,1) both;
   }
   .btn {
@@ -334,14 +333,17 @@
 
   .hero-stats {
     border-top: 1px solid rgba(247,245,240,.12);
-    margin-top: clamp(8px, 2vw, 18px);
+    margin-top: clamp(8px, 1.4vw, 14px);
     display: grid; grid-template-columns: repeat(4, 1fr);
     animation: rise 1s .34s cubic-bezier(.22,.61,.36,1) both;
   }
   .hero-stats li {
-    padding: 26px 26px 30px 0;
+    padding: 22px 26px 26px 0;
     border-right: 1px solid rgba(247,245,240,.1);
   }
+  html.lang-en .hs-num small { margin-left: .3em; }
+  html.lang-en .hero h1 .hero-h { font-size: clamp(27px, 3.4vw, 40px); letter-spacing: -.025em; }
+  html.lang-en .hero-lead { max-width: 58ch; }
   .hero-stats li:last-child { border-right: 0; }
   .hero-stats li + li { padding-left: 26px; }
   .hs-num {
@@ -611,22 +613,35 @@
   /* ---------- contact ---------- */
   .contact { background: var(--ivory); }
   .inquiry-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
     background: var(--line); border-block: 1px solid var(--line);
     margin-top: clamp(34px, 4.5vw, 52px);
   }
-  .inquiry-grid > div { background: var(--ivory); padding: 30px 26px 32px; }
+  .inquiry-grid > div { background: var(--ivory); padding: 28px 24px 30px; display: flex; flex-direction: column; }
   .inq-n { font-size: 11px; letter-spacing: .18em; color: var(--gold-deep); font-weight: 500; }
-  .inq-t { font-family: var(--serif); font-size: clamp(19px, 1.9vw, 22px); color: var(--ink); margin-top: 12px; }
-  .inq-t small { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: .14em; color: var(--muted-2); margin-top: 6px; text-transform: uppercase; }
-  .inq-d { font-size: 13.5px; line-height: 1.8; color: var(--muted); margin-top: 12px; }
+  .inq-t { font-family: var(--serif); font-size: clamp(18px, 1.58vw, 21px); color: var(--ink); margin-top: 12px; line-height: 1.36; }
+  .inq-t small { display: block; font-family: var(--sans); font-size: 10.5px; letter-spacing: .13em; color: var(--muted-2); margin-top: 7px; text-transform: uppercase; line-height: 1.5; }
+  .inq-d { font-size: 13px; line-height: 1.78; color: var(--muted); margin-top: 12px; }
+  .inq-cta {
+    display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+    margin-top: auto; padding-top: 18px; font-size: 12.5px; letter-spacing: .02em;
+    color: var(--gold-deep); border-bottom: 1px solid rgba(156,124,68,.38); padding-bottom: 2px;
+    transition: color .25s, border-color .25s;
+  }
+  .inq-cta:hover { color: var(--forest); border-bottom-color: var(--forest); }
+  .inq-cta .arw { transition: transform .25s; }
+  .inq-cta:hover .arw { transform: translateX(3px); }
 
   .contact-panel {
     margin-top: clamp(36px, 4.5vw, 52px);
     background: var(--forest); color: #EDEBE1;
-    padding: clamp(28px, 4vw, 46px);
-    display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr);
-    gap: clamp(24px, 4vw, 48px); align-items: center;
+    padding: clamp(26px, 3.6vw, 46px);
+    display: grid; grid-template-columns: minmax(0,.86fr) minmax(0,1.14fr);
+    gap: clamp(26px, 3.6vw, 52px); align-items: start;
+  }
+  .cp-title {
+    font-family: var(--serif); font-size: clamp(21px, 2.3vw, 28px); line-height: 1.42;
+    letter-spacing: -.01em; color: #FBFAF4; margin-top: 14px;
   }
   .contact-panel .cp-k { font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
   .contact-mail {
@@ -640,6 +655,75 @@
   .cp-list li { font-size: 13px; color: #C6CCBE; padding: 10px 0; border-bottom: 1px solid rgba(247,245,240,.09); display: flex; gap: 10px; }
   .cp-list li::before { content: "—"; color: var(--gold); flex: none; }
   .cp-list-h { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #8E9789; margin-bottom: 6px; }
+  .cp-copy .cp-list { margin-top: 22px; }
+
+  /* ---------- quick B2B inquiry form ---------- */
+  .cf { display: grid; gap: 17px; margin: 0; }
+  .cf[hidden] { display: none; }
+  .cf-row { display: grid; gap: 8px; margin: 0; padding: 0; border: 0; min-width: 0; }
+  .cf-pair { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px; }
+  .cf-label {
+    display: block; padding: 0; font-size: 10.5px; letter-spacing: .17em; text-transform: uppercase;
+    color: #98A191; font-weight: 500;
+  }
+  .cf-label .req { color: var(--gold); margin-left: 3px; }
+  .cf-opt { text-transform: none; letter-spacing: .02em; font-size: 10.5px; color: #7E8779; font-weight: 400; }
+  .cf-chips { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+  .cf-chip {
+    position: relative; display: flex; align-items: center; gap: 9px;
+    padding: 11px 12px; border: 1px solid rgba(247,245,240,.18); border-radius: 2px;
+    font-size: 12.5px; line-height: 1.4; color: #D3D8CA; cursor: pointer;
+    transition: border-color .2s, background .2s, color .2s;
+  }
+  .cf-chip:hover { border-color: rgba(194,162,104,.55); }
+  .cf-chip input { position: absolute; width: 1px; height: 1px; opacity: 0; margin: 0; }
+  .cf-chip .dot {
+    width: 10px; height: 10px; border-radius: 50%; flex: none;
+    border: 1px solid rgba(247,245,240,.45); transition: border-color .2s, background .2s, box-shadow .2s;
+  }
+  .cf-chip.is-on { border-color: var(--gold); background: rgba(194,162,104,.13); color: #FFFDF4; }
+  .cf-chip.is-on .dot { border-color: var(--gold); background: var(--gold); box-shadow: inset 0 0 0 2.5px var(--forest); }
+  .cf-chip input:focus-visible + .dot { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .cf-chip input:focus-visible ~ span:last-child { color: #FFFDF4; }
+  .cf input[type="text"],
+  .cf input[type="email"],
+  .cf textarea {
+    width: 100%; font-family: var(--sans); font-size: 14px; line-height: 1.55; color: #F3F2E8;
+    background: rgba(247,245,240,.05); border: 1px solid rgba(247,245,240,.2); border-radius: 2px;
+    padding: 12px 13px; transition: border-color .2s, background .2s;
+  }
+  .cf input::placeholder, .cf textarea::placeholder { color: #78816F; }
+  .cf input:focus, .cf textarea:focus { outline: none; border-color: var(--gold); background: rgba(247,245,240,.08); }
+  .cf input[aria-invalid="true"] { border-color: #D9906C; }
+  .cf textarea { min-height: 74px; resize: vertical; }
+  .cf-err { font-size: 12.5px; line-height: 1.6; color: #EBA98B; margin: -4px 0 0; }
+  .cf-err[hidden] { display: none; }
+  .cf-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 2px; }
+  .cf-submit { cursor: pointer; font-family: var(--sans); }
+  .cf-submit[disabled] { opacity: .62; cursor: default; }
+  .cf-note { font-size: 11.5px; line-height: 1.7; color: #8B9484; max-width: 30ch; }
+
+  .cf-fallback {
+    display: none; margin-top: 4px; padding: 15px 16px 17px;
+    border: 1px solid rgba(194,162,104,.45); background: rgba(194,162,104,.09);
+  }
+  .cf-fallback.is-on { display: block; }
+  .cf-fallback .ff-k { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+  .cf-fallback p { font-size: 12.5px; line-height: 1.75; color: #CBD1C3; margin-top: 8px; }
+  .ff-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .ff-actions .btn { padding: 10px 15px; font-size: 12px; cursor: pointer; font-family: var(--sans); }
+  .ff-actions .btn.is-copied { color: var(--gold); border-color: rgba(194,162,104,.75); }
+  .ff-status { font-size: 11.5px; line-height: 1.6; color: #A9B3A0; margin-top: 10px; min-height: 1em; }
+
+  .cf-done { display: none; padding: 6px 2px; }
+  .cf-done.is-on { display: block; }
+  .cf-done .cd-mark {
+    width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(194,162,104,.6);
+    display: grid; place-items: center; color: var(--gold); font-size: 15px;
+  }
+  .cf-done .cd-t { font-family: var(--serif); font-size: clamp(19px, 2vw, 24px); line-height: 1.45; color: #FBFAF4; margin-top: 16px; }
+  .cf-done p { font-size: 13px; line-height: 1.8; color: #B7BFB2; margin-top: 10px; }
+  .cf-done a { border-bottom: 1px solid rgba(194,162,104,.5); color: #FBFAF4; }
 
   /* ---------- QR share ---------- */
   .share { background: var(--ivory); border-top: 1px solid var(--line); padding-block: clamp(52px, 6.5vw, 82px); }
@@ -750,7 +834,7 @@
     .product-media { max-width: 460px; }
     .principles { grid-template-columns: 1fr; }
     .founder { grid-template-columns: 1fr; }
-    .inquiry-grid { grid-template-columns: 1fr; }
+    .inquiry-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-panel { grid-template-columns: 1fr; }
     .share-panel { grid-template-columns: 1fr; gap: 28px; }
     .qr-frame { justify-self: start; width: clamp(198px, 46vw, 250px); }
@@ -767,11 +851,20 @@
     body { font-size: 15.5px; }
     .hero { padding-top: calc(var(--nav-h) + 26px); }
     .hero-visual { max-width: 300px; margin-top: 6px; }
-    .hero-stats { grid-template-columns: 1fr; }
-    .hero-stats li { padding: 18px 0; border-right: 0; border-bottom: 1px solid rgba(247,245,240,.1); }
-    .hero-stats li + li { padding-left: 0; }
-    .hero-stats li:last-child { border-bottom: 0; }
-    .hs-num { font-size: 24px; }
+    .hero-stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .hero-stats li, .hero-stats li + li {
+      padding: 16px 12px 18px 0; border-right: 1px solid rgba(247,245,240,.1);
+      border-bottom: 1px solid rgba(247,245,240,.1);
+    }
+    .hero-stats li:nth-child(even) { padding-left: 12px; padding-right: 0; border-right: 0; }
+    .hero-stats li:nth-child(odd) { padding-left: 0; }
+    .hero-stats li:nth-last-child(-n+2) { border-bottom: 0; }
+    .hs-num { font-size: 23px; }
+    .inquiry-grid { grid-template-columns: 1fr; }
+    .cf-chips { grid-template-columns: 1fr; }
+    .cf-pair { grid-template-columns: 1fr; }
+    .contact-panel { padding: 22px 20px 26px; }
+    .cf-note { max-width: none; }
     .hero-actions .btn { flex: 1 1 100%; }
     .eyebrow { font-size: 10.5px; letter-spacing: .18em; }
     .spec-grid { grid-template-columns: 1fr; border-top: 1px solid var(--line); }
@@ -856,7 +949,7 @@
   <a href="#evidence" data-en="Evidence <small>02</small>">근거 <small>02 EVIDENCE</small></a>
   <a href="#brand" data-en="Brand <small>03</small>">브랜드 <small>03 BRAND</small></a>
   <a href="#credentials" data-en="R&amp;D <small>04</small>">연구·인증 <small>04 R&amp;D</small></a>
-  <a class="mm-contact" href="#contact" data-en="Ingredient, co-development &amp; investment inquiries →">원료·공동개발·투자 문의 →</a>
+  <a class="mm-contact" href="#contact" data-en="Ingredient, finished product, co-development &amp; investment →">원료·완제품·공동개발·투자 문의 →</a>
 </div>
 
 <main id="main">
@@ -864,19 +957,19 @@
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-copy">
-          <div class="hero-eyebrow">Plant Exosome Platform · Since 2021</div>
+          <div class="hero-eyebrow">Potatosome® · ALVORA LAB</div>
           <h1>
-            <span class="name">Potatosome<sup>®</sup></span>
-            <span class="tagline" data-en="Plant exosomes isolated<br>directly from potato">감자에서 직접 분리한<br>식물 엑소좀 원료</span>
+            <span class="hero-h" data-en="Recurring inflammation and<br>a compromised skin barrier,">민감성 피부의 반복되는 염증과<br>무너진 장벽,</span>
+            <span class="hero-h-sub" data-en="Address both at once to manage <b>chronic inflammatory skin conditions</b>.">두 축을 함께 잡아야 <b>만성 염증성 피부 컨디션</b>(Chronic Inflammatory Skin Condition)을 관리할 수 있습니다.</span>
           </h1>
-          <p class="hero-lead" data-en="NEXTAB registers extracellular vesicles isolated from plant tissue as a cosmetic ingredient, then builds a finished-product brand from that ingredient. We are a biocosmetics company that runs one continuous line from ingredient to brand.">
-            넥스탭은 식물 조직에서 분리한 세포외소포를 화장품 원료로 등재하고, 그 원료로 완제품 브랜드를 만듭니다.
-            원료에서 브랜드까지 한 줄로 잇는 바이오코스메틱 기업입니다.
+          <p class="hero-lead" data-en="NEXTAB's plant-exosome ingredient <b>Potatosome®</b> lowers inflammatory signals and wakes barrier proteins at once — then delivers it two ways: as bulk ingredient, and as finished products from the derma brand <b>ALVORA LAB</b>. Ingredient supply, finished-product distribution and co-development all come through one desk.">
+            넥스탭은 식물 엑소좀 원료 <b>Potatosome®</b>으로 염증 신호를 낮추고 장벽 단백질을 깨우는 동시에,
+            이를 완제품 브랜드 <b>ALVORA LAB</b>으로 구현해 원료 공급과 완제품 유통·공동개발을 한 번에 제공합니다.
           </p>
           <div class="hero-en">Evidence-based BioCosmetics · Science Behind. Benefits First.</div>
           <div class="hero-actions">
-            <a class="btn btn-gold" href="#contact" data-en="Ingredient &amp; co-development inquiries <span class=&quot;arw&quot; aria-hidden=&quot;true&quot;>→</span>">원료·공동개발 문의 <span class="arw" aria-hidden="true">→</span></a>
-            <a class="btn btn-ghost" href="#brand" data-en="Explore ALVORA LAB">ALVORA LAB 보기</a>
+            <a class="btn btn-gold" href="#contact" data-en="Apply for ingredient &amp; finished-product B2B consultation <span class='arw' aria-hidden='true'>→</span>">원료·완제품 B2B 상담 신청 <span class="arw" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#evidence" data-en="See clinical &amp; cell evidence">임상·세포 근거 보기</a>
           </div>
         </div>
 
@@ -934,20 +1027,20 @@
 
       <ul class="hero-stats">
         <li>
-          <div class="hs-num">66 <small>± 0.74 nm</small></div>
-          <div class="hs-cap" data-en="Mean particle size<br>3 samples reported in publication">평균 입자 크기<br>논문 보고 3개 시료</div>
+          <div class="hs-num">3<small data-en="papers">편</small></div>
+          <div class="hs-cap" data-en="Peer-reviewed papers<br>2023 · 2024 · 2025">국제논문<br>2023 · 2024 · 2025</div>
         </li>
         <li>
-          <div class="hs-num">&gt;98<small>%</small></div>
-          <div class="hs-cap" data-en="Particle purity">입자 순도</div>
+          <div class="hs-num">35<small data-en="tests">종</small></div>
+          <div class="hs-cap" data-en="Cell &amp; tissue tests<br>6 categories">세포·조직 시험<br>6개 카테고리</div>
+        </li>
+        <li>
+          <div class="hs-num">4<small data-en="studies">종</small></div>
+          <div class="hs-cap" data-en="Human-use studies<br>21 subjects in total">인체적용 시험<br>총 21명</div>
         </li>
         <li>
           <div class="hs-num">4<small data-en="markets">개국</small></div>
           <div class="hs-cap" data-en="Ingredient name registered<br>INCI · NMPA · JCIA · KCA">원료명 등재<br>INCI · NMPA · JCIA · KCA</div>
-        </li>
-        <li>
-          <div class="hs-num">3<small data-en="papers">편</small></div>
-          <div class="hs-cap" data-en="Peer-reviewed papers<br>2023 · 2024 · 2025">국제논문<br>2023 · 2024 · 2025</div>
         </li>
       </ul>
     </div>
@@ -1360,10 +1453,10 @@
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">05 &nbsp;B2B &amp; Investment</div>
-        <h2 class="h2" data-en="Ingredient supply · Co-development · Investment">원료 공급 · 공동개발 · 투자 문의</h2>
-        <p class="lead" data-en="Requests for ingredient samples and specifications, formulation co-development, and investment or strategic partnership all come through one desk. We reply within business days after review.">
-          원료 샘플과 규격서 요청, 제형 공동개발, 투자·전략적 제휴 모두 같은 창구로 받습니다.
-          검토 후 영업일 기준으로 회신드립니다.
+        <h2 class="h2" data-en="From ingredient to finished product,<br>through one desk">원료에서 완제품까지,<br>한 창구에서</h2>
+        <p class="lead" data-en="Bulk Potatosome®, ALVORA LAB finished-product wholesale and distribution, ODM co-development, investment and partnership. Pick a track, leave a contact, and we reply within business days.">
+          Potatosome® 벌크 원료, ALVORA LAB 완제품 도매·총판, ODM 공동개발, 투자·전략적 제휴.
+          관심 분야를 고르고 연락처만 남기면 영업일 기준으로 회신드립니다.
         </p>
       </div>
 
@@ -1371,46 +1464,114 @@
         <div>
           <div class="inq-n">01</div>
           <div class="inq-t" data-en="Ingredient supply<small>Potatosome®</small>">원료 공급<small>Ingredient Supply</small></div>
-          <p class="inq-d" data-en="Bulk supply of Potatosome®. Specification, safety documentation and registration evidence provided; samples and MOQ by agreement. Manufacturers, ODM companies and brands are all welcome to inquire.">
-            Potatosome® 벌크 공급. 규격서·안전성 자료·등재 근거 제공, 샘플과 MOQ 협의.
-            화장품 제조사·ODM사·브랜드사 모두 문의 가능합니다.
+          <p class="inq-d" data-en="Bulk Potatosome® for cosmetics manufacturers, ODM companies and brands. Specification, safety and registration documentation; samples and MOQ by agreement.">
+            화장품 제조사·ODM·브랜드사 대상 Potatosome® 벌크 원료.
+            규격서·안전성·등재 자료 제공, 샘플·MOQ 협의.
           </p>
+          <a class="inq-cta" href="#contact" data-interest="ingredient" data-en="Ask on this track <span class='arw' aria-hidden='true'>→</span>">이 트랙으로 상담 <span class="arw" aria-hidden="true">→</span></a>
         </div>
         <div>
           <div class="inq-n">02</div>
-          <div class="inq-t" data-en="Co-development<small>Formulation · ODM</small>">공동개발<small>Co-development</small></div>
-          <p class="inq-d" data-en="Formulation development and ODM partnership. Apply Potatosome® to an existing line, or design a new product around a barrier-care concept together.">
-            제형 개발과 ODM 파트너십. 기존 라인에 Potatosome®을 적용하거나,
-            장벽 케어 컨셉의 신제품을 함께 설계합니다.
+          <div class="inq-t" data-en="Finished-product distribution<small>ALVORA LAB</small>">완제품 유통·판매<small>ALVORA LAB</small></div>
+          <p class="inq-d" data-en="The 66 nm plant-exosome ampoule as a finished product: domestic and overseas online and offline distribution, master-distributor agreements and B2B wholesale supply.">
+            검증된 66 nm 식물 엑소좀 앰플 완제품의 국내외 온·오프라인 유통,
+            총판, B2B 도매 공급.
           </p>
+          <a class="inq-cta" href="#contact" data-interest="product" data-en="Ask on this track <span class='arw' aria-hidden='true'>→</span>">이 트랙으로 상담 <span class="arw" aria-hidden="true">→</span></a>
         </div>
         <div>
           <div class="inq-n">03</div>
-          <div class="inq-t" data-en="Investment<small>Strategic partnership</small>">투자·제휴<small>Investment</small></div>
-          <p class="inq-d" data-en="Investment review and strategic partnership inquiries. The company overview, business plan and investor materials are provided separately on request.">
-            투자 검토 및 전략적 제휴 문의. 회사 개요와 사업 계획, 투자 검토용 자료는
-            요청 후 별도로 제공합니다.
+          <div class="inq-t" data-en="Co-development<small>Formulation · ODM</small>">공동개발<small>Formulation · ODM</small></div>
+          <p class="inq-d" data-en="Apply Potatosome® to an existing line, or plan a new sensitive- and barrier-care product together — from concept to formulation and pilot production.">
+            기존 라인업에 Potatosome®을 적용하거나,
+            민감·장벽 케어 신제품을 함께 기획합니다.
           </p>
+          <a class="inq-cta" href="#contact" data-interest="codev" data-en="Ask on this track <span class='arw' aria-hidden='true'>→</span>">이 트랙으로 상담 <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+        <div>
+          <div class="inq-n">04</div>
+          <div class="inq-t" data-en="Investment &amp; partnership<small>Investment</small>">투자·전략적 제휴<small>Investment</small></div>
+          <p class="inq-d" data-en="Investment review and strategic partnership. Company overview, business plan and IR materials are sent separately after a short review.">
+            투자 검토와 전략적 제휴. 회사 개요·사업 계획·IR 자료는
+            간단한 검토 후 별도로 보내드립니다.
+          </p>
+          <a class="inq-cta" href="#contact" data-interest="invest" data-en="Ask on this track <span class='arw' aria-hidden='true'>→</span>">이 트랙으로 상담 <span class="arw" aria-hidden="true">→</span></a>
         </div>
       </div>
 
-      <div class="contact-panel">
-        <div>
-          <div class="cp-k">Contact</div>
-          <a class="contact-mail" href="mailto:exosomekorea@gmail.com">exosomekorea@gmail.com</a>
-          <p class="cp-note" data-en="NEXTAB INC. · CEO Chris Paul<br>Adding the type of inquiry to your subject line helps us route it faster.">
-            넥스탭 주식회사 · 대표 Chris Paul<br>
-            메일 제목에 문의 유형을 적어주시면 담당 검토가 빠릅니다.
+      <div class="contact-panel" id="inquiry">
+        <div class="cp-copy">
+          <div class="cp-k">Quick B2B Inquiry</div>
+          <h3 class="cp-title" data-en="Four fields, ten seconds.">네 칸, 10초면 충분합니다</h3>
+          <p class="cp-note" data-en="Choose a track and leave a company name and a reply address. We ask only for the documents we need after review.">
+            관심 분야를 고르고 회사명과 회신처만 남겨주세요. 자료는 검토 후 필요한 것만 요청드립니다.
           </p>
-        </div>
-        <div>
-          <div class="cp-list-h" data-en="Helpful details to include">함께 보내주시면 좋은 내용</div>
+          <a class="contact-mail" href="mailto:exosomekorea@gmail.com">exosomekorea@gmail.com</a>
+          <p class="cp-note" data-en="NEXTAB INC. · CEO Chris Paul<br>Prefer email? Writing to the address above reaches the same desk.">
+            넥스탭 주식회사 · 대표 Chris Paul<br>
+            메일이 편하시면 위 주소로 보내셔도 같은 창구로 접수됩니다.
+          </p>
           <ul class="cp-list">
-            <li data-en="Your company, affiliation and contact details">회사·소속과 담당자 연락처</li>
-            <li data-en="Area of interest (ingredient supply / co-development / investment)">관심 분야 (원료 공급 / 공동개발 / 투자)</li>
-            <li data-en="Expected volume, scale and timeline">예상 수량·규모와 일정</li>
-            <li data-en="Target product or purpose of review">적용 제품 또는 검토 목적</li>
+            <li data-en="Ingredient — specification, safety data, sample and MOQ">원료 — 규격서·안전성 자료·샘플·MOQ</li>
+            <li data-en="Finished product — wholesale price, MOQ, territory, channel">완제품 — 도매가·MOQ·유통 지역·채널</li>
+            <li data-en="Co-development — target format, concept and schedule">공동개발 — 목표 제형·컨셉·일정</li>
+            <li data-en="Investment — materials after a short review">투자 — 간단한 검토 후 자료 송부</li>
           </ul>
+        </div>
+
+        <div class="cp-form">
+          <form class="cf" id="b2bForm" novalidate>
+            <fieldset class="cf-row">
+              <legend class="cf-label" data-en="Area of interest <span class='cf-opt'>(optional)</span>">관심 분야 <span class="cf-opt">(선택)</span></legend>
+              <div class="cf-chips">
+                <label class="cf-chip"><input type="radio" name="interest" value="ingredient" data-key="ingredient" data-v-ko="원료 공급 (Potatosome®)" data-v-en="Ingredient supply (Potatosome®)"><span class="dot" aria-hidden="true"></span><span data-en="Ingredient supply (Potatosome®)">원료 공급 (Potatosome®)</span></label>
+                <label class="cf-chip"><input type="radio" name="interest" value="product" data-key="product" data-v-ko="완제품 유통·판매 (ALVORA LAB)" data-v-en="Finished-product distribution"><span class="dot" aria-hidden="true"></span><span data-en="Finished-product distribution">완제품 유통·판매 (ALVORA LAB)</span></label>
+                <label class="cf-chip"><input type="radio" name="interest" value="codev" data-key="codev" data-v-ko="공동개발·ODM" data-v-en="Co-development · ODM"><span class="dot" aria-hidden="true"></span><span data-en="Co-development · ODM">공동개발·ODM</span></label>
+                <label class="cf-chip"><input type="radio" name="interest" value="invest" data-key="invest" data-v-ko="투자·제휴" data-v-en="Investment · Partnership"><span class="dot" aria-hidden="true"></span><span data-en="Investment · Partnership">투자·제휴</span></label>
+              </div>
+            </fieldset>
+
+            <div class="cf-pair">
+              <div class="cf-row">
+                <label class="cf-label" for="cfCompany" data-en="Company · Contact name">회사명 · 담당자명</label>
+                <input id="cfCompany" name="company" type="text" autocomplete="organization" placeholder="예) ○○코스메틱 / 김○○" data-en-ph="e.g. ○○ Cosmetics / Jane Kim">
+              </div>
+
+              <div class="cf-row">
+                <label class="cf-label" for="cfReply" data-en="Reply email or phone <span class='req' aria-hidden='true'>*</span>">회신 받을 이메일 또는 연락처 <span class="req" aria-hidden="true">*</span></label>
+                <input id="cfReply" name="reply" type="text" inputmode="email" autocomplete="email" aria-required="true" aria-describedby="cfErr" placeholder="이메일 또는 전화번호" data-en-ph="Email address or phone number">
+              </div>
+            </div>
+
+            <div class="cf-row">
+              <label class="cf-label" for="cfMsg" data-en="Message <span class='cf-opt'>(optional)</span>">문의 내용 <span class="cf-opt">(선택)</span></label>
+              <textarea id="cfMsg" name="message" rows="3" placeholder="예) 완제품 총판 문의 — MOQ와 견적서 요청" data-en-ph="e.g. Distribution inquiry — MOQ and quotation"></textarea>
+            </div>
+
+            <p class="cf-err" id="cfErr" role="alert" hidden></p>
+
+            <div class="cf-actions">
+              <button class="btn btn-gold cf-submit" type="submit" id="cfSubmit" data-en="Send inquiry <span class='arw' aria-hidden='true'>→</span>">상담 신청 보내기 <span class="arw" aria-hidden="true">→</span></button>
+              <span class="cf-note" data-en="Your details are used only to reply to this inquiry.">입력하신 정보는 회신 목적으로만 사용합니다.</span>
+            </div>
+
+            <div class="cf-fallback" id="cfFallback" hidden aria-live="polite">
+              <div class="ff-k" data-en="Send another way">다른 방법으로 보내기</div>
+              <p id="ffMsg" data-en="Automatic submission did not complete. Either option below sends the same details right away.">자동 접수가 완료되지 않았습니다. 아래 두 방법 중 하나로 같은 내용을 바로 보낼 수 있습니다.</p>
+              <div class="ff-actions">
+                <a class="btn btn-gold" id="cfMailto" href="mailto:exosomekorea@gmail.com" data-en="Open in my mail app <span class='arw' aria-hidden='true'>→</span>">메일 앱으로 바로 보내기 <span class="arw" aria-hidden="true">→</span></a>
+                <button class="btn btn-ghost" type="button" id="cfCopy"><span id="cfCopyLabel" data-en="Copy all details">문의 내용 한 번에 복사</span></button>
+              </div>
+              <p class="ff-status" id="cfCopyStatus" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <div class="cf-done" id="cfDone" hidden tabindex="-1">
+            <div class="cd-mark" aria-hidden="true">✓</div>
+            <div class="cd-t" data-en="Received.">접수되었습니다.</div>
+            <p data-en="Your inquiry has been sent to exosomekorea@gmail.com and we will reply within business days.">exosomekorea@gmail.com으로 전달되어 영업일 기준 회신드립니다.</p>
+            <p data-en="Need to add something? Write to <a href='mailto:exosomekorea@gmail.com'>exosomekorea@gmail.com</a>.">추가하실 내용이 있으면 <a href="mailto:exosomekorea@gmail.com">exosomekorea@gmail.com</a>으로 보내주세요.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1602,6 +1763,10 @@
         if (!el.hasAttribute('data-ko-label')) el.setAttribute('data-ko-label', el.getAttribute('data-label') || '');
         el.setAttribute('data-label', en ? el.getAttribute('data-en-label') : el.getAttribute('data-ko-label'));
       });
+      each('[data-en-ph]', function (el) {
+        if (!el.hasAttribute('data-ko-ph')) el.setAttribute('data-ko-ph', el.getAttribute('placeholder') || '');
+        el.setAttribute('placeholder', en ? el.getAttribute('data-en-ph') : el.getAttribute('data-ko-ph'));
+      });
 
       var m = META[l];
       document.title = m.title;
@@ -1717,6 +1882,248 @@
         show(legacyCopy());
       }
     });
+  })();
+</script>
+<script>
+  /* Quick B2B inquiry form: FormSubmit AJAX first, then a mailto / copy fallback */
+  (function () {
+    var form = document.getElementById('b2bForm');
+    if (!form) return;
+
+    var ENDPOINT = 'https://formsubmit.co/ajax/exosomekorea@gmail.com';
+    var TO = 'exosomekorea@gmail.com';
+    var company = document.getElementById('cfCompany');
+    var reply = document.getElementById('cfReply');
+    var message = document.getElementById('cfMsg');
+    var errBox = document.getElementById('cfErr');
+    var btn = document.getElementById('cfSubmit');
+    var fb = document.getElementById('cfFallback');
+    var fbMsg = document.getElementById('ffMsg');
+    var mailto = document.getElementById('cfMailto');
+    var copyBtn = document.getElementById('cfCopy');
+    var copyStatus = document.getElementById('cfCopyStatus');
+    var done = document.getElementById('cfDone');
+    var chips = Array.prototype.slice.call(form.querySelectorAll('.cf-chip'));
+    var state = { busy: false, msg: '', copied: '' };
+
+    var T = {
+      ko: {
+        errRequired: '회신 받을 이메일 또는 연락처를 입력해 주세요.',
+        errFormat: '이메일 형식이나 전화번호를 한 번 더 확인해 주세요.',
+        sending: '보내는 중…',
+        send: '상담 신청 보내기',
+        subject: '[ALVORA LAB B2B] 상담 신청',
+        fail: '자동 접수가 완료되지 않았습니다. 아래 두 방법 중 하나로 같은 내용을 바로 보낼 수 있습니다.',
+        net: '네트워크 연결이 막혀 자동 접수가 완료되지 않았습니다. 아래 두 방법 중 하나로 바로 보내주세요.',
+        copied: '복사되었습니다. 메일 본문에 붙여넣어 주세요.',
+        copyFail: '복사하지 못했습니다. 위 메일 주소로 직접 보내주세요.',
+        none: '미지정',
+        blank: '—',
+        fInterest: '관심 분야',
+        fCompany: '회사·담당자',
+        fReply: '회신처',
+        fMessage: '문의 내용',
+        from: 'ALVORA LAB 웹사이트 상담 폼에서 보냄'
+      },
+      en: {
+        errRequired: 'Please enter an email address or phone number.',
+        errFormat: 'Please check the email address or phone number.',
+        sending: 'Sending…',
+        send: 'Send inquiry',
+        subject: '[ALVORA LAB B2B] Inquiry',
+        fail: 'Automatic submission did not complete. Either option below sends the same details right away.',
+        net: 'The network blocked the automatic submission. Please use either option below.',
+        copied: 'Copied. Paste it into your email.',
+        copyFail: 'Could not copy. Please write to the address above.',
+        none: 'Not specified',
+        blank: '—',
+        fInterest: 'Interest',
+        fCompany: 'Company / contact',
+        fReply: 'Reply to',
+        fMessage: 'Message',
+        from: 'Sent from the ALVORA LAB website inquiry form'
+      }
+    };
+
+    function lang() { return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'ko'; }
+    function t() { return T[lang()]; }
+
+    function checkedChip() {
+      var input = form.querySelector('input[name="interest"]:checked');
+      if (!input) return null;
+      var label = lang() === 'en' ? (input.getAttribute('data-v-en') || input.value) : (input.getAttribute('data-v-ko') || input.value);
+      return { key: input.getAttribute('data-key'), label: label };
+    }
+    function syncChips() {
+      chips.forEach(function (c) {
+        var input = c.querySelector('input');
+        c.classList.toggle('is-on', !!(input && input.checked));
+      });
+    }
+    function summary() {
+      var c = checkedChip(), d = t();
+      return [
+        d.fInterest + ': ' + (c ? c.label : d.none),
+        d.fCompany + ': ' + (company.value.trim() || d.blank),
+        d.fReply + ': ' + (reply.value.trim() || d.blank),
+        d.fMessage + ': ' + (message.value.trim() || d.blank)
+      ].join('\n') + '\n\n' + d.from + ': ' + location.href.split('#')[0];
+    }
+    function mailtoHref() {
+      var c = checkedChip();
+      var subj = t().subject + (c ? ' — ' + c.label : '');
+      return 'mailto:' + TO + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(summary());
+    }
+    function payload() {
+      var c = checkedChip();
+      return {
+        _subject: t().subject + (c ? ' — ' + c.label : ''),
+        _template: 'table',
+        _captcha: 'false',
+        Interest: c ? c.label : '-',
+        'Company / contact': company.value.trim() || '-',
+        'Reply to': reply.value.trim(),
+        Message: message.value.trim() || '-',
+        Language: lang(),
+        Page: location.href.split('#')[0]
+      };
+    }
+
+    function showErr(key) {
+      if (!key) {
+        errBox.hidden = true;
+        errBox.textContent = '';
+        reply.removeAttribute('aria-invalid');
+        return;
+      }
+      errBox.textContent = t()[key];
+      errBox.hidden = false;
+      reply.setAttribute('aria-invalid', 'true');
+    }
+    function validate() {
+      var v = reply.value.trim();
+      if (!v) return 'errRequired';
+      var isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+      var digits = v.replace(/[^0-9]/g, '');
+      var isPhone = /^[+0-9()\-\s.]+$/.test(v) && digits.length >= 9 && digits.length <= 13;
+      return (isEmail || isPhone) ? '' : 'errFormat';
+    }
+    function setBusy(on) {
+      state.busy = on;
+      btn.disabled = on;
+      btn.innerHTML = on ? t().sending : t().send + ' <span class="arw" aria-hidden="true">→</span>';
+    }
+    function onDone() {
+      setBusy(false);
+      form.hidden = true;
+      fb.hidden = true;
+      fb.classList.remove('is-on');
+      done.hidden = false;
+      done.classList.add('is-on');
+      try { done.focus(); } catch (e) {}
+    }
+    function renderFb() {
+      if (state.msg) fbMsg.textContent = t()[state.msg];
+    }
+    function onFail(kind) {
+      setBusy(false);
+      state.msg = kind;
+      renderFb();
+      mailto.setAttribute('href', mailtoHref());
+      fb.hidden = false;
+      fb.classList.add('is-on');
+      try { fb.scrollIntoView({ block: 'nearest' }); } catch (e) {}
+    }
+
+    chips.forEach(function (c) {
+      var input = c.querySelector('input');
+      if (input) input.addEventListener('change', syncChips);
+    });
+
+    /* the track cards preselect the matching chip before scrolling down */
+    Array.prototype.forEach.call(document.querySelectorAll('.inq-cta[data-interest]'), function (a) {
+      a.addEventListener('click', function () {
+        var key = a.getAttribute('data-interest');
+        var input = form.querySelector('input[name="interest"][data-key="' + key + '"]');
+        if (input) { input.checked = true; syncChips(); }
+        showErr('');
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (state.busy) return;
+      var bad = validate();
+      showErr(bad);
+      if (bad) {
+        try { reply.focus(); } catch (e2) {}
+        return;
+      }
+      setBusy(true);
+      state.msg = '';
+      fb.hidden = true;
+      fb.classList.remove('is-on');
+      copyStatus.textContent = '';
+
+      var ctrl = ('AbortController' in window) ? new AbortController() : null;
+      var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 14000) : null;
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload()),
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      }).then(function (data) {
+        var ok = data && (data.success === true || String(data.success).toLowerCase() === 'true');
+        if (!ok) throw new Error('Not accepted');
+        onDone();
+      }).catch(function (err) {
+        var net = err && (err.name === 'AbortError' || /fetch|network|load failed|http/i.test(String(err.message)));
+        onFail(net ? 'net' : 'fail');
+      }).then(function () {
+        if (timer) clearTimeout(timer);
+      });
+    });
+
+    function legacyCopy(text) {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      } catch (e) { return false; }
+    }
+    copyBtn.addEventListener('click', function () {
+      var text = summary();
+      function finish(ok) {
+        state.copied = ok ? 'copied' : 'copyFail';
+        copyStatus.textContent = t()[state.copied];
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { finish(true); }, function () { finish(legacyCopy(text)); });
+      } else {
+        finish(legacyCopy(text));
+      }
+    });
+
+    if (window.MutationObserver) {
+      new MutationObserver(function () {
+        renderFb();
+        if (state.copied) copyStatus.textContent = t()[state.copied];
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    }
+
+    syncChips();
   })();
 </script>
 </body>
