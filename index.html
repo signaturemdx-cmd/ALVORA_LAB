@@ -641,6 +641,46 @@
   .cp-list li::before { content: "—"; color: var(--gold); flex: none; }
   .cp-list-h { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #8E9789; margin-bottom: 6px; }
 
+  /* ---------- QR share ---------- */
+  .share { background: var(--ivory); border-top: 1px solid var(--line); padding-block: clamp(52px, 6.5vw, 82px); }
+  .share-panel {
+    margin-top: 0;
+    background: var(--forest); color: #EDEBE1;
+    padding: clamp(26px, 3.6vw, 46px);
+    display: grid; grid-template-columns: minmax(0,1fr) auto;
+    gap: clamp(26px, 4vw, 56px); align-items: center;
+  }
+  .share-copy .sp-k { font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+  .share-copy h3 {
+    font-family: var(--serif); font-size: clamp(21px, 2.4vw, 29px); line-height: 1.42;
+    letter-spacing: -.01em; color: #FBFAF4; margin-top: 12px;
+  }
+  .share-copy p { font-size: 13.5px; line-height: 1.85; color: #AEB6A7; margin-top: 12px; max-width: 48ch; }
+  .share-url {
+    display: inline-block; margin-top: 17px; font-size: 12.5px; letter-spacing: .01em;
+    color: #DEDCD1; border-bottom: 1px solid rgba(194,162,104,.42); padding-bottom: 3px;
+    word-break: break-all;
+  }
+  .share-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .share-actions .btn { padding: 12px 20px; font-size: 12.5px; cursor: pointer; }
+  .share-actions button.btn {
+    background: none; -webkit-appearance: none; appearance: none;
+    font-family: var(--sans); font-weight: 400; letter-spacing: .04em;
+  }
+  .share-actions button.btn.is-copied { color: var(--gold); border-color: rgba(194,162,104,.75); }
+  .share-actions .btn .arw { font-size: 12px; }
+  .share-actions .btn.is-copied { background: transparent; color: var(--gold); border-color: rgba(194,162,104,.7); }
+  .qr-frame {
+    justify-self: end; width: clamp(198px, 22vw, 262px);
+    background: #FFF; padding: clamp(11px, 1.3vw, 16px);
+    border: 1px solid rgba(194,162,104,.4);
+  }
+  .qr-frame img { display: block; width: 100%; height: auto; }
+  .qr-cap {
+    font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: #8B9384;
+    margin-top: 11px; text-align: center; line-height: 1.6;
+  }
+
   /* ---------- footer ---------- */
   .site-footer { background: var(--forest-3); color: #9AA294; padding-block: clamp(44px, 5vw, 64px) 34px; }
   .footer-top { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,.8fr); gap: 32px; align-items: start; }
@@ -712,6 +752,8 @@
     .founder { grid-template-columns: 1fr; }
     .inquiry-grid { grid-template-columns: 1fr; }
     .contact-panel { grid-template-columns: 1fr; }
+    .share-panel { grid-template-columns: 1fr; gap: 28px; }
+    .qr-frame { justify-self: start; width: clamp(198px, 46vw, 250px); }
     .footer-top { grid-template-columns: 1fr; }
     .intro-grid { grid-template-columns: 1fr; }
   }
@@ -748,6 +790,8 @@
     .hero-en { font-size: 9.5px; letter-spacing: .18em; }
     .f-list li { grid-template-columns: 1fr; gap: 2px; }
     .contact-mail { font-size: 19px; word-break: break-all; }
+    .share-actions .btn { flex: 0 1 auto; white-space: nowrap; }
+    .qr-frame { width: 216px; }
     .brand-logo { letter-spacing: .08em; }
 
     /* tables -> stacked cards */
@@ -1371,6 +1415,36 @@
       </div>
     </div>
   </section>
+
+  <section class="section share" id="share" aria-labelledby="shareTitle">
+    <div class="wrap">
+      <div class="share-panel">
+        <div class="share-copy">
+          <div class="sp-k">ALVORA LAB · QR CODE</div>
+          <h3 id="shareTitle" data-en="Open and share ALVORA LAB with one scan">ALVORA LAB, 한 번의 스캔으로 열고 공유하세요</h3>
+          <p data-en="Scan on mobile or download the QR image to share. The code opens the official ALVORA LAB website.">
+            모바일로 스캔하거나 QR 이미지를 저장해 바로 공유하세요. 공식 ALVORA LAB 사이트로 연결됩니다.
+          </p>
+          <span class="share-url">https://signaturemdx-cmd.github.io/ALVORA_LAB/</span>
+          <div class="share-actions">
+            <a class="btn btn-gold" href="assets/alvora-lab-qr.png" download="ALVORA_LAB_QR.png">
+              <span data-en="Download QR image">QR 이미지 저장</span>
+              <span class="arw" aria-hidden="true">↓</span>
+            </a>
+            <button class="btn btn-ghost" type="button" id="copyUrlBtn">
+              <span class="copy-label" data-en="Copy URL">주소 복사</span>
+            </button>
+            <span class="sr-only" id="copyStatus" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+        <div class="qr-frame">
+          <img src="assets/alvora-lab-qr.png" width="1176" height="1176" decoding="async"
+               alt="ALVORA LAB 홈페이지 QR 코드" data-en-alt="QR code for the ALVORA LAB website">
+          <div class="qr-cap">ALVORA LAB · POTATOSOME®</div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -1591,6 +1665,58 @@
     } finally {
       root.classList.add('lang-ready');
     }
+  })();
+</script>
+<script>
+  /* QR share block: copy the ALVORA LAB URL with visible feedback */
+  (function () {
+    var SHARE_URL = 'https://signaturemdx-cmd.github.io/ALVORA_LAB/';
+    var btn = document.getElementById('copyUrlBtn');
+    if (!btn) return;
+    var label = btn.querySelector('.copy-label');
+    var status = document.getElementById('copyStatus');
+    var timer = null;
+    var T = {
+      ko: { copy: '주소 복사', copied: '복사됨', ok: '주소가 복사되었습니다.', fail: '주소를 복사하지 못했습니다. 위 주소를 길게 눌러 직접 복사해 주세요.' },
+      en: { copy: 'Copy URL', copied: 'Copied', ok: 'Link copied.', fail: 'Could not copy. Please select the address above and copy it manually.' }
+    };
+    function cur() { return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'ko'; }
+
+    function show(ok) {
+      var t = T[cur()];
+      btn.classList.toggle('is-copied', ok);
+      if (label) label.textContent = ok ? t.copied : t.copy;
+      if (status) status.textContent = ok ? t.ok : t.fail;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        btn.classList.remove('is-copied');
+        if (label) label.textContent = T[cur()].copy;
+        if (status) status.textContent = '';
+      }, 2200);
+    }
+
+    function legacyCopy() {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = SHARE_URL;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      } catch (e) { return false; }
+    }
+
+    btn.addEventListener('click', function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(SHARE_URL).then(function () { show(true); }, function () { show(legacyCopy()); });
+      } else {
+        show(legacyCopy());
+      }
+    });
   })();
 </script>
 </body>
