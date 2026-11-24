@@ -258,6 +258,7 @@
   .hero::before {
     content: ""; position: absolute; inset: 0;
     background:
+      linear-gradient(96deg, rgba(14,26,20,.62) 0%, rgba(14,26,20,.34) 38%, rgba(14,26,20,0) 60%),
       radial-gradient(1050px 620px at 78% 18%, rgba(127,168,147,.13), transparent 62%),
       radial-gradient(760px 520px at 8% 92%, rgba(194,162,104,.09), transparent 68%);
     pointer-events: none;
@@ -327,9 +328,52 @@
     position: relative; align-self: center; padding: 8px;
     animation: fade 1.4s .1s ease both;
   }
-  .hero-visual svg { width: 100%; height: auto; display: block; }
-  .spin-slow { transform-origin: 260px 260px; animation: spin 96s linear infinite; }
-  .spin-slower { transform-origin: 260px 260px; animation: spin 150s linear infinite reverse; }
+  .hero-media {
+    position: relative; width: 100%; max-width: 520px; margin: 0 0 0 auto;
+  }
+  /* two nested fades so every edge dissolves into #0E1A14 — no rectangular cut */
+  .hero-media-frame,
+  .hero-media-inner {
+    position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; background: #0E1A14;
+  }
+  .hero-media-frame {
+    isolation: isolate;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.45) 5%, #000 17%, #000 84%, rgba(0,0,0,.45) 95%, transparent 100%);
+            mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.45) 5%, #000 17%, #000 84%, rgba(0,0,0,.45) 95%, transparent 100%);
+  }
+  .hero-media-inner {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.45) 6%, #000 19%, #000 84%, rgba(0,0,0,.45) 95%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.45) 6%, #000 19%, #000 84%, rgba(0,0,0,.45) 95%, transparent 100%);
+  }
+  .hero-media-inner video,
+  .hero-media-inner canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+  }
+  .hero-media-inner video {
+    object-fit: cover; background: #0E1A14;
+    filter: saturate(1.03) contrast(1.04) brightness(.97);
+  }
+  .hero-media-inner canvas {
+    mix-blend-mode: screen; opacity: .9; pointer-events: none;
+  }
+  .hero-media-frame::after {
+    content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background:
+      linear-gradient(90deg, #0E1A14 0%, rgba(14,26,20,.9) 12%, rgba(14,26,20,.36) 33%, rgba(14,26,20,0) 56%),
+      radial-gradient(124% 112% at 55% 44%, rgba(14,26,20,0) 46%, rgba(14,26,20,.38) 78%, rgba(14,26,20,.86) 100%),
+      linear-gradient(0deg, rgba(14,26,20,.5) 0%, rgba(14,26,20,0) 22%),
+      linear-gradient(180deg, rgba(14,26,20,.42) 0%, rgba(14,26,20,0) 18%);
+  }
+  .hero-tag {
+    position: absolute; left: clamp(6px, 1.6vw, 14px); bottom: clamp(2px, 1vw, 8px);
+    z-index: 3; margin: 0; display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--sans); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase;
+    color: rgba(228,216,189,.8); text-shadow: 0 1px 10px rgba(0,0,0,.75);
+  }
+  .hero-tag::before {
+    content: ""; flex: none; width: 4px; height: 4px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 9px 2px rgba(194,162,104,.6);
+  }
 
   .hero-stats {
     border-top: 1px solid rgba(247,245,240,.12);
@@ -821,7 +865,14 @@
   /* ---------- responsive ---------- */
   @media (max-width: 1080px) {
     .hero-grid { grid-template-columns: 1fr; gap: 0; }
-    .hero-visual { max-width: 460px; margin: -12px auto 8px; order: 2; }
+    .hero-visual { width: 100%; max-width: 460px; margin: -12px auto 8px; order: 2; }
+    .hero-media { margin: 0 auto; }
+    .hero-media-frame::after {
+      background:
+        radial-gradient(118% 108% at 50% 46%, rgba(14,26,20,0) 48%, rgba(14,26,20,.34) 80%, rgba(14,26,20,.8) 100%),
+        linear-gradient(0deg, rgba(14,26,20,.55) 0%, rgba(14,26,20,0) 20%),
+        linear-gradient(180deg, rgba(14,26,20,.5) 0%, rgba(14,26,20,0) 18%);
+    }
     .hero-copy { padding-bottom: 8px; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
     .hero-stats li:nth-child(2) { border-right: 0; }
@@ -978,54 +1029,18 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true">
-          <svg viewBox="0 0 520 520" role="img" aria-label="감자 유래 엑소좀 입자 모식도" data-en-aria="Schematic of a potato-derived exosome particle">
-            <defs>
-              <radialGradient id="glowA" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#7FA893" stop-opacity=".30"/>
-                <stop offset="52%" stop-color="#7FA893" stop-opacity=".08"/>
-                <stop offset="100%" stop-color="#7FA893" stop-opacity="0"/>
-              </radialGradient>
-              <radialGradient id="coreG" cx="42%" cy="38%" r="70%">
-                <stop offset="0%" stop-color="#2C4A3A"/>
-                <stop offset="100%" stop-color="#16281F"/>
-              </radialGradient>
-            </defs>
-            <circle cx="260" cy="260" r="252" fill="url(#glowA)"/>
-            <circle cx="260" cy="260" r="214" fill="none" stroke="#7FA893" stroke-opacity=".22"/>
-            <circle class="spin-slow" cx="260" cy="260" r="214" fill="none" stroke="#C2A268" stroke-opacity=".32" stroke-dasharray="1 9" stroke-linecap="round"/>
-            <circle cx="260" cy="260" r="150" fill="none" stroke="#7FA893" stroke-opacity=".16"/>
-            <circle class="spin-slower" cx="260" cy="260" r="150" fill="none" stroke="#C2A268" stroke-opacity=".22" stroke-dasharray="1 14" stroke-linecap="round"/>
-            <circle cx="260" cy="260" r="76" fill="url(#coreG)" stroke="#C2A268" stroke-opacity=".55"/>
-            <circle cx="260" cy="260" r="76" fill="none" stroke="#7FA893" stroke-opacity=".2" stroke-dasharray="2 6"/>
-
-            <g fill="#7FA893">
-              <circle cx="442" cy="222" r="4.5" opacity=".9"/>
-              <circle cx="404" cy="366" r="3" opacity=".65"/>
-              <circle cx="150" cy="112" r="3.4" opacity=".7"/>
-              <circle cx="96" cy="316" r="4" opacity=".55"/>
-              <circle cx="330" cy="430" r="2.6" opacity=".6"/>
-              <circle cx="196" cy="404" r="2.2" opacity=".45"/>
-              <circle cx="356" cy="122" r="2.4" opacity=".5"/>
-              <circle cx="260" cy="46" r="2.6" opacity=".45"/>
-            </g>
-            <g fill="#C2A268">
-              <circle cx="428" cy="300" r="2.4" opacity=".8"/>
-              <circle cx="122" cy="196" r="2.2" opacity=".6"/>
-              <circle cx="292" cy="474" r="2" opacity=".5"/>
-              <circle cx="70" cy="252" r="1.8" opacity=".45"/>
-            </g>
-
-            <g stroke="#7FA893" stroke-opacity=".42" stroke-width=".8">
-              <line x1="260" y1="184" x2="260" y2="150"/>
-              <line x1="336" y1="260" x2="372" y2="260"/>
-              <line x1="260" y1="336" x2="260" y2="372"/>
-              <line x1="184" y1="260" x2="148" y2="260"/>
-            </g>
-            <circle cx="260" cy="260" r="4" fill="#C2A268" opacity=".85"/>
-
-            <text x="260" y="266" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#C2A268" fill-opacity=".9">66</text>
-            <text x="260" y="290" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" letter-spacing="2.4" fill="#7FA893">NM</text>
-          </svg>
+          <figure class="hero-media">
+            <div class="hero-media-frame">
+              <div class="hero-media-inner">
+                <video class="hero-video" autoplay loop muted playsinline preload="auto"
+                       poster="assets/hero-skin.jpg" disablepictureinpicture tabindex="-1">
+                  <source src="assets/hero-exosome.mp4" type="video/mp4">
+                </video>
+                <canvas class="hero-particles" width="720" height="900"></canvas>
+              </div>
+            </div>
+            <figcaption class="hero-tag"><span data-en="66 nm &middot; Plant Exosome Delivery">66 nm · 식물 엑소좀 전달</span></figcaption>
+          </figure>
         </div>
       </div>
 
@@ -2128,6 +2143,150 @@
     }
 
     syncChips();
+  })();
+</script>
+<script>
+  /* Hero: silent looping skin film + a light exosome particle overlay */
+  (function () {
+    var frame = document.querySelector('.hero-media-frame');
+    var cv = document.querySelector('.hero-particles');
+    var v = document.querySelector('.hero-video');
+    if (!frame || !cv) return;
+
+    var reduce = false;
+    try {
+      reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {}
+
+    if (v) {
+      v.muted = true;
+      v.setAttribute('muted', '');
+      var play = function () {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      };
+      if (reduce) {
+        try { v.pause(); } catch (e) {}
+      } else {
+        play();
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) {
+            try { v.pause(); } catch (e) {}
+          } else {
+            play();
+          }
+        });
+      }
+    }
+
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    var W = 0, H = 0;
+    var TINTS = ['200,169,110', '116,168,137', '216,192,140', '246,236,208'];
+    var sprites = [];
+
+    function makeSprite(rgb) {
+      var s = document.createElement('canvas');
+      s.width = s.height = 128;
+      var g = s.getContext('2d');
+      var gr = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+      gr.addColorStop(0, 'rgba(255,255,255,.95)');
+      gr.addColorStop(0.16, 'rgba(' + rgb + ',.72)');
+      gr.addColorStop(0.42, 'rgba(' + rgb + ',.22)');
+      gr.addColorStop(1, 'rgba(' + rgb + ',0)');
+      g.fillStyle = gr;
+      g.fillRect(0, 0, 128, 128);
+      return s;
+    }
+    for (var i = 0; i < TINTS.length; i++) sprites.push(makeSprite(TINTS[i]));
+
+    var P = [];
+    function seed() {
+      P = [];
+      var n = 34;
+      for (var i = 0; i < n; i++) {
+        var big = i < 9;
+        P.push({
+          nx: Math.random(),
+          ny: Math.random(),
+          r: big ? 7 + Math.random() * 9 : 2 + Math.random() * 4.5,
+          ax: 0.012 + Math.random() * 0.06,
+          ay: 0.010 + Math.random() * 0.05,
+          sp: 0.06 + Math.random() * 0.16,
+          ph: Math.random() * Math.PI * 2,
+          ph2: Math.random() * Math.PI * 2,
+          a: (big ? 0.10 : 0.20) + Math.random() * 0.30,
+          t: Math.floor(Math.random() * sprites.length)
+        });
+      }
+    }
+    seed();
+
+    function size() {
+      var r = frame.getBoundingClientRect();
+      if (!r.width) return false;
+      W = r.width; H = r.height;
+      cv.width = Math.round(W * dpr);
+      cv.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      return true;
+    }
+
+    function draw(t) {
+      ctx.clearRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter';
+      for (var i = 0; i < P.length; i++) {
+        var p = P[i];
+        var x = (p.nx + p.ax * Math.sin(t * p.sp + p.ph)) * W;
+        var y = (p.ny + p.ay * Math.cos(t * p.sp * 0.82 + p.ph2)) * H;
+        var tw = 0.55 + 0.45 * Math.sin(t * 0.9 * p.sp * 6 + p.ph2);
+        var rr = p.r * (0.85 + 0.3 * tw);
+        ctx.globalAlpha = Math.max(0, p.a * (0.45 + 0.75 * tw));
+        var d = rr * 6;
+        ctx.drawImage(sprites[p.t], x - d / 2, y - d / 2, d, d);
+      }
+      ctx.globalAlpha = 1;
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    var t0 = 0, raf = null, visible = true;
+    function loop(now) {
+      if (!t0) t0 = now;
+      draw((now - t0) / 1000);
+      raf = requestAnimationFrame(loop);
+    }
+    function startLoop() {
+      if (raf || reduce || !visible || document.hidden) return;
+      t0 = 0;
+      raf = requestAnimationFrame(loop);
+    }
+    function stopLoop() {
+      if (raf) cancelAnimationFrame(raf);
+      raf = null;
+    }
+
+    if (!size()) {
+      window.addEventListener('load', function () { if (size()) draw(3.1); });
+    }
+    draw(3.1);
+
+    if (!reduce) {
+      startLoop();
+      window.addEventListener('resize', function () {
+        if (size()) draw(3.1);
+      }, { passive: true });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stopLoop(); else startLoop();
+      });
+      if (window.IntersectionObserver) {
+        new IntersectionObserver(function (es) {
+          visible = es[0].isIntersecting;
+          if (visible) startLoop(); else stopLoop();
+        }, { threshold: 0.05 }).observe(frame);
+      }
+    }
   })();
 </script>
 </body>
