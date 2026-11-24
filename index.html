@@ -2283,7 +2283,13 @@
       if (window.IntersectionObserver) {
         new IntersectionObserver(function (es) {
           visible = es[0].isIntersecting;
-          if (visible) startLoop(); else stopLoop();
+          if (visible) {
+            startLoop();
+            if (v) play();
+          } else {
+            stopLoop();
+            if (v) { try { v.pause(); } catch (e) {} }
+          }
         }, { threshold: 0.05 }).observe(frame);
       }
     }
