@@ -549,6 +549,22 @@
     position: absolute; left: 38.4615%; top: 3px; bottom: 3px;
     border-left: 1px dashed rgba(19,34,27,.34);
   }
+  .br-topmark, .br-base, .br-ref, .br-legend .lg-base, .br-aqp-base {
+    transition: opacity .3s ease, visibility 0s linear .3s;
+  }
+  /* settled: the untreated-100 % reference fades out and the grown bar becomes
+     one continuous terracotta bar running from 0 to the measured value */
+  .brchart.is-done .br-grow {
+    left: 0;
+    transition: left .32s cubic-bezier(.4,0,.2,1), width .32s cubic-bezier(.4,0,.2,1);
+  }
+  .brchart.is-done .br-topmark,
+  .brchart.is-done .br-base,
+  .brchart.is-done .br-ref,
+  .brchart.is-done .br-legend .lg-base,
+  .brchart.is-done .br-aqp-base {
+    opacity: 0; visibility: hidden;
+  }
   .br-val {
     display: flex; flex-direction: column; align-items: flex-end;
     padding-left: 12px; line-height: 1.18;
@@ -609,6 +625,11 @@
     background-position: 0 0, 38.4615% 0, 76.9231% 0;
     background-repeat: no-repeat;
     border: 1px solid rgba(19,34,27,.08);
+  }
+  .br-aqp-base {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 0.77%; min-width: 2px;
+    background: rgba(169,76,46,.24);
+    border-right: 1px dashed rgba(19,34,27,.34);
   }
   .br-aqp-fill {
     position: absolute; left: 0; top: 0; bottom: 0; width: 0.77%;
@@ -1342,7 +1363,7 @@
         </div>
 
         <div class="br-legend" aria-hidden="true">
-          <span><i class="k-base"></i><span data-en="Untreated 100 %">무처리 100%</span></span>
+          <span class="lg-base"><i class="k-base"></i><span data-en="Untreated 100 %">무처리 100%</span></span>
           <span><i class="k-grow"></i><span data-en="Increase after ExoP">ExoP 처리 후 증가분</span></span>
         </div>
 
@@ -1430,6 +1451,7 @@
             </div>
           </div>
           <div class="br-aqp-gauge" role="img" aria-label="AQP3 수분 통로 발현 — 무처리 100%에서 ExoP 처리 후 12,500%(125배)까지 증가. 세포 실험 in vitro RT-PCR 결과." data-en-aria="AQP3 water-channel expression — from the untreated 100 % to 12,500 % (125-fold) after ExoP treatment. Cell-culture in vitro RT-PCR results.">
+            <span class="br-aqp-base" aria-hidden="true"></span>
             <span class="br-aqp-fill"></span>
           </div>
           <div class="br-aqp-axis" aria-hidden="true">
@@ -2089,8 +2111,8 @@
     var aqNum = fig.querySelector('.br-aqp-num');
     var aqGain = fig.querySelector('.aq-gain');
     var btn = fig.querySelector('.rc-replay');
-    var DUR = 3000;      /* per-bar growth: ~3.0 s */
-    var STAGGER = 55;    /* 6 bars → last starts 0.28 s later, ~3.28 s in total */
+    var DUR = 3000;      /* per-bar growth: ~3.0 s (same as the residual chart) */
+    var STAGGER = 50;    /* 6 bars → last starts 0.25 s later, ~3.25 s in total */
     var REF = 100;       /* untreated control */
     var MAXA = 260;      /* x-axis maximum of the six-gene plot */
     var MAXB = 13000;    /* x-axis maximum of the AQP3 gauge */
@@ -2107,7 +2129,9 @@
       var to = parseFloat(row.getAttribute('data-val'));
       var gain = parseFloat(row.getAttribute('data-gain'));
       var v = REF + (to - REF) * e;
-      row.querySelector('.br-grow').style.width = ((v - REF) / MAXA * 100) + '%';
+      /* while growing the bar starts at the 100 % line; once settled it is one
+         continuous bar from 0 to the measured value */
+      row.querySelector('.br-grow').style.width = ((e >= 1 ? v : v - REF) / MAXA * 100) + '%';
       row.querySelector('.br-val b').textContent = Math.round(e >= 1 ? to : v) + '%';
       row.querySelector('.br-val i').textContent = '+' + fmt(Math.round(e >= 1 ? gain : gain * e)) + '%';
     }
@@ -2123,10 +2147,12 @@
     function settle() {
       for (var i = 0; i < rows.length; i++) paintRow(rows[i], 1);
       paintAq(1);
+      fig.classList.add('is-done');
     }
 
     function play() {
       cancelAnimationFrame(raf);
+      fig.classList.remove('is-done');
       for (var i = 0; i < rows.length; i++) paintRow(rows[i], 0);
       paintAq(0);
 
