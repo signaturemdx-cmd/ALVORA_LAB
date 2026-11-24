@@ -456,7 +456,7 @@
     position: absolute; left: 5%; right: 5%; top: 0; bottom: 0;
     background: rgba(19,34,27,.055);
     border: 1px solid rgba(19,34,27,.1); border-bottom: 0;
-    transition: opacity .35s ease .05s, visibility .35s ease .05s;
+    transition: opacity .2s ease, visibility .2s ease;
   }
   .rc-bar {
     position: absolute; left: 5%; right: 5%; bottom: 0; height: 100%;
@@ -1714,12 +1714,16 @@
 
     var cols = Array.prototype.slice.call(fig.querySelectorAll('.rc-col'));
     var btn = fig.querySelector('.rc-replay');
-    var DUR = 1350;
-    var STAGGER = 35;
+    var DUR = 3000;      /* per-bar decline: ~3.0 s */
+    var STAGGER = 50;    /* 6 bars → last starts 0.25 s later, ~3.25 s in total */
     var running = false;
     var raf = 0;
 
-    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    /* smooth start, long soft deceleration: mid-way through you still see
+       intermediate numbers, then each bar eases into its residual level */
+    function ease(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
 
     function paint(col, e) {
       var to = parseFloat(col.getAttribute('data-val'));
@@ -1752,7 +1756,7 @@
         var t = now - t0;
         for (var j = 0; j < cols.length; j++) {
           var p = (t - j * STAGGER) / DUR;
-          paint(cols[j], easeOut(p < 0 ? 0 : p > 1 ? 1 : p));
+          paint(cols[j], ease(p < 0 ? 0 : p > 1 ? 1 : p));
         }
         if (t < total) {
           raf = requestAnimationFrame(step);
