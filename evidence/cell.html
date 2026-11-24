@@ -792,6 +792,57 @@
     }
   }
 
+  /* ---------- photoaging two-panel chart (prevention / amelioration) ---------- */
+  .pgchart { --ox-h: 206px; }
+  .pg-cols, .pg-xaxis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(8px, 2.4vw, 26px);
+  }
+  .pg-cols .ox-bar { left: 15%; right: 15%; }
+  .pg-cols .ox-col--uvb .ox-bar {
+    background: linear-gradient(180deg, #6E6B62, #46443E);
+    border-top: 1px solid #33322D;
+  }
+  .pg-cols .ox-col--exo .ox-bar {
+    background: linear-gradient(180deg, var(--ox-a2), var(--ox-a));
+    border-top: 1px solid #23513F;
+  }
+  .pg-cols .ox-col--uvb .ox-val { color: #4A4842; }
+  .pg-cols .ox-col--exo .ox-val { color: #22543F; }
+  .pg-ref-uvb { border-top: 1px dashed rgba(162,85,58,.75); }
+  .pg-ref-uvb b { color: #A2553A; }
+  .ox-legend .lg-uvb i { border-top: 1px dashed rgba(162,85,58,.75); }
+  .pgchart .ox-legend { transition: opacity .3s ease, visibility 0s linear .3s; }
+  .pgchart.is-done .ox-legend { opacity: 0; visibility: hidden; }
+  .pgchart.is-reset .ox-legend { transition: none; }
+  .pg-sig {
+    position: absolute; left: 23%; right: 45.5%; height: 0;
+    border-top: 1px solid rgba(19,34,27,.45);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity .35s ease .1s, visibility 0s linear .45s;
+  }
+  .pg-sig::before, .pg-sig::after {
+    content: ""; position: absolute; top: 0; width: 1px; height: 6px;
+    background: rgba(19,34,27,.45);
+  }
+  .pg-sig::before { left: 0; }
+  .pg-sig::after { right: 0; }
+  .pg-sig b {
+    position: absolute; left: 50%; top: 0; transform: translate(-50%, -100%);
+    font-size: 11px; font-weight: 700; letter-spacing: .06em; line-height: 1;
+    color: #8A4A2C; padding-bottom: 2px; white-space: nowrap;
+  }
+  .pg-sig em {
+    position: absolute; left: 50%; top: 0; transform: translate(-50%, 2px);
+    font-style: normal; font-size: 8.5px; letter-spacing: .01em; line-height: 1;
+    color: var(--muted-2); white-space: nowrap;
+  }
+  .pgchart.is-done .pg-sig {
+    opacity: 1; visibility: visible;
+    transition: opacity .35s ease .1s, visibility 0s;
+  }
+  .pgchart.is-reset .pg-sig { transition: none; }
+
   /* ---------- publications ---------- */
   .pubs-sec { background: var(--paper); }
   .pubs { margin-top: clamp(26px, 3.4vw, 38px); border-top: 1px solid var(--line); }
@@ -1460,7 +1511,7 @@
         <div class="cs-num">03</div>
         <div>
           <div class="eyebrow no-rule" data-en="Photoaging &amp; Wrinkle Care">광노화 &amp; 주름 케어</div>
-          <h2 class="h2" data-en="Before and after UVB damage">UVB 손상 전과 후, 두 방향</h2>
+          <h2 class="h2" data-en="Prevention before and recovery after UVB damage">UVB 손상 예방과 손상 후 회복</h2>
         </div>
       </div>
       <p class="cs-lead" data-en="UVB raises collagen-degrading enzymes (MMP1, 2 and 9) and reduces collagen, which is how wrinkles form. This group covers the pathway at both ends: suppression of the MMPs and cytokines UVB induces, cell survival with pre- and post-treatment, and prevention of collagen degradation measured directly in the culture medium.">
@@ -1469,6 +1520,107 @@
         그리고 배양액에서 직접 측정한 콜라겐 분해 방지까지 — 광노화 경로의 양 끝을 세포에서 확인한 시험입니다.
       </p>
       <a class="rc-jump" href="#mmp-residual-chart" data-en="↗ See the MMP1 · 2 · 9 residual-expression graph"><span aria-hidden="true">↗</span><span>MMP1·2·9 잔존 발현 그래프 보기</span></a>
+
+      <figure class="oxchart pgchart" id="photoaging-chart">
+        <div class="rc-head">
+          <div class="rc-headtext">
+            <div class="eyebrow no-rule" data-en="Photoaging · Prevention + Amelioration">광노화 · 예방 + 회복</div>
+            <h3 class="rc-title" data-en="Potatosome® (ExoP) — Cell Survival when Given Before and After UVB">Potatosome®(ExoP) — UVB 손상 전 예방, 손상 후 회복 세포 생존율</h3>
+            <p class="rc-sub" data-en="A. ExoP before UVB (prevention) · B. ExoP after UVB (amelioration) · HaCaT relative survival (%) · cell-culture in vitro values">A. UVB 전 ExoP 처리(예방) · B. UVB 후 ExoP 처리(회복) · HaCaT 상대 생존율(%) · 세포 실험(in vitro) 실측값</p>
+          </div>
+          <button class="rc-replay" type="button"><span class="rc-ico" aria-hidden="true">↺</span><span data-en="Replay">다시 재생</span></button>
+        </div>
+
+        <div class="ox-grid">
+          <div class="ox-panel">
+            <div class="ox-phead">
+              <span class="ox-badge" aria-hidden="true">A</span>
+              <div>
+                <b class="ox-pname" data-en="Prevention — ExoP pre-treatment, then UVB">예방 — ExoP 전처리 → UVB</b>
+                <span class="ox-pmeta" data-en="Relative cell survival (%) · pre-treatment">상대 세포 생존율(%) · 전처리</span>
+              </div>
+            </div>
+            <div class="ox-legend" aria-hidden="true">
+              <span class="lg-100"><i></i><span data-en="100 % untreated control">100% 정상 기준</span></span>
+            </div>
+            <div class="ox-plot ox-plot-b" role="img" aria-label="UVB 손상 전 ExoP 전처리에 따른 상대 세포 생존율 — UVB 단독 53.9%, ExoP 전처리 후 UVB 85.2%. 두 막대 모두 100% 정상 기준선에서 떨어져 최종값에서 멈춥니다. 세포 실험 in vitro 결과." data-en-aria="Relative cell survival with ExoP pre-treatment before UVB — UVB alone 53.9 %, ExoP pre-treated then UVB 85.2 %. Both bars fall from the 100 % untreated line and stop at their final values. Cell-culture in vitro results.">
+              <div class="ox-yaxis" aria-hidden="true">
+                <span style="top:0">100</span>
+                <span style="top:25%">75</span>
+                <span style="top:50%">50</span>
+                <span style="top:75%">25</span>
+                <span style="top:100%">0</span>
+              </div>
+              <div class="ox-main">
+                <div class="ox-area">
+                  <div class="ox-grid-l" aria-hidden="true">
+                    <span style="bottom:100%"></span>
+                    <span style="bottom:75%"></span>
+                    <span style="bottom:50%"></span>
+                    <span style="bottom:25%"></span>
+                    <span style="bottom:0"></span>
+                  </div>
+                  <div class="ox-ref ox-ref-100" aria-hidden="true"><b>100%</b></div>
+                  <div class="ox-cols pg-cols" aria-hidden="true">
+                    <div class="ox-col ox-col--uvb" data-val="53.9"><div class="ox-bar" style="height:100%"></div><span class="ox-val" style="bottom:100%">100%</span></div>
+                    <div class="ox-col ox-col--exo" data-val="85.2"><div class="ox-bar" style="height:100%"></div><span class="ox-val" style="bottom:100%">100%</span></div>
+                  </div>
+                  <div class="pg-sig" style="bottom:65%" aria-hidden="true"><b>**</b><em>p &lt; 0.01</em></div>
+                </div>
+                <div class="ox-xaxis pg-xaxis" aria-hidden="true"><span>UVB</span><span>ExoP + UVB</span></div>
+              </div>
+            </div>
+            <p class="ox-note" data-en="① Both bars start at the 100 % untreated line · ② UVB alone falls to 53.9 %, while the ExoP pre-treated bar holds at 85.2 % — the loss narrows from 46.1 to 14.8 points.">① 두 막대가 100% 정상선에서 함께 출발 · ② UVB 단독은 53.9%까지 떨어지고 ExoP 전처리 막대는 85.2%에서 멈춥니다. 손실이 46.1%p에서 14.8%p로 줄어듭니다.</p>
+          </div>
+
+          <div class="ox-panel">
+            <div class="ox-phead">
+              <span class="ox-badge" aria-hidden="true">B</span>
+              <div>
+                <b class="ox-pname" data-en="Amelioration — UVB, then ExoP post-treatment">회복 — UVB → ExoP 후처리</b>
+                <span class="ox-pmeta" data-en="Relative cell survival (%) · post-treatment">상대 세포 생존율(%) · 후처리</span>
+              </div>
+            </div>
+            <div class="ox-legend" aria-hidden="true">
+              <span class="lg-100"><i></i><span data-en="100 % untreated control">100% 정상 기준</span></span>
+              <span class="lg-uvb"><i></i><span data-en="UVB damage level">UVB 손상선</span></span>
+            </div>
+            <div class="ox-plot ox-plot-b" role="img" aria-label="UVB 손상 후 ExoP 후처리에 따른 상대 세포 생존율 — UVB 단독 47.9%, UVB 후 ExoP 처리 58.5%. 두 막대가 100%에서 47.9%까지 함께 내려간 뒤, 후처리 막대만 58.5%까지 다시 올라갑니다. 세포 실험 in vitro 결과." data-en-aria="Relative cell survival with ExoP post-treatment after UVB — UVB alone 47.9 %, UVB then ExoP 58.5 %. Both bars drop together from 100 % to 47.9 %, then only the post-treated bar rises back to 58.5 %. Cell-culture in vitro results.">
+              <div class="ox-yaxis" aria-hidden="true">
+                <span style="top:0">100</span>
+                <span style="top:25%">75</span>
+                <span style="top:50%">50</span>
+                <span style="top:75%">25</span>
+                <span style="top:100%">0</span>
+              </div>
+              <div class="ox-main">
+                <div class="ox-area">
+                  <div class="ox-grid-l" aria-hidden="true">
+                    <span style="bottom:100%"></span>
+                    <span style="bottom:75%"></span>
+                    <span style="bottom:50%"></span>
+                    <span style="bottom:25%"></span>
+                    <span style="bottom:0"></span>
+                  </div>
+                  <div class="ox-ref ox-ref-100" aria-hidden="true"><b>100%</b></div>
+                  <div class="ox-ref pg-ref-uvb" style="bottom:47.9%" aria-hidden="true"><b>47.9%</b></div>
+                  <div class="ox-cols pg-cols" aria-hidden="true">
+                    <div class="ox-col ox-col--uvb" data-val="47.9"><div class="ox-bar" style="height:100%"></div><span class="ox-val" style="bottom:100%">100%</span></div>
+                    <div class="ox-col ox-col--exo" data-val="58.5"><div class="ox-bar" style="height:100%"></div><span class="ox-val" style="bottom:100%">100%</span></div>
+                  </div>
+                  <div class="pg-sig" style="bottom:61%" aria-hidden="true"><b>**</b><em>p &lt; 0.01</em></div>
+                </div>
+                <div class="ox-xaxis pg-xaxis" aria-hidden="true"><span>UVB</span><span>UVB + ExoP</span></div>
+              </div>
+            </div>
+            <p class="ox-note" data-en="① UVB pulls both bars from the 100 % line down to 47.9 % · ② the UVB-only bar stays there while UVB + ExoP climbs back to 58.5 % — 10.6 points recovered.">① UVB로 두 막대가 100%에서 47.9%까지 함께 내려가고 · ② UVB 단독은 47.9%에 머무는 동안 UVB + ExoP는 58.5%까지 다시 차오릅니다(10.6%p 회복).</p>
+          </div>
+        </div>
+
+        <figcaption class="rc-cap">
+          <span data-en="<b>Prevention and recovery are different treatments.</b> In A the cells met ExoP <b>before</b> UVB, so the damage itself was smaller; in B they met ExoP <b>after</b> UVB, so only part of the lost survival came back. 100 % in both panels is untreated healthy cells. Bar heights were measured pixel by pixel from Fig. 3D of the 2023 <i>Mol Med Rep</i> paper (15 mJ/cm² UVB, 24 h) and rounded to one decimal (±0.5 points). These are WST-1 readings in cultured HaCaT keratinocytes — in vitro results, not human efficacy. <b>**</b> p < 0.01."><b>예방과 회복은 서로 다른 처치</b>입니다. A는 UVB를 쬐기 <b>전에</b> ExoP를 처리해 손상 자체를 줄인 경우(예방)이고, B는 UVB를 쬔 <b>뒤에</b> 처리해 이미 떨어진 생존율을 일부 되돌린 경우(회복)입니다. 두 패널의 100%는 미처리 정상 세포입니다. 막대 수치는 2023 <i>Mol Med Rep</i> 논문 Fig. 3D(15 mJ/cm² UVB, 24시간)의 막대 높이를 픽셀 단위로 측정해 소수점 1자리로 반올림한 값입니다(±0.5%p). 배양 각질형성세포(HaCaT)의 WST-1 판독값으로, 세포 실험(in vitro) 결과이며 인체 효능을 뜻하지 않습니다. <b>**</b> p &lt; 0.01.</span>
+        </figcaption>
+      </figure>
 
       <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">11</span></div>
       <div class="tests">
@@ -2556,6 +2708,126 @@
     function hashHit() {
       var h = (location.hash || '').toLowerCase();
       return h === '#antioxidant' || h === '#antioxidant-chart';
+    }
+
+    if (reduce && reduce.matches) {
+      settle();
+    } else if (hashHit()) {
+      play();
+    } else if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            io.disconnect();
+            if (!running) play();
+            return;
+          }
+        }
+      }, { threshold: 0.2 });
+      io.observe(fig);
+    } else {
+      play();
+    }
+
+    window.addEventListener('hashchange', function () {
+      if (hashHit()) play();
+    });
+  })();
+</script>
+<script>
+  /* Photoaging chart — A (prevention): both bars leave the 100 % untreated line,
+     UVB alone down to 53.9 % and ExoP pre-treated only to 85.2 %.
+     B (amelioration): both fall to 47.9 % under UVB, then only the post-treated
+     bar climbs back to 58.5 %. On settle the 100 % / damage guides, the legend
+     and the significance brackets fade out / in so that the final survival bars
+     and values remain alone. */
+  (function () {
+    var fig = document.getElementById('photoaging-chart');
+    if (!fig) return;
+
+    var panels = fig.querySelectorAll('.ox-grid .ox-panel');
+    var colsA = Array.prototype.slice.call(panels[0].querySelectorAll('.ox-col'));
+    var colsB = Array.prototype.slice.call(panels[1].querySelectorAll('.ox-col'));
+    var btn = fig.querySelector('.rc-replay');
+    var TOTAL = 3250;    /* A: one 3.25 s fall; B: act 1 + act 2 = 3.25 s */
+    var ACT1 = 1000;     /* B: shared drop 100 % → 47.9 % */
+    var ACT2 = 2250;     /* B: recovery 47.9 % → 58.5 % */
+    var DAM = 47.9;      /* survival under UVB alone (panel B) */
+    var raf = 0;
+    var running = false;
+
+    function ease(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+    function cut(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+
+    function paint(col, v) {
+      col.querySelector('.ox-bar').style.height = v + '%';
+      var lab = col.querySelector('.ox-val');
+      lab.style.bottom = v + '%';
+      lab.textContent = Math.round(v) + '%';
+    }
+
+    function paintFinal(col) {
+      var to = parseFloat(col.getAttribute('data-val'));
+      paint(col, to);
+      col.querySelector('.ox-val').textContent = to.toFixed(1) + '%';
+    }
+
+    function settle() {
+      for (var i = 0; i < colsA.length; i++) paintFinal(colsA[i]);
+      for (var j = 0; j < colsB.length; j++) paintFinal(colsB[j]);
+      fig.classList.add('is-done');
+    }
+
+    function reset() {
+      fig.classList.add('is-reset');
+      fig.classList.remove('is-done');
+      for (var i = 0; i < colsA.length; i++) paint(colsA[i], 100);
+      for (var j = 0; j < colsB.length; j++) paint(colsB[j], 100);
+      void fig.offsetWidth;
+      fig.classList.remove('is-reset');
+    }
+
+    function play() {
+      running = true;
+      cancelAnimationFrame(raf);
+      reset();
+      var t0 = 0;
+      raf = requestAnimationFrame(function step(now) {
+        if (!t0) t0 = now;
+        var t = now - t0;
+        for (var i = 0; i < colsA.length; i++) {
+          var ta = parseFloat(colsA[i].getAttribute('data-val'));
+          paint(colsA[i], 100 + (ta - 100) * ease(cut(t / TOTAL)));
+        }
+        for (var j = 0; j < colsB.length; j++) {
+          var tb = parseFloat(colsB[j].getAttribute('data-val'));
+          var v;
+          if (t < ACT1) {
+            v = 100 + (DAM - 100) * ease(cut(t / ACT1));
+          } else if (j === 0) {
+            v = DAM;
+          } else {
+            v = DAM + (tb - DAM) * ease(cut((t - ACT1) / ACT2));
+          }
+          paint(colsB[j], v);
+        }
+        if (t < TOTAL) {
+          raf = requestAnimationFrame(step);
+        } else {
+          settle();
+          running = false;
+        }
+      });
+    }
+
+    btn.addEventListener('click', play);
+
+    var reduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    function hashHit() {
+      var h = (location.hash || '').toLowerCase();
+      return h === '#photoaging' || h === '#photoaging-chart';
     }
 
     if (reduce && reduce.matches) {
