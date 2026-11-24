@@ -1086,19 +1086,18 @@
     }
 
     function geom() {
-      var w = fig.clientWidth || 1000;
-      var mobile = w < 560;
-      if (mobile) {
-        return {
-          W: 320, H: 292, px0: 40, px1: 268, top: 26, bot: 232,
-          x0: 96, x1: 210, fAxis: 9, fTick: 10, fVal: 11.5,
-          rDot: 2.9, rMean: 5.2, wLine: 1, wMean: 3, jx: 2.3
-        };
-      }
+      var host = svg.parentNode && svg.parentNode.clientWidth ? svg.parentNode.clientWidth : 1000;
+      var W = Math.round(Math.max(300, Math.min(1000, host)));
+      var narrow = Math.max(0, Math.min(1, (520 - W) / 200));
+      var H = Math.round(W * (0.5 + 0.41 * narrow));
+      var s = 0.78 + 0.22 * Math.max(0, Math.min(1, (W - 320) / 680));
       return {
-        W: 1000, H: 500, px0: 112, px1: 900, top: 52, bot: 442,
-        x0: 306, x1: 706, fAxis: 12, fTick: 13, fVal: 19,
-        rDot: 4.4, rMean: 8, wLine: 1.35, wMean: 4.6, jx: 4.2
+        W: W, H: H,
+        px0: W * 0.112, px1: W * 0.90,
+        top: H * 0.104, bot: H * 0.884,
+        x0: W * 0.306, x1: W * 0.706,
+        fAxis: 12 * s, fTick: 13 * s, fVal: 19 * s,
+        rDot: 4.4 * s, rMean: 8 * s, wLine: 1.35, wMean: 4.6 * s, jx: 4.2 * s
       };
     }
 
@@ -1336,9 +1335,9 @@
     window.addEventListener('resize', function () {
       clearTimeout(rz);
       rz = setTimeout(function () {
-        var w = fig.clientWidth || 1000;
-        var want = (w < 560 ? '320x292' : '1000x500');
-        if (want === key) return;
+        var host = svg.parentNode && svg.parentNode.clientWidth ? svg.parentNode.clientWidth : 1000;
+        var want = Math.round(Math.max(300, Math.min(1000, host)));
+        if (String(want) === String(parts && parts.g.W)) return;
         var wasDone = done;
         build();
         if (wasDone) settle();
