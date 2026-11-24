@@ -29,7 +29,7 @@
     if (l === 'en') document.documentElement.className += ' lang-en';
   })();
 </script>
-<noscript><style>html.lang-en body { opacity: 1 !important; } #cooling-svg { display: none; } #cooling-chart .cc-badge { opacity: 1 !important; transform: none !important; }</style></noscript>
+<noscript><style>html.lang-en body { opacity: 1 !important; } #cooling-svg, #wrinkle-svg, #elasticity-svg, #melasma-svg { display: none; } .coolchart .cc-badge { opacity: 1 !important; transform: none !important; }</style></noscript>
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../assets/fonts/NotoSerifKR-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/NotoSansKR-subset.woff2" as="font" type="font/woff2" crossorigin>
@@ -777,6 +777,15 @@
         안면 주름의 깊이를 도포 전후로 측정해 비교했습니다. 깊이 값이 작을수록 주름이 얕다는 뜻입니다.
       </p>
 
+      <aside class="cbene">
+        <span class="cb-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.4l1.9 6.05a2.8 2.8 0 0 0 1.65 1.65L21.6 12l-6.05 1.9a2.8 2.8 0 0 0-1.65 1.65L12 21.6l-1.9-6.05a2.8 2.8 0 0 0-1.65-1.65L2.4 12l6.05-1.9a2.8 2.8 0 0 0 1.65-1.65z"/></svg></span>
+        <div class="cb-body">
+          <span class="cb-k" data-en="Skin Benefit">피부 혜택</span>
+          <p class="cb-line" data-en="Reduces wrinkle depth by an average of 10.7% immediately after application, helping refine skin texture.">눈가·피부 주름 깊이를 도포 직후 평균 10.7% 완화해, 한결 매끄러운 피부 결을 가꾸는 데 도움을 줍니다.</p>
+          <p class="cb-sub" data-en="(Mean 0.142 mm → 0.127 mm · p = 0.00243)">(평균 0.142 mm → 0.127 mm · p = 0.00243)</p>
+        </div>
+      </aside>
+
       <div class="figures">
         <div>
           <div class="fig-k">Baseline</div>
@@ -795,10 +804,35 @@
         </div>
       </div>
 
-      <figure class="chart">
-        <img src="../assets/clinical-wrinkle.png" alt="주름 깊이 감소 그래프 — 도포 전후 주름 깊이 분포와 피험자별 변화" data-en-alt="Wrinkle depth chart — depth distribution and per-subject change, baseline versus post" width="1452" height="716" loading="lazy">
-        <figcaption data-en="Figure 2. Left: wrinkle depth distribution (boxplot) · right: individual change per subject. One subject starts well above the group, so the scale is wide.">
-          Figure 2. 좌: 주름 깊이 분포(Boxplot) · 우: 피험자별 개별 변화. 한 피험자의 도포 전 값이 크게 높아 세로축 범위가 넓습니다.
+      <figure class="coolchart" id="wrinkle-chart">
+        <div class="cc-head">
+          <div class="cc-headtext">
+            <div class="eyebrow no-rule" data-en="Paired Individual Changes · n = 21">Paired Individual Changes · n = 21</div>
+            <h3 class="cc-title" data-en="Wrinkle depth before and after application — every one of the 21 subjects">도포 전·후 주름 깊이 — 피험자 21명의 개별 변화</h3>
+            <p class="cc-sub" data-en="One thin line per subject, drawn from Baseline to Post; the thick line is the mean of the 21. The vertical axis is broken so that the twenty subjects below 0.22 mm stay readable.">가는 선 하나가 피험자 한 명의 변화입니다. Baseline에서 Post까지 그어지고, 굵은 선은 21명의 평균입니다. 0.22 mm 이하에 모인 20명이 납작해 보이지 않도록 세로축을 끊어 그렸습니다.</p>
+          </div>
+          <button class="cc-replay" type="button"><span class="cc-ico" aria-hidden="true">↺</span><span data-en="Replay">다시 재생</span></button>
+        </div>
+
+        <div class="cc-legend" aria-hidden="true">
+          <span><i class="k-base"></i><span data-en="Baseline — before application">Baseline — 도포 전</span></span>
+          <span><i class="k-post"></i><span data-en="Post — right after application">Post — 도포 직후</span></span>
+          <span><i class="k-mean"></i><span data-en="Mean of 21 subjects">21명 평균</span></span>
+        </div>
+
+        <div class="cc-plot">
+          <svg id="wrinkle-svg" role="img" aria-label="주름 깊이 Paired Individual Changes — 피험자 21명의 도포 전후 주름 깊이. 평균 0.142 mm에서 0.127 mm로 0.015 mm(−10.7 %) 감소, 21명 전원 감소, p = 0.00243. 세로축은 0.22 mm 이하 구간을 넓게, 0.80 mm 이상 구간은 끊어서 표시" data-en-aria="Wrinkle depth — paired individual changes for all 21 subjects. Mean fell from 0.142 mm to 0.127 mm, a drop of 0.015 mm (−10.7 %); all 21 subjects decreased, p = 0.00243. The vertical axis is broken: the band below 0.22 mm is enlarged and the band from 0.80 mm is shown separately"></svg>
+          <noscript><p class="cc-fallback">피험자 21명 전원의 주름 깊이가 도포 직후 감소했습니다. 평균 0.142 mm → 0.127 mm (−0.015 mm, −10.7 %), p = 0.00243. 세로축은 0.80 mm 이상 구간을 끊어 표시했습니다.</p></noscript>
+        </div>
+
+        <div class="cc-badge">
+          <span class="cc-b1">−0.015<small>mm</small><em>(−10.7 %)</em></span>
+          <span class="cc-b2" data-en="Decreased in all 21/21 subjects">피험자 21/21명 전원 감소</span>
+          <span class="cc-b3">p = 0.00243</span>
+        </div>
+
+        <figcaption class="cc-cap" data-en="Figure 2. Each thin line joins one subject's Baseline and Post wrinkle depth, so the slope is that subject's own change; the thick line is the 21-subject mean. Every one of the 21 lines falls. The vertical axis is broken (//) — the twenty subjects between 0.05 and 0.18 mm are drawn enlarged in the lower band, and the one subject at 0.93 mm is drawn in the upper band so that it is neither cut off nor allowed to flatten the rest. Measured on the same facial site immediately after a single application.">
+          Figure 2. 가는 선 하나가 피험자 한 명의 도포 전·후 주름 깊이를 이은 것으로, 선의 기울기가 그 피험자의 변화량입니다. 굵은 선은 21명 평균입니다. 21개 선 모두 내려갔습니다. 세로축은 끊어서(//) 그렸습니다 — 0.05~0.18 mm에 모인 20명은 아래 구간을 넓게, 0.93 mm인 1명은 위 구간에 두어 잘리지도, 나머지 20명을 납작하게 만들지도 않게 했습니다. 같은 안면 부위에서 단회 도포 직후 측정했습니다.
         </figcaption>
       </figure>
 
@@ -836,6 +870,15 @@
         R2는 피부 변형에 대한 회복 특성을 수치화한 기기 지표로, 1에 가까울수록 탄력적입니다.
       </p>
 
+      <aside class="cbene">
+        <span class="cb-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.4l1.9 6.05a2.8 2.8 0 0 0 1.65 1.65L21.6 12l-6.05 1.9a2.8 2.8 0 0 0-1.65 1.65L12 21.6l-1.9-6.05a2.8 2.8 0 0 0-1.65-1.65L2.4 12l6.05-1.9a2.8 2.8 0 0 0 1.65-1.65z"/></svg></span>
+        <div class="cb-body">
+          <span class="cb-k" data-en="Skin Benefit">피부 혜택</span>
+          <p class="cb-line" data-en="Boosts skin elasticity (R2) by an average of 5.7% after application, promoting firmer, bouncier skin.">피부의 탄성 회복력(R2)을 도포 후 평균 5.7% 끌어올려, 탱탱하고 탄력 있는 피부 컨디션으로 가꿔줍니다.</p>
+          <p class="cb-sub" data-en="(Observed in all 21/21 subjects · mean 0.801 → 0.847, p &lt; 0.001)">(피험자 21/21명 전원 증가 · 평균 0.801 → 0.847, p &lt; 0.001)</p>
+        </div>
+      </aside>
+
       <div class="figures">
         <div>
           <div class="fig-k">Control</div>
@@ -854,10 +897,35 @@
         </div>
       </div>
 
-      <figure class="chart">
-        <img src="../assets/clinical-elasticity.png" alt="피부 탄력 개선 그래프 — 대조·적용 부위의 탄력 지표 분포와 피험자별 변화" data-en-alt="Skin elasticity chart — R2 distribution for control and application sites, and per-subject change" width="1372" height="684" loading="lazy">
-        <figcaption data-en="Figure 3. Left: R2 distribution (boxplot) · right: individual change per subject. Thin lines are single subjects; the thick line is the mean change.">
-          Figure 3. 좌: R2 분포(Boxplot) · 우: 피험자별 개별 변화. 가는 선은 피험자 한 명의 변화, 굵은 선은 평균 변화입니다.
+      <figure class="coolchart" id="elasticity-chart">
+        <div class="cc-head">
+          <div class="cc-headtext">
+            <div class="eyebrow no-rule" data-en="Paired Individual Changes · n = 21">Paired Individual Changes · n = 21</div>
+            <h3 class="cc-title" data-en="Skin elasticity (R2) at the control and treated sites — every one of the 21 subjects">대조·적용 부위의 피부 탄력(R2) — 피험자 21명의 개별 변화</h3>
+            <p class="cc-sub" data-en="One thin line per subject, drawn from Control to Application; the thick line is the mean of the 21.">가는 선 하나가 피험자 한 명의 변화입니다. Control에서 Application까지 그어지고, 굵은 선은 21명의 평균입니다.</p>
+          </div>
+          <button class="cc-replay" type="button"><span class="cc-ico" aria-hidden="true">↺</span><span data-en="Replay">다시 재생</span></button>
+        </div>
+
+        <div class="cc-legend" aria-hidden="true">
+          <span><i class="k-base"></i><span data-en="Control — untreated site">Control — 대조 부위</span></span>
+          <span><i class="k-post"></i><span data-en="Application — treated site">Application — 적용 부위</span></span>
+          <span><i class="k-mean"></i><span data-en="Mean of 21 subjects">21명 평균</span></span>
+        </div>
+
+        <div class="cc-plot">
+          <svg id="elasticity-svg" role="img" aria-label="피부 탄력 Paired Individual Changes — 피험자 21명의 대조·적용 부위 R2. 평균 0.801에서 0.847로 0.045(+5.7 %) 상승, 21명 전원 증가, p &lt; 0.001" data-en-aria="Skin elasticity — paired individual changes in R2 for all 21 subjects. Mean rose from 0.801 to 0.847, up 0.045 (+5.7 %); all 21 subjects increased, p &lt; 0.001"></svg>
+          <noscript><p class="cc-fallback">피험자 21명 전원의 탄력 지표(R2)가 적용 부위에서 높게 측정되었습니다. 평균 0.801 → 0.847 (+0.045, +5.7 %), p &lt; 0.001.</p></noscript>
+        </div>
+
+        <div class="cc-badge">
+          <span class="cc-b1">+0.045<small>R2</small><em>(+5.7 %)</em></span>
+          <span class="cc-b2" data-en="Increased in all 21/21 subjects">피험자 21/21명 전원 증가</span>
+          <span class="cc-b3">p &lt; 0.001</span>
+        </div>
+
+        <figcaption class="cc-cap" data-en="Figure 3. Each thin line joins one subject's R2 at the untreated control site and at the treated site, so the slope is that subject's own difference; the thick line is the 21-subject mean. All 21 lines rise. R2 is an instrument index of how the skin recovers after deformation.">
+          Figure 3. 가는 선 하나가 피험자 한 명의 대조 부위·적용 부위 R2를 이은 것으로, 선의 기울기가 그 피험자의 차이입니다. 굵은 선은 21명 평균입니다. 21개 선 모두 올라갔습니다. R2는 피부 변형 후 회복 특성을 수치화한 기기 지표입니다.
         </figcaption>
       </figure>
 
@@ -895,6 +963,15 @@
         지수가 낮을수록 색소침착이 옅게 측정되었다는 뜻입니다.
       </p>
 
+      <aside class="cbene">
+        <span class="cb-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.4l1.9 6.05a2.8 2.8 0 0 0 1.65 1.65L21.6 12l-6.05 1.9a2.8 2.8 0 0 0-1.65 1.65L12 21.6l-1.9-6.05a2.8 2.8 0 0 0-1.65-1.65L2.4 12l6.05-1.9a2.8 2.8 0 0 0 1.65-1.65z"/></svg></span>
+        <div class="cb-body">
+          <span class="cb-k" data-en="Skin Benefit">피부 혜택</span>
+          <p class="cb-line" data-en="Lowers the Melasma Index by an average of 5.8%, helping brighten and even out dull skin tone.">기미·색소침착 지표(Melasma Index)를 평균 5.8% 낮췄, 칙칙한 피부 톤을 한결 맑고 군일하게 가꾸는 데 도움을 줍니다.</p>
+          <p class="cb-sub" data-en="(Mean 90.9 → 85.6 · p = 0.00305)">(평균 90.9 → 85.6 · p = 0.00305)</p>
+        </div>
+      </aside>
+
       <div class="figures">
         <div>
           <div class="fig-k">Control</div>
@@ -913,10 +990,35 @@
         </div>
       </div>
 
-      <figure class="chart">
-        <img src="../assets/clinical-melasma.png" alt="기미·색소침착 완화 그래프 — 대조·적용 부위의 색소 지수 분포와 피험자별 변화" data-en-alt="Melasma and pigmentation chart — index distribution for control and application sites, and per-subject change" width="1308" height="652" loading="lazy">
-        <figcaption data-en="Figure 4. Left: pigmentation index distribution (boxplot) · right: individual change per subject. Thin lines are single subjects; the thick line is the mean change.">
-          Figure 4. 좌: 색소 지수 분포(Boxplot) · 우: 피험자별 개별 변화. 가는 선은 피험자 한 명의 변화, 굵은 선은 평균 변화입니다.
+      <figure class="coolchart" id="melasma-chart">
+        <div class="cc-head">
+          <div class="cc-headtext">
+            <div class="eyebrow no-rule" data-en="Paired Individual Changes · n = 21">Paired Individual Changes · n = 21</div>
+            <h3 class="cc-title" data-en="Melasma index at the control and treated sites — every one of the 21 subjects">대조·적용 부위의 색소 지수(Melasma Index) — 피험자 21명의 개별 변화</h3>
+            <p class="cc-sub" data-en="One thin line per subject, drawn from Control to Application; the thick line is the mean of the 21. Twenty lines fall and one rises.">가는 선 하나가 피험자 한 명의 변화입니다. Control에서 Application까지 그어지고, 굵은 선은 21명의 평균입니다. 20개 선은 내러가고 1개 선은 올라갑니다.</p>
+          </div>
+          <button class="cc-replay" type="button"><span class="cc-ico" aria-hidden="true">↺</span><span data-en="Replay">다시 재생</span></button>
+        </div>
+
+        <div class="cc-legend" aria-hidden="true">
+          <span><i class="k-base"></i><span data-en="Control — untreated site">Control — 대조 부위</span></span>
+          <span><i class="k-post"></i><span data-en="Application — treated site">Application — 적용 부위</span></span>
+          <span><i class="k-mean"></i><span data-en="Mean of 21 subjects">21명 평균</span></span>
+        </div>
+
+        <div class="cc-plot">
+          <svg id="melasma-svg" role="img" aria-label="기미·색소 Paired Individual Changes — 피험자 21명의 대조·적용 부위 색소 지수. 평균 90.9에서 85.6으로 5.3(−5.8 %) 하강, 21명 중 20명 감소·1명 증가, p = 0.00305" data-en-aria="Melasma index — paired individual changes for all 21 subjects. Mean fell from 90.9 to 85.6, a drop of 5.3 (−5.8 %); 20 of 21 subjects decreased and one increased, p = 0.00305"></svg>
+          <noscript><p class="cc-fallback">피험자 21명 중 20명의 색소 지수가 적용 부위에서 낮게 측정되었습니다(1명은 상승). 평균 90.9 → 85.6 (−5.3, −5.8 %), p = 0.00305.</p></noscript>
+        </div>
+
+        <div class="cc-badge">
+          <span class="cc-b1">−5.3<small>Index</small><em>(−5.8 %)</em></span>
+          <span class="cc-b2" data-en="Decreased in 20 of 21 subjects · 1 rose">21명 중 20명 감소 · 1명 증가</span>
+          <span class="cc-b3">p = 0.00305</span>
+        </div>
+
+        <figcaption class="cc-cap" data-en="Figure 4. Each thin line joins one subject's Melasma Index at the untreated control site and at the treated site, so the slope is that subject's own difference; the thick line is the 21-subject mean. Twenty of the 21 lines fall, and one rises; the figure keeps that line as measured.">
+          Figure 4. 가는 선 하나가 피험자 한 명의 대조 부위·적용 부위 색소 지수를 이은 것으로, 선의 기울기가 그 피험자의 차이입니다. 굵은 선은 21명 평균입니다. 21개 선 중 20개는 내러가고 1개는 올라가며, 그 선도 그대로 보여줍니다.
         </figcaption>
       </figure>
 
@@ -1044,306 +1146,425 @@
 </footer>
 
 <script>
-  /* Cooling chart — paired individual changes. Each of the 21 subjects is a
-     thin line drawn from its Baseline temperature to its Post temperature;
-     the thick line is the mean (36.4 °C → 32.2 °C). The SVG is built here so
-     that the same figure can lay itself out wide on desktop and narrow on a
-     phone with legible type. */
+  /* Paired Individual Changes — one engine for the four clinical endpoints.
+     Each of the 21 subjects is a thin line drawn from its first value to its
+     second; the thick line is the mean. The SVG is built here so the same
+     figure lays itself out wide on desktop and narrow on a phone with
+     legible type. The wrinkle figure uses a broken vertical axis so that one
+     far outlier does not flatten the other twenty lines. */
   (function () {
-    var fig = document.getElementById('cooling-chart');
-    if (!fig) return;
-    var svg = fig.querySelector('#cooling-svg');
-    if (!svg) return;
-    var btn = fig.querySelector('.cc-replay');
     var NS = 'http://www.w3.org/2000/svg';
+    var C_BASE = '#B0563C', C_POST = '#2B6A63', C_MEAN = '#13221B';
+    var FONT = 'NotoSansKR, system-ui, sans-serif';
 
-    /* Per-subject pairs (°C) digitised from the n=21 paired plot of the
-       clinical dataset: [baseline, immediately after application]. */
-    var PAIRS = [
-      [37.2, 33.7], [36.9, 33.4], [36.7, 32.9], [36.6, 32.8], [36.6, 32.6],
-      [36.6, 32.5], [36.6, 32.4], [36.6, 32.4], [36.5, 32.3], [36.5, 32.2],
-      [36.5, 32.2], [36.5, 32.1], [36.5, 32.0], [36.3, 31.9], [36.3, 31.8],
-      [36.1, 31.7], [36.0, 31.7], [36.0, 31.6], [35.9, 31.5], [35.8, 31.4],
-      [35.7, 31.1]
+    var CHARTS = [
+      {
+        id: 'cooling-chart', svg: '#cooling-svg',
+        hash: ['#cooling', '#cooling-chart'],
+        /* Per-subject pairs (°C) digitised from the n=21 paired plot of the
+           clinical dataset: [baseline, immediately after application]. */
+        pairs: [
+          [37.2, 33.7], [36.9, 33.4], [36.7, 32.9], [36.6, 32.8], [36.6, 32.6],
+          [36.6, 32.5], [36.6, 32.4], [36.6, 32.4], [36.5, 32.3], [36.5, 32.2],
+          [36.5, 32.2], [36.5, 32.1], [36.5, 32.0], [36.3, 31.9], [36.3, 31.8],
+          [36.1, 31.7], [36.0, 31.7], [36.0, 31.6], [35.9, 31.5], [35.8, 31.4],
+          [35.7, 31.1]
+        ],
+        mean: [36.4, 32.2], lab: ['36.4', '32.2'], dec: 1,
+        xlab: ['Baseline', 'Post'],
+        lo: 30, hi: 38, ticks: [38, 36, 34, 32, 30], tickDec: 0,
+        unit: '°C', ratio: [0.5, 0.41]
+      },
+      {
+        id: 'wrinkle-chart', svg: '#wrinkle-svg',
+        hash: ['#wrinkle', '#wrinkle-chart'],
+        /* Wrinkle depth (mm), one pair per subject, sorted by baseline so the
+           single far subject draws last. */
+        pairs: [
+          [0.0684, 0.0544], [0.0704, 0.0647], [0.0735, 0.0631], [0.0825, 0.0667],
+          [0.0829, 0.0773], [0.0859, 0.0820], [0.0859, 0.0726], [0.0890, 0.0804],
+          [0.0893, 0.0730], [0.0940, 0.0890], [0.0959, 0.0901], [0.1050, 0.0979],
+          [0.1060, 0.1000], [0.1110, 0.1040], [0.1130, 0.0904], [0.1210, 0.1108],
+          [0.1280, 0.1098], [0.1320, 0.1180], [0.1460, 0.1390], [0.1760, 0.1530],
+          [0.9320, 0.8330]
+        ],
+        mean: [0.1423, 0.1271], lab: ['0.142', '0.127'], dec: 3,
+        xlab: ['Baseline', 'Post'],
+        unit: 'mm', ratio: [0.54, 0.44],
+        brk: {
+          lower: [0, 0.22], upper: [0.80, 1.00],
+          lowerTicks: [0.20, 0.15, 0.10, 0.05, 0.00],
+          upperTicks: [1.00, 0.90, 0.80],
+          tickDec: 2
+        }
+      },
+      {
+        id: 'elasticity-chart', svg: '#elasticity-svg',
+        hash: ['#elasticity', '#elasticity-chart'],
+        /* R2 at the control site and at the treated site, per subject. */
+        pairs: [
+          [0.8055, 0.8374], [0.7921, 0.8412], [0.7590, 0.7855], [0.6967, 0.7524],
+          [0.8010, 0.8587], [0.7325, 0.7766], [0.8024, 0.8438], [0.8113, 0.8328],
+          [0.8220, 0.8688], [0.8447, 0.8915], [0.7919, 0.8262], [0.7950, 0.8418],
+          [0.8298, 0.8981], [0.8096, 0.8533], [0.7918, 0.8540], [0.8186, 0.8499],
+          [0.8551, 0.9133], [0.8211, 0.8714], [0.7934, 0.8419], [0.8368, 0.8814],
+          [0.8188, 0.8603]
+        ],
+        mean: [0.8014, 0.8467], lab: ['0.801', '0.847'], dec: 3,
+        xlab: ['Control', 'Application'],
+        lo: 0.65, hi: 0.95,
+        ticks: [0.95, 0.90, 0.85, 0.80, 0.75, 0.70, 0.65], tickDec: 2,
+        unit: 'R2', ratio: [0.5, 0.41]
+      },
+      {
+        id: 'melasma-chart', svg: '#melasma-svg',
+        hash: ['#melasma', '#melasma-chart'],
+        /* Melasma index at the control site and at the treated site, per
+           subject. One subject rises; the rest fall. */
+        pairs: [
+          [84.6, 80.0], [97.5, 83.3], [79.5, 76.9], [98.3, 85.4], [80.1, 91.8],
+          [76.0, 70.5], [69.4, 68.3], [100.0, 98.9], [99.5, 99.1], [93.4, 83.0],
+          [99.9, 99.4], [79.1, 76.0], [98.6, 91.1], [98.1, 91.8], [88.0, 86.3],
+          [93.6, 88.4], [86.4, 78.7], [96.2, 89.8], [99.4, 94.6], [95.4, 69.4],
+          [96.1, 95.8]
+        ],
+        mean: [90.9, 85.6], lab: ['90.9', '85.6'], dec: 1,
+        xlab: ['Control', 'Application'],
+        lo: 60, hi: 105, ticks: [100, 90, 80, 70, 60], tickDec: 0,
+        unit: 'Index', ratio: [0.5, 0.41]
+      }
     ];
-    var MEAN_B = 36.4, MEAN_P = 32.2;
-    var DURA = 2900, STAG = 16, MDELAY = 150, MDURA = 2850, TOTAL = 3240;
-
-    var raf = 0, running = false, done = false, key = '';
-    var parts = null;
 
     /* A little horizontal spread so overlapping subjects stay countable;
        positions along the categorical axis carry no value. */
-    var JIT = [0, -0.75, 0.6, -0.35, 0.85, -0.55, 0.25, -0.9, 0.45, -0.15, 0.7,
-               -0.6, 0.1, -0.8, 0.55, -0.4, 0.9, -0.25, 0.35, -0.7, 0.65];
+    var JITL = [0, -0.75, 0.6, -0.35, 0.85, -0.55, 0.25, -0.9, 0.45, -0.15, 0.7,
+                -0.6, 0.1, -0.8, 0.55, -0.4, 0.9, -0.25, 0.35, -0.7, 0.65];
 
     function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
     function cut(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+    function clamp01(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
     function mk(name, attrs) {
       var e = document.createElementNS(NS, name);
       for (var k in attrs) if (attrs.hasOwnProperty(k)) e.setAttribute(k, attrs[k]);
       return e;
     }
-
-    function geom() {
-      var host = svg.parentNode && svg.parentNode.clientWidth ? svg.parentNode.clientWidth : 1000;
-      var W = Math.round(Math.max(300, Math.min(1000, host)));
-      var narrow = Math.max(0, Math.min(1, (520 - W) / 200));
-      var H = Math.round(W * (0.5 + 0.41 * narrow));
-      var s = 0.78 + 0.22 * Math.max(0, Math.min(1, (W - 320) / 680));
-      return {
-        W: W, H: H,
-        px0: W * 0.112, px1: W * 0.90,
-        top: H * 0.104, bot: H * 0.884,
-        x0: W * 0.306, x1: W * 0.706,
-        fAxis: 12 * s, fTick: 13 * s, fVal: 19 * s,
-        rDot: 4.4 * s, rMean: 8 * s, wLine: 1.35, wMean: 4.6 * s, jx: 4.2 * s
-      };
+    function label(str, attrs) {
+      var t = mk('text', attrs);
+      t.textContent = str;
+      return t;
     }
+    function fmt(v, d) { return d > 0 ? v.toFixed(d) : String(Math.round(v)); }
 
-    function build() {
-      var g = geom();
-      key = g.W + 'x' + g.H;
-      while (svg.firstChild) svg.removeChild(svg.firstChild);
-      svg.setAttribute('viewBox', '0 0 ' + g.W + ' ' + g.H);
-      svg.setAttribute('width', g.W);
-      svg.setAttribute('height', g.H);
+    function run(cfg) {
+      var fig = document.getElementById(cfg.id);
+      if (!fig) return;
+      var svg = fig.querySelector(cfg.svg);
+      if (!svg) return;
+      var btn = fig.querySelector('.cc-replay');
+      var PAIRS = cfg.pairs, N = PAIRS.length, M0 = cfg.mean[0], M1 = cfg.mean[1];
+      var DURA = 2900, STAG = 16, MDELAY = 150, MDURA = 2850, TOTAL = 3240;
+      var raf = 0, running = false, done = false, parts = null;
+      var JIT = [];
+      for (var j = 0; j < N; j++) JIT.push(JITL[j % JITL.length]);
 
-      var k = (g.bot - g.top) / 8;
-      function Y(T) { return g.top + (38 - T) * k; }
-
-      var halo = { 'paint-order': 'stroke', stroke: '#FAF8F1', 'stroke-width': g.fAxis * 0.3, 'stroke-linejoin': 'round' };
-
-      /* grid + y ticks */
-      var grid = mk('g', {});
-      svg.appendChild(grid);
-      [38, 36, 34, 32, 30].forEach(function (T) {
-        var y = Y(T);
-        grid.appendChild(mk('line', {
-          x1: g.px0, x2: g.px1, y1: y, y2: y,
-          stroke: T === 30 ? 'rgba(19,34,27,.22)' : 'rgba(19,34,27,.075)',
-          'stroke-width': 1
-        }));
-        var t = mk('text', {
-          x: g.px0 - (g.fAxis * 0.9), y: y + g.fAxis * 0.35, 'text-anchor': 'end',
-          'font-family': 'NotoSansKR, system-ui, sans-serif', 'font-size': g.fAxis,
-          fill: '#8A8E81', 'font-variant-numeric': 'tabular-nums'
-        });
-        t.textContent = String(T);
-        grid.appendChild(t);
-      });
-      svg.appendChild(mk('line', {
-        x1: g.px0, x2: g.px0, y1: g.top, y2: g.bot,
-        stroke: 'rgba(19,34,27,.22)', 'stroke-width': 1
-      }));
-      var unit = mk('text', {
-        x: g.px0 - g.fAxis * 0.9, y: g.top - g.fAxis * 1.5, 'text-anchor': 'end',
-        'font-family': 'NotoSansKR, system-ui, sans-serif', 'font-size': g.fAxis * 0.92,
-        fill: '#8A8E81', 'letter-spacing': '.04em'
-      });
-      unit.textContent = '°C';
-      svg.appendChild(unit);
-
-      /* x ticks */
-      [[g.x0, 'Baseline'], [g.x1, 'Post']].forEach(function (p) {
-        svg.appendChild(mk('line', {
-          x1: p[0], x2: p[0], y1: g.bot, y2: g.bot + (g.fTick * 0.5),
-          stroke: 'rgba(19,34,27,.32)', 'stroke-width': 1
-        }));
-        var t = mk('text', {
-          x: p[0], y: g.bot + g.fTick * 2.1, 'text-anchor': 'middle',
-          'font-family': 'NotoSansKR, system-ui, sans-serif', 'font-size': g.fTick,
-          fill: '#33372E', 'letter-spacing': '.02em'
-        });
-        t.textContent = p[1];
-        svg.appendChild(t);
-      });
-
-      /* individual lines */
-      var linesG = mk('g', {});
-      svg.appendChild(linesG);
-      var lines = PAIRS.map(function (pr, i) {
-        var xb = g.x0 + JIT[i] * g.jx;
-        var p = mk('path', {
-          d: 'M ' + xb + ' ' + Y(pr[0]) + ' L ' + xb + ' ' + Y(pr[0]),
-          fill: 'none', stroke: 'rgba(19,34,27,.28)',
-          'stroke-width': g.wLine, 'stroke-linecap': 'round', opacity: 0
-        });
-        linesG.appendChild(p);
-        return p;
-      });
-
-      /* mean line */
-      var mean = mk('path', {
-        d: 'M ' + g.x0 + ' ' + Y(MEAN_B) + ' L ' + g.x0 + ' ' + Y(MEAN_B),
-        fill: 'none', stroke: '#13221B', 'stroke-width': g.wMean,
-        'stroke-linecap': 'round'
-      });
-      svg.appendChild(mean);
-
-      /* dots */
-      var dotsG = mk('g', {});
-      svg.appendChild(dotsG);
-      PAIRS.forEach(function (pr, i) {
-        dotsG.appendChild(mk('circle', {
-          cx: g.x0 + JIT[i] * g.jx, cy: Y(pr[0]), r: g.rDot, fill: '#B0563C',
-          stroke: '#FCFBF7', 'stroke-width': g.rDot * 0.34
-        }));
-      });
-      var postDots = PAIRS.map(function (pr, i) {
-        var c = mk('circle', {
-          cx: g.x1 - JIT[i] * g.jx, cy: Y(pr[1]), r: g.rDot, fill: '#2B6A63',
-          stroke: '#FCFBF7', 'stroke-width': g.rDot * 0.34, opacity: 0
-        });
-        dotsG.appendChild(c);
-        return c;
-      });
-
-      /* mean markers */
-      var meanBase = mk('circle', {
-        cx: g.x0, cy: Y(MEAN_B), r: g.rMean, fill: '#13221B',
-        stroke: '#FCFBF7', 'stroke-width': g.rMean * 0.26
-      });
-      var meanPost = mk('circle', {
-        cx: g.x1, cy: Y(MEAN_P), r: g.rMean, fill: '#13221B',
-        stroke: '#FCFBF7', 'stroke-width': g.rMean * 0.26, opacity: 0
-      });
-      svg.appendChild(meanBase);
-      svg.appendChild(meanPost);
-
-      var labB = mk('text', {
-        x: g.x0 - g.rMean - g.fVal * 0.8, y: Y(MEAN_B) + g.fVal * 0.33, 'text-anchor': 'end',
-        'font-family': 'NotoSerifKR, Georgia, serif', 'font-size': g.fVal,
-        fill: '#33372E', 'font-variant-numeric': 'tabular-nums'
-      });
-      labB.setAttribute('paint-order', halo['paint-order']);
-      labB.setAttribute('stroke', halo.stroke);
-      labB.setAttribute('stroke-width', halo['stroke-width']);
-      labB.textContent = '36.4';
-      svg.appendChild(labB);
-
-      var labP = mk('text', {
-        x: g.x1 + g.rMean + g.fVal * 0.95, y: Y(MEAN_P) + g.fVal * 0.33, 'text-anchor': 'start',
-        'font-family': 'NotoSerifKR, Georgia, serif', 'font-size': g.fVal,
-        fill: '#13221B', 'font-variant-numeric': 'tabular-nums', opacity: 0
-      });
-      labP.setAttribute('paint-order', halo['paint-order']);
-      labP.setAttribute('stroke', halo.stroke);
-      labP.setAttribute('stroke-width', halo['stroke-width']);
-      labP.textContent = '36.4';
-      svg.appendChild(labP);
-
-      parts = {
-        g: g, Y: Y, lines: lines, mean: mean, postDots: postDots,
-        meanBase: meanBase, meanPost: meanPost, labB: labB, labP: labP
-      };
-    }
-
-    function paint(t) {
-      var g = parts.g, Y = parts.Y;
-      var dx = g.x1 - g.x0;
-      for (var i = 0; i < parts.lines.length; i++) {
-        var p = ease(cut((t - i * STAG) / DURA));
-        var y1 = Y(PAIRS[i][0]), y2 = Y(PAIRS[i][1]);
-        var xb = g.x0 + JIT[i] * g.jx, xe = g.x1 - JIT[i] * g.jx;
-        var ln = parts.lines[i];
-        ln.setAttribute('d', 'M ' + xb + ' ' + y1 + ' L ' + (xb + (xe - xb) * p) + ' ' + (y1 + (y2 - y1) * p));
-        ln.setAttribute('opacity', p <= 0.004 ? 0 : 1);
-        parts.postDots[i].setAttribute('opacity', cut((p - 0.84) / 0.16).toFixed(3));
-      }
-      var pm = ease(cut((t - MDELAY) / MDURA));
-      var by = Y(MEAN_B), py = Y(MEAN_P);
-      var tipX = g.x0 + dx * pm, tipY = by + (py - by) * pm;
-      parts.mean.setAttribute('d', 'M ' + g.x0 + ' ' + by + ' L ' + tipX + ' ' + tipY);
-      parts.meanPost.setAttribute('opacity', cut((pm - 0.88) / 0.12).toFixed(3));
-      parts.labP.setAttribute('opacity', cut((pm - 0.5) / 0.42).toFixed(3));
-      parts.labP.setAttribute('x', (tipX + g.rMean + g.fVal * 0.95).toFixed(2));
-      parts.labP.setAttribute('y', (tipY + g.fVal * 0.33).toFixed(2));
-      parts.labP.textContent = pm >= 1 ? '32.2' : (MEAN_B + (MEAN_P - MEAN_B) * pm).toFixed(1);
-    }
-
-    function settle() {
-      cancelAnimationFrame(raf);
-      running = false;
-      done = true;
-      paint(TOTAL);
-      parts.labP.textContent = '32.2';
-      parts.labP.setAttribute('opacity', 1);
-      fig.classList.add('is-done');
-    }
-
-    function play() {
-      if (!parts) build();
-      running = true;
-      done = false;
-      fig.classList.remove('is-done');
-      cancelAnimationFrame(raf);
-      paint(0);
-      var t0 = 0;
-      raf = requestAnimationFrame(function step(now) {
-        if (!t0) t0 = now;
-        var t = now - t0;
-        paint(t);
-        if (t < TOTAL) {
-          raf = requestAnimationFrame(step);
-        } else {
-          settle();
-        }
-      });
-    }
-
-    function hashHit() {
-      var h = (location.hash || '').toLowerCase();
-      return h === '#cooling' || h === '#cooling-chart';
-    }
-
-    build();
-
-    var reduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
-    if (reduce && reduce.matches) {
-      settle();
-    } else if (hashHit()) {
-      play();
-    } else if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        for (var i = 0; i < entries.length; i++) {
-          if (entries[i].isIntersecting) {
-            io.disconnect();
-            if (!running && !done) play();
-            return;
-          }
-        }
-      }, { threshold: 0.25 });
-      io.observe(fig);
-    } else {
-      play();
-    }
-
-    btn.addEventListener('click', function () {
-      if (reduce && reduce.matches) { paint(TOTAL); settle(); }
-      else play();
-    });
-
-    window.addEventListener('hashchange', function () {
-      if (hashHit()) {
-        if (reduce && reduce.matches) settle();
-        else play();
-      }
-    });
-
-    var rz = 0;
-    window.addEventListener('resize', function () {
-      clearTimeout(rz);
-      rz = setTimeout(function () {
+      function geom() {
         var host = svg.parentNode && svg.parentNode.clientWidth ? svg.parentNode.clientWidth : 1000;
-        var want = Math.round(Math.max(300, Math.min(1000, host)));
-        if (String(want) === String(parts && parts.g.W)) return;
-        var wasDone = done;
-        build();
-        if (wasDone) settle();
-        else paint(0);
-      }, 160);
-    });
+        var W = Math.round(Math.max(300, Math.min(1000, host)));
+        var narrow = clamp01((520 - W) / 200);
+        var H = Math.round(W * (cfg.ratio[0] + cfg.ratio[1] * narrow));
+        var s = 0.78 + 0.22 * clamp01((W - 320) / 680);
+        return {
+          W: W, H: H,
+          px0: W * 0.112, px1: W * 0.90,
+          top: H * 0.104, bot: H * 0.884,
+          x0: W * 0.306, x1: W * 0.706,
+          fAxis: 12 * s, fTick: 13 * s, fVal: 19 * s,
+          rDot: 4.4 * s, rMean: 8 * s, wLine: 1.35, wMean: 4.6 * s, jx: 4.2 * s
+        };
+      }
+
+      function yAxis(g, Y, halo) {
+        var grid = mk('g', {});
+        svg.appendChild(grid);
+        var sets = [];
+        if (cfg.brk) {
+          sets.push({ ticks: cfg.brk.upperTicks, dec: cfg.brk.tickDec, lo: cfg.brk.upper[0] });
+          sets.push({ ticks: cfg.brk.lowerTicks, dec: cfg.brk.tickDec, lo: cfg.brk.lower[0] });
+        } else {
+          sets.push({ ticks: cfg.ticks, dec: cfg.tickDec, lo: cfg.lo });
+        }
+        sets.forEach(function (set) {
+          set.ticks.forEach(function (tv) {
+            var y = Y(tv);
+            grid.appendChild(mk('line', {
+              x1: g.px0, x2: g.px1, y1: y, y2: y,
+              stroke: (set.lo !== null && tv === set.lo) ? 'rgba(19,34,27,.22)' : 'rgba(19,34,27,.075)',
+              'stroke-width': 1
+            }));
+            grid.appendChild(label(fmt(tv, set.dec), {
+              x: g.px0 - g.fAxis * 0.9, y: y + g.fAxis * 0.35, 'text-anchor': 'end',
+              'font-family': FONT, 'font-size': g.fAxis,
+              fill: '#8A8E81', 'font-variant-numeric': 'tabular-nums'
+            }));
+          });
+        });
+
+        if (cfg.brk) {
+          var plotH = g.bot - g.top;
+          var hu = plotH * 0.17, gap = plotH * 0.055;
+          var yUB = g.top + hu, yLT = yUB + gap, gy = yUB + gap / 2;
+          svg.appendChild(mk('rect', {
+            x: g.px0, y: yUB, width: g.px1 - g.px0, height: gap, fill: 'rgba(19,34,27,.038)'
+          }));
+          svg.appendChild(mk('line', {
+            x1: g.px0, x2: g.px1, y1: yLT, y2: yLT,
+            stroke: 'rgba(19,34,27,.17)', 'stroke-width': 1, 'stroke-dasharray': '5 5'
+          }));
+          [0, 1].forEach(function (n) {
+            var xx = g.px0, dy = n * g.fAxis * 0.78;
+            svg.appendChild(mk('line', {
+              x1: xx - g.fAxis * 0.5, x2: xx + g.fAxis * 0.5,
+              y1: gy + dy + g.fAxis * 0.32, y2: gy + dy - g.fAxis * 0.32,
+              stroke: 'rgba(19,34,27,.5)', 'stroke-width': 1.3, 'stroke-linecap': 'round'
+            }));
+          });
+          svg.appendChild(mk('line', { x1: g.px0, x2: g.px0, y1: g.top, y2: yUB, stroke: 'rgba(19,34,27,.22)', 'stroke-width': 1 }));
+          svg.appendChild(mk('line', { x1: g.px0, x2: g.px0, y1: yLT, y2: g.bot, stroke: 'rgba(19,34,27,.22)', 'stroke-width': 1 }));
+        } else {
+          svg.appendChild(mk('line', { x1: g.px0, x2: g.px0, y1: g.top, y2: g.bot, stroke: 'rgba(19,34,27,.22)', 'stroke-width': 1 }));
+        }
+
+        svg.appendChild(label(cfg.unit, {
+          x: g.px0 - g.fAxis * 0.9, y: g.top - g.fAxis * 1.5, 'text-anchor': 'end',
+          'font-family': FONT, 'font-size': g.fAxis * 0.92, fill: '#8A8E81', 'letter-spacing': '.04em'
+        }));
+      }
+
+      function build() {
+        var g = geom();
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        svg.setAttribute('viewBox', '0 0 ' + g.W + ' ' + g.H);
+        svg.setAttribute('width', g.W);
+        svg.setAttribute('height', g.H);
+
+        var Y, halo = { 'paint-order': 'stroke', stroke: '#FAF8F1', 'stroke-width': g.fAxis * 0.3, 'stroke-linejoin': 'round' };
+        if (cfg.brk) {
+          var U = cfg.brk.upper, L = cfg.brk.lower;
+          var plotH = g.bot - g.top;
+          var hu = plotH * 0.17, gap = plotH * 0.055;
+          var yLT = g.top + hu + gap;
+          var ku = hu / (U[1] - U[0]), kl = (g.bot - yLT) / (L[1] - L[0]);
+          Y = function (v) {
+            return v > (U[0] + L[1]) / 2 ? g.top + (U[1] - v) * ku : yLT + (L[1] - v) * kl;
+          };
+        } else {
+          var k = (g.bot - g.top) / (cfg.hi - cfg.lo);
+          Y = function (v) { return g.top + (cfg.hi - v) * k; };
+        }
+
+        yAxis(g, Y, halo);
+
+        /* x ticks */
+        [[g.x0, cfg.xlab[0]], [g.x1, cfg.xlab[1]]].forEach(function (p) {
+          svg.appendChild(mk('line', {
+            x1: p[0], x2: p[0], y1: g.bot, y2: g.bot + (g.fTick * 0.5),
+            stroke: 'rgba(19,34,27,.32)', 'stroke-width': 1
+          }));
+          svg.appendChild(label(p[1], {
+            x: p[0], y: g.bot + g.fTick * 2.1, 'text-anchor': 'middle',
+            'font-family': FONT, 'font-size': g.fTick,
+            fill: '#33372E', 'letter-spacing': '.02em'
+          }));
+        });
+
+        /* individual lines */
+        var linesG = mk('g', {});
+        svg.appendChild(linesG);
+        var lines = PAIRS.map(function (pr, i) {
+          var xb = g.x0 + JIT[i] * g.jx;
+          var p = mk('path', {
+            d: 'M ' + xb + ' ' + Y(pr[0]) + ' L ' + xb + ' ' + Y(pr[0]),
+            fill: 'none', stroke: 'rgba(19,34,27,.28)',
+            'stroke-width': g.wLine, 'stroke-linecap': 'round', opacity: 0
+          });
+          linesG.appendChild(p);
+          return p;
+        });
+
+        /* mean line */
+        var mean = mk('path', {
+          d: 'M ' + g.x0 + ' ' + Y(M0) + ' L ' + g.x0 + ' ' + Y(M0),
+          fill: 'none', stroke: C_MEAN, 'stroke-width': g.wMean,
+          'stroke-linecap': 'round'
+        });
+        svg.appendChild(mean);
+
+        /* dots */
+        var dotsG = mk('g', {});
+        svg.appendChild(dotsG);
+        PAIRS.forEach(function (pr, i) {
+          dotsG.appendChild(mk('circle', {
+            cx: g.x0 + JIT[i] * g.jx, cy: Y(pr[0]), r: g.rDot, fill: C_BASE,
+            stroke: '#FCFBF7', 'stroke-width': g.rDot * 0.34
+          }));
+        });
+        var postDots = PAIRS.map(function (pr, i) {
+          var c = mk('circle', {
+            cx: g.x1 - JIT[i] * g.jx, cy: Y(pr[1]), r: g.rDot, fill: C_POST,
+            stroke: '#FCFBF7', 'stroke-width': g.rDot * 0.34, opacity: 0
+          });
+          dotsG.appendChild(c);
+          return c;
+        });
+
+        /* mean markers */
+        var meanBase = mk('circle', {
+          cx: g.x0, cy: Y(M0), r: g.rMean, fill: C_MEAN,
+          stroke: '#FCFBF7', 'stroke-width': g.rMean * 0.26
+        });
+        var meanPost = mk('circle', {
+          cx: g.x1, cy: Y(M1), r: g.rMean, fill: C_MEAN,
+          stroke: '#FCFBF7', 'stroke-width': g.rMean * 0.26, opacity: 0
+        });
+        svg.appendChild(meanBase);
+        svg.appendChild(meanPost);
+
+        var labB = label(cfg.lab[0], {
+          x: g.x0 - g.rMean - g.fVal * 0.8, y: Y(M0) + g.fVal * 0.33, 'text-anchor': 'end',
+          'font-family': 'NotoSerifKR, Georgia, serif', 'font-size': g.fVal,
+          fill: '#33372E', 'font-variant-numeric': 'tabular-nums'
+        });
+        labB.setAttribute('paint-order', halo['paint-order']);
+        labB.setAttribute('stroke', halo.stroke);
+        labB.setAttribute('stroke-width', halo['stroke-width']);
+        svg.appendChild(labB);
+
+        var labP = label(cfg.lab[0], {
+          x: g.x1 + g.rMean + g.fVal * 0.95, y: Y(M1) + g.fVal * 0.33, 'text-anchor': 'start',
+          'font-family': 'NotoSerifKR, Georgia, serif', 'font-size': g.fVal,
+          fill: '#13221B', 'font-variant-numeric': 'tabular-nums', opacity: 0
+        });
+        labP.setAttribute('paint-order', halo['paint-order']);
+        labP.setAttribute('stroke', halo.stroke);
+        labP.setAttribute('stroke-width', halo['stroke-width']);
+        svg.appendChild(labP);
+
+        parts = {
+          g: g, Y: Y, lines: lines, mean: mean, postDots: postDots,
+          meanBase: meanBase, meanPost: meanPost, labB: labB, labP: labP
+        };
+      }
+
+      function paint(t) {
+        var g = parts.g, Y = parts.Y;
+        var dx = g.x1 - g.x0;
+        for (var i = 0; i < parts.lines.length; i++) {
+          var p = ease(cut((t - i * STAG) / DURA));
+          var y1 = Y(PAIRS[i][0]), y2 = Y(PAIRS[i][1]);
+          var xb = g.x0 + JIT[i] * g.jx, xe = g.x1 - JIT[i] * g.jx;
+          var ln = parts.lines[i];
+          ln.setAttribute('d', 'M ' + xb + ' ' + y1 + ' L ' + (xb + (xe - xb) * p) + ' ' + (y1 + (y2 - y1) * p));
+          ln.setAttribute('opacity', p <= 0.004 ? 0 : 1);
+          parts.postDots[i].setAttribute('opacity', cut((p - 0.84) / 0.16).toFixed(3));
+        }
+        var pm = ease(cut((t - MDELAY) / MDURA));
+        var by = Y(M0), py = Y(M1);
+        var tipX = g.x0 + dx * pm, tipY = by + (py - by) * pm;
+        parts.mean.setAttribute('d', 'M ' + g.x0 + ' ' + by + ' L ' + tipX + ' ' + tipY);
+        parts.meanPost.setAttribute('opacity', cut((pm - 0.88) / 0.12).toFixed(3));
+        parts.labP.setAttribute('opacity', cut((pm - 0.5) / 0.42).toFixed(3));
+        parts.labP.setAttribute('x', (tipX + g.rMean + g.fVal * 0.95).toFixed(2));
+        parts.labP.setAttribute('y', (tipY + g.fVal * 0.33).toFixed(2));
+        parts.labP.textContent = pm >= 1 ? cfg.lab[1] : fmt(M0 + (M1 - M0) * pm, cfg.dec);
+      }
+
+      function settle() {
+        cancelAnimationFrame(raf);
+        running = false;
+        done = true;
+        paint(TOTAL);
+        parts.labP.textContent = cfg.lab[1];
+        parts.labP.setAttribute('opacity', 1);
+        fig.classList.add('is-done');
+      }
+
+      function play() {
+        if (!parts) build();
+        running = true;
+        done = false;
+        fig.classList.remove('is-done');
+        cancelAnimationFrame(raf);
+        paint(0);
+        var t0 = 0;
+        raf = requestAnimationFrame(function step(now) {
+          if (!t0) t0 = now;
+          var t = now - t0;
+          paint(t);
+          if (t < TOTAL) {
+            raf = requestAnimationFrame(step);
+          } else {
+            settle();
+          }
+        });
+      }
+
+      function hashHit() {
+        var h = (location.hash || '').toLowerCase();
+        return cfg.hash.indexOf(h) > -1;
+      }
+
+      build();
+
+      var reduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+      if (reduce && reduce.matches) {
+        settle();
+      } else if (hashHit()) {
+        play();
+      } else if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              io.disconnect();
+              if (!running && !done) play();
+              return;
+            }
+          }
+        }, { threshold: 0.25 });
+        io.observe(fig);
+      } else {
+        play();
+      }
+
+      if (btn) {
+        btn.addEventListener('click', function () {
+          if (reduce && reduce.matches) { paint(TOTAL); settle(); }
+          else play();
+        });
+      }
+
+      window.addEventListener('hashchange', function () {
+        if (hashHit()) {
+          if (reduce && reduce.matches) settle();
+          else play();
+        }
+      });
+
+      var rz = 0;
+      window.addEventListener('resize', function () {
+        clearTimeout(rz);
+        rz = setTimeout(function () {
+          var host = svg.parentNode && svg.parentNode.clientWidth ? svg.parentNode.clientWidth : 1000;
+          var want = Math.round(Math.max(300, Math.min(1000, host)));
+          if (String(want) === String(parts && parts.g.W)) return;
+          var wasDone = done;
+          build();
+          if (wasDone) settle();
+          else paint(0);
+        }, 160);
+      });
+    }
+
+    CHARTS.forEach(run);
   })();
 </script>
 <script>
