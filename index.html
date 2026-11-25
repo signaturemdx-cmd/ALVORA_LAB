@@ -580,6 +580,51 @@
     font-size: 10.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-deep);
     margin-top: 14px;
   }
+
+  /* ---------- brand film (16:9) ---------- */
+  .brand-film { margin: clamp(30px, 4.4vw, 52px) 0 0; }
+  .brand-film-frame {
+    position: relative; isolation: isolate; display: block;
+    aspect-ratio: 16 / 9; overflow: hidden; border-radius: 16px;
+    background: #0E1A14;
+    box-shadow: 0 26px 64px -30px rgba(19,34,27,.5), 0 0 0 1px rgba(228,216,189,.14);
+  }
+  .brand-film-frame video {
+    position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+    object-fit: cover; background: #0E1A14;
+    filter: saturate(1.03) contrast(1.03);
+  }
+  .brand-film-frame::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; border-radius: inherit;
+    background:
+      linear-gradient(180deg, rgba(14,26,20,.34) 0%, rgba(14,26,20,0) 26%),
+      linear-gradient(0deg, rgba(14,26,20,.34) 0%, rgba(14,26,20,0) 28%),
+      radial-gradient(122% 118% at 50% 45%, rgba(14,26,20,0) 62%, rgba(14,26,20,.42) 100%);
+  }
+  .brand-film-tag {
+    position: absolute; z-index: 2; left: clamp(12px, 1.8vw, 20px); top: clamp(12px, 1.8vw, 20px);
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 13px 7px 11px; border-radius: 999px;
+    background: rgba(14,26,20,.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 0 0 1px rgba(228,216,189,.18);
+    font-family: var(--sans); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase;
+    color: rgba(236,226,203,.94); text-shadow: 0 1px 8px rgba(0,0,0,.5);
+    line-height: 1;
+  }
+  .brand-film-tag::before {
+    content: ""; flex: none; width: 4px; height: 4px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 9px 2px rgba(194,162,104,.6);
+  }
+  .brand-film-cap {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: 6px 28px; margin-top: 14px;
+  }
+  .bfc-lead {
+    font-family: var(--serif); font-size: clamp(16px, 1.7vw, 20px); line-height: 1.4;
+    color: var(--forest); letter-spacing: -.01em;
+  }
+  .bfc-note { font-size: 12px; color: var(--muted-2); line-height: 1.65; max-width: 62ch; }
+
   .product {
     margin-top: clamp(38px, 5vw, 64px);
     display: grid; grid-template-columns: minmax(0,.86fr) minmax(0,1.14fr);
@@ -1353,6 +1398,22 @@
           Potatosome®을 축으로 만든 더마 브랜드. 첫 제품은 피부장벽 케어 앰플입니다.
         </p>
       </div>
+
+      <figure class="brand-film">
+        <div class="brand-film-frame">
+          <video class="brand-video" autoplay muted loop playsinline preload="metadata"
+                 poster="assets/brand-absorption.jpg" disablepictureinpicture tabindex="-1"
+                 aria-label="ALVORA LAB 브랜드 필름 — 금빛 입자가 피부 위로 내려앉는 모습"
+                 data-en-aria="ALVORA LAB brand film — gold particles settling onto skin">
+            <source src="assets/brand-absorption.mp4" type="video/mp4">
+          </video>
+          <span class="brand-film-tag"><span data-en="Brand film &middot; 00:10 loop">브랜드 필름 &middot; 10초 반복</span></span>
+        </div>
+        <figcaption class="brand-film-cap">
+          <span class="bfc-lead" data-en="The moment Potatosome® meets skin">Potatosome®가 피부에 닿는 순간</span>
+          <span class="bfc-note" data-en="A mood film of the ampoule&rsquo;s first step: gold particles settle and spread over the skin. It is not a depiction of clinical results.">앰플이 퍼지는 첫 단계를 담은 무드 필름입니다. 금빛 입자가 피부 위로 내려앉아 퍼지는 모습이며, 임상 결과를 표현한 영상은 아닙니다.</span>
+        </figcaption>
+      </figure>
 
       <div class="product">
         <figure class="product-media" style="margin:0;">
@@ -2307,6 +2368,49 @@
         }, { threshold: 0.05 }).observe(frame);
       }
     }
+  })();
+</script>
+<script>
+  /* Brand film: a 10 s mute loop that runs only while #brand is on screen */
+  (function () {
+    var v = document.querySelector('.brand-video');
+    if (!v) return;
+    var frame = v.parentNode;
+    var visible = true;
+    var reduce = false;
+    try {
+      reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {}
+
+    v.muted = true;
+    v.setAttribute('muted', '');
+
+    var play = function () {
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    };
+    var stop = function () {
+      try { v.pause(); } catch (e) {}
+    };
+
+    if (reduce) {
+      stop();
+      return;
+    }
+
+    play();
+
+    if (window.IntersectionObserver) {
+      new IntersectionObserver(function (es) {
+        visible = es[0].isIntersecting;
+        if (visible) play(); else stop();
+      }, { threshold: 0.15 }).observe(frame);
+    }
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop();
+      else if (visible) play();
+    });
   })();
 </script>
 </body>
