@@ -47,7 +47,7 @@
     position: fixed;
     inset: 0;
     z-index: 2147483000;
-    display: none;
+    display: flex;
     height: 100vh;
     height: 100dvh;
     min-height: 100vh;
@@ -65,8 +65,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  html.gate-locked #access-gate,
-  html.gate-leaving #access-gate { display: flex; }
+  html.gate-ready #access-gate { display: none; }
 
   #access-gate *,
   #access-gate *::before,
@@ -346,6 +345,7 @@
     html.gate-leaving #access-gate .ag-frame { transition: none; }
   }
 </style>
+<noscript><style>html { background: #0c1913; } html body > *:not(#access-gate) { display: none !important; }</style></noscript>
 <!-- nextab-gate:head:end -->
 <title>세포 연구 상세 | Potatosome® · ALVORA LAB</title>
 <meta name="description" content="Potatosome®의 세포·ex vivo 연구 35종을 항염증·항산화·광노화·장벽·재생·침투 안전성 6개 카테고리로 정리했습니다. 2023·2024·2025년 peer-reviewed 논문 3편의 DOI와 시험 조건, 확인된 수치를 함께 제시합니다.">
@@ -1695,6 +1695,7 @@
 })();
 </script>
 <!-- nextab-gate:body:end -->
+
 
 
 

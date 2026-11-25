@@ -47,7 +47,7 @@
     position: fixed;
     inset: 0;
     z-index: 2147483000;
-    display: none;
+    display: flex;
     height: 100vh;
     height: 100dvh;
     min-height: 100vh;
@@ -65,8 +65,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  html.gate-locked #access-gate,
-  html.gate-leaving #access-gate { display: flex; }
+  html.gate-ready #access-gate { display: none; }
 
   #access-gate *,
   #access-gate *::before,
@@ -346,6 +345,7 @@
     html.gate-leaving #access-gate .ag-frame { transition: none; }
   }
 </style>
+<noscript><style>html { background: #0c1913; } html body > *:not(#access-gate) { display: none !important; }</style></noscript>
 <!-- nextab-gate:head:end -->
 <title>인체적용 시험 상세 | Potatosome® · ALVORA LAB</title>
 <meta name="description" content="Potatosome® 함유 제형의 인체적용 시험(n=21) 결과를 지표별로 정리했습니다. 즉각 쿨링 −11.6 %, 주름 깊이 −10.7 %, 탄력 +5.7 %, 기미·색소 −5.8 %와 통계 검정 결과를 함께 제시합니다.">
@@ -1220,6 +1220,7 @@
 })();
 </script>
 <!-- nextab-gate:body:end -->
+
 
 
 

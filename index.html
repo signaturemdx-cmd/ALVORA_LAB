@@ -47,7 +47,7 @@
     position: fixed;
     inset: 0;
     z-index: 2147483000;
-    display: none;
+    display: flex;
     height: 100vh;
     height: 100dvh;
     min-height: 100vh;
@@ -65,8 +65,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  html.gate-locked #access-gate,
-  html.gate-leaving #access-gate { display: flex; }
+  html.gate-ready #access-gate { display: none; }
 
   #access-gate *,
   #access-gate *::before,
@@ -346,6 +345,7 @@
     html.gate-leaving #access-gate .ag-frame { transition: none; }
   }
 </style>
+<noscript><style>html { background: #0c1913; } html body > *:not(#access-gate) { display: none !important; }</style></noscript>
 <!-- nextab-gate:head:end -->
 <title>Nextab, Inc. | Potatosome® 식물 엑소좀 · ALVORA LAB</title>
 <meta name="description" content="넥스탭(Nextab, Inc.)은 감자 유래 식물 엑소좀 원료 Potatosome®을 기반으로 화장품 원료와 더마 브랜드 ALVORA LAB을 운영합니다. 4개국 원료명 등재, 등록특허, peer-reviewed 논문 3편(2023·2024·2025).">
@@ -1732,6 +1732,7 @@
 })();
 </script>
 <!-- nextab-gate:body:end -->
+
 
 
 
