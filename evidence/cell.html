@@ -348,7 +348,7 @@
 <noscript><style>html { background: #0c1913; } html body > *:not(#access-gate) { display: none !important; }</style></noscript>
 <!-- nextab-gate:head:end -->
 <title>세포 연구 상세 | Potatosome® · ALVORA LAB</title>
-<meta name="description" content="Potatosome®의 세포·ex vivo 연구 35종을 항염증·항산화·광노화·장벽·재생·침투 안전성 6개 카테고리로 정리했습니다. 2023·2024·2025년 peer-reviewed 논문 3편의 DOI와 시험 조건, 확인된 수치를 함께 제시합니다.">
+<meta name="description" content="Potatosome®의 세포·ex vivo 연구 35종을 항염증·항산화·광노화·장벽·재생·세포 흡수·안전성 7개 카테고리로 정리했습니다. 2023·2024·2025년 peer-reviewed 논문 3편의 DOI와 시험 조건, 확인된 수치를 함께 제시합니다.">
 <meta name="theme-color" content="#13221B">
 <meta property="og:type" content="website">
 <meta property="og:title" content="세포 연구 상세 | Potatosome® · ALVORA LAB">
@@ -1220,6 +1220,112 @@
   }
   .pgchart.is-reset .pg-sig { transition: none; }
 
+  /* ---------- FACS cellular-uptake chart ---------- */
+  .facschart {
+    --fc-h: 236px;
+    --fc-cell: #22302A;
+    --fc-dye: #6F756E;
+    --fc-100: #C4798F;
+    --fc-200: #AE2C25;
+    margin: clamp(24px, 3.2vw, 34px) 0 0;
+    background: linear-gradient(180deg, #FCFBF7, #F8F6EF);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: clamp(16px, 2.4vw, 26px) clamp(15px, 2.4vw, 26px) clamp(14px, 2vw, 20px);
+    scroll-margin-top: calc(var(--nav-h) + 18px);
+  }
+  .fc-panels {
+    display: grid; grid-template-columns: minmax(0, 1.44fr) minmax(0, 1fr);
+    gap: clamp(18px, 3vw, 40px); align-items: start;
+    margin-top: clamp(18px, 2.4vw, 26px);
+  }
+  .fc-panel { min-width: 0; }
+  .fc-ptop { display: flex; align-items: baseline; gap: 9px; margin-bottom: 9px; }
+  .fc-tag {
+    font-family: var(--serif); font-size: 13.5px; line-height: 1;
+    color: var(--gold-deep); letter-spacing: .06em;
+  }
+  .fc-ptitle { font-size: 11px; line-height: 1.55; letter-spacing: .02em; color: var(--muted-2); }
+  .fc-svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .fc-svg text { font-family: var(--sans); fill: var(--muted-2); font-size: 13px; }
+  .fc-svg .fc-tick { fill: #5A6055; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+  .fc-svg .fc-axi { fill: var(--muted-2); font-size: 12.5px; letter-spacing: .03em; }
+  .fc-svg .fc-axis { stroke: rgba(19,34,27,.5); stroke-width: 1.1; fill: none; }
+  .fc-area { opacity: 0; }
+  .fc-line {
+    fill: none; stroke-width: 1.7; stroke-linejoin: round; stroke-linecap: round;
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+  }
+  .fc-curve[data-k="cell"] .fc-line { stroke: var(--fc-cell); }
+  .fc-curve[data-k="cell"] .fc-area { fill: rgba(34,48,42,0); }
+  .fc-curve[data-k="dye"] .fc-line { stroke: var(--fc-dye); }
+  .fc-curve[data-k="dye"] .fc-area { fill: rgba(176,180,172,.50); }
+  .fc-curve[data-k="p100"] .fc-line { stroke: var(--fc-100); }
+  .fc-curve[data-k="p100"] .fc-area { fill: rgba(239,183,201,.52); }
+  .fc-curve[data-k="p200"] .fc-line { stroke: var(--fc-200); }
+  .fc-curve[data-k="p200"] .fc-area { fill: rgba(214,84,72,.38); }
+
+  .fc-bars { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 8px; padding-bottom: 30px; }
+  .fc-yaxis { position: relative; height: var(--fc-h); }
+  .fc-yaxis span {
+    position: absolute; right: 0; transform: translateY(50%);
+    font-size: 10px; color: var(--muted-2); font-variant-numeric: tabular-nums;
+  }
+  .fc-bmain { min-width: 0; }
+  .fc-barea { position: relative; height: var(--fc-h); }
+  .fc-grid { position: absolute; inset: 0; pointer-events: none; }
+  .fc-grid span { position: absolute; left: 0; right: 0; height: 1px; background: rgba(19,34,27,.075); }
+  .fc-grid span:first-child { background: rgba(19,34,27,.3); }
+  .fc-cols {
+    position: relative; height: 100%;
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(6px, 1.5vw, 16px); align-items: end;
+  }
+  .fc-col { position: relative; height: 100%; }
+  .fc-bar {
+    position: absolute; left: 13%; right: 13%; bottom: 0; height: 0;
+    border-radius: 1px 1px 0 0; border-bottom: 0;
+  }
+  .fc-col[data-k="cell"] .fc-bar { background: #FDFCF7; border: 1px solid var(--fc-cell); }
+  .fc-col[data-k="dye"] .fc-bar { background: #BFC2BB; border: 1px solid var(--fc-dye); }
+  .fc-col[data-k="p100"] .fc-bar { background: #EFBACC; border: 1px solid var(--fc-100); }
+  .fc-col[data-k="p200"] .fc-bar { background: #D33A33; border: 1px solid #94241E; }
+  .fc-lab {
+    position: absolute; left: 0; right: 0; bottom: 0; margin-bottom: 6px;
+    text-align: center; white-space: nowrap;
+    font-size: 12px; font-weight: 600; line-height: 1; letter-spacing: -.01em;
+    color: var(--ink); font-variant-numeric: tabular-nums;
+    opacity: 0; transform: translateY(4px);
+    transition: opacity .4s ease, transform .4s ease;
+  }
+  .fc-lab.on { opacity: 1; transform: none; }
+  .fc-xname {
+    position: absolute; top: 100%; left: 0; right: 0; margin-top: 9px;
+    text-align: center; font-size: 10.5px; line-height: 1.35; letter-spacing: .01em; color: var(--forest);
+  }
+  .fc-legend {
+    display: flex; flex-wrap: wrap; gap: 8px 22px;
+    margin-top: 18px; padding-top: 15px; border-top: 1px solid var(--line);
+    font-size: 11.5px; letter-spacing: .01em; color: #3F443A;
+  }
+  .fc-legend > span {
+    display: inline-flex; align-items: center; gap: 7px;
+    opacity: 0; transform: translateY(3px);
+    transition: opacity .45s ease, transform .45s ease;
+  }
+  .fc-legend > span.on { opacity: 1; transform: none; }
+  .fc-legend i { display: inline-block; width: 15px; height: 15px; border-radius: 1px; }
+  .fc-legend .lg-cell { border: 1.4px solid var(--fc-cell); background: #FDFCF7; }
+  .fc-legend .lg-dye { border: 1.4px solid var(--fc-dye); background: rgba(191,194,187,.85); }
+  .fc-legend .lg-p100 { border: 1.4px solid var(--fc-100); background: rgba(239,186,204,.85); }
+  .fc-legend .lg-p200 { border: 1.4px solid #94241E; background: #D33A33; }
+  .fc-cap {
+    margin: 4px 0 0; padding-top: 13px; border-top: 1px solid var(--line);
+    font-size: 12.5px; line-height: 1.8; color: var(--muted);
+  }
+  .fc-cap b { font-weight: 600; color: var(--forest); }
+  .fc-note { margin-top: 9px; font-size: 11.5px; line-height: 1.7; color: var(--muted-2); }
+
   /* ---------- publications ---------- */
   .pubs-sec { background: var(--paper); }
   .pubs { margin-top: clamp(26px, 3.4vw, 38px); border-top: 1px solid var(--line); }
@@ -1355,6 +1461,18 @@
     .br-aqp-name span { font-size: 10.5px; }
     .br-aqp-gauge { height: 26px; }
     .br-note { font-size: 11px; }
+    .facschart { --fc-h: 186px; }
+    .fc-panels { grid-template-columns: 1fr; gap: 20px; }
+    .fc-svg .fc-tick { font-size: 13.5px; }
+    .fc-svg .fc-axi { font-size: 13px; }
+    .fc-bars { grid-template-columns: 20px minmax(0, 1fr); gap: 6px; }
+    .fc-yaxis span { font-size: 9px; }
+    .fc-lab { font-size: 11px; margin-bottom: 5px; }
+    .fc-xname { font-size: 9.5px; margin-top: 7px; }
+    .fc-legend { font-size: 10.5px; gap: 6px 14px; }
+    .fc-ptitle { font-size: 10.5px; }
+    .fc-cap { font-size: 12px; }
+    .fc-note { font-size: 11px; }
     .f-top { flex-wrap: wrap; gap: 6px; }
     :root { --nav-h: 64px; }
     body { font-size: 15.5px; }
@@ -1736,11 +1854,11 @@
       </div>
       <h1>
         <span class="h1-main" data-en="Cell-Study Detail">세포 연구 상세</span>
-        <span class="h1-sub"><span data-en="Potatosome® in vitro · ex vivo validation — 6 categories, 35 test titles">Potatosome® in vitro · ex vivo 검증 — 6개 카테고리, 시험 35종</span></span>
+        <span class="h1-sub"><span data-en="Potatosome® in vitro · ex vivo validation — 7 categories, 35 test titles">Potatosome® in vitro · ex vivo 검증 — 7개 카테고리, 시험 35종</span></span>
       </h1>
-      <p class="chero-lead" data-en="What the potato-derived exosome was tested for at cell level, and what the numbers were. Thirty-five distinct in vitro and ex vivo test titles from three peer-reviewed papers are grouped into six categories; each opens to its full test list, and every finding is tagged with the paper and DOI it comes from. These are mechanism studies in cultured cells and isolated immune cells — not human efficacy results.">
+      <p class="chero-lead" data-en="What the potato-derived exosome was tested for at cell level, and what the numbers were. Thirty-five distinct in vitro and ex vivo test titles from three peer-reviewed papers are grouped into seven categories; each opens to its full test list, and every finding is tagged with the paper and DOI it comes from. These are mechanism studies in cultured cells and isolated immune cells — not human efficacy results.">
         감자 유래 엑소좀을 세포 수준에서 무엇으로, 얼마나 시험했는지 정리했습니다.
-        peer-reviewed 논문 3편에 보고된 in vitro · ex vivo 시험 35종(중복 제거)을 6개 카테고리로 묶고,
+        peer-reviewed 논문 3편에 보고된 in vitro · ex vivo 시험 35종(중복 제거)을 7개 카테고리로 묶고,
         각 카테고리를 열면 전체 시험 목록과 논문별로 확인된 수치가 DOI와 함께 나옵니다.
         배양세포·분리 세포에서의 기전 연구이며, 인체 효능 결과가 아닙니다.
       </p>
@@ -1757,7 +1875,8 @@
         <a href="#photoaging"><b>03</b><span data-en="Photoaging &amp; Wrinkle Care">광노화 &amp; 주름 케어</span></a>
         <a href="#barrier"><b>04</b><span data-en="Skin Barrier Enhancement">피부장벽 강화</span></a>
         <a href="#regeneration"><b>05</b><span data-en="Regeneration &amp; Repair">재생 &amp; 치유</span></a>
-        <a href="#delivery-safety"><b>06</b><span data-en="Cellular Delivery &amp; Safety">세포 침투 &amp; 안전성</span></a>
+        <a href="#uptake"><b>06</b><span data-en="Cellular Uptake &amp; Delivery">세포 흡수 &amp; 전달</span></a>
+        <a href="#delivery-safety"><b>07</b><span data-en="Cytotoxicity &amp; Irritation">세포 독성 &amp; 안전성</span></a>
       </nav>
 
       <div class="kpis">
@@ -1793,7 +1912,7 @@
     <div class="wrap ov-grid">
       <div class="ov-head">
         <div class="eyebrow" data-en="Study outline">시험 개요</div>
-        <h2 class="h2" data-en="One ingredient, three papers, six questions">하나의 원료, 세 편의 논문, 여섯 개의 질문</h2>
+        <h2 class="h2" data-en="One ingredient, three papers, seven questions">하나의 원료, 세 편의 논문, 일곱 개의 질문</h2>
         <p data-en="Potatosome® is the potato-derived exosome preparation (referred to as ExoP and SDE in the papers). Its cell-level evidence is published in three peer-reviewed papers; the 35 test titles below are the distinct in vitro and ex vivo tests reported across them.">
           Potatosome®은 감자에서 분리한 엑소좀 원료로, 논문에서는 ExoP · SDE로 표기됩니다.
           세포 수준 근거는 peer-reviewed 논문 3편에 공개되어 있고, 아래 35종은 그 안에 보고된
@@ -2823,36 +2942,143 @@
     </div>
   </section>
 
-  <!-- 06 DELIVERY & SAFETY -->
-  <section class="csection alt" id="delivery-safety">
+  <!-- 06 CELLULAR UPTAKE & DELIVERY -->
+  <section class="csection alt" id="uptake">
     <div class="wrap">
       <div class="cs-head">
         <div class="cs-num">06</div>
         <div>
-          <div class="eyebrow no-rule" data-en="Cellular Delivery &amp; Safety Profile">세포 침투 &amp; 안전성</div>
-          <h2 class="h2" data-en="It has to get in — and it has to be safe">들어가는가, 그리고 안전한가</h2>
+          <div class="eyebrow no-rule" data-en="Cellular Uptake &amp; Delivery">세포 흡수 &amp; 전달</div>
+          <h2 class="h2" data-en="How much of it actually gets inside the cell">세포 안까지 얼마나 들어가는가</h2>
         </div>
       </div>
-      <p class="cs-lead" data-en="Efficacy means little if the vesicles never enter the cell. Uptake into keratinocytes was confirmed with fluorescent labelling under confocal microscopy and by flow cytometry. Separately, cytotoxicity was tested from 1 to 1,000 µg/mL, and human topical application was followed for irritation.">
-        효능이 있더라도 세포 안으로 들어가지 못하면 의미가 없습니다.
-        형광 표지로 각질형성세포에 실제로 흡수되는지를 공초점 현미경과 유세포 분석으로 확인했고,
-        별도로 1–1,000 µg/mL 전 구간에서 세포독성을, 인체 도포에서는 자극 여부를 확인했습니다.
+      <p class="cs-lead" data-en="FITC-labelled potato exosomes (Potatosome® · ExoP) were applied to human epidermal keratinocytes (HaCaT), and the fluorescence that reached the inside of the cells was measured by flow cytometry (FACS). As the concentration rose, the fluorescence-intensity distribution of the cell population moved to the right: at 200 µg the mean fluorescence was 3.32× that of untreated cells (1 ×) and about 2.2× that of the dye-only control (1.51 ×).">
+        FITC 형광으로 표지한 감자 유래 엑소좀(Potatosome® · ExoP)을 인간 표피 각질형성세포(HaCaT)에 처리하고,
+        세포 안으로 들어간 형광량을 유세포 분석(FACS)으로 정량했습니다.
+        농도가 높아질수록 세포 집단의 형광 강도 분포가 오른쪽으로 이동했고,
+        ExoP 200 µg 처리군의 평균 형광량은 무처리 세포(1 ×)의 3.32배, 염료만 처리한 대조군(1.51 ×)의 약 2.2배였습니다.
       </p>
 
       <aside class="cbene">
         <span class="cb-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.4l1.9 6.05a2.8 2.8 0 0 0 1.65 1.65L21.6 12l-6.05 1.9a2.8 2.8 0 0 0-1.65 1.65L12 21.6l-1.9-6.05a2.8 2.8 0 0 0-1.65-1.65L2.4 12l6.05-1.9a2.8 2.8 0 0 0 1.65-1.65z"/></svg></span>
         <div class="cb-body">
           <span class="cb-k" data-en="Skin Benefit">피부 혜택</span>
-          <p class="cb-line" data-en="The active gets properly inside skin cells, and even at high concentration it brings no irritation or toxicity burden — a gentle ingredient.">유효 성분이 피부 세포 안까지 제대로 들어가면서도 고농도에서 자극이나 독성 부담이 없는 순한 원료입니다.</p>
-          <p class="cb-sub" data-en="(Uptake confirmed by fluorescent labelling inside cells; no cytotoxicity up to 1,000 µg/mL; no irritation in a 21-volunteer human-use test.)">(형광 표지로 세포 내 흡수 확인, 1,000 µg/mL까지 세포독성 없음, 인체 도포 시험 21명 무자극)</p>
+          <p class="cb-line" data-en="Nano-sized exosomes are taken up quickly into keratinocytes, so the active reaches the cells instead of sitting on the surface of the skin.">나노 크기 엑소좀이 각질형성세포 안으로 빠르게 흡수되어, 유효 성분이 피부 겉에서 맴돌지 않고 세포까지 전달됩니다.</p>
+          <p class="cb-sub" data-en="(3.32× the intracellular fluorescence — cell-level support for transdermal delivery efficiency of the active and for how a leave-on formula performs.)">(세포 내 형광량 3.32배 — 유효성분의 경피 전달(transdermal delivery) 효율과 제형 체감도를 뒷받침하는 세포 실험 결과)</p>
         </div>
       </aside>
 
-      <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">3</span></div>
+      <figure class="facschart" id="facs-chart">
+        <div class="rc-head">
+          <div class="rc-headtext">
+            <div class="eyebrow no-rule" data-en="Flow Cytometry · FITC-labelled ExoP">유세포 분석 · FITC 표지 엑소좀</div>
+            <h3 class="rc-title" data-en="Potato Exosome Uptake by HaCaT Keratinocytes — Density Profile and Fold Change">감자 엑소좀(HaCaT) 세포 내 흡수 — 형광 강도 분포와 배수</h3>
+            <p class="rc-sub" data-en="Cell → Dye only → ExoP 100 µg → ExoP 200 µg, each profile drawn in turn; every bar rises from 0 to its final multiple">Cell → Dye only → ExoP 100 µg → ExoP 200 µg 순서로 한 곡선씩 그려지고, 막대는 모두 0에서 해당 배수까지 올라갑니다</p>
+          </div>
+          <button class="rc-replay" type="button"><span class="rc-ico" aria-hidden="true">↺</span><span data-en="Replay">다시 재생</span></button>
+        </div>
+
+        <div class="fc-panels">
+          <div class="fc-panel fc-panel-a">
+            <div class="fc-ptop">
+              <span class="fc-tag" aria-hidden="true">A</span>
+              <span class="fc-ptitle" data-en="FACS density profile · FITC fluorescence">FACS 밀도 프로파일 · FITC 형광</span>
+            </div>
+            <svg class="fc-svg" viewBox="0 0 640 404" role="img" aria-label="유세포 분석 밀도 곡선 — Cell 1.0×, Dye only 1.51×, ExoP 100 µg 2.26×, ExoP 200 µg 3.32×, 형광 강도가 높아질수록 오른쪽으로 이동" data-en-aria="Flow-cytometry density curves — Cell 1.0×, Dye only 1.51×, ExoP 100 µg 2.26×, ExoP 200 µg 3.32×, shifting right as fluorescence rises">
+              <g aria-hidden="true">
+                <line class="fc-axis" x1="62" y1="26" x2="62" y2="348"></line>
+                <line class="fc-axis" x1="62" y1="348" x2="618" y2="348"></line>
+                <text class="fc-tick" x="55" y="352" text-anchor="end">0</text>
+                <text class="fc-tick" x="55" y="285" text-anchor="end">1</text>
+                <text class="fc-tick" x="55" y="218" text-anchor="end">2</text>
+                <text class="fc-tick" x="55" y="151" text-anchor="end">3</text>
+                <text class="fc-tick" x="55" y="84" text-anchor="end">4</text>
+                <text class="fc-tick" x="160" y="370" text-anchor="middle">10²</text>
+                <text class="fc-tick" x="328" y="370" text-anchor="middle">3×10²</text>
+                <text class="fc-tick" x="512" y="370" text-anchor="middle">10³</text>
+                <text class="fc-axi" x="18" y="187" text-anchor="middle" transform="rotate(-90 18 187)">Density</text>
+                <text class="fc-axi" x="340" y="394" text-anchor="middle" data-en="Fluorescence intensity (FITC, log)">형광 강도 (FITC, log)</text>
+              </g>
+              <g class="fc-curves"></g>
+            </svg>
+          </div>
+
+          <div class="fc-panel fc-panel-b">
+            <div class="fc-ptop">
+              <span class="fc-tag" aria-hidden="true">B</span>
+              <span class="fc-ptitle" data-en="Fold change (×) · untreated cells = 1">배수 (×) · 무처리 세포 = 1</span>
+            </div>
+            <div class="fc-bars" role="img" aria-label="무처리 세포 대비 형광량 배수 — Cell 1×, Dye only 1.51×, ExoP 100 µg 2.26×, ExoP 200 µg 3.32×" data-en-aria="Fold change in fluorescence against untreated cells — Cell 1×, Dye only 1.51×, ExoP 100 µg 2.26×, ExoP 200 µg 3.32×">
+              <div class="fc-yaxis" aria-hidden="true">
+                <span style="bottom:0">0</span>
+                <span style="bottom:25%">1</span>
+                <span style="bottom:50%">2</span>
+                <span style="bottom:75%">3</span>
+                <span style="bottom:100%">4</span>
+              </div>
+              <div class="fc-bmain">
+                <div class="fc-barea">
+                  <div class="fc-grid" aria-hidden="true">
+                    <span style="bottom:0"></span>
+                    <span style="bottom:25%"></span>
+                    <span style="bottom:50%"></span>
+                    <span style="bottom:75%"></span>
+                    <span style="bottom:100%"></span>
+                  </div>
+                  <div class="fc-cols">
+                    <div class="fc-col" data-k="cell" data-val="1" data-lab="1×">
+                      <div class="fc-bar"></div>
+                      <span class="fc-lab">1×</span>
+                      <span class="fc-xname">Cell</span>
+                    </div>
+                    <div class="fc-col" data-k="dye" data-val="1.51" data-lab="1.51×">
+                      <div class="fc-bar"></div>
+                      <span class="fc-lab">1.51×</span>
+                      <span class="fc-xname">Dye only</span>
+                    </div>
+                    <div class="fc-col" data-k="p100" data-val="2.26" data-lab="2.26×">
+                      <div class="fc-bar"></div>
+                      <span class="fc-lab">2.26×</span>
+                      <span class="fc-xname">ExoP 100 µg</span>
+                    </div>
+                    <div class="fc-col" data-k="p200" data-val="3.32" data-lab="3.32×">
+                      <div class="fc-bar"></div>
+                      <span class="fc-lab">3.32×</span>
+                      <span class="fc-xname">ExoP 200 µg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fc-legend">
+          <span data-k="cell"><i class="lg-cell"></i><span data-en="Cell (untreated)">Cell (무처리)</span></span>
+          <span data-k="dye"><i class="lg-dye"></i><span data-en="Dye only">Dye only (염료 단독)</span></span>
+          <span data-k="p100"><i class="lg-p100"></i><span data-en="ExoP 100 µg">ExoP 100 µg</span></span>
+          <span data-k="p200"><i class="lg-p200"></i><span data-en="ExoP 200 µg">ExoP 200 µg</span></span>
+        </div>
+
+        <figcaption class="fc-cap">
+          <span data-en="<b>A</b> FACS density profile: how many cells carried how much fluorescence, from 10² to 10³ on a log scale. <b>B</b> The same data reduced to a fold change against untreated cells (1×). The more exosome applied, the further the whole population moves to the right — <b>3.32× the intracellular fluorescence at 200 µg</b>, about 2.2× what the dye alone achieves.">
+            <b>A</b>는 세포가 얼마만큼의 형광을 지녔는지를 로그 눈금(10²–10³)으로 나타낸 유세포 분석 밀도 곡선이고,
+            <b>B</b>는 같은 결과를 무처리 세포(1×) 기준 배수로 줄여 놓은 그래프입니다.
+            처리 농도가 높을수록 세포 집단 전체의 분포가 오른쪽으로 이동하며,
+            <b>ExoP 200 µg에서 세포 내 형광량 3.32배</b> — 염료만 처리한 경우(1.51×)의 약 2.2배입니다.
+          </span>
+        </figcaption>
+        <p class="fc-note" data-en="FITC-labelled Potatosome® · HaCaT human keratinocytes · 100 and 200 µg/mL against dye-only and untreated controls · fluorescence read by FACS. Relative fluorescence is used as a proxy for the amount of labelled exosome inside the cell; this is an in vitro result.">
+          FITC 표지 Potatosome® · HaCaT 인간 각질형성세포 · 염료 단독 대조군과 무처리 대조군에 100 · 200 µg/mL를 처리한 뒤 FACS로 형광을 읽었습니다.
+          형광량은 세포 안으로 들어간 표지 엑소좀의 양에 비례하는 값으로 사용했으며, 세포 수준(in vitro) 결과입니다.
+        </p>
+      </figure>
+
+      <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">2</span></div>
       <div class="tests">
         <details>
           <summary>
-            <span class="sum-l"><span data-en="All 3 test titles">세부 시험 3종 전체 보기</span><span class="cnt">3</span></span>
+            <span class="sum-l"><span data-en="All 2 test titles">세부 시험 2종 전체 보기</span><span class="cnt">2</span></span>
             <span class="ic" aria-hidden="true"></span>
           </summary>
           <ul class="tlist">
@@ -2863,10 +3089,6 @@
             <li>
               <span class="tn"><b>HaCaT Cell Uptake Assay (Flow Cytometry / FACS)</b><em data-en="">각질형성세포 흡수 시험 (유세포 분석)</em></span>
               <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
-            </li>
-            <li>
-              <span class="tn"><b>High-concentration Cytotoxicity Assay (1–1,000 µg/mL)</b><em data-en="">고농도 세포독성 시험 (1–1,000 µg/mL)</em></span>
-              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
             </li>
           </ul>
         </details>
@@ -2886,9 +3108,9 @@
         <div class="finding">
           <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">FACS · 24 h</span></div>
           <h3 data-en="Uptake rose with concentration by FACS">유세포 분석에서도 농도 의존적 흡수</h3>
-          <p class="f-body" data-en="Flow cytometry showed a concentration-dependent increase in fluorescent cells at 100 and 200 µg/mL, confirming uptake by a second, independent method.">
+          <p class="f-body" data-en="Flow cytometry showed a concentration-dependent increase in fluorescent cells at 100 and 200 µg/mL, confirming uptake by a second, independent method. Reduced to numbers, the 200 µg group carried 3.32× the fluorescence of untreated cells — the figure in chart B above.">
             유세포 분석에서 100 · 200 µg/mL 처리 시 형광 세포 비율이 농도 의존적으로 증가했습니다.
-            공초점 현미경과 독립된 두 번째 방법으로 흡수를 확인한 결과입니다.
+            공초점 현미경과 독립된 두 번째 방법으로 흡수를 확인한 결과이며, 수치로는 200 µg 처리군이 무처리 세포의 3.32배였습니다(위 그래프 B).
           </p>
           <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
         </div>
@@ -2901,13 +3123,87 @@
           </p>
           <a class="f-doi" href="https://doi.org/10.37871/jbres2039" target="_blank" rel="noopener"><span data-en="DOI 10.37871/jbres2039">DOI 10.37871/jbres2039</span><span class="arw" aria-hidden="true">↗</span></a>
         </div>
+      </div>
+
+      <div class="cs-foot">
+        <div class="caveats">
+          <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
+          <ul>
+            <li data-en="FACS reads the amount of fluorescent label associated with the cell, not the amount of active protein that reached a given compartment inside it.">FACS가 읽는 값은 세포와 결합한 형광 표지의 양이며, 세포 안 특정 부위에 도달한 활성 단백질의 양과 같지 않습니다.</li>
+            <li data-en="The dye-only control measures 1.51×, so part of the signal comes from the label itself; that is why the dye control is drawn next to the exosome groups.">염료만 처리한 대조군도 1.51배로 측정되어 신호의 일부는 표지 염료 자체에서 나옵니다. 그래서 엑소좀 처리군 옆에 염료 대조군을 함께 그렸습니다.</li>
+            <li data-en="Concentrations are exosome protein added to the culture medium, not the amount that crosses the stratum corneum after application.">농도는 배양액에 넣은 엑소좀 단백량이며, 제품 도포 후 각질층을 지나 도달하는 양과 같지 않습니다.</li>
+            <li data-en="This is an in vitro result in cultured keratinocytes; it does not mean the same proportion is absorbed in human skin.">배양 각질형성세포(in vitro) 결과이며, 인체 피부에서 같은 비율로 흡수된다는 뜻이 아닙니다.</li>
+          </ul>
+        </div>
+        <dl class="cs-meta">
+          <div><dt data-en="Test system">시험계</dt><dd>HaCaT</dd></div>
+          <div><dt data-en="Label">표지</dt><dd data-en="FITC (protein label) · lipid label (2024)">FITC(단백 표지) · 지질 표지(2024)</dd></div>
+          <div><dt data-en="Concentration">농도</dt><dd>100 · 200 µg/mL · Dye only</dd></div>
+          <div><dt data-en="Method">방법</dt><dd data-en="Flow cytometry (FACS) · confocal">유세포 분석(FACS) · 공초점</dd></div>
+          <div><dt data-en="Test titles">시험 종수</dt><dd data-en="2">2종</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 DELIVERY & SAFETY -->
+  <section class="csection" id="delivery-safety">
+    <div class="wrap">
+      <div class="cs-head">
+        <div class="cs-num">07</div>
+        <div>
+          <div class="eyebrow no-rule" data-en="Cytotoxicity &amp; Irritation">세포 독성 &amp; 안전성</div>
+          <h2 class="h2" data-en="At high concentration, is there any toxicity or irritation?">고농도에서도 독성과 자극이 없는가</h2>
+        </div>
+      </div>
+      <p class="cs-lead" data-en="A well-absorbed ingredient is useless if it harms the cell at higher concentrations. Viability was measured across 1–1,000 µg/mL in HaCaT keratinocytes, and a formula carrying the same ingredient was tested on human skin for irritation.">
+        아무리 잘 흡수되어도, 농도가 올라갈 때 세포를 해친다면 쓸 수 없습니다.
+        1–1,000 µg/mL 전 구간에서 각질형성세포 생존율을 재고, 같은 원료를 넣은 제형으로 인체 도포 자극을 확인했습니다.
+      </p>
+
+      <aside class="cbene">
+        <span class="cb-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.4l1.9 6.05a2.8 2.8 0 0 0 1.65 1.65L21.6 12l-6.05 1.9a2.8 2.8 0 0 0-1.65 1.65L12 21.6l-1.9-6.05a2.8 2.8 0 0 0-1.65-1.65L2.4 12l6.05-1.9a2.8 2.8 0 0 0 1.65-1.65z"/></svg></span>
+        <div class="cb-body">
+          <span class="cb-k" data-en="Skin Benefit">피부 혜택</span>
+          <p class="cb-line" data-en="Even at high concentration it brings no irritation or toxicity burden — a gentle ingredient that can be used every day.">고농도에서도 자극이나 독성 부담이 없는, 매일 쓸 수 있는 순한 원료입니다.</p>
+          <p class="cb-sub" data-en="(No cytotoxicity up to 1,000 µg/mL in cell tests · no irritation in a 21-volunteer human-use test.)">(세포 시험 1,000 µg/mL까지 세포독성 없음 · 인체 도포 시험 21명 무자극)</p>
+        </div>
+      </aside>
+
+      <div class="blockh"><span data-en="Test titles">세부 시험</span><span class="cnt">1</span></div>
+      <div class="tests">
+        <details>
+          <summary>
+            <span class="sum-l"><span data-en="Show the test title">세부 시험 1종 보기</span><span class="cnt">1</span></span>
+            <span class="ic" aria-hidden="true"></span>
+          </summary>
+          <ul class="tlist">
+            <li>
+              <span class="tn"><b>High-concentration Cytotoxicity Assay (1–1,000 µg/mL)</b><em data-en="">고농도 세포독성 시험 (1–1,000 µg/mL)</em></span>
+              <span class="tags"><a class="src-tag" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener">2025</a></span>
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="blockh"><span data-en="Confirmed in the papers">논문에서 확인된 내용</span></div>
+      <div class="findings">
         <div class="finding">
           <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model">1–1,000 µg/mL · 24 h</span></div>
           <h3 data-en="No significant loss at 1,000 µg/mL">1,000 µg/mL에서 유의한 감소 없음</h3>
-          <p class="f-body" data-en="Over 1–1,000 µg/mL for 24 h, 50–500 µg/mL promoted growth; at 1,000 µg/mL viability was 4 % below the untreated control, which was not significant, so an LD50 could not be established within the range. Purity above 98 % and no bacterial contamination were confirmed. A cosmetic prototype with the same ingredient caused no irritation in 21 volunteers (human-use detail).">
+          <p class="f-body" data-en="Over 1–1,000 µg/mL for 24 h, 50–500 µg/mL promoted growth; at 1,000 µg/mL viability was 4 % below the untreated control, which was not significant, so an LD50 could not be established within the range. Purity above 98 % and no bacterial contamination were confirmed.">
             1–1,000 µg/mL · 24시간 시험에서 50–500 µg/mL는 세포 성장을 촉진했고,
             1,000 µg/mL에서는 미처리 대조군보다 4 % 낮았으나 유의하지 않아 이 범위 안에서 LD50을 정할 수 없었습니다.
-            순도 98 % 이상, 세균 오염 없음도 확인했습니다. 같은 원료를 넣은 제형은 인체 21명 도포에서 자극이 관찰되지 않았습니다.
+            순도 98 % 이상, 세균 오염 없음도 확인했습니다.
+          </p>
+          <a class="f-doi" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener"><span data-en="DOI 10.3390/ph18040458">DOI 10.3390/ph18040458</span><span class="arw" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="finding">
+          <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model" data-en="Human-use · 21 volunteers">인체 도포 · 21명</span></div>
+          <h3 data-en="No irritation on human skin">인체 피부에서 자극 없음</h3>
+          <p class="f-body" data-en="A cosmetic prototype carrying the same ingredient caused no irritation in 21 volunteers. The human-use results are set out on their own page.">
+            같은 원료를 넣은 제형을 21명에게 도포했을 때 자극이 관찰되지 않았습니다.
+            인체적용 결과는 별도 페이지에 정리했습니다.
           </p>
           <a class="f-doi" href="clinical.html" data-lang-href="clinical.html"><span data-en="Human-use detail">인체적용 시험 상세</span><span class="arw" aria-hidden="true">→</span></a>
         </div>
@@ -2917,7 +3213,6 @@
         <div class="caveats">
           <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
           <ul>
-            <li data-en="Confocal images and FACS show that labelled vesicles associate with and enter cells; they do not show how much active material reaches a given compartment.">공초점 이미지와 FACS는 표지된 소포가 세포와 결합하고 들어간다는 것을 보여줄 뿐, 활성 물질이 특정 부위에 얼마나 도달했는지는 보여주지 않습니다.</li>
             <li data-en="Cytotoxicity was measured on HaCaT cells for 24 h; other cell types and longer exposure were not covered.">세포독성은 HaCaT 세포 24시간 조건이며, 다른 세포 유형과 더 긴 노출은 다루지 않았습니다.</li>
             <li data-en="“Non-cytotoxic up to 1,000 µg/mL” is an in vitro statement about cultured keratinocytes, not a human safety margin.">“1,000 µg/mL까지 비독성”은 배양 각질형성세포에 대한 in vitro 진술이며, 인체 안전역과 같지 않습니다.</li>
             <li data-en="Human irritation results come from a cosmetic prototype in 21 volunteers and are reported on the clinical detail page.">인체 자극 결과는 제형을 사용한 21명 시험으로, 임상 상세 페이지에 정리했습니다.</li>
@@ -2925,10 +3220,9 @@
         </div>
         <dl class="cs-meta">
           <div><dt data-en="Test system">시험계</dt><dd>HaCaT</dd></div>
-          <div><dt data-en="Uptake labels">흡수 표지</dt><dd data-en="Protein label (2023) · lipid label (2024)">단백 표지(2023) · 지질 표지(2024)</dd></div>
           <div><dt data-en="Cytotoxicity range">독성 범위</dt><dd>1–1,000 µg/mL · 24 h</dd></div>
-          <div><dt data-en="Method">방법</dt><dd data-en="Confocal · FACS · WST-1">공초점 · FACS · WST-1</dd></div>
-          <div><dt data-en="Test titles">시험 종수</dt><dd data-en="3">3종</dd></div>
+          <div><dt data-en="Method">방법</dt><dd>WST-1</dd></div>
+          <div><dt data-en="Test titles">시험 종수</dt><dd data-en="1">1종</dd></div>
         </dl>
       </div>
     </div>
@@ -3087,14 +3381,14 @@
     var META = {
       ko: {
         title: '세포 연구 상세 | Potatosome® · ALVORA LAB',
-        desc: 'Potatosome®의 세포·ex vivo 연구 35종을 항염증·항산화·광노화·장벽·재생·침투 안전성 6개 카테고리로 정리했습니다. 2023·2024·2025년 peer-reviewed 논문 3편의 DOI와 시험 조건, 확인된 수치를 함께 제시합니다.',
+        desc: 'Potatosome®의 세포·ex vivo 연구 35종을 항염증·항산화·광노화·장벽·재생·세포 흡수·안전성 7개 카테고리로 정리했습니다. 2023·2024·2025년 peer-reviewed 논문 3편의 DOI와 시험 조건, 확인된 수치를 함께 제시합니다.',
         ogTitle: '세포 연구 상세 | Potatosome® · ALVORA LAB',
         ogDesc: 'in vitro · ex vivo 시험 35종, peer-reviewed 논문 3편, 1,000 µg/mL까지 비독성 — 세포 수준 기전 근거를 카테고리별로 정리했습니다.',
         locale: 'ko_KR'
       },
       en: {
         title: 'Cell-Study Detail | Potatosome® · ALVORA LAB',
-        desc: 'Thirty-five in vitro and ex vivo tests of Potatosome®, grouped into anti-inflammation, antioxidant, photoaging, barrier, regeneration and delivery-safety, with the DOI of each of three peer-reviewed papers and the conditions and figures each reports.',
+        desc: 'Thirty-five in vitro and ex vivo tests of Potatosome®, grouped into anti-inflammation, antioxidant, photoaging, barrier, regeneration, cellular uptake and safety, with the DOI of each of three peer-reviewed papers and the conditions and figures each reports.',
         ogTitle: 'Cell-Study Detail | Potatosome® · ALVORA LAB',
         ogDesc: '35 in vitro and ex vivo test titles, 3 peer-reviewed papers, non-cytotoxic up to 1,000 µg/mL — the cell-level mechanism evidence by category.',
         locale: 'en_US'
@@ -3616,6 +3910,182 @@
           }
         }
       }, { threshold: 0.2 });
+      io.observe(fig);
+    } else {
+      play();
+    }
+
+    window.addEventListener('hashchange', function () {
+      if (hashHit()) play();
+    });
+  })();
+</script>
+<script>
+  /* FACS cellular-uptake chart — panel A draws the four density profiles one
+     after another (Cell → Dye only → 100 µg → 200 µg) and leaves them overlaid;
+     panel B grows every bar from 0 to its measured multiple. */
+  (function () {
+    var fig = document.getElementById('facs-chart');
+    if (!fig) return;
+
+    var gCurves = fig.querySelector('.fc-curves');
+    var cols = Array.prototype.slice.call(fig.querySelectorAll('.fc-col'));
+    var legs = Array.prototype.slice.call(fig.querySelectorAll('.fc-legend > span'));
+    var btn = fig.querySelector('.rc-replay');
+    if (!gCurves || !cols.length) return;
+
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = fig.querySelector('.fc-svg');
+    var L = 62, R = 618, TP = 26, BP = 348;
+    var XMIN = 1.72, XMAX = 3.30, YMAX = 4.8;
+    var PW = R - L, PH = BP - TP;
+
+    /* peak position (log10 fluorescence), peak height and flank widths */
+    var DATA = [
+      { k: 'cell', peak: 2.150, amp: 4.46, sL: 0.100, sR: 0.070 },
+      { k: 'dye',  peak: 2.390, amp: 4.42, sL: 0.082, sR: 0.086 },
+      { k: 'p100', peak: 2.610, amp: 4.30, sL: 0.080, sR: 0.088 },
+      { k: 'p200', peak: 2.840, amp: 4.38, sL: 0.078, sR: 0.086 }
+    ];
+
+    var DUR = 1080;      /* one profile drawn edge to edge */
+    var STAG = 620;      /* profiles start 0.62 s apart → last ends at ~3.0 s */
+    var BAR = 2500;      /* each bar rising from 0 */
+    var BARS = 70;       /* 4 bars → last ends at ~2.7 s */
+    var TOTAL = 3040;
+    var raf = 0;
+
+    function sx(v) { return L + (v - XMIN) / (XMAX - XMIN) * PW; }
+    function sy(v) { return BP - (v / YMAX) * PH; }
+    function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+    function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+
+    function build() {
+      var defs = document.createElementNS(NS, 'defs');
+      svg.insertBefore(defs, gCurves);
+
+      for (var i = 0; i < DATA.length; i++) {
+        var d = DATA[i], pts = [], N = 240;
+        for (var j = 0; j <= N; j++) {
+          var x = XMIN + (XMAX - XMIN) * j / N;
+          var s = x < d.peak ? d.sL : d.sR;
+          var y = d.amp * Math.exp(-0.5 * Math.pow((x - d.peak) / s, 2));
+          pts.push(sx(x).toFixed(2) + ' ' + sy(y).toFixed(2));
+        }
+        var line = 'M' + pts.join('L');
+        var area = line + 'L' + sx(XMAX).toFixed(2) + ' ' + BP + 'L' + sx(XMIN).toFixed(2) + ' ' + BP + 'Z';
+
+        /* the fill is revealed under the pen: a clip rect widens with the draw */
+        var cp = document.createElementNS(NS, 'clipPath');
+        cp.setAttribute('id', 'fc-clip-' + d.k);
+        cp.setAttribute('clipPathUnits', 'userSpaceOnUse');
+        var rect = document.createElementNS(NS, 'rect');
+        rect.setAttribute('x', L);
+        rect.setAttribute('y', 0);
+        rect.setAttribute('width', 0);
+        rect.setAttribute('height', 404);
+        cp.appendChild(rect);
+        defs.appendChild(cp);
+
+        var g = document.createElementNS(NS, 'g');
+        g.setAttribute('class', 'fc-curve');
+        g.setAttribute('data-k', d.k);
+        var ap = document.createElementNS(NS, 'path');
+        ap.setAttribute('class', 'fc-area');
+        ap.setAttribute('d', area);
+        ap.setAttribute('clip-path', 'url(#fc-clip-' + d.k + ')');
+        var lp = document.createElementNS(NS, 'path');
+        lp.setAttribute('class', 'fc-line');
+        lp.setAttribute('d', line);
+        lp.setAttribute('pathLength', '1');
+        g.appendChild(ap);
+        g.appendChild(lp);
+        gCurves.appendChild(g);
+      }
+    }
+    build();
+
+    var groups = Array.prototype.slice.call(gCurves.querySelectorAll('.fc-curve'));
+
+    function paintCurve(i, p) {
+      var g = groups[i];
+      if (!g) return;
+      var e = ease(p);
+      g.querySelector('.fc-line').style.strokeDashoffset = String(1 - e);
+      var clip = svg.querySelector('#fc-clip-' + g.getAttribute('data-k') + ' rect');
+      if (clip) clip.setAttribute('width', Math.max(0, sx(XMIN + (XMAX - XMIN) * e) - L).toFixed(2));
+      g.querySelector('.fc-area').style.opacity = p > 0 ? '1' : '0';
+      if (legs[i]) legs[i].classList.toggle('on', p > 0.015);
+    }
+
+    function paintCol(i, e) {
+      var c = cols[i];
+      var to = parseFloat(c.getAttribute('data-val'));
+      var h = to / 4 * 100 * e;
+      c.querySelector('.fc-bar').style.height = h + '%';
+      var lab = c.querySelector('.fc-lab');
+      lab.style.bottom = h + '%';
+      lab.classList.toggle('on', e >= 1);
+    }
+
+    function reset() {
+      for (var i = 0; i < groups.length; i++) paintCurve(i, 0);
+      for (var j = 0; j < cols.length; j++) paintCol(j, 0);
+      for (var k = 0; k < legs.length; k++) legs[k].classList.remove('on');
+    }
+
+    function settle() {
+      for (var i = 0; i < groups.length; i++) paintCurve(i, 1);
+      for (var j = 0; j < cols.length; j++) paintCol(j, 1);
+      fig.classList.add('is-done');
+    }
+
+    function play() {
+      cancelAnimationFrame(raf);
+      fig.classList.remove('is-done');
+      reset();
+      if (!groups.length) return;
+
+      var t0 = 0;
+      raf = requestAnimationFrame(function step(now) {
+        if (!t0) t0 = now;
+        var t = now - t0;
+        for (var i = 0; i < groups.length; i++) {
+          paintCurve(i, clamp((t - i * STAG) / DUR));
+        }
+        for (var j = 0; j < cols.length; j++) {
+          paintCol(j, clamp((t - j * BARS) / BAR));
+        }
+        if (t < TOTAL) {
+          raf = requestAnimationFrame(step);
+        } else {
+          settle();
+        }
+      });
+    }
+
+    btn.addEventListener('click', play);
+
+    var reduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    function hashHit() {
+      var h = (location.hash || '').toLowerCase();
+      return h === '#facs-chart' || h === '#uptake';
+    }
+
+    if (reduce && reduce.matches) {
+      settle();
+    } else if (hashHit()) {
+      play();
+    } else if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            io.disconnect();
+            play();
+            return;
+          }
+        }
+      }, { threshold: 0.22 });
       io.observe(fig);
     } else {
       play();
