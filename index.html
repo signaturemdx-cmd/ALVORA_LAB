@@ -822,6 +822,15 @@
   .footer-brand .brand-mark span { color: #E9EDE4; }
   .footer-name { font-size: 12.5px; letter-spacing: .3em; color: #F0EEE6; }
   .footer-sub { font-size: 9.5px; letter-spacing: .18em; color: #7F8878; margin-top: 4px; }
+  .footer-intro {
+    display: inline-flex; align-items: center; gap: 7px;
+    margin-top: 12px; padding: 5px 13px;
+    font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase;
+    color: #C2A268; border: 1px solid rgba(194,162,104,.35); border-radius: 99px;
+    transition: color .2s, border-color .2s, background .2s;
+  }
+  .footer-intro:hover { color: #F0E6CC; border-color: var(--gold); background: rgba(194,162,104,.1); }
+  .footer-intro span { font-size: 11px; letter-spacing: 0; }
   .footer-tag { font-family: var(--serif); font-size: clamp(17px, 1.9vw, 21px); color: #DCDED3; margin-top: 22px; line-height: 1.6; }
   .footer-info { font-size: 12.5px; line-height: 2; color: #8F9789; }
   .footer-info b { color: #C7CCBF; font-weight: 400; }
@@ -1638,6 +1647,7 @@
             <span class="footer-sub">POTATOSOME® · ALVORA LAB</span>
           </span>
         </div>
+        <a class="footer-intro" href="https://signaturemdx-cmd.github.io/Potatosome/#ko" data-lang-hook="https://signaturemdx-cmd.github.io/Potatosome/" aria-label="Potatosome 3D 인트로 열기" data-en-aria="Open the Potatosome 3D intro" data-en="Potatosome® 3D Intro <span aria-hidden='true'>↗</span>">Potatosome® 3D Intro <span aria-hidden="true">↗</span></a>
         <div class="footer-tag">Science Behind.<br>Benefits First.</div>
       </div>
       <div class="footer-info">
@@ -1757,6 +1767,10 @@
     function syncLinks(l) {
       each('a[data-lang-href]', function (a) {
         a.setAttribute('href', withLang(a.getAttribute('data-lang-href'), l));
+      });
+      /* the gateway intro keeps its own #ko / #en switch */
+      each('a[data-lang-hook]', function (a) {
+        a.setAttribute('href', a.getAttribute('data-lang-hook') + '#' + (l === 'en' ? 'en' : 'ko'));
       });
       each('tr[data-lang-href]', function (tr) {
         tr.setAttribute('data-target', withLang(tr.getAttribute('data-lang-href'), l));
