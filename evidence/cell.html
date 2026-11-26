@@ -377,6 +377,8 @@
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../assets/fonts/NotoSerifKR-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/NotoSansKR-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/visual.css">
+<script src="../assets/visual.js" defer></script>
 <style>
   @font-face {
     font-family: 'NotoSerifKR';
@@ -2041,6 +2043,46 @@
           <span data-en="Anti-inflammatory cytokines (<b>IL-6 · TNF-α · IFNγ</b>) and collagen-degrading enzymes (<b>MMP1 · MMP2 · MMP9</b>) on the same axis. Each bar is the expression left after ExoP treatment as a share of the untreated control (100%); once the animation ends, only the final residual level remains. Values are cell-level RT-PCR mRNA readings.">항염증 사이토카인(<b>IL-6 · TNF-α · IFNγ</b>)과 콜라겐 분해효소(<b>MMP1 · MMP2 · MMP9</b>)를 한 축에 함께 담았습니다.
           각 막대는 ExoP 처리 후 남은 발현량을 무처리 대조군(100%) 대비 비율로 나타낸 값이며, 애니메이션이 끝나면 최종 잔존 수치만 남습니다.
           값은 세포 수준 RT-PCR mRNA 판독 결과입니다.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="mol3d-card" id="target-structure">
+        <div class="mc-head">
+          <div>
+            <div class="eyebrow no-rule" data-en="Interactive 3D &middot; RCSB PDB 1HFC">인터랙티브 3D · RCSB PDB 1HFC</div>
+            <h3 class="rc-title" data-en="Interactive 3D Target Structure (PDB: 1HFC &middot; MMP-1)">타깃 단백질 3D 구조 (PDB: 1HFC · MMP-1)</h3>
+            <p class="rc-sub" data-en="Human fibroblast collagenase (MMP-1) catalytic domain &middot; X-ray, 1.56 Å &middot; deposited 1994">인간 섬유아세포 콜라게네이즈(MMP-1) 촉매 도메인 · X선 결정구조 1.56 Å · 1994년 등록</p>
+          </div>
+          <div class="mc-tools">
+            <button class="mc-btn" type="button" id="molSpin" aria-pressed="true">
+              <span class="mc-dot" aria-hidden="true"></span><span data-en="Slow spin">천천히 회전</span>
+            </button>
+            <button class="mc-btn" type="button" id="molReset">
+              <span data-en="Reset view">초기 화면</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="mol3d-stage">
+          <div class="mol3d" id="mol3d" data-mol3d data-pdb="1HFC" role="img"
+               aria-label="인간 MMP-1 콜라게네이즈 촉매 도메인의 3D 리본 구조 (PDB 1HFC). 마우스로 회전·확대할 수 있습니다."
+               data-en-aria="3D ribbon structure of the human MMP-1 collagenase catalytic domain (PDB 1HFC). Drag to rotate and scroll to zoom."></div>
+          <div class="mol3d-load" data-en="Loading structure from RCSB PDB…" data-fail-ko="3D 구조를 불러오지 못했습니다. 네트워크 연결을 확인해 주세요." data-fail-en="Could not load the 3D structure. Please check the connection.">RCSB PDB에서 구조를 불러오는 중…</div>
+          <div class="mol3d-legend" aria-hidden="true">
+            <span><i class="lg-ribbon"></i>MMP-1</span>
+            <span><i class="lg-zn"></i>Zn²⁺ / Ca²⁺</span>
+            <span><i class="lg-lig"></i>PLH</span>
+          </div>
+        </div>
+        <p class="mol3d-hint" data-en="Drag to rotate &middot; scroll or pinch to zoom &middot; double-click to reset">드래그로 회전 · 스크롤·핀치로 확대 · 더블클릭으로 초기화</p>
+
+        <figcaption class="rc-cap">
+          <span data-en="The public entry <b>1HFC</b> (RCSB PDB) is the 1.56 Å X-ray structure of the catalytic domain of human fibroblast collagenase (MMP-1) &mdash; the enzyme whose expression fell to 16.0 % of the untreated control after Potatosome treatment in the cell test above. The ribbon is the protein backbone, the small spheres are the catalytic zinc and calcium ions, and the pale sticks are the inhibitor (PLH) present in the crystal. <b>This is a structure reference, not a docking or binding calculation</b> — it shows what the target looks like, not that the ingredient binds it.">
+            위 PDB <b>1HFC</b>는 인간 섬유아세포 콜라게네이즈(MMP-1) 촉매 도메인의 1.56 Å X선 결정구조입니다.
+            MMP-1은 위 세포 시험에서 Potatosome 처리 후 발현이 무처리 대조군의 16.0%까지 낮아진 효소입니다.
+            리본은 단백질 골격, 작은 구체는 촉매 아연·칼슘 이온, 연한 막대는 결정에 함께 들어 있던 저해제(PLH)입니다.
+            <b>도킹·결합 계산 결과가 아니라 타깃의 모양을 보여주는 구조 참고 자료</b>이며, 이 원료가 해당 효소에 직접 결합한다는 증거가 아닙니다.
+          </span>
         </figcaption>
       </figure>
 

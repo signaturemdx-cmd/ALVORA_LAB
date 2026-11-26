@@ -1,0 +1,268 @@
+/* ============================================================================
+   ALVORA LAB — visual layer
+   Adds four open-source enhancements without touching the page's own styles:
+   1) Vanta.js (WebGL) ambience behind the passcode gate
+   2) Lenis smooth scrolling + CountUp.js numbers
+   3) img-comparison-slider (schematic before/after)
+   4) 3Dmol.js target-structure viewer (evidence/cell.html)
+   ========================================================================== */
+
+/* ---------- 1. gate: WebGL layer ---------------------------------------- */
+#access-gate .ag-webgl {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(74% 62% at 50% 46%, rgba(0, 0, 0, .10) 0%, rgba(0, 0, 0, .34) 52%, #000 88%);
+  mask-image: radial-gradient(74% 62% at 50% 46%, rgba(0, 0, 0, .10) 0%, rgba(0, 0, 0, .34) 52%, #000 88%);
+  transition: opacity 1.9s cubic-bezier(.22, .61, .36, 1);
+}
+#access-gate .ag-webgl.is-on { opacity: .46; }
+#access-gate .ag-webgl canvas {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ---------- 2. count-up numbers ----------------------------------------- */
+.cu {
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* ---------- 3. schematic comparison slider ------------------------------ */
+.vs-compare { margin-top: clamp(40px, 5.2vw, 68px); }
+.vs-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line, #DED8C9);
+}
+.vs-head h3 {
+  margin-top: 10px;
+  font-family: var(--serif, Georgia, serif);
+  font-size: clamp(20px, 2.15vw, 27px);
+  font-weight: 400;
+  line-height: 1.36;
+  letter-spacing: -.012em;
+  color: var(--forest, #13221B);
+}
+.vs-tag {
+  flex: none;
+  padding: 7px 11px;
+  border: 1px solid rgba(156, 124, 68, .34);
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 9.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-deep, #9C7C44);
+  white-space: nowrap;
+}
+.vs-stage {
+  position: relative;
+  margin-top: 22px;
+  border: 1px solid var(--line, #DED8C9);
+  background: #0b1510;
+  line-height: 0;
+}
+img-comparison-slider {
+  --divider-width: 1px;
+  --divider-color: rgba(201, 169, 110, .75);
+  --divider-shadow: 0 0 18px rgba(0, 0, 0, .45);
+  display: block;
+  width: 100%;
+  background: #0b1510;
+}
+/* before the custom element upgrades: show the left panel alone, never both stacked */
+img-comparison-slider:not(:defined) > [slot="second"] { display: none; }
+img-comparison-slider img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 760;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.vs-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(9, 20, 14, .82);
+  border: 1px solid rgba(201, 169, 110, .65);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .45);
+  color: var(--gold, #C2A268);
+  backdrop-filter: blur(2px);
+}
+.vs-handle svg { width: 22px; height: 12px; display: block; }
+.vs-badge {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 46%;
+  pointer-events: none;
+  line-height: 1.4;
+}
+.vs-badge b {
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #e9dfc9;
+}
+.vs-badge span {
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  color: rgba(233, 223, 201, .62);
+}
+.vs-badge.is-right { left: auto; right: 18px; text-align: right; align-items: flex-end; }
+.vs-hint {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 20px;
+  padding: 11px 16px;
+  border: 1px solid var(--line, #DED8C9);
+  border-top: 0;
+  background: var(--paper, #FCFBF7);
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted-2, #8A8E81);
+  line-height: 1.5;
+}
+.vs-cap {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.78;
+  color: var(--muted, #6B6F63);
+}
+.vs-cap b { color: var(--forest, #13221B); font-weight: 600; }
+
+/* ---------- 4. 3Dmol target-structure card ------------------------------ */
+.mol3d-card {
+  margin-top: clamp(36px, 4.4vw, 56px);
+  padding: clamp(18px, 2.3vw, 28px);
+  border: 1px solid var(--line, #DED8C9);
+  background: var(--paper, #FCFBF7);
+}
+.mc-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 28px;
+}
+.mc-head .rc-title { margin-top: 8px; }
+.mc-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.mc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border: 1px solid rgba(19, 34, 27, .22);
+  background: transparent;
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--forest, #13221B);
+  cursor: pointer;
+  transition: border-color .2s, color .2s, opacity .2s;
+}
+.mc-btn:hover, .mc-btn:focus-visible { border-color: var(--gold-deep, #9C7C44); color: var(--gold-deep, #9C7C44); }
+.mc-btn[aria-pressed="false"] { opacity: .5; }
+.mc-btn .mc-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold-deep, #9C7C44);
+  transition: background .2s;
+}
+.mc-btn[aria-pressed="false"] .mc-dot { background: transparent; box-shadow: inset 0 0 0 1px currentColor; }
+.mol3d-stage {
+  position: relative;
+  height: clamp(320px, 40vw, 520px);
+  margin-top: 18px;
+  border: 1px solid rgba(194, 162, 104, .2);
+  background:
+    radial-gradient(120% 90% at 50% 30%, #14281e 0%, #0b1712 62%, #08110d 100%);
+  overflow: hidden;
+}
+.mol3d {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: pan-y;
+}
+.mol3d:active { cursor: grabbing; }
+.mol3d canvas { display: block !important; }
+.mol3d-load {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  text-align: center;
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 10.5px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(233, 223, 201, .55);
+  pointer-events: none;
+  transition: opacity .5s;
+}
+.mol3d-load.is-off { opacity: 0; }
+.mol3d-legend {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  pointer-events: none;
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(233, 223, 201, .6);
+}
+.mol3d-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.mol3d-legend i { width: 12px; height: 3px; display: block; }
+.mol3d-legend .lg-ribbon { background: #C2A268; }
+.mol3d-legend .lg-zn { width: 7px; height: 7px; border-radius: 50%; background: #7FA893; }
+.mol3d-legend .lg-lig { background: #E4D3AC; }
+.mol3d-hint {
+  margin-top: 10px;
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted-2, #8A8E81);
+}
+
+@media (max-width: 720px) {
+  .vs-badge { top: auto; bottom: 9px; left: 11px; max-width: 47%; }
+  .vs-badge.is-right { right: 11px; bottom: 9px; }
+  .vs-badge b { font-size: 8.5px; letter-spacing: .04em; line-height: 1.35; }
+  .vs-badge span { display: none; }
+  .vs-hint { font-size: 9.5px; }
+  .mol3d-stage { height: clamp(300px, 62vw, 380px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #access-gate .ag-webgl { display: none; }
+  .mol3d { cursor: default; }
+}
