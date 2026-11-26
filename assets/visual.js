@@ -237,7 +237,7 @@
         viewer.setStyle({ resn: 'PLH' }, { stick: { color: '#E4D3AC', radius: 0.22 } });
         var tight = host.clientWidth > 0 && host.clientWidth < 560;
         viewer.zoomTo();
-        viewer.zoom(tight ? 1.0 : 1.3, 600);
+        viewer.zoom(tight ? 0.92 : 1.3, 600);
         if (spinning && !reduce) viewer.spin('y', 0.55);
         viewer.render();
         if (msg) msg.classList.add('is-off');
@@ -261,7 +261,7 @@
         viewer.spin(false);
         var tight = host.clientWidth > 0 && host.clientWidth < 560;
         viewer.zoomTo();
-        viewer.zoom(tight ? 1.0 : 1.3, 420);
+        viewer.zoom(tight ? 0.92 : 1.3, 420);
         viewer.render();
         if (spinning && !reduce) setTimeout(function () { if (viewer && spinning) viewer.spin('y', 0.55); }, 460);
       });
