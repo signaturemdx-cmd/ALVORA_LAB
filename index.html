@@ -609,7 +609,7 @@
   }
   .hero .wrap { position: relative; }
   .hero-grid {
-    display: grid; grid-template-columns: minmax(0,1.06fr) minmax(0,.94fr);
+    display: grid; grid-template-columns: minmax(0,1.12fr) minmax(0,.88fr);
     gap: clamp(24px, 4vw, 56px); align-items: center;
   }
   .hero-copy { padding-block: clamp(20px, 2.6vw, 30px) clamp(28px, 3vw, 38px); }
@@ -627,21 +627,14 @@
     display: block;
     font-family: var(--serif);
     font-weight: 300;
-    font-size: clamp(31px, 4.45vw, 53px);
-    line-height: 1.27;
+    font-size: clamp(28px, 3.55vw, 44px);
+    line-height: 1.28;
     letter-spacing: -.03em;
     color: #FBFAF4;
     text-wrap: balance;
   }
-  .hero h1 .hero-h-sub {
-    display: block; margin-top: 17px; max-width: 44ch;
-    font-family: var(--sans); font-weight: 300;
-    font-size: clamp(15px, 1.46vw, 18px); line-height: 1.72;
-    color: #D3D1C2; letter-spacing: -.004em;
-  }
-  .hero h1 .hero-h-sub b { font-weight: 500; color: #F2EFE0; }
   .hero-lead {
-    margin-top: 22px; max-width: 48ch;
+    margin-top: 24px; max-width: 48ch;
     font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.85;
     color: #B9BFB2; font-weight: 300;
     animation: rise .9s .16s cubic-bezier(.22,.61,.36,1) both;
@@ -723,24 +716,38 @@
     border-top: 1px solid rgba(247,245,240,.12);
     margin-top: clamp(8px, 1.4vw, 14px);
     display: grid; grid-template-columns: repeat(4, 1fr);
+    --hs-num: clamp(24px, 2.6vw, 33px);
     animation: rise 1s .34s cubic-bezier(.22,.61,.36,1) both;
   }
   .hero-stats li {
-    padding: 22px 26px 26px 0;
+    display: flex; flex-direction: column;
+    padding: 22px 26px 24px 0;
     border-right: 1px solid rgba(247,245,240,.1);
   }
   html.lang-en .hs-num small { margin-left: .3em; }
-  html.lang-en .hero h1 .hero-h { font-size: clamp(27px, 3.4vw, 40px); letter-spacing: -.025em; }
+  html.lang-en .hero h1 .hero-h { font-size: clamp(26px, 3.3vw, 40px); letter-spacing: -.025em; }
   html.lang-en .hero-lead { max-width: 58ch; }
+  html.lang-en .hero-actions .btn { font-size: 12.5px; padding: 14px 19px; }
   .hero-stats li:last-child { border-right: 0; }
   .hero-stats li + li { padding-left: 26px; }
   .hs-num {
-    font-family: var(--serif); font-size: clamp(24px, 2.6vw, 33px); line-height: 1.15;
+    display: flex; align-items: flex-end;
+    height: calc(var(--hs-num) * 1.15);
+    font-family: var(--serif); font-size: var(--hs-num); line-height: 1.15;
     color: #FAF8F1; letter-spacing: -.01em;
   }
   .hs-num small { font-size: .48em; letter-spacing: .02em; color: var(--sage); margin-left: 3px; }
+  .hs-num sup { font-size: .56em; line-height: 0; vertical-align: .42em; letter-spacing: 0; }
+  /* long credentials (concentration range, two-word label) keep one clean line
+     so the four cells stay the same height and visual weight */
+  .hs-num.is-tight {
+    font-size: clamp(15px, 4.2vw, 20px); letter-spacing: -.005em;
+    white-space: nowrap;
+  }
+  .hs-cap .nw { white-space: nowrap; }
+  @media (max-width: 340px) { .hs-num.is-tight { white-space: normal; } }
   .hs-cap {
-    font-size: 11.5px; letter-spacing: .06em; color: #9AA393; margin-top: 8px; line-height: 1.5;
+    font-size: 11.5px; letter-spacing: .06em; color: #9AA393; margin-top: 9px; line-height: 1.5;
   }
 
   @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
@@ -1483,7 +1490,7 @@
     body { font-size: 15.5px; }
     .hero { padding-top: calc(var(--nav-h) + 26px); }
     .hero-visual { max-width: 300px; margin-top: 6px; }
-    .hero-stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .hero-stats { grid-template-columns: repeat(2, minmax(0,1fr)); --hs-num: 23px; }
     .hero-stats li, .hero-stats li + li {
       padding: 16px 12px 18px 0; border-right: 1px solid rgba(247,245,240,.1);
       border-bottom: 1px solid rgba(247,245,240,.1);
@@ -1491,7 +1498,7 @@
     .hero-stats li:nth-child(even) { padding-left: 12px; padding-right: 0; border-right: 0; }
     .hero-stats li:nth-child(odd) { padding-left: 0; }
     .hero-stats li:nth-last-child(-n+2) { border-bottom: 0; }
-    .hs-num { font-size: 23px; }
+    .hs-cap { font-size: 11px; }
     .inquiry-grid { grid-template-columns: 1fr; }
     .cf-chips { grid-template-columns: 1fr; }
     .cf-pair { grid-template-columns: 1fr; }
@@ -1914,17 +1921,17 @@
         <div class="hero-copy">
           <div class="hero-eyebrow">Potatosome® · ALVORA LAB</div>
           <h1>
-            <span class="hero-h" data-en="Recurring inflammation and<br>a compromised skin barrier,">민감성 피부의 반복되는 염증과<br>무너진 장벽,</span>
-            <span class="hero-h-sub" data-en="Address both at once to manage <b>chronic inflammatory skin conditions</b>.">두 축을 함께 잡아야 <b>만성 염증성 피부 컨디션</b>(Chronic Inflammatory Skin Condition)을 관리할 수 있습니다.</span>
+            <span class="hero-h" data-en="Targeting Inflammation.<br>Restoring Skin Barrier.">염증을 낮추고,<br>무너진 피부장벽을 회복하다.</span>
           </h1>
-          <p class="hero-lead" data-en="Nextab, Inc.'s plant-exosome ingredient <b>Potatosome®</b> lowers inflammatory signals and wakes barrier proteins at once — then delivers it two ways: as bulk ingredient, and as finished products from the derma brand <b>ALVORA LAB</b>. Ingredient supply, finished-product distribution and co-development all come through one desk.">
-            Nextab, Inc.는 식물 엑소좀 원료 <b>Potatosome®</b>으로 염증 신호를 낮추고 장벽 단백질을 깨우는 동시에,
-            이를 완제품 브랜드 <b>ALVORA LAB</b>으로 구현해 원료 공급과 완제품 유통·공동개발을 한 번에 제공합니다.
+          <p class="hero-lead" data-en="Built on proprietary production technology and R&amp;D for the plant-derived exosome ingredient <b>Potatosome®</b>, Nextab develops science-backed biocosmetic solutions for inflammation regulation and skin barrier restoration—partnering with global brands from ingredient supply to finished-product development and commercialization.">
+            Nextab은 식물 유래 엑소좀 원료 <b>Potatosome®</b>의 독자적인 생산 기술과 연구개발 역량을 바탕으로,
+            염증 조절과 피부장벽 회복을 위한 과학 기반 바이오코스메틱 솔루션을 개발합니다.
+            원료 공급부터 완제품 개발 및 상업화까지, 글로벌 브랜드와 함께합니다.
           </p>
           <div class="hero-en">Evidence-based BioCosmetics · Science Behind. Benefits First.</div>
           <div class="hero-actions">
-            <a class="btn btn-gold" href="#contact" data-en="Apply for ingredient &amp; finished-product B2B consultation <span class='arw' aria-hidden='true'>→</span>">원료·완제품 B2B 상담 신청 <span class="arw" aria-hidden="true">→</span></a>
-            <a class="btn btn-ghost" href="#evidence" data-en="See clinical &amp; cell evidence">임상·세포 근거 보기</a>
+            <a class="btn btn-gold" href="#contact" data-en="Ingredient &amp; Co-development Inquiry <span class='arw' aria-hidden='true'>→</span>">원료 공급 · 공동개발 상담 <span class="arw" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#evidence" data-en="View Research &amp; Clinical Evidence">연구 및 임상 근거 보기</a>
           </div>
         </div>
 
@@ -1939,27 +1946,27 @@
                 <canvas class="hero-particles" width="720" height="900"></canvas>
               </div>
             </div>
-            <figcaption class="hero-tag"><span data-en="66 nm &middot; Plant Exosome Delivery">66 nm · 식물 엑소좀 전달</span></figcaption>
+            <figcaption class="hero-tag"><span data-en="Plant Exosome &middot; Potatosome®">Plant Exosome · Potatosome®</span></figcaption>
           </figure>
         </div>
       </div>
 
       <ul class="hero-stats">
         <li>
-          <div class="hs-num">3<small data-en="papers">편</small></div>
-          <div class="hs-cap" data-en="Peer-reviewed papers<br>2023 · 2024 · 2025">국제논문<br>2023 · 2024 · 2025</div>
+          <div class="hs-num"><span>66<small>nm</small></span></div>
+          <div class="hs-cap" data-en="Potatosome® mean particle size">Potatosome® 평균 입자 크기</div>
         </li>
         <li>
-          <div class="hs-num">35<small data-en="tests">종</small></div>
-          <div class="hs-cap" data-en="Cell &amp; tissue tests<br>7 categories">세포·조직 시험<br>7개 카테고리</div>
+          <div class="hs-num is-tight"><span>3 × 10<sup>10</sup> ~ 1.5 × 10<sup>11</sup></span></div>
+          <div class="hs-cap" data-en="particles/mg &middot; per CoA">particles/mg · 시험성적서 기준</div>
         </li>
         <li>
-          <div class="hs-num">4<small data-en="studies">종</small></div>
-          <div class="hs-cap" data-en="Human-use studies<br>21 subjects in total">인체적용 시험<br>총 21명</div>
+          <div class="hs-num"><span>3<small>Papers</small></span></div>
+          <div class="hs-cap" data-en="Peer-reviewed papers <span class='nw'>(2023–2025)</span>">국제 학술논문 성과 <span class="nw">(2023–2025)</span></div>
         </li>
         <li>
-          <div class="hs-num">4<small data-en="markets">개국</small></div>
-          <div class="hs-cap" data-en="Ingredient name registered<br>INCI · NMPA · JCIA · KCA">원료명 등재<br>INCI · NMPA · JCIA · KCA</div>
+          <div class="hs-num is-tight"><span>Clinical Studies</span></div>
+          <div class="hs-cap" data-en="Human-use studies &amp; clinical experience">완제품 인체적용시험 · 임상 경험</div>
         </li>
       </ul>
     </div>
