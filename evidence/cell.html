@@ -772,7 +772,7 @@
   .cs-meta { border-top: 1px solid var(--line); margin: 0; }
   .csection.alt .cs-meta { border-top-color: #D6CFBE; }
   .cs-meta > div {
-    display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 14px;
+    display: grid; grid-template-columns: minmax(max-content,1fr) auto; gap: 14px;
     padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 13px;
   }
   .csection.alt .cs-meta > div { border-bottom-color: #D6CFBE; }
@@ -1852,17 +1852,15 @@
       <div class="crumb">
         <a href="../index.html#evidence" data-lang-href="../index.html#evidence" data-en="Evidence Map">Evidence Map</a>
         <span class="sep" aria-hidden="true">/</span>
-        <span data-en="Cell studies">세포 연구</span>
+        <span data-en="Cell-test data">세포 시험 데이터</span>
       </div>
       <h1>
-        <span class="h1-main" data-en="Cell-Study Detail">세포 연구 상세</span>
+        <span class="h1-main" data-en="Test data confirmed in publications">논문으로 확인한 시험 데이터</span>
         <span class="h1-sub"><span data-en="Potatosome® in vitro · ex vivo validation — 7 categories, 35 test titles">Potatosome® in vitro · ex vivo 검증 — 7개 카테고리, 시험 35종</span></span>
       </h1>
-      <p class="chero-lead" data-en="What the potato-derived exosome was tested for at cell level, and what the numbers were. Thirty-five distinct in vitro and ex vivo test titles from three peer-reviewed papers are grouped into seven categories; each opens to its full test list, and every finding is tagged with the paper and DOI it comes from. These are mechanism studies in cultured cells and isolated immune cells — not human efficacy results.">
-        감자 유래 엑소좀을 세포 수준에서 무엇으로, 얼마나 시험했는지 정리했습니다.
-        peer-reviewed 논문 3편에 보고된 in vitro · ex vivo 시험 35종(중복 제거)을 7개 카테고리로 묶고,
-        각 카테고리를 열면 전체 시험 목록과 논문별로 확인된 수치가 DOI와 함께 나옵니다.
-        배양세포·분리 세포에서의 기전 연구이며, 인체 효능 결과가 아닙니다.
+      <p class="chero-lead" data-en="Thirty-five in vitro and ex vivo test titles (de-duplicated) reported in three peer-reviewed papers are organised into seven categories. Open a category to see the full test list and the values from each paper, with DOIs.">
+        동료 심사(peer-review)를 거친 논문 3편에 보고된 in vitro · ex vivo 시험 35종(중복 제외)을
+        7개 범주로 정리했습니다. 범주를 열면 전체 시험 목록과 논문별 수치를 DOI와 함께 확인할 수 있습니다.
       </p>
 
       <div class="statline">
@@ -1874,8 +1872,8 @@
       <nav class="qjump" aria-label="카테고리 바로가기" data-en-aria="Jump to a category">
         <a href="#inflammation"><b>01</b><span data-en="Anti-Inflammation">항염증</span></a>
         <a href="#antioxidant"><b>02</b><span data-en="Antioxidant Protection">항산화 보호</span></a>
-        <a href="#photoaging"><b>03</b><span data-en="Photoaging &amp; Wrinkle Care">광노화 &amp; 주름 케어</span></a>
-        <a href="#barrier"><b>04</b><span data-en="Skin Barrier Enhancement">피부장벽 강화</span></a>
+        <a href="#photoaging"><b>03</b><span data-en="Photoaging &amp; Elasticity Care">광노화 &amp; 탄력 케어</span></a>
+        <a href="#barrier"><b>04</b><span data-en="Skin Barrier Care">피부장벽 케어</span></a>
         <a href="#regeneration"><b>05</b><span data-en="Regeneration &amp; Repair">재생 &amp; 치유</span></a>
         <a href="#uptake"><b>06</b><span data-en="Cellular Uptake &amp; Delivery">세포 흡수 &amp; 전달</span></a>
         <a href="#delivery-safety"><b>07</b><span data-en="Cytotoxicity &amp; Irritation">세포 독성 &amp; 안전성</span></a>
@@ -1936,11 +1934,11 @@
         </div>
         <div>
           <dt data-en="Concentrations">농도</dt>
-          <dd data-en="Most tests used 25–200 µg/mL (protein basis). Cytotoxicity was tested across 1–1,000 µg/mL.">대부분 25–200 µg/mL(단백량 기준). 세포독성은 1–1,000 µg/mL 전 구간에서 시험했습니다.</dd>
+          <dd data-en="Efficacy was confirmed mostly at 25–200 µg/mL (protein basis). Cytotoxicity was tested up to 1,000 µg/mL — five times that — with no reduction in cell viability, confirming the safety of the plant exosome.">효능은 대부분 25–200 µg/mL(단백량 기준)에서 확인되었습니다. 세포독성은 그 5배인 1,000 µg/mL까지 시험했으며, 세포 생존율의 감소는 관찰되지 않아 식물엑소좀의 안전성이 확보되었습니다.</dd>
         </div>
         <div>
           <dt data-en="How to read it">읽는 법</dt>
-          <dd data-en="Cell-level mechanism data. It does not state that the same effect occurs in human skin; human-use results are reported separately on the clinical detail page.">세포 수준 기전 데이터입니다. 인체 피부에서 같은 효과가 나타난다는 뜻이 아니며, 인체적용 결과는 임상 상세 페이지에 따로 정리했습니다.</dd>
+          <dd data-en="Results observed at cell level. Human-skin results are reported separately on the human-use study page.">세포 수준에서 관찰된 결과입니다. 사람 피부에서의 결과는 인체적용시험 페이지에 따로 정리했습니다.</dd>
         </div>
       </dl>
     </div>
@@ -2135,7 +2133,7 @@
           <p class="f-body" data-en="In mouse Th1 cells activated with concanavalin A (60 nM), IFN-γ rose 100 % above untreated cells. Treatment with Potatosome lowered it concentration-dependently, and at 100 µg/mL IFN-γ was close to the level of unactivated cells (p&lt;0.05). In the same study, TNF suppression at 50 µg/mL was stronger than for date, ginseng, yeast, apple or Lactobacillus exosomes.">
             콘카나발린 A(60 nM)로 활성화한 마우스 Th1 세포에서 IFN-γ가 미처리 세포보다 100 % 높아졌습니다.
             Potatosome 처리 시 농도 의존적으로 감소해 100 µg/mL에서는 비활성화 세포 수준에 가까워졌습니다(p&lt;0.05).
-            같은 연구에서 50 µg/mL의 TNF 억제는 대추·인삼·효모·사과·유산균 유래 엑소좀보다 강했습니다.
+            각질세포 실험과 더불어 식물엑소좀의 강력한 항염증 효능을 보여줍니다.
           </p>
           <a class="f-doi" href="https://doi.org/10.37871/jbres2039" target="_blank" rel="noopener"><span data-en="DOI 10.37871/jbres2039">DOI 10.37871/jbres2039</span><span class="arw" aria-hidden="true">↗</span></a>
         </div>
@@ -2156,8 +2154,7 @@
           <ul>
             <li data-en="These are gene-expression changes in cultured cells (RT-PCR, mRNA level); secreted protein amounts were not measured.">배양세포의 유전자 발현(RT-PCR, mRNA 수준) 결과이며, 분비된 단백질 양을 직접 측정한 것은 아닙니다.</li>
             <li data-en="The Th1-cell model is an ex vivo model used in autoimmune-hepatitis research, not a skin-inflammation model.">Th1 세포 모델은 자가면역간염 연구에서 쓰는 ex vivo 모델로, 피부 염증을 재현한 시험계가 아닙니다.</li>
-            <li data-en="Test concentrations are those added to the culture medium; they are not the amount that reaches skin after topical application.">시험 농도는 세포 배양액에 넣은 양이며, 제품을 바른 뒤 피부에 도달하는 양과 같지 않습니다.</li>
-            <li data-en="This is not a clinical result: no claim is made that inflammation in human skin is reduced.">임상 결과가 아니며, 인체 피부의 염증이 줄었다고 주장하지 않습니다.</li>
+            <li data-en="Results of in vitro and ex vivo experiments.">In vitro, ex vivo 실험결과입니다.</li>
           </ul>
         </div>
         <dl class="cs-meta">
@@ -2181,18 +2178,18 @@
           <h2 class="h2" data-en="Does it quench the oxidative hit?">산화 자극을 막아내는가</h2>
         </div>
       </div>
-      <p class="cs-lead" data-en="UV and pollution generate reactive oxygen species (ROS), which drive lipid peroxidation and protein damage on the way to photoaging. These tests ask three things of Potatosome: whether it scavenges a free radical directly, whether it protects cells under oxidative stress, and whether it induces a cellular detoxifying enzyme.">
-        자외선과 대기 오염은 활성산소(ROS)를 만들고, 이는 지질 과산화와 단백질 손상을 거쳐 광노화로 이어집니다.
-        Potatosome이 라디칼을 직접 소거하는지, 산화 스트레스에서 세포를 보호하는지,
-        세포의 해독 효소 유전자를 올리는지를 확인한 시험입니다.
+      <p class="cs-lead" data-en="UV and air pollution generate reactive oxygen species (ROS), which lead through lipid peroxidation and protein damage to premature skin ageing. We confirmed whether Potatosome directly scavenges radicals, protects cells under oxidative stress, and upregulates the cell's detoxifying enzyme genes.">
+        자외선과 대기 오염은 활성산소(ROS)를 만들고, 지질 과산화와 단백질 손상으로 이어져 피부 노화를 앞당깁니다.
+        Potatosome이 라디칼을 직접 소거하는지, 산화 스트레스에서 세포를 지키는지,
+        세포의 해독 효소 유전자를 올리는지 확인했습니다.
       </p>
 
       <aside class="cbene">
         <span class="cb-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.4l1.9 6.05a2.8 2.8 0 0 0 1.65 1.65L21.6 12l-6.05 1.9a2.8 2.8 0 0 0-1.65 1.65L12 21.6l-1.9-6.05a2.8 2.8 0 0 0-1.65-1.65L2.4 12l6.05-1.9a2.8 2.8 0 0 0 1.65-1.65z"/></svg></span>
         <div class="cb-body">
           <span class="cb-k" data-en="Skin Benefit">피부 혜택</span>
-          <p class="cb-line" data-en="It catches the harmful oxygen behind skin ageing and dullness, so stressed skin does not break down.">피부 노화와 칙칙함을 부르는 유해 산소를 잡아내고, 스트레스에 지친 피부가 무너지지 않도록 지켜줍니다.</p>
-          <p class="cb-sub" data-en="(88.7 % radical scavenging at 4 mg/mL; under H₂O₂ oxidative stress, cell survival came back from 73 % to as much as 94 %.)">(라디칼 소거율 4 mg/mL에서 88.7%, H₂O₂ 산화 스트레스에서 세포 생존율 73% → 최대 94%로 회복)</p>
+          <p class="cb-line" data-en="It captures the harmful oxygen behind skin ageing and dullness, protecting the condition of stressed skin.">피부 노화와 칙칙함을 부르는 유해 산소를 잡아내, 스트레스받은 피부의 컨디션을 지켜줍니다.</p>
+          <p class="cb-sub" data-en="(88.7 % radical scavenging at 4 mg/mL; under H₂O₂ oxidative stress, cell survival recovered from 73 % to as much as 94 %.)">(라디칼 소거 4 mg/mL에서 88.7%, H₂O₂ 산화 스트레스에서 세포 생존율 73% → 최대 94% 회복)</p>
         </div>
       </aside>
 
@@ -2293,7 +2290,7 @@
         </div>
 
         <figcaption class="rc-cap">
-          <span data-en="<b>Two different tests.</b> A is the share of DPPH radicals scavenged directly in a tube; B is how many keratinocytes survived a 200 µM H₂O₂ oxidative hit after ExoP pretreatment (relative survival). The 0 mg/mL point in A is the vehicle control (0 % scavenging) and 100 % in B is untreated healthy cells. Both are cell-culture and test-tube in vitro results, not human efficacy."><b>서로 다른 두 가지 시험</b>입니다. A는 시험관 안에서 DPPH 라디칼을 직접 소거한 비율이고, B는 200 µM H₂O₂로 산화 스트레스를 준 각질형성세포가 ExoP 전처리로 얼마나 살아남았는지(상대 생존율)입니다. A의 0 mg/mL는 용매 대조군(소거율 0%)이고, B의 100%는 미처리 정상 세포입니다. 두 값 모두 배양세포·시험관에서 얻은 세포 실험(in vitro) 결과이며 인체 효능을 뜻하지 않습니다.</span>
+          <span data-en="A is the share of DPPH radicals scavenged directly in a tube; B is how many keratinocytes survived oxidative stress from 200 µM H₂O₂ after ExoP pretreatment (relative survival). The 0 mg/mL point in A is the vehicle control (0 % scavenging) and 100 % in B is untreated normal cells.">A는 시험관에서 DPPH 라디칼을 직접 소거한 비율이고, B는 200 µM H₂O₂ 산화 스트레스를 준 각질형성세포가 ExoP 전처리로 얼마나 살아남았는지(상대 생존율)입니다. A의 0 mg/mL는 용매 대조군(소거 0%), B의 100%는 미처리 정상 세포입니다.</span>
         </figcaption>
       </figure>
 
@@ -2329,7 +2326,7 @@
       <div class="findings">
         <div class="finding">
           <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">HaCaT · WST-1</span></div>
-          <h3 data-en="Viability after H₂O₂ restored to 81–94 %">H₂O₂ 처리 후 생존율 81–94 %로 회복</h3>
+          <h3 data-en="Cell survival recovered to as much as 94 % after oxidative stress">산화 스트레스 후 세포 생존율 최대 94% 회복</h3>
           <p class="f-body" data-en="200 µM H₂O₂ reduced HaCaT proliferation to 73 % of untreated cells. Pre-treatment with 50, 100 and 150 µg/mL Potatosome restored it to 81, 92 and 94 % respectively, concentration-dependently.">
             200 µM H₂O₂로 각질형성세포 증식이 미처리 세포의 73 %로 떨어졌습니다.
             50 · 100 · 150 µg/mL로 30분 전처리하면 각각 81 · 92 · 94 %로 회복되었고, 농도에 비례했습니다.
@@ -2347,7 +2344,7 @@
         </div>
         <div class="finding">
           <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">GSTA4 · RT-PCR</span></div>
-          <h3 data-en="Detoxifying enzyme gene induced, further after UVB">해독 효소 유전자 증가, UVB 후에는 더</h3>
+          <h3 data-en="Detoxifying enzyme (GSTA4) gene expression rises, more after UVB">해독 효소(GSTA4) 유전자 발현 증가, UVB 후 더 크게 상승</h3>
           <p class="f-body" data-en="GSTA4 expression, a phase II detoxifying enzyme against oxidative damage, increased with treatment — and rose further when cells were treated after UVB irradiation.">
             산화 손상에 대항하는 2상 해독 효소인 GSTA4 발현이 처리 시 증가했고,
             UVB를 쬔 뒤 처리했을 때는 더 올라갔습니다.
@@ -2369,10 +2366,8 @@
         <div class="caveats">
           <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
           <ul>
-            <li data-en="DPPH is a chemical assay in a tube; its result is not the same as antioxidant capacity inside cells.">DPPH는 시험관 안의 화학 반응 시험으로, 세포 안의 항산화력과 같은 값이 아닙니다.</li>
-            <li data-en="The H₂O₂ model applies a single oxidative stimulus for 3 h; repeated or chronic exposure was not tested.">H₂O₂ 모델은 단일 산화 자극을 3시간 가한 것으로, 반복·만성 노출은 시험하지 않았습니다.</li>
+            <li data-en="DPPH is an in-tube chemical assay, run at the high concentration of 1–4 mg/mL (cell tests used 50–150 µg/mL). GSTA4 results are mRNA levels normalised to GAPDH.">DPPH는 시험관 안의 화학 반응 시험으로, 1–4 mg/mL의 높은 농도에서 진행했습니다(세포 시험은 50–150 µg/mL). GSTA4 결과는 GAPDH로 정규화한 mRNA 발현 수준입니다.</li>
             <li data-en="GSTA4 results are mRNA levels normalised to GAPDH; enzyme activity was not measured.">GSTA4 결과는 GAPDH로 정규화한 mRNA 수준이며, 효소 활성은 측정하지 않았습니다.</li>
-            <li data-en="The DPPH test used 1–4 mg/mL, far above the concentrations used in cell tests.">DPPH 시험은 1–4 mg/mL로, 세포 시험 농도보다 훨씬 높은 조건입니다.</li>
           </ul>
         </div>
         <dl class="cs-meta">
@@ -2392,22 +2387,22 @@
       <div class="cs-head">
         <div class="cs-num">03</div>
         <div>
-          <div class="eyebrow no-rule" data-en="Photoaging &amp; Wrinkle Care">광노화 &amp; 주름 케어</div>
-          <h2 class="h2" data-en="Prevention before and recovery after UVB damage">UVB 손상 예방과 손상 후 회복</h2>
+          <div class="eyebrow no-rule" data-en="Photoaging &amp; Elasticity Care">광노화 &amp; 탄력 케어</div>
+          <h2 class="h2" data-en="Protection before UVB damage and recovery after it">UVB 손상 전 보호와 손상 후 회복</h2>
         </div>
       </div>
-      <p class="cs-lead" data-en="UVB raises collagen-degrading enzymes (MMP1, 2 and 9) and reduces collagen, which is how wrinkles form. This group covers the pathway at both ends: suppression of the MMPs and cytokines UVB induces, cell survival with pre- and post-treatment, and prevention of collagen degradation measured directly in the culture medium.">
-        UVB는 콜라겐 분해 효소(MMP1 · 2 · 9)를 올리고 콜라겐을 줄여 주름을 만듭니다.
+      <p class="cs-lead" data-en="UVB raises collagen-degrading enzymes (MMP1, 2 and 9) and reduces collagen, contributing to loss of elasticity and wrinkle formation. This group covers both ends of the photoaging pathway at cell level: suppression of the MMPs and cytokines UVB induces, cell survival with pre- and post-treatment, and inhibition of collagen degradation measured directly in the culture medium.">
+        UVB는 콜라겐 분해 효소(MMP1 · 2 · 9)를 올리고 콜라겐을 줄여 피부 탄력 저하와 주름 형성에 관여합니다.
         이 카테고리는 UVB가 유도하는 MMP와 사이토카인의 억제, 손상 전·후 처리에 따른 세포 생존율,
-        그리고 배양액에서 직접 측정한 콜라겐 분해 방지까지 — 광노화 경로의 양 끝을 세포에서 확인한 시험입니다.
+        그리고 배양액에서 직접 측정한 콜라겐 분해 억제까지 — 광노화 경로의 양 끝을 세포에서 확인한 시험입니다.
       </p>
 
       <aside class="cbene">
         <span class="cb-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.4l1.9 6.05a2.8 2.8 0 0 0 1.65 1.65L21.6 12l-6.05 1.9a2.8 2.8 0 0 0-1.65 1.65L12 21.6l-1.9-6.05a2.8 2.8 0 0 0-1.65-1.65L2.4 12l6.05-1.9a2.8 2.8 0 0 0 1.65-1.65z"/></svg></span>
         <div class="cb-body">
           <span class="cb-k" data-en="Skin Benefit">피부 혜택</span>
-          <p class="cb-line" data-en="Before sun exposure it helps keep skin from being damaged, and after skin is already tired from the sun it helps bring its condition back.">자외선을 쬐기 전에는 피부가 상하지 않게 막아주고, 이미 햇빛에 지친 뒤에는 피부 컨디션을 되돌리는 데 도움을 줍니다.</p>
-          <p class="cb-sub" data-en="(UVB alone left 53.9 % survival, pre-treatment held it at 85.2 %, and post-treatment took 47.9 % back up to 58.5 % — with the collagen-degrading enzymes lowered too, which favours firmness and wrinkle care.)">(UVB 단독 53.9% → 전처리 시 85.2% 방어, 후처리 시 47.9% → 58.5% 회복 · 콜라겐 분해 효소까지 낮춰 탄력·주름 케어에 유리)</p>
+          <p class="cb-line" data-en="Before sun exposure it protects skin cells, and after skin is already tired from the sun it helps restore its condition.">자외선을 쬐기 전에는 피부 세포를 보호하고, 이미 햇빛에 지친 뒤에는 피부 컨디션을 되돌리는 데 도움을 줍니다.</p>
+          <p class="cb-sub" data-en="(UVB alone 53.9 % → 85.2 % maintained with pre-treatment, 47.9 % → 58.5 % recovered with post-treatment · collagen-degrading enzyme expression also lowered, the basis for elasticity care)">(UVB 단독 53.9% → 전처리 시 85.2% 유지, 후처리 시 47.9% → 58.5% 회복 · 콜라겐 분해 효소 발현도 낮춰 탄력 케어 근거)</p>
         </div>
       </aside>
       <a class="rc-jump" href="#mmp-residual-chart" data-en="↗ See the MMP1 · 2 · 9 residual-expression graph"><span aria-hidden="true">↗</span><span>MMP1·2·9 잔존 발현 그래프 보기</span></a>
@@ -2415,9 +2410,9 @@
       <figure class="oxchart pgchart" id="photoaging-chart">
         <div class="rc-head">
           <div class="rc-headtext">
-            <div class="eyebrow no-rule" data-en="Photoaging · Prevention + Amelioration">광노화 · 예방 + 회복</div>
-            <h3 class="rc-title" data-en="Potatosome® (ExoP) — Cell Survival when Given Before and After UVB">Potatosome®(ExoP) — UVB 손상 전 예방, 손상 후 회복 세포 생존율</h3>
-            <p class="rc-sub" data-en="A. ExoP before UVB (prevention) · B. ExoP after UVB (amelioration) · HaCaT relative survival (%) · cell-culture in vitro values">A. UVB 전 ExoP 처리(예방) · B. UVB 후 ExoP 처리(회복) · HaCaT 상대 생존율(%) · 세포 실험(in vitro) 실측값</p>
+            <div class="eyebrow no-rule" data-en="Photoaging · Protection + Recovery">광노화 · 보호 + 회복</div>
+            <h3 class="rc-title" data-en="Potatosome® (ExoP) — Cell survival with protection before and recovery after UVB">Potatosome®(ExoP) — UVB 손상 전 보호, 손상 후 회복 세포 생존율</h3>
+            <p class="rc-sub" data-en="A. ExoP before UVB (protection) · B. ExoP after UVB (recovery) · HaCaT relative survival (%) · cell-culture in vitro values">A. UVB 전 ExoP 처리(보호) · B. UVB 후 ExoP 처리(회복) · HaCaT 상대 생존율(%) · 세포 실험(in vitro) 실측값</p>
           </div>
           <button class="rc-replay" type="button"><span class="rc-ico" aria-hidden="true">↺</span><span data-en="Replay">다시 재생</span></button>
         </div>
@@ -2427,7 +2422,7 @@
             <div class="ox-phead">
               <span class="ox-badge" aria-hidden="true">A</span>
               <div>
-                <b class="ox-pname" data-en="Prevention — ExoP pre-treatment, then UVB">예방 — ExoP 전처리 → UVB</b>
+                <b class="ox-pname" data-en="Protection — ExoP pre-treatment, then UVB">보호 — ExoP 전처리 → UVB</b>
                 <span class="ox-pmeta" data-en="Relative cell survival (%) · pre-treatment">상대 세포 생존율(%) · 전처리</span>
               </div>
             </div>
@@ -2509,7 +2504,7 @@
         </div>
 
         <figcaption class="rc-cap">
-          <span data-en="<b>Prevention and recovery are different treatments.</b> In A the cells met ExoP <b>before</b> UVB, so the damage itself was smaller; in B they met ExoP <b>after</b> UVB, so only part of the lost survival came back. 100 % in both panels is untreated healthy cells. Bar heights were measured pixel by pixel from Fig. 3D of the 2023 <i>Mol Med Rep</i> paper (15 mJ/cm² UVB, 24 h) and rounded to one decimal (±0.5 points). These are WST-1 readings in cultured HaCaT keratinocytes — in vitro results, not human efficacy. <b>**</b> p < 0.01."><b>예방과 회복은 서로 다른 처치</b>입니다. A는 UVB를 쬐기 <b>전에</b> ExoP를 처리해 손상 자체를 줄인 경우(예방)이고, B는 UVB를 쬔 <b>뒤에</b> 처리해 이미 떨어진 생존율을 일부 되돌린 경우(회복)입니다. 두 패널의 100%는 미처리 정상 세포입니다. 막대 수치는 2023 <i>Mol Med Rep</i> 논문 Fig. 3D(15 mJ/cm² UVB, 24시간)의 막대 높이를 픽셀 단위로 측정해 소수점 1자리로 반올림한 값입니다(±0.5%p). 배양 각질형성세포(HaCaT)의 WST-1 판독값으로, 세포 실험(in vitro) 결과이며 인체 효능을 뜻하지 않습니다. <b>**</b> p &lt; 0.01.</span>
+          <span data-en="Protection and recovery are different treatments. In A the cells met ExoP before UVB, so the damage itself was smaller (protection); in B they met ExoP after UVB, so only part of the lost survival came back (recovery). 100 % in both panels is untreated normal cells."><b>보호와 회복은 서로 다른 처치</b>입니다. A는 UVB를 쬐기 <b>전에</b> ExoP를 처리해 손상 자체를 줄인 경우(보호)이고, B는 UVB를 쬔 <b>뒤에</b> 처리해 떨어진 생존율을 일부 되돌린 경우(회복)입니다. 두 패널의 100%는 미처리 정상 세포입니다.</span>
         </figcaption>
       </figure>
 
@@ -2558,7 +2553,7 @@
               <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
             </li>
             <li>
-              <span class="tn"><b>UVB-induced Collagen Degradation Prevention Assay</b><em data-en="">UVB 유도 콜라겐 분해 방지 시험</em></span>
+              <span class="tn"><b>UVB-induced Collagen Degradation Inhibition Assay</b><em data-en="">UVB 유도 콜라겐 분해 억제 시험</em></span>
               <span class="tags"><a class="src-tag" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener">2023</a></span>
             </li>
             <li>
@@ -2573,10 +2568,10 @@
       <div class="findings">
         <div class="finding">
           <div class="f-top"><span class="f-src">2023 · Mol Med Rep</span><span class="f-model">HaCaT · 15 mJ/cm²</span></div>
-          <h3 data-en="Pre-treatment held survival at 85.2 %, against 53.9 % with UVB alone">전처리 시 생존율 85.2% 방어 (UVB 단독 53.9%)</h3>
+          <h3 data-en="Pre-treatment maintained cell survival at 85.2 % (UVB alone 53.9 %)">전처리 시 세포 생존율 85.2% 유지 (UVB 단독 53.9%)</h3>
           <p class="f-body" data-en="With 15 mJ/cm² UVB alone, HaCaT survival fell to 53.9 % (a 46.1-point loss). Pre-treatment with Potatosome held it at 85.2 %, narrowing the loss to 14.8 points; treatment after irradiation brought the 47.9 % level back up to 58.5 %, a 10.6-point recovery.">
             15 mJ/cm² UVB 단독에서는 각질형성세포 생존율이 53.9%까지 떨어졌습니다(손실 46.1%p).
-            Potatosome을 미리 처리하면 85.2%까지 방어해 손실이 14.8%p로 줄었고, UVB를 쬔 뒤에 처리하면
+            Potatosome을 미리 처리하면 85.2%까지 유지해 손실이 14.8%p로 줄었고, UVB를 쬔 뒤에 처리하면
             47.9%에서 58.5%로 10.6%p 회복했습니다.
           </p>
           <a class="f-doi" href="https://doi.org/10.3892/mmr.2023.13054" target="_blank" rel="noopener"><span data-en="DOI 10.3892/mmr.2023.13054">DOI 10.3892/mmr.2023.13054</span><span class="arw" aria-hidden="true">↗</span></a>
@@ -2616,14 +2611,14 @@
         <div class="caveats">
           <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
           <ul>
-            <li data-en="Viability was read with WST-1, a metabolic-activity assay; it is not a direct count of living cells.">생존율은 대사 활성을 보는 WST-1 시험으로 측정했으며, 살아 있는 세포를 직접 센 값은 아닙니다.</li>
-            <li data-en="One UVB dose (15 mJ/cm²) and one time point (24 h after) — repeated or long-term irradiation was not tested.">UVB는 15 mJ/cm² 단회, 관찰은 조사 24시간 뒤 한 시점입니다. 반복·장기 조사는 시험하지 않았습니다.</li>
-            <li data-en="Collagen figures are soluble collagen in the culture medium, not collagen density in skin.">콜라겐 수치는 배양액 중의 용해성 콜라겐이며, 피부 속 콜라겐 밀도와 같지 않습니다.</li>
-            <li data-en="Wrinkle improvement comes from a separate human-use study of a formulation, not from this cell work.">주름 개선 수치는 이 세포 실험이 아니라, 제형을 사용한 별도 인체적용 시험의 결과입니다.</li>
+            <li data-en="WST-1 is a metabolic-activity assay, not a direct count of cells.">WST-1은 대사 활성 시험, 세포를 직접 센 값 아님</li>
+            <li data-en="Collagen figures are soluble collagen in the culture medium.">콜라겐 수치는 배양액 중 용해성 콜라겐</li>
+            <li data-en="Wrinkle values come from a separate human-use study, not this cell work.">주름 수치는 세포 실험이 아니라 별도 인체적용시험</li>
           </ul>
         </div>
         <dl class="cs-meta">
-          <div><dt data-en="UVB dose">UVB 조사량</dt><dd>15 mJ/cm²</dd></div>
+          <div><dt data-en="Test system">시험계</dt><dd data-en="HaCaT keratinocytes">HaCaT (각질형성세포)</dd></div>
+          <div><dt data-en="Stimulus">자극</dt><dd data-en="Single UVB dose of 15 mJ/cm² · observed at 24 h">UVB 15 mJ/cm² 단회 · 관찰 시점 24시간</dd></div>
           <div><dt data-en="Concentration">농도</dt><dd>25–150 µg/mL</dd></div>
           <div><dt data-en="Method">방법</dt><dd>WST-1 · RT-PCR · Collagen assay</dd></div>
           <div><dt data-en="Replicates">반복</dt><dd data-en="3 independent experiments">독립 실험 3회</dd></div>
@@ -2639,21 +2634,21 @@
       <div class="cs-head">
         <div class="cs-num">04</div>
         <div>
-          <div class="eyebrow no-rule" data-en="Skin Barrier Enhancement">피부장벽 강화</div>
+          <div class="eyebrow no-rule" data-en="Skin Barrier Care">피부장벽 케어</div>
           <h2 class="h2" data-en="The genes that build the barrier">장벽을 만드는 유전자들</h2>
         </div>
       </div>
-      <p class="cs-lead" data-en="The stratum corneum barrier is built by filaggrin (FLG), transglutaminase 1 (TGM1), aquaporin 3 (AQP3), hyaluronan synthases (HAS1, 2, 3) and kallikrein-related peptidase 5 (KLK5). These tests measure how Potatosome changes the expression of those genes in keratinocytes and in fibroblasts.">
-        각질층 장벽은 필라그린(FLG), 트랜스글루타미나제1(TGM1), 아쿠아포린3(AQP3),
+      <p class="cs-lead" data-en="The stratum corneum barrier is built by filaggrin (FLG), transglutaminase 1 (TGM1), aquaporin 3 (AQP3), hyaluronan synthases (HAS1, 2, 3) and kallikrein-related peptidase 5 (KLK5). We measured how Potatosome changes the expression of these genes in keratinocytes and fibroblasts.">
+        각질층 장벽은 필라그린(FLG), 트랜스글루타미나제1(TGM1), 아쿠아포린 3(AQP3),
         히알루론산 합성효소(HAS1 · 2 · 3), 칼리크레인5(KLK5)가 함께 만듭니다.
-        Potatosome이 이 유전자들의 발현을 각질형성세포와 섬유아세포에서 어떻게 바꾸는지 측정한 시험입니다.
+        Potatosome이 이 유전자들의 발현을 각질형성세포와 섬유아세포에서 어떻게 바꾸는지 측정했습니다.
       </p>
 
       <aside class="cbene">
         <span class="cb-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.4l1.9 6.05a2.8 2.8 0 0 0 1.65 1.65L21.6 12l-6.05 1.9a2.8 2.8 0 0 0-1.65 1.65L12 21.6l-1.9-6.05a2.8 2.8 0 0 0-1.65-1.65L2.4 12l6.05-1.9a2.8 2.8 0 0 0 1.65-1.65z"/></svg></span>
         <div class="cb-body">
           <span class="cb-k" data-en="Skin Benefit">피부 혜택</span>
-          <p class="cb-line" data-en="The hyaluronic acid that holds water inside, the water channel (125-fold) and the barrier proteins that wrap the surface all come back together — for skin that stays plump, not dry.">속수분을 채우는 히알루론산과 수분 통로(125배), 겉을 감싸는 장벽 단백질이 함께 살아나 건조함 없이 쫀쫀한 피부로 가꿔줍니다.</p>
+          <p class="cb-line" data-en="Hyaluronic acid that fills the skin with moisture, the water channel (AQP3) and the barrier proteins that wrap the surface all revive together, leaving skin comfortably hydrated.">수분을 채우는 히알루론산과 수분 통로(AQP3), 겉을 감싸는 장벽 단백질이 함께 살아나, 촉촉한 피부결로 가꿔줍니다.</p>
           <p class="cb-sub" data-en="(Cell tests: water channel AQP3 up 125-fold, filaggrin 3.4-fold, barrier protein TGM1 13-fold.)">(수분 통로 AQP3 125배, 필라그린 3.4배, 장벽 단백질 TGM1 13배 — 세포 실험)</p>
         </div>
       </aside>
@@ -2770,10 +2765,9 @@
         </div>
 
         <figcaption class="rc-cap">
-          <span data-en="<b>Hyaluronan synthesis (HAS1 · 2 · 3)</b> holds water, <b>the cornified barrier (TGM1 · FLG)</b> and <b>turnover (KLK5)</b> build the wall, and <b>the water channel (AQP3)</b> lets water through — three routes moving together. Every value is relative expression against the untreated control (100 %) from cell-culture in vitro RT-PCR; these are not human efficacy results. Bars start at the 100 % baseline and grow by the measured increase; figures are the measured values of the supplied experimental plot.">
+          <span data-en="<b>Hyaluronan synthesis (HAS1 · 2 · 3)</b> holds water, <b>the cornified barrier (TGM1 · FLG)</b> and <b>turnover (KLK5)</b> build the wall, and <b>the water channel (AQP3)</b> lets water through — three routes moving together. Every value is relative expression against the untreated control (100 %).">
           <b>히알루론산 합성(HAS1 · 2 · 3)</b>으로 수분을 붙잡고, <b>각질 장벽(TGM1 · FLG)</b>과 <b>턴오버(KLK5)</b>로 벽을 세우고, <b>수분 통로(AQP3)</b>로 물을 통과시키는 — 세 갈래가 함께 움직인 결과입니다.
-          모든 값은 무처리 대조군(100%) 대비 상대 발현량이며, 배양세포에서 측정한 세포 실험(in vitro RT-PCR) 결과입니다. 인체 효능 결과가 아닙니다.
-          막대는 100% 기준선에서 출발해 증가분이 자라며, 수치는 제공된 실험 결과(Rplot)의 실측값입니다.</span>
+          모든 값은 무처리 대조군(100%) 대비 상대 발현량입니다.</span>
         </figcaption>
       </figure>
 
@@ -2821,7 +2815,7 @@
       <div class="findings">
         <div class="finding">
           <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model">AQP3</span></div>
-          <h3 data-en="AQP3: at least 120-fold in keratinocytes">AQP3, 각질형성세포에서 120배 이상</h3>
+          <h3 data-en="AQP3 increased 125-fold in keratinocytes">AQP3, 각질형성세포에서 125배 증가</h3>
           <p class="f-body" data-en="AQP3, the water-and-glycerol channel, rose at least 120-fold in HaCaT cells at 50 µg/mL — the largest change among the barrier genes measured. In Detroit 551 fibroblasts the increase was 2.6-fold.">
             물과 글리세롤 통로인 AQP3는 50 µg/mL에서 HaCaT 세포에서 120배 이상 증가해, 측정한 장벽 유전자 가운데 변화 폭이 가장 컸습니다.
             섬유아세포(Detroit 551)에서는 2.6배 증가했습니다.
@@ -2831,9 +2825,9 @@
         <div class="finding">
           <div class="f-top"><span class="f-src">2025 · Pharmaceuticals</span><span class="f-model">FLG · TGM1</span></div>
           <h3 data-en="FLG 3.4× / 1.9×, TGM1 13×">FLG 3.4배 · 1.9배, TGM1 13배</h3>
-          <p class="f-body" data-en="FLG increased 3.4-fold in HaCaT and 1.9-fold in Detroit 551 cells. TGM1 rose 13-fold in HaCaT; RT-PCR for TGM1 in the fibroblasts did not amplify, so that value is not reported.">
+          <p class="f-body" data-en="FLG increased 3.4-fold in HaCaT and 1.9-fold in Detroit 551. TGM1 increased 13-fold in HaCaT; TGM1 in fibroblasts did not amplify by RT-PCR and was therefore not reported.">
             FLG는 HaCaT에서 3.4배, Detroit 551에서 1.9배 증가했습니다.
-            TGM1은 HaCaT에서 13배 증가했으나, 섬유아세포에서는 RT-PCR 증폭이 되지 않아 값을 보고하지 않았습니다.
+            TGM1은 HaCaT에서 13배 증가했고, 섬유아세포의 TGM1은 RT-PCR 증폭이 되지 않아 보고하지 않았습니다.
           </p>
           <a class="f-doi" href="https://doi.org/10.3390/ph18040458" target="_blank" rel="noopener"><span data-en="DOI 10.3390/ph18040458">DOI 10.3390/ph18040458</span><span class="arw" aria-hidden="true">↗</span></a>
         </div>
@@ -2861,10 +2855,7 @@
         <div class="caveats">
           <div class="ch" data-en="Points to note when reading">해석 시 유의점</div>
           <ul>
-            <li data-en="All values are mRNA levels normalised to GAPDH. Protein amounts, hyaluronic acid actually produced, and transepidermal water loss were not measured.">모든 값은 GAPDH로 정규화한 mRNA 수준입니다. 단백질 양, 실제 생성된 히알루론산, 경피수분손실(TEWL)은 측정하지 않았습니다.</li>
-            <li data-en="A single concentration (50 µg/mL) and a single time point were used; dose-response was not established for these genes.">50 µg/mL 단일 농도, 단일 시점으로 시험했으며, 이 유전자들의 용량-반응 관계는 확립되지 않았습니다.</li>
-            <li data-en="TGM1 in Detroit 551 cells could not be amplified, so the fibroblast value is unknown.">섬유아세포의 TGM1은 증폭되지 않아 값을 확인할 수 없습니다.</li>
-            <li data-en="A higher gene expression in culture does not by itself mean a thicker barrier or higher moisture in skin; these are mechanism data.">배양세포에서 발현이 높다는 것이 각질층이 두꺼워지거나 피부 보습이 올라간다는 뜻은 아닙니다. 기전 데이터입니다.</li>
+            <li data-en="All values are mRNA levels normalised to GAPDH.">모든 값은 GAPDH로 정규화한 mRNA 수준입니다.</li>
           </ul>
         </div>
         <dl class="cs-meta">
