@@ -785,7 +785,9 @@
   .common { background: var(--forest); color: #DDE1D7; padding-block: clamp(48px, 6vw, 78px); }
   .common .h2 { color: #F6F4EC; }
   .common .lead { color: #B7BFB2; }
-  .common-list { margin-top: clamp(26px, 3.4vw, 38px); display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1px; background: rgba(247,245,240,.14); border: 1px solid rgba(247,245,240,.14); }
+  .common-list { margin-top: clamp(26px, 3.4vw, 38px); display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 1px; background: rgba(247,245,240,.14); border: 1px solid rgba(247,245,240,.14); }
+  .common-list.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .common-list li { background: var(--forest); padding: 20px 22px 22px; font-size: 13.5px; line-height: 1.8; color: #C2C9BB; }
   .common-list li b { display: block; font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
 
@@ -870,7 +872,7 @@
     .ov-grid { grid-template-columns: 1fr; }
     .cs-foot { grid-template-columns: 1fr; }
     .nextup-box { grid-template-columns: 1fr; }
-    .common-list { grid-template-columns: 1fr; }
+    .common-list, .common-list.three { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
   }
   @media (max-width: 720px) {
@@ -1696,7 +1698,7 @@
       <p class="lead" data-en="This page reports human-use study results for a cosmetic formulation.">
         이 페이지는 화장품 제형의 인체적용시험 결과입니다.
       </p>
-      <ul class="common-list">
+      <ul class="common-list three">
         <li data-en="<b>Human-use study results</b>Changes measured on the skin after using a cosmetic formulation."><b>인체적용시험 결과</b>화장품 제형 사용 후 피부에서 측정된 변화입니다.</li>
         <li data-en="<b>n=21 · company-held data</b>Data from 21 valid subjects. The test institute, report number and instrument details are provided with the test report on request."><b>n=21 · 회사 보유 데이터</b>유효 대상 21명의 데이터입니다. 시험기관·보고서 번호·측정 기기 상세는 요청 시 시험 보고서와 함께 제공합니다.</li>
         <li data-en="<b>Study design</b>A single-arm study comparing the same subject before and after application, or the control site with the treated site."><b>시험 설계</b>단일군 시험으로, 동일 피험자의 도포 전후 또는 대조 부위와 적용 부위를 비교했습니다.</li>

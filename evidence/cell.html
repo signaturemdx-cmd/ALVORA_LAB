@@ -1353,7 +1353,9 @@
   .common { background: var(--forest); color: #DDE1D7; padding-block: clamp(48px, 6vw, 78px); }
   .common .h2 { color: #F6F4EC; }
   .common .lead { color: #B7BFB2; }
-  .common-list { margin-top: clamp(26px, 3.4vw, 38px); display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1px; background: rgba(247,245,240,.14); border: 1px solid rgba(247,245,240,.14); }
+  .common-list { margin-top: clamp(26px, 3.4vw, 38px); display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 1px; background: rgba(247,245,240,.14); border: 1px solid rgba(247,245,240,.14); }
+  .common-list.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .common-list li { background: var(--forest); padding: 20px 22px 22px; font-size: 13.5px; line-height: 1.8; color: #C2C9BB; }
   .common-list li b { display: block; font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
 
@@ -1420,7 +1422,7 @@
     .kpi:nth-child(3) { padding-left: 0; }
     .ov-grid { grid-template-columns: 1fr; }
     .cs-foot { grid-template-columns: 1fr; }
-    .common-list { grid-template-columns: 1fr; }
+    .common-list, .common-list.three { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; }
   }
   @media (max-width: 720px) {
@@ -3308,7 +3310,7 @@
       <p class="lead" data-en="This page reports mechanism studies measured in cultured cells and isolated immune cells.">
         이 페이지는 배양세포와 분리 세포에서 측정한 기전 연구입니다.
       </p>
-      <ul class="common-list">
+      <ul class="common-list three">
         <li data-en="<b>Cell-level results</b>Gene expression and viability changes measured in culture — not a human skin efficacy result."><b>세포 단계의 결과</b>배양 조건에서 측정한 유전자 발현과 생존의 변화이며, 인체 피부 효능 결과가 아닙니다.</li>
         <li data-en="<b>Concentrations in medium</b>µg/mL is exosome protein added to the culture medium — not the amount that reaches skin after application."><b>배양액 기준 농도</b>µg/mL는 배양액에 넣은 엑소좀 단백량으로, 제품 도포 후 피부에 도달하는 양과 같지 않습니다.</li>
         <li data-en="<b>RT-PCR readings</b>Barrier, cytokine and MMP results are RT-PCR readings normalised to GAPDH; protein amounts and tissue-level change need separate verification."><b>RT-PCR 판독값</b>장벽·사이토카인·MMP 결과는 GAPDH로 정규화한 RT-PCR 판독값이며, 단백질 양·조직 수준 변화는 별도 검증이 필요합니다.</li>
