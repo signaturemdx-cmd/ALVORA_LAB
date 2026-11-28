@@ -526,8 +526,14 @@
   .nav { display: flex; align-items: center; gap: 30px; }
   .nav a.nav-link {
     font-size: 13px; letter-spacing: .04em; color: rgba(244,242,234,.78);
-    padding: 6px 0; position: relative; transition: color .25s;
+    padding: 6px 0; position: relative; transition: color .25s; white-space: nowrap;
   }
+  .nav a.nav-link.nav-brochure { color: #D9C08A; display: inline-flex; align-items: baseline; gap: 6px; }
+  .nav a.nav-link.nav-brochure .dl { font-size: 12px; line-height: 1; transition: transform .25s; }
+  .nav a.nav-link.nav-brochure:hover { color: var(--gold); }
+  .nav a.nav-link.nav-brochure:hover .dl { transform: translateY(2px); }
+  .site-header.is-scrolled .nav a.nav-link.nav-brochure { color: var(--gold-deep); }
+  .site-header.is-scrolled .nav a.nav-link.nav-brochure:hover { color: var(--forest); }
   .nav a.nav-link::after {
     content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
     background: var(--gold); transform: scaleX(0); transform-origin: left;
@@ -1494,6 +1500,15 @@
     .footer-top { grid-template-columns: 1fr; }
     .intro-grid { grid-template-columns: 1fr; }
   }
+  @media (max-width: 1080px) {
+    .nav { gap: 20px; }
+    .nav a.nav-link { font-size: 12.5px; }
+    .nav-cta { padding: 9px 14px; font-size: 12px; letter-spacing: .04em; }
+  }
+  /* below 1000px the English nav is wide enough that the brand sub-line would wrap */
+  @media (max-width: 1000px) {
+    .lang-en .brand-sub { display: none; }
+  }
   @media (max-width: 880px) {
     .nav { display: none; }
     .nav-toggle { display: block; }
@@ -1569,28 +1584,7 @@
     .ev-table td { padding-bottom: 10px; }
   }
 
-  /* ---------- brochure entry (links to brochure.html) ---------- */
-  .bro-band {
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
-    gap: 16px 32px; margin-top: clamp(34px, 4.4vw, 56px);
-    padding: 22px clamp(18px, 2.4vw, 28px);
-    border: 1px solid var(--line); border-left: 3px solid var(--gold-deep);
-    background: var(--paper);
-    transition: background .25s, border-color .25s;
-  }
-  .bro-band:hover { background: #FBF8EF; border-color: rgba(156,124,68,.55); }
-  .bro-band .bb-body { display: flex; flex-direction: column; gap: 5px; max-width: 68ch; }
-  .bro-band .bb-k { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-deep); }
-  .bro-band .bb-t { font-family: var(--serif); font-size: clamp(15px, 1.5vw, 18.5px); color: var(--forest); letter-spacing: -.012em; line-height: 1.45; }
-  .bro-band .bb-d { font-size: 12px; line-height: 1.65; color: var(--muted); }
-  .bro-band .bb-a {
-    display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
-    font-size: 12.5px; letter-spacing: .02em; color: var(--forest);
-    border-bottom: 1px solid rgba(156,124,68,.5); padding-bottom: 3px;
-  }
-  .bro-band .bb-a .arw { transition: transform .3s; }
-  .bro-band:hover .bb-a .arw { transform: translateX(4px); }
-
+  /* ---------- brochure download (PDF) ---------- */
   .inq-brief { margin-top: 22px; font-size: 13px; }
   .inq-brief a {
     display: inline-flex; align-items: center; gap: 9px; color: var(--forest);
@@ -1935,6 +1929,7 @@
       <a class="nav-link" href="#brand" data-en="Brand">브랜드</a>
       <a class="nav-link" href="#credentials" data-en="Research">연구</a>
       <a class="nav-link" href="#news" data-en="News">뉴스</a>
+      <a class="nav-link nav-brochure" id="navBrochure" href="assets/Potatosome_Brief_KO.pdf" download="Potatosome_Brief_KO.pdf" data-brochure-pdf="assets/" aria-label="브로슈어 PDF 내려받기" data-en-aria="Download the brochure PDF" data-en="Down Brochure <span class='dl' aria-hidden='true'>↓</span>">브로슈어 <span class="dl" aria-hidden="true">↓</span></a>
       <div class="lang-switch" role="group" aria-label="언어 선택" data-en-aria="Language">
         <button type="button" data-lang-btn="ko" aria-pressed="true">KO</button>
         <span class="sep" aria-hidden="true"></span>
@@ -1959,6 +1954,7 @@
   <a href="#brand" data-en="Brand <small>03</small>">브랜드 <small>03 BRAND</small></a>
   <a href="#credentials" data-en="Research <small>04</small>">연구 <small>04 RESEARCH</small></a>
   <a href="#news" data-en="News &amp; Notice <small>05</small>">뉴스 &amp; 공지 <small>05 NEWS</small></a>
+  <a class="mm-brochure" href="assets/Potatosome_Brief_KO.pdf" download="Potatosome_Brief_KO.pdf" data-brochure-pdf="assets/" data-en="Down Brochure <small>06 PDF</small>">브로슈어 <small>06 PDF</small></a>
   <a class="mm-contact" href="#contact" data-en="Ingredient, finished product, co-development &amp; investment →">원료·완제품·공동개발·투자 문의 →</a>
 </div>
 
@@ -2227,15 +2223,6 @@
           </span>
         </figcaption>
       </figure>
-
-      <a class="bro-band" href="brochure.html" data-lang-href="brochure.html">
-        <span class="bb-body">
-          <span class="bb-k">POTATOSOME® BRIEF · PDF</span>
-          <span class="bb-t" data-en="Potatosome® ingredient brochure — Korean and English, as PDF">Potatosome® 원료 브로슈어 — 영·한 상세페이지, PDF로 내려받기</span>
-          <span class="bb-d" data-en="Ingredient, evidence and registration in one document · the only page on this site that downloads as a PDF">원료·근거·등재를 한 문서에 · 이 사이트에서 PDF로 내려받는 유일한 페이지</span>
-        </span>
-        <span class="bb-a"><span data-en="Open the brochure">브로슈어 보기</span><span class="arw" aria-hidden="true">→</span></span>
-      </a>
     </div>
   </section>
 
@@ -2636,9 +2623,9 @@
       </div>
 
       <p class="inq-brief">
-        <a href="brochure.html" data-lang-href="brochure.html">
-          <span data-en="Potatosome® ingredient brochure — one document for your team, downloadable as PDF">Potatosome® 원료 브로슈어 — 팀에 그대로 전달할 수 있는 한 문서, PDF로도 내려받습니다</span>
-          <span class="arw" aria-hidden="true">→</span>
+        <a href="assets/Potatosome_Brief_KO.pdf" download="Potatosome_Brief_KO.pdf" data-brochure-pdf="assets/" aria-label="브로슈어 PDF 내려받기" data-en-aria="Download the brochure PDF">
+          <span data-en="Potatosome® ingredient brochure — one document for your team, as a PDF">Potatosome® 원료 브로슈어 — 팀에 그대로 전달할 수 있는 한 문서, PDF로 내려받기</span>
+          <span class="arw" aria-hidden="true">↓</span>
         </a>
       </p>
 
@@ -2940,6 +2927,12 @@
     function syncLinks(l) {
       each('a[data-lang-href]', function (a) {
         a.setAttribute('href', withLang(a.getAttribute('data-lang-href'), l));
+      });
+      /* the brochure menu downloads the PDF of the language on screen */
+      each('a[data-brochure-pdf]', function (a) {
+        var file = (l === 'en' ? 'Potatosome_Brief_EN.pdf' : 'Potatosome_Brief_KO.pdf');
+        a.setAttribute('href', (a.getAttribute('data-brochure-pdf') || 'assets/') + file);
+        a.setAttribute('download', file);
       });
       /* the gateway intro keeps its own #ko / #en switch */
       each('a[data-lang-hook]', function (a) {
