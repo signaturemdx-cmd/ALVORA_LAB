@@ -756,6 +756,13 @@
   td.reg { font-family: var(--serif); font-size: 15px; color: var(--forest); letter-spacing: .04em; }
   td.mark { color: var(--muted); }
   .tbl-note { margin-top: 14px; font-size: 11.8px; line-height: 1.8; color: var(--muted-2); max-width: 76ch; }
+  .reg-global {
+    margin-top: 16px; padding: 13px 18px; border-left: 2px solid var(--gold-deep);
+    background: rgba(156,124,68,.055);
+    font-size: 12.6px; line-height: 1.8; color: var(--text); max-width: 78ch;
+  }
+  .reg-global b { color: var(--forest); font-weight: 500; }
+  .reg-global .rg-sub { color: var(--muted-2); }
 
   /* ---------- faq ---------- */
   .faq { margin-top: clamp(24px, 3vw, 34px); border-top: 1px solid var(--line); }
@@ -920,6 +927,7 @@
     .fit-c p { font-size: 8.4pt; line-height: 1.68; margin-top: 2mm; }
     .best { margin-top: 3mm; font-size: 8pt; }
     .tbl-wrap { margin-top: 4mm; }
+    .reg-global { margin-top: 3.2mm; padding: 2.6mm 3.6mm; font-size: 7.6pt; line-height: 1.72; }
     .tbl-note { font-size: 7pt; margin-top: 2.6mm; }
     table th, table td { padding: 2.3mm 3mm 2.3mm 0; font-size: 9pt; }
     .faq { break-inside: avoid; }
@@ -939,6 +947,7 @@
     html.lang-en .tbl-note { font-size: 6.5pt; }
     html.lang-en table th, html.lang-en table td { padding: 2.1mm 3mm 2.1mm 0; }
     html.lang-en .best { margin-top: 2.6mm; }
+    html.lang-en .reg-global { font-size: 7pt; }
     html.lang-en .papers li { padding: 1.9mm 0 1.9mm 9mm; font-size: 7.2pt; }
     html.lang-en .papers-h { padding-top: 2.2mm; }
     html.lang-en .tbl-wrap { margin-top: 3.4mm; }
@@ -1663,6 +1672,10 @@
           </tbody>
         </table>
       </div>
+      <p class="reg-global" data-en="<b>Backed by US INCI registration,</b> the ingredient can support cosmetic raw-material notification and export procedures across roughly 40 countries <span class=&quot;rg-sub&quot;>(subject to local import requirements).</span>">
+        <b>미국 INCI 등재를 기반으로,</b> 원료 신고·등록 제도를 운영하는 약 40개국 시장의 화장품 원료 수출 절차에 대응할 수 있습니다.
+        <span class="rg-sub">(개별 국가 수입 요건은 거래 시 확인)</span>
+      </p>
       <p class="tbl-note" data-en="Ingredient name registration is not a government certification or approval, and does not guarantee any efficacy. Requirements and naming differ by country, so we confirm the latest status of your target market with you before import or sale.">
         원료명 등재는 정부 인증·승인이 아니며, 특정 효능을 보증하지 않습니다.
         국가별 요건과 표기가 달라, 수입·판매 전 해당 시장의 최신 상태를 함께 확인해 드립니다.
