@@ -1568,6 +1568,37 @@
     .ev-table tr { padding: 20px 0; }
     .ev-table td { padding-bottom: 10px; }
   }
+
+  /* ---------- brochure entry (links to brochure.html) ---------- */
+  .bro-band {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    gap: 16px 32px; margin-top: clamp(34px, 4.4vw, 56px);
+    padding: 22px clamp(18px, 2.4vw, 28px);
+    border: 1px solid var(--line); border-left: 3px solid var(--gold-deep);
+    background: var(--paper);
+    transition: background .25s, border-color .25s;
+  }
+  .bro-band:hover { background: #FBF8EF; border-color: rgba(156,124,68,.55); }
+  .bro-band .bb-body { display: flex; flex-direction: column; gap: 5px; max-width: 68ch; }
+  .bro-band .bb-k { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-deep); }
+  .bro-band .bb-t { font-family: var(--serif); font-size: clamp(15px, 1.5vw, 18.5px); color: var(--forest); letter-spacing: -.012em; line-height: 1.45; }
+  .bro-band .bb-d { font-size: 12px; line-height: 1.65; color: var(--muted); }
+  .bro-band .bb-a {
+    display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+    font-size: 12.5px; letter-spacing: .02em; color: var(--forest);
+    border-bottom: 1px solid rgba(156,124,68,.5); padding-bottom: 3px;
+  }
+  .bro-band .bb-a .arw { transition: transform .3s; }
+  .bro-band:hover .bb-a .arw { transform: translateX(4px); }
+
+  .inq-brief { margin-top: 22px; font-size: 13px; }
+  .inq-brief a {
+    display: inline-flex; align-items: center; gap: 9px; color: var(--forest);
+    border-bottom: 1px solid rgba(156,124,68,.45); padding-bottom: 3px;
+  }
+  .inq-brief a:hover { color: var(--gold-deep); }
+  .inq-brief .arw { transition: transform .3s; }
+  .inq-brief a:hover .arw { transform: translateX(4px); }
 </style>
 </head>
 <body>
@@ -2196,6 +2227,15 @@
           </span>
         </figcaption>
       </figure>
+
+      <a class="bro-band" href="brochure.html" data-lang-href="brochure.html">
+        <span class="bb-body">
+          <span class="bb-k">POTATOSOME® BRIEF · PDF</span>
+          <span class="bb-t" data-en="Potatosome® ingredient brochure — Korean and English, as PDF">Potatosome® 원료 브로슈어 — 영·한 상세페이지, PDF로 내려받기</span>
+          <span class="bb-d" data-en="Ingredient, evidence and registration in one document · the only page on this site that downloads as a PDF">원료·근거·등재를 한 문서에 · 이 사이트에서 PDF로 내려받는 유일한 페이지</span>
+        </span>
+        <span class="bb-a"><span data-en="Open the brochure">브로슈어 보기</span><span class="arw" aria-hidden="true">→</span></span>
+      </a>
     </div>
   </section>
 
@@ -2594,6 +2634,13 @@
           <a class="inq-cta" href="#contact" data-interest="invest" data-en="Ask on this track <span class='arw' aria-hidden='true'>→</span>">이 트랙으로 상담 <span class="arw" aria-hidden="true">→</span></a>
         </div>
       </div>
+
+      <p class="inq-brief">
+        <a href="brochure.html" data-lang-href="brochure.html">
+          <span data-en="Potatosome® ingredient brochure — one document for your team, downloadable as PDF">Potatosome® 원료 브로슈어 — 팀에 그대로 전달할 수 있는 한 문서, PDF로도 내려받습니다</span>
+          <span class="arw" aria-hidden="true">→</span>
+        </a>
+      </p>
 
       <div class="faq" id="faq">
         <div class="faq-head">
