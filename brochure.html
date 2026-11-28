@@ -839,7 +839,8 @@
      PRINT / PDF — A4 brochure
      ========================================================================== */
   @media print {
-    @page { size: A4; margin: 0; }
+    @page { size: A4; margin: 15mm 0; }
+    @page :first { margin: 0; }
 
     :root {
       --serif: 'Noto Serif CJK KR', 'NotoSerifKR', Georgia, serif;
@@ -887,11 +888,12 @@
     .fit { grid-template-columns: repeat(2, 1fr); }
     .hero-facts { grid-template-columns: repeat(4, 1fr); }
 
-    .section { padding-block: 0; padding-top: 8mm; }
+    .section { padding-block: 0; margin-top: 10mm; }
     .section.alt { background: transparent !important; border: 0; }
     .h2 { font-size: 17.5pt; }
     .lead { font-size: 9.6pt; line-height: 1.8; }
     #why { break-before: page; }
+    .papers { break-before: page; }
     .cover-top { display: block; font-size: 7.4pt; letter-spacing: .3em; color: rgba(244,242,234,.55); margin-bottom: 8mm; }
 
     .page-break { break-before: page; }
@@ -910,16 +912,16 @@
     .card p { font-size: 8.7pt; line-height: 1.72; margin-top: 2.4mm; }
     .card .meta { margin-top: 3.6mm; padding-top: 3mm; font-size: 7.4pt; }
     .fine { margin-top: 4mm; font-size: 7.4pt; }
-    .papers li { font-size: 8pt; padding: 2.6mm 0 2.6mm 9mm; }
-    .papers li::before { top: 2.6mm; }
-    .papers-h { padding-top: 3.4mm; }
-    .fit-c { padding: 5mm 5mm 4.4mm; }
-    .fit-c h3 { font-size: 12.6pt; }
-    .fit-c p { font-size: 8.7pt; line-height: 1.72; margin-top: 2.4mm; }
-    .best { margin-top: 3.6mm; font-size: 8.2pt; }
-    .tbl-wrap { margin-top: 4.4mm; }
-    .tbl-note { font-size: 7.4pt; margin-top: 3mm; }
-    table th, table td { padding: 2.6mm 3mm 2.6mm 0; }
+    .papers li { font-size: 7.8pt; padding: 2.2mm 0 2.2mm 9mm; }
+    .papers li::before { top: 2.2mm; }
+    .papers-h { padding-top: 2.8mm; }
+    .fit-c { padding: 4.4mm 5mm 4mm; }
+    .fit-c h3 { font-size: 12pt; }
+    .fit-c p { font-size: 8.4pt; line-height: 1.68; margin-top: 2mm; }
+    .best { margin-top: 3mm; font-size: 8pt; }
+    .tbl-wrap { margin-top: 4mm; }
+    .tbl-note { font-size: 7pt; margin-top: 2.6mm; }
+    table th, table td { padding: 2.3mm 3mm 2.3mm 0; font-size: 9pt; }
     .faq { break-inside: avoid; }
     .faq summary { padding: 3.2mm 0; font-size: 11pt; }
     .faq .a { padding-bottom: 4mm; }
@@ -933,6 +935,21 @@
     .copyright { margin-top: 2.6mm; padding-top: 2.2mm; break-before: avoid; }
     .cta-mail { margin-top: 3.4mm; }
     html.lang-en .notice { font-size: 6.6pt; line-height: 1.62; }
+    html.lang-en .fit-c p { font-size: 7.9pt; }
+    html.lang-en .tbl-note { font-size: 6.5pt; }
+    html.lang-en table th, html.lang-en table td { padding: 2.1mm 3mm 2.1mm 0; }
+    html.lang-en .best { margin-top: 2.6mm; }
+    html.lang-en .papers li { padding: 1.9mm 0 1.9mm 9mm; font-size: 7.2pt; }
+    html.lang-en .papers-h { padding-top: 2.2mm; }
+    html.lang-en .tbl-wrap { margin-top: 3.4mm; }
+    html.lang-en .card p { font-size: 8.3pt; line-height: 1.66; }
+    html.lang-en .card { padding: 4.8mm 5mm 4.2mm; }
+    html.lang-en .card .meta { font-size: 7pt; margin-top: 3mm; padding-top: 2.4mm; }
+    html.lang-en .fit-c { padding: 3.8mm 4.6mm 3.4mm; }
+    html.lang-en .fit-c p { font-size: 7.9pt; line-height: 1.62; }
+    html.lang-en .h2 { font-size: 16pt; }
+    html.lang-en .tbl-note { font-size: 6.5pt; }
+    html.lang-en .fine { font-size: 7pt; }
     html.lang-en .faq details .a { font-size: 8.5pt; }
     html.lang-en .faq summary { padding: 2.7mm 0; }
     html.lang-en .cta { padding-block: 8.6mm; }
@@ -1550,6 +1567,16 @@
         본 페이지의 수치는 회사가 보유한 시험 데이터입니다.
       </p>
 
+      <p class="fine" data-en="Cell-study results are observations under in vitro conditions and are not human efficacy. Human-use figures are means of valid data from 21 subjects and may differ by formulation and individual.">
+        세포 시험 결과는 in vitro 조건에서의 관찰값이며 인체 효능과 같지 않습니다.
+        인체적용시험 수치는 유효 대상 21명의 평균이며, 제형과 개인에 따라 다를 수 있습니다.
+      </p>
+
+      <p style="margin-top:20px;font-size:12.6px">
+        <a href="evidence/clinical.html" data-lang-href="evidence/clinical.html" style="color:var(--gold-deep);border-bottom:1px solid rgba(156,124,68,.4)" data-en="Human-use study detail, metric by metric →">인체적용시험 상세 — 지표별 데이터와 개별 변화 그래프 →</a>
+        <br>
+        <a href="evidence/cell.html" data-lang-href="evidence/cell.html" style="color:var(--gold-deep);border-bottom:1px solid rgba(156,124,68,.4)" data-en="Cell study detail, 35 in vitro and ex vivo tests →">세포 연구 상세 — in vitro · ex vivo 시험 35종 →</a>
+
       <div class="papers">
         <div class="papers-h">
           <h3 data-en="Published research">게재 논문</h3>
@@ -1562,15 +1589,6 @@
         </ol>
       </div>
 
-      <p class="fine" data-en="Cell-study results are observations under in vitro conditions and are not human efficacy. Human-use figures are means of valid data from 21 subjects and may differ by formulation and individual.">
-        세포 시험 결과는 in vitro 조건에서의 관찰값이며 인체 효능과 같지 않습니다.
-        인체적용시험 수치는 유효 대상 21명의 평균이며, 제형과 개인에 따라 다를 수 있습니다.
-      </p>
-
-      <p style="margin-top:20px;font-size:12.6px">
-        <a href="evidence/clinical.html" data-lang-href="evidence/clinical.html" style="color:var(--gold-deep);border-bottom:1px solid rgba(156,124,68,.4)" data-en="Human-use study detail, metric by metric →">인체적용시험 상세 — 지표별 데이터와 개별 변화 그래프 →</a>
-        <br>
-        <a href="evidence/cell.html" data-lang-href="evidence/cell.html" style="color:var(--gold-deep);border-bottom:1px solid rgba(156,124,68,.4)" data-en="Cell study detail, 35 in vitro and ex vivo tests →">세포 연구 상세 — in vitro · ex vivo 시험 35종 →</a>
       </p>
     </div>
   </section>
